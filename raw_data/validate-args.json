@@ -1,0 +1,9 @@
+{
+  "rock_name": "validate-args",
+  "summary": "validate.args provides a framework for validating function arguments and data structures. Scalar and (nested) table values as well as lists of values of the same type may be validated.\nvalidate.args provides both procedural and object-oriented interfaces. The significant difference between the interfaces is that the procedural interface may be influenced by global settings while the object-oriented interface keeps those settings local to each object. Objects may themselves be cloned, allowing fo",
+  "tags": [
+    "test"
+  ],
+  "raw_content": "validate.args provides a framework for validating function arguments and data structures. Scalar and (nested) table values as well as lists of values of the same type may be validated.\nvalidate.args provides both procedural and object-oriented interfaces. The significant difference between the interfaces is that the procedural interface may be influenced by global settings while the object-oriented interface keeps those settings local to each object. Objects may themselves be cloned, allowing for nested hierarchies of validation specifications. Changes to parent objects do not affect child objects, and vice-versa.",
+  "source": "https://luarocks.org/modules/djerius/validate-args"
+}

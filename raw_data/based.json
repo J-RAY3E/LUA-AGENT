@@ -1,0 +1,12 @@
+{
+  "rock_name": "based",
+  "summary": "This module provides encoders and decoders for several string encoding formats like Hexadecimal and Base32.",
+  "tags": [
+    "base32",
+    "hex",
+    "base-n",
+    "base64"
+  ],
+  "raw_content": "This module provides encoders and decoders for several string encoding formats like Hexadecimal and Base32.",
+  "source": "https://luarocks.org/modules/darkwiiplayer/based"
+}

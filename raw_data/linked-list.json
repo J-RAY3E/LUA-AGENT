@@ -1,0 +1,9 @@
+{
+  "rock_name": "linked-list",
+  "summary": "A doubly linked list for Lua",
+  "tags": [
+    "datastructure"
+  ],
+  "raw_content": "\n# About\n\nlinked-list.lua was a double linked list implement.\n\n# Usage\n\n```lua\n--[[\n   list will keep only one value instance, for using table to record prev/next value\n]]\n\nlocal lst = require(\"linked-list\").new()\n\nlst:pushl(\"b\") -- push last 'b'\nlst:pushf(\"a\") -- push first 'a'\n\nfor i = 1, 4, 1 do\n    lst:pushl(tostring(i)) -- push last '1, 2, 3, 4'\nend\n\nlst:pushl({5, 6, 7}) -- push table\nlst:pushl(8) -- push number\nlst:pushl(true) -- push boolean\n\nlst:remove(\"3\") -- remove '3', in middle\nlst:popf() -- pop first 'a'\n\nlst:pushl(\"end\") -- push 'end'\nlst:popl() -- pop 'end'\n\nprint(\"-- walk: { b, 1, 2, 4, table, 8, true }\")\nfor k, v in lst:walk() do\n    print(k, v)\nend\n\nprint(\"-- walk reverse: { true, 8, table, 4, 2, 1, b }\")\nfor k, v in lst:walk(false) do\n    print(k, v)\nend\n\nprint(\"-- range: { 1, 2 }\")\nfor i, v in ipairs(lst:range(2, 3)) do\n    print(i, v)\nend\n\nprint(\"-- range reverse: { 8, table }\")\nfor i, v in ipairs(lst:range(6, 5)) do\n    print(i, v)\nend\n\nprint(\"-- contains true: \" .. tostring(lst:contains(true)) .. \"\\n\")\n\nprint(\"-- finish\")\n```\n\n# Performance\n\n3.29 GHz Intel Core i5 GHz Intel Core i5\n\n```\n-- performance, round:1\npush 10000000 cost 0.439592\npop  10000000 cost 0.036406\n-- performance, round:2 push_mean:0.439592 pop_mean:0.036406\npush 10000000 cost 0.133136\npop  10000000 cost 0.036463\n-- performance, round:3 push_mean:0.286364 pop_mean:0.0364345\npush 10000000 cost 0.13311\npop  10000000 cost 0.03642\n```\n",
+  "source": "https://github.com/lalawue/linked-list.lua"
+}

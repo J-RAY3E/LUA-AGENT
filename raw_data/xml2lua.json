@@ -1,0 +1,12 @@
+{
+  "rock_name": "xml2lua",
+  "summary": "XML Parser written entirely in Lua that works for Lua 5.1+. Convert XML to and from Lua Tables \u00f0\u009f\u008c\u0096\u00f0\u009f\u0092\u00b1",
+  "tags": [
+    "xml",
+    "parser",
+    "lua5",
+    "native-lua"
+  ],
+  "raw_content": "XML Parser written entirely in Lua that works for Lua 5.1+. Convert XML to and from Lua Tables \u00f0\u009f\u008c\u0096\u00f0\u009f\u0092\u00b1",
+  "source": "https://luarocks.org/modules/manoelcampos/xml2lua"
+}

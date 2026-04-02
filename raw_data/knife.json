@@ -1,0 +1,17 @@
+{
+  "rock_name": "knife",
+  "summary": "# Knife\nA collection of useful micro-modules for Lua.\n![Knife logo](knife.png)\n * [knife.base](readme/base.md) - A base class for class-based OOP.\n * [knife.behavior](readme/behavior.md) - A state machine manager.\n * [knife.bind](readme/bind.md) - Bind arguments to functions.\n * [knife.chain](readme/chain.md) - Flatten async code with chained functions.\n * [knife.convoke](readme/convoke.md) - Flatten async code with coroutines.\n * [knife.event](readme/event.md) - Dispatch and handle events.\n * [",
+  "tags": [
+    "batteries",
+    "game",
+    "serialization",
+    "test",
+    "object",
+    "love",
+    "event",
+    "datastructure",
+    "statemachine"
+  ],
+  "raw_content": "# Knife\nA collection of useful micro-modules for Lua.\n![Knife logo](knife.png)\n * [knife.base](readme/base.md) - A base class for class-based OOP.\n * [knife.behavior](readme/behavior.md) - A state machine manager.\n * [knife.bind](readme/bind.md) - Bind arguments to functions.\n * [knife.chain](readme/chain.md) - Flatten async code with chained functions.\n * [knife.convoke](readme/convoke.md) - Flatten async code with coroutines.\n * [knife.event](readme/event.md) - Dispatch and handle events.\n * [knife.memoize](readme/memoize.md) - A memoization function.\n * [knife.serialize](readme/serialize.md) - Store data structures as strings.\n * [knife.system](readme/system.md) - An entity component system.\n * [knife.test](readme/test.md) - A fixture-free test framework.\n * [knife.timer](readme/timer.md) - Create timers and tweens.\nEach module is self-contained, with no dependencies.",
+  "source": "https://luarocks.org/modules/rinkaa/knife"
+}

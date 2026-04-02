@@ -1,0 +1,9 @@
+{
+  "rock_name": "lua-resty-uuid",
+  "summary": "lua-resty-uuid is a DCE compatible Universally Unique Identifier library for Lua and OpenResty.",
+  "tags": [
+    "openresty"
+  ],
+  "raw_content": "lua-resty-uuid\n==============\n\nLuaJIT FFI bindings for libuuid, a DCE compatible Universally Unique Identifier library.\n",
+  "source": "https://github.com/bungle/lua-resty-uuid"
+}

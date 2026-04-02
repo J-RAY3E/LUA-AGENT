@@ -1,0 +1,9 @@
+{
+  "rock_name": "luaircclient",
+  "summary": "A simple wrapper around libircclient, allowing for simple API around an IRC connection. Written for Lua 5.1, but should be easily portable for lua 5.2 and above",
+  "tags": [
+    "irc"
+  ],
+  "raw_content": "A simple wrapper around libircclient, allowing for simple API around an IRC connection. Written for Lua 5.1, but should be easily portable for lua 5.2 and above",
+  "source": "https://luarocks.org/modules/digitechs/luaircclient"
+}

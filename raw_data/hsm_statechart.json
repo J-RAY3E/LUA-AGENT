@@ -1,0 +1,9 @@
+{
+  "rock_name": "hsm_statechart",
+  "summary": "hsm-statechart is a hierarchical statechart engine, written in C. \n    The Lua extension makes it dead simple to write statemachines: \n    you just declare a table.\n    chart = { state= { event= function() end, substate={ ... } } }\n \n    Both event handlers and states are key:value pairs. \n    Event names map to functions ( or, for simple transitions, directly to a state name ), \n    while states names map to sub-tables.\n \n    After defining a statechart, two calls: hsm= hsm_statechart( chart ) ",
+  "tags": [
+    "statemachine"
+  ],
+  "raw_content": "hsm-statechart is a hierarchical statechart engine, written in C. \n    The Lua extension makes it dead simple to write statemachines: \n    you just declare a table.\n    chart = { state= { event= function() end, substate={ ... } } }\n \n    Both event handlers and states are key:value pairs. \n    Event names map to functions ( or, for simple transitions, directly to a state name ), \n    while states names map to sub-tables.\n \n    After defining a statechart, two calls: hsm= hsm_statechart( chart ) and hsm.signal( event_name ) \n    are all that are need to run the statemachine.\n    Statemachines can be used for everything from building roboust text parsers, \n    to managing the control flow for applications, or even writing AI in games.",
+  "source": "https://luarocks.org/modules/luarocks/hsm_statechart"
+}

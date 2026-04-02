@@ -1,0 +1,9 @@
+{
+  "rock_name": "lua-simplelog",
+  "summary": "lua-simplelog is a logger for lua. It's aim is to provide a\n    performant, simple logger, allowing for a log directory, opening\n    multiple logs through its management facilities, and splitting\n    upon dates. It also supports daemonization of the process\n    utilizing it.",
+  "tags": [
+    "logs"
+  ],
+  "raw_content": "lua-simplelog is a logger for lua. It's aim is to provide a\n    performant, simple logger, allowing for a log directory, opening\n    multiple logs through its management facilities, and splitting\n    upon dates. It also supports daemonization of the process\n    utilizing it.",
+  "source": "https://luarocks.org/modules/llmii/lua-simplelog"
+}

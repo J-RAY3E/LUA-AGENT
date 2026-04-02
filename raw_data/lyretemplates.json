@@ -1,0 +1,9 @@
+{
+  "rock_name": "lyretemplates",
+  "summary": "Turns the Lua runtime itself into a templating language equally powerful, thanks to setfenv, load and table.concat. Features Jinja-based syntax.",
+  "tags": [
+    "template"
+  ],
+  "raw_content": "Turns the Lua runtime itself into a templating language equally powerful, thanks to setfenv, load and table.concat. Features Jinja-based syntax.",
+  "source": "https://luarocks.org/modules/midl/lyretemplates"
+}

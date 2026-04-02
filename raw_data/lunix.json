@@ -1,0 +1,12 @@
+{
+  "rock_name": "lunix",
+  "summary": "lunix is a bindings library module to common Unix system APIs. The module is regularly tested with Linux (glibc and musl), OS X, FreeBSD, NetBSD, OpenBSD, Solaris, and AIX. The best way to describe it is in contradistinction to luaposix, the most popular bindings module for Unix APIs in Lua.\nUnlike luaposix, it strives to be as thread-safe as possible on the host platform. Interfaces like strerror_r and O_CLOEXEC are used throughout. The module even includes a novel solution for the inherently n",
+  "tags": [
+    "linux",
+    "filesystem",
+    "batteries",
+    "posix"
+  ],
+  "raw_content": "lunix is a bindings library module to common Unix system APIs. The module is regularly tested with Linux (glibc and musl), OS X, FreeBSD, NetBSD, OpenBSD, Solaris, and AIX. The best way to describe it is in contradistinction to luaposix, the most popular bindings module for Unix APIs in Lua.\nUnlike luaposix, it strives to be as thread-safe as possible on the host platform. Interfaces like strerror_r and O_CLOEXEC are used throughout. The module even includes a novel solution for the inherently non-thread-safe umask system call, where calling umask from one thread might result in another thread creating a file with unsafe or unexpected permissions.",
+  "source": "https://luarocks.org/modules/daurnimator/lunix"
+}

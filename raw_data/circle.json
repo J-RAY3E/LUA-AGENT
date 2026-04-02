@@ -1,0 +1,9 @@
+{
+  "rock_name": "circle",
+  "summary": "",
+  "tags": [
+    "irc"
+  ],
+  "raw_content": "# circle\n\n_Cqueues Internet Relay Chat Library for Everyone_\n\nAn IRC library with a goofy name. This project will likely stay in development\nfor a long time, as the only thing driving its development has a rather low\npriority in my life. Nevertheless, proper documentation and tests are planned.\n",
+  "source": "https://github.com/LBPHacker/lua-circle"
+}

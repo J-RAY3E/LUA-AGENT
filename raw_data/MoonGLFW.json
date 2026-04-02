@@ -1,0 +1,14 @@
+{
+  "rock_name": "MoonGLFW",
+  "summary": "This is an example for the LuaRocks tutorial.\n      Here we would put a detailed, typically\n      paragraph-long description.",
+  "tags": [
+    "game",
+    "gui",
+    "window-handler",
+    "awesome",
+    "gl",
+    "image"
+  ],
+  "raw_content": "This is an example for the LuaRocks tutorial.\n      Here we would put a detailed, typically\n      paragraph-long description.",
+  "source": "https://luarocks.org/modules/mrgoodwolf/moonglfw"
+}

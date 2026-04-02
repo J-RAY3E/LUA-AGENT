@@ -1,0 +1,9 @@
+{
+  "rock_name": "Gimple",
+  "summary": "",
+  "tags": [
+    "git"
+  ],
+  "raw_content": "#  Gimple: making git simple\n\nGimple is a simple wrapper around git, walking you through some common operations.\n\nCurrently supported commands:\n\n* branch\n* commit\n* clone\n* init\n* revert\n\n## Todo:\n* colours\n* docs\n* testing\n",
+  "source": "https://github.com/therainingmonkey/gimple"
+}

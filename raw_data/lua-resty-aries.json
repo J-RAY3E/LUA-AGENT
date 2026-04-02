@@ -1,0 +1,10 @@
+{
+  "rock_name": "lua-resty-aries",
+  "summary": "lua-resty-aries is a compiling (HTML) templating engine for Lua and OpenResty.It can correct postion template's error line.",
+  "tags": [
+    "openresty",
+    "template"
+  ],
+  "raw_content": "lua-resty-aries is a compiling (HTML) templating engine for Lua and OpenResty.It can correct postion template's error line.",
+  "source": "https://luarocks.org/modules/doublespout/lua-resty-aries"
+}

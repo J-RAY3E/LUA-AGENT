@@ -1,0 +1,9 @@
+{
+  "rock_name": "strictness",
+  "summary": "Strictness is yet another pure Lua module (compatible with Lua 5.1 and 5.2) \n    which stands for tracking global variables declaration and assignments in your code.\n    It enforces to declare globals using a new statement, before assignment. As such, it\n    helps having a better control on the scope of variables and therefore minimizes the \n    global environment namespace pollution.",
+  "tags": [
+    "strict"
+  ],
+  "raw_content": "Strictness is yet another pure Lua module (compatible with Lua 5.1 and 5.2) \n    which stands for tracking global variables declaration and assignments in your code.\n    It enforces to declare globals using a new statement, before assignment. As such, it\n    helps having a better control on the scope of variables and therefore minimizes the \n    global environment namespace pollution.",
+  "source": "https://luarocks.org/modules/yonaba/strictness"
+}

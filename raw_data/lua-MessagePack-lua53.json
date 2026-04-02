@@ -1,0 +1,10 @@
+{
+  "rock_name": "lua-MessagePack-lua53",
+  "summary": "MessagePack is an efficient binary serialization format.\nIt lets you exchange data among multiple languages like JSON but it's faster and smaller.",
+  "tags": [
+    "messagepack",
+    "serialization"
+  ],
+  "raw_content": "MessagePack is an efficient binary serialization format.\nIt lets you exchange data among multiple languages like JSON but it's faster and smaller.",
+  "source": "https://luarocks.org/modules/fperrad/lua-messagepack-lua53"
+}

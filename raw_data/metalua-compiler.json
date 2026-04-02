@@ -1,0 +1,9 @@
+{
+  "rock_name": "metalua-compiler",
+  "summary": "This is the Metalua copmiler, packaged as a rock, depending\n           on the spearate metalua-parser AST generating library. It\n           compiles a superset of Lua 5.1 into bytecode, which can\n           then be loaded and executed by a Lua 5.1 VM. It also allows\n           to dump ASTs back into Lua source files.",
+  "tags": [
+    "metalua"
+  ],
+  "raw_content": "This is the Metalua copmiler, packaged as a rock, depending\n           on the spearate metalua-parser AST generating library. It\n           compiles a superset of Lua 5.1 into bytecode, which can\n           then be loaded and executed by a Lua 5.1 VM. It also allows\n           to dump ASTs back into Lua source files.",
+  "source": "https://luarocks.org/modules/luarocks/metalua-compiler"
+}

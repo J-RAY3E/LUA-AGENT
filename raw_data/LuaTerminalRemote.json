@@ -1,0 +1,9 @@
+{
+  "rock_name": "LuaTerminalRemote",
+  "summary": "This is a companion Lua module provided with LuaTerminal and it allows easy connection to a socket terminal opened by LuaTerminal by any Lua script.",
+  "tags": [
+    "commandline"
+  ],
+  "raw_content": "This is a companion Lua module provided with LuaTerminal and it allows easy connection to a socket terminal opened by LuaTerminal by any Lua script.",
+  "source": "https://luarocks.org/modules/aryajur/luaterminalremote"
+}

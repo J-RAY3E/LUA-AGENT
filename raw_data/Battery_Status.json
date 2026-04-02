@@ -1,0 +1,10 @@
+{
+  "rock_name": "Battery Status",
+  "summary": "A tiny app to display a battery status indicator\n      for primitive window managers such as Awesome",
+  "tags": [
+    "awesome",
+    "widget"
+  ],
+  "raw_content": "A tiny app to display a battery status indicator\n      for primitive window managers such as Awesome",
+  "source": "https://luarocks.org/modules/svarog/battery_status"
+}

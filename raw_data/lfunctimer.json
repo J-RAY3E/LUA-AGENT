@@ -1,0 +1,11 @@
+{
+  "rock_name": "lfunctimer",
+  "summary": "lfunctimer (Lua Function Timer) is a simple lib aiming to collect the stats \nof function execution times",
+  "tags": [
+    "debug",
+    "profiling",
+    "function"
+  ],
+  "raw_content": "lfunctimer (Lua Function Timer) is a simple lib aiming to collect the stats \nof function execution times",
+  "source": "https://luarocks.org/modules/utmhikari/lfunctimer"
+}

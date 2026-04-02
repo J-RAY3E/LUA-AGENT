@@ -1,0 +1,10 @@
+{
+  "rock_name": "unicode-data",
+  "summary": "The Unicode Consortium provide a range of data files detailing the nature of code points in Unicode. These data files are machine-readable but large. Here, a set of loaders are provided to parse these files during a TeX run and set appropriate parameters in an automated fashion.",
+  "tags": [
+    "latex3",
+    "unicode"
+  ],
+  "raw_content": "The Unicode Consortium provide a range of data files detailing the nature of code points in Unicode. These data files are machine-readable but large. Here, a set of loaders are provided to parse these files during a TeX run and set appropriate parameters in an automated fashion.",
+  "source": "https://luarocks.org/modules/freed-wu/unicode-data"
+}

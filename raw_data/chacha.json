@@ -1,0 +1,9 @@
+{
+  "rock_name": "chacha",
+  "summary": "Lua C module implementing the ChaCha stream cipher\n      (http://cr.yp.to/chacha.html) and its version normalized by IETF.",
+  "tags": [
+    "crypto"
+  ],
+  "raw_content": "Lua C module implementing the ChaCha stream cipher\n      (http://cr.yp.to/chacha.html) and its version normalized by IETF.",
+  "source": "https://luarocks.org/modules/catwell/chacha"
+}

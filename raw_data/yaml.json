@@ -1,0 +1,9 @@
+{
+  "rock_name": "yaml",
+  "summary": "This module is a Lua binding for Kirill Siminov's excellent LibYAML.\n        LibYAML is generally considered to be the best C YAML 1.1 implementation.",
+  "tags": [
+    "yaml"
+  ],
+  "raw_content": "This module is a Lua binding for Kirill Siminov's excellent LibYAML.\n        LibYAML is generally considered to be the best C YAML 1.1 implementation.",
+  "source": "https://luarocks.org/modules/gaspard/yaml"
+}

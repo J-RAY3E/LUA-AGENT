@@ -1,0 +1,11 @@
+{
+  "rock_name": "howl",
+  "summary": "Comment Lua code with a special flavor of markdown and generate documentation for multiple formats (wiki for git repos and vim help file) etc.",
+  "tags": [
+    "doc",
+    "markdown",
+    "parser"
+  ],
+  "raw_content": "Comment Lua code with a special flavor of markdown and generate documentation for multiple formats (wiki for git repos and vim help file) etc.",
+  "source": "https://luarocks.org/modules/arkt8/howl"
+}

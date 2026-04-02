@@ -1,0 +1,9 @@
+{
+  "rock_name": "ldoc",
+  "summary": "LDoc is a LuaDoc-compatible documentation generator which can also process C extension source. Markdown may be optionally used to render comments, as well as integrated readme documentation and pretty-printed example files.",
+  "tags": [
+    "doc"
+  ],
+  "raw_content": "LDoc is a LuaDoc-compatible documentation generator which can also process C extension source. Markdown may be optionally used to render comments, as well as integrated readme documentation and pretty-printed example files.",
+  "source": "https://luarocks.org/modules/lunarmodules/ldoc"
+}

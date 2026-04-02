@@ -1,0 +1,9 @@
+{
+  "rock_name": "lutf8",
+  "summary": "Lua 5.3 came with a nice UTF-8 support library internally boundled.\nThis is that same library packaged as a standalone library, which can be used by any version of Lua (5.1, 5.2 and LuaJIT).\nCopyright (C) 1994-2015 Lua.org, PUC-Rio, 2015 LOVE Development Team.",
+  "tags": [
+    "unicode"
+  ],
+  "raw_content": "Lua 5.3 came with a nice UTF-8 support library internally boundled.\nThis is that same library packaged as a standalone library, which can be used by any version of Lua (5.1, 5.2 and LuaJIT).\nCopyright (C) 1994-2015 Lua.org, PUC-Rio, 2015 LOVE Development Team.",
+  "source": "https://luarocks.org/modules/positive07/lutf8"
+}

@@ -1,0 +1,9 @@
+{
+  "rock_name": "Lrexlib-oniguruma",
+  "summary": "Lrexlib is a regular expression library for Lua >= 5.1, which provides bindings for several regular expression libraries. This rock provides the oniguruma bindings.",
+  "tags": [
+    "regexp"
+  ],
+  "raw_content": "Lrexlib is a regular expression library for Lua >= 5.1, which provides bindings for several regular expression libraries. This rock provides the oniguruma bindings.",
+  "source": "https://luarocks.org/modules/rrt/lrexlib-oniguruma"
+}

@@ -1,0 +1,9 @@
+{
+  "rock_name": "ecasound",
+  "summary": "See 'man ecasound-iam' and the Audio::Ecasound Perl CPAN module.\nVersion 0.3 now seems to be working reliably.",
+  "tags": [
+    "audio"
+  ],
+  "raw_content": "See 'man ecasound-iam' and the Audio::Ecasound Perl CPAN module.\nVersion 0.3 now seems to be working reliably.",
+  "source": "https://luarocks.org/modules/peterbillam/ecasound"
+}

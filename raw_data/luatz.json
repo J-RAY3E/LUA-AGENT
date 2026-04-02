@@ -1,0 +1,9 @@
+{
+  "rock_name": "luatz",
+  "summary": "A lua library for time and date manipulation.\nFeatures include:\n  - Normalisation of broken down date objects\n    - allows for complex time/date manipulation logic e.g. \"what day is it in 2 days, 5 hours from now?\"\n  - Conversion between locations (time zones) using your local zoneinfo database.\n  - strftime style formatting\nAll operations are possible without C extensions, though if available they may be used to increase accuracy.",
+  "tags": [
+    "time"
+  ],
+  "raw_content": "# luatz\n\nA lua library for time and date manipulation.\n\nFeatures include:\n\n  - Normalisation of broken down date objects\n\t  - allows for complex time/date manipulation logic e.g. \"What day is it in 2 days, 5 hours from now?\"\n  - Conversion between locations (time zones) using your local [zoneinfo](https://www.iana.org/time-zones) database.\n  - `strftime` style formatting\n\n\n[![Build Status](https://travis-ci.org/daurnimator/luatz.png)](https://travis-ci.org/daurnimator/luatz) [![Coverage Status](https://coveralls.io/repos/github/daurnimator/luatz/badge.svg?branch=master)](https://coveralls.io/github/daurnimator/luatz?branch=master)\n\nSupported under Lua 5.1, 5.2, 5.3 and LuaJIT.\n\n\n## Documentation\n\nDocumentation can be found in the `doc` sub-directory.\n\nAn online version can be found at https://daurnimator.github.io/luatz/\n\n\n## Installation\n\n### via [luarocks](https://luarocks.org/modules/daurnimator/luatz)\n\n    luarocks install luatz\n",
+  "source": "https://github.com/daurnimator/luatz"
+}
