@@ -5,5 +5,9 @@
     "audio"
   ],
   "raw_content": "See 'man ecasound-iam' and the Audio::Ecasound Perl CPAN module.\nVersion 0.3 now seems to be working reliably.",
-  "source": "https://luarocks.org/modules/peterbillam/ecasound"
+  "source": "https://luarocks.org/modules/peterbillam/ecasound",
+  "generated_summary": "ecasound is a library for processing audio complete usually used in the fields of audio.",
+  "phase1": "A library for audio processing and manipulation in Lua, utilizing the Ecasound audio processing framework",
+  "phase2": "Supports various audio file formats, including WAV, AIFF, and OGG, with real-time processing capabilities",
+  "phase3": "Used for audio synthesis, mixing, and effects processing, enabling complex audio compositions and real-time audio analysis"
 }

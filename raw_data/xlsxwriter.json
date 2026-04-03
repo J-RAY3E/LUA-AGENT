@@ -5,5 +5,9 @@
     "spreadsheet"
   ],
   "raw_content": "XlsxWriter\n      Xlsxwriter is a Lua module that can be used to write text, numbers,\n      formulas and hyperlinks to multiple worksheets in an Excel 2007+ XLSX file.\n      It supports features such as:\n        * 100% compatible Excel XLSX files.\n        * Full formatting.\n        * Memory optimisation mode for writing large files.\n        * Merged cells.\n        * Worksheet setup methods.\n        * Defined names.\n        * Document properties.\n \n      It works with Lua 5.1 and Lua 5.2.",
-  "source": "https://luarocks.org/modules/jmcnamara/xlsxwriter"
+  "source": "https://luarocks.org/modules/jmcnamara/xlsxwriter",
+  "generated_summary": "xlsxwriter is a library for writing text, numbers, formulas, and hyperlinks to multiple worksheets in an Excel 2007+ XLSX file, complete usually used in the fields of spreadsheet.",
+  "phase1": "A Lua library for writing Excel 2007+ XLSX files with full formatting and optimization features.",
+  "phase2": "Supports 100% compatible Excel files, full formatting, memory optimisation, merged cells, worksheet setup, defined names, and document properties.",
+  "phase3": "Works with Lua 5.1 and Lua 5.2, suitable for data processing and spreadsheet automation tasks."
 }

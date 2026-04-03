@@ -5,5 +5,9 @@
     "audio"
   ],
   "raw_content": "This module offers functions for handling MIDI files, with\n      operations such as concatenating, merging and searching through\n      scores; and converting to and from MIDI, and the Score and Opus\n      structures inspired by Sean Burke's MIDI-Perl CPAN module.",
-  "source": "https://luarocks.org/modules/peterbillam/midi"
+  "source": "https://luarocks.org/modules/peterbillam/midi",
+  "generated_summary": "MIDI is a library for handling MIDI files, offering functions for concatenation, merging, and searching through scores; and converting to and from MIDI, Score, and Opus structures.",
+  "phase1": "A Lua library for handling MIDI files, providing functions for concatenation, merging, and searching through scores.",
+  "phase2": "Supports conversion between MIDI and Score structures, inspired by Sean Burke's MIDI-Perl CPAN module.",
+  "phase3": "Designed for audio processing and analysis tasks, offering a flexible and powerful interface for working with MIDI data."
 }

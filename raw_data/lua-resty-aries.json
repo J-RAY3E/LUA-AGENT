@@ -6,5 +6,9 @@
     "template"
   ],
   "raw_content": "lua-resty-aries is a compiling (HTML) templating engine for Lua and OpenResty.It can correct postion template's error line.",
-  "source": "https://luarocks.org/modules/doublespout/lua-resty-aries"
+  "source": "https://luarocks.org/modules/doublespout/lua-resty-aries",
+  "generated_summary": "lua-resty-aries is a compiling (HTML) templating engine for Lua and OpenResty, complete usually used in the fields of openresty, template.",
+  "phase1": "A Lua library for compiling HTML templates with error correction for OpenResty",
+  "phase2": "Implemented with support for Lua 5.1, 5.2, and LuaJIT, including configurable error reporting and line correction",
+  "phase3": "Used for dynamic web application development with OpenResty, enabling smooth template rendering and error handling"
 }

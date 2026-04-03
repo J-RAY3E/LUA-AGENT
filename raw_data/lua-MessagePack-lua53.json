@@ -6,5 +6,9 @@
     "serialization"
   ],
   "raw_content": "MessagePack is an efficient binary serialization format.\nIt lets you exchange data among multiple languages like JSON but it's faster and smaller.",
-  "source": "https://luarocks.org/modules/fperrad/lua-messagepack-lua53"
+  "source": "https://luarocks.org/modules/fperrad/lua-messagepack-lua53",
+  "generated_summary": "lua-MessagePack-lua53 is a library for efficient binary serialization format complete usually used in the fields of messagepack, serialization.",
+  "phase1": "A Lua library for efficient binary serialization, similar to MessagePack but optimized for Lua 5.3.",
+  "phase2": "Supports multiple languages for data exchange, including Lua, C, and Python.",
+  "phase3": "Designed for high-performance data storage and retrieval, suitable for game development, network communication, and more."
 }

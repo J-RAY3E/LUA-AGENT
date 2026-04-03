@@ -5,5 +5,9 @@
     "logs"
   ],
   "raw_content": "lua-simplelog is a logger for lua. It's aim is to provide a\n    performant, simple logger, allowing for a log directory, opening\n    multiple logs through its management facilities, and splitting\n    upon dates. It also supports daemonization of the process\n    utilizing it.",
-  "source": "https://luarocks.org/modules/llmii/lua-simplelog"
+  "source": "https://luarocks.org/modules/llmii/lua-simplelog",
+  "generated_summary": "lua-simplelog is a library for a performant, simple logger complete usually used in the fields of logs.",
+  "phase1": "A Lua library for logging, providing a directory for logs, managing multiple logs, and splitting logs by date.",
+  "phase2": "Supports daemonization of the process using it.",
+  "phase3": "Designed for performance and simplicity in logging tasks."
 }

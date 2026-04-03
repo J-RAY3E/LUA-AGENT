@@ -6,5 +6,9 @@
     "strict"
   ],
   "raw_content": "# struct\n> ever want type safe data structures in pure lua? you've came to the right place!\n\n## Installation\nInstall luarocks then run\n`luarocks install luastruct`\nthen you can use it in your programs via\n```lua\nlocal struct = require \"struct\"\n```\n\n## Example\n```lua\nlocal struct = require \"struct\"\n\n-- create a new struct\nperson = struct {\n  name = \"default name\",\n  age  = 21\n}\n\n-- add a method (function) to the struct person, this will be added to every new\n-- person and can be called with \"name:hello()\" where \"name\" is the new person.\nfunction person:hello()\n  print(self.name..\" says hello\")\nend\n\n-- create a new person \"uli\"\nlocal uli = person {\n  name = \"uli\",\n  age  = 14\n}\n\n-- create a new person \"james\"\nlocal james = person {\n  name = \"james\",\n  age  = 13\n}\n\nuli:hello()   --> uli says hello\njames:hello() --> james says hello\n\n-- also works with defaults\nlocal default = person {}\n\ndefault:hello()     --> default name says hello\nprint(default.age)  --> 21\nprint(default.name) --> \"default name\"\n\n-- however, if we supply a wrong type an error will be raised,\nlocal invalid = person {\n\tname = 10,\n\tage = \"invalid\",\n}\n```\n\nall of this works with nested tables as well :)\n",
-  "source": "https://github.com/UlisseMini/luastruct"
+  "source": "https://github.com/UlisseMini/luastruct",
+  "generated_summary": "luastruct is a library for type-safe data structures in pure Lua, complete usually used in the fields of datastructure, strict.",
+  "phase1": "A Lua library for creating type-safe data structures with strict typing and method definitions",
+  "phase2": "Implemented in pure Lua, supporting Lua 5.1, 5.2, and LuaJIT, with configurable field types and methods",
+  "phase3": "Used for building structured data models in Lua, enabling type safety and method chaining"
 }

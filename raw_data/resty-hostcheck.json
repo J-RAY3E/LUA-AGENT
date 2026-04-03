@@ -7,5 +7,9 @@
     "moonscript"
   ],
   "raw_content": "[![Build Status](https://travis-ci.org/niiknow/resty-hostcheck.svg?branch=master)](https://travis-ci.org/niiknow/resty-hostcheck)\n# resty-hostcheck\n> Host validation for openresty\n\n# usage\nUse in nginx host validation, such as/can be use-with [lua-resty-auto-ssl](https://github.com/GUI/lua-resty-auto-ssl)\n```nginx\n  # Initial setup tasks.\n  init_by_lua_block {\n    serverip = \"1.2.3.4\"\n    auto_ssl = (require \"resty.auto-ssl\").new()\n    hc = (require \"resty.hostcheck\")({ip = serverip, nameservers = {\"8.8.8.8\", {\"8.8.4.4\", 53} }})\n\n    -- Define a function to determine which SNI domains to automatically handle\n    -- and register new certificates for. Defaults to not allowing any domains,\n    -- so this must be configured.\n    auto_ssl:set(\"allow_domain\", function(domain)\n        -- use host checker here to determine if ip is correctly mapped\n      \treturn hc(domain)\n    end)\n\n    auto_ssl:init()\n  }\n```\n\n# build and test\nosx, install lua, luarocks, and openresty:\n```sh\nmake init\nmake test\n```\n\n# MIT\n",
-  "source": "https://github.com/niiknow/resty-hostcheck"
+  "source": "https://github.com/niiknow/resty-hostcheck",
+  "generated_summary": "resty-hostcheck is a library for host validation complete usually used in the fields of dns, openresty, moonscript.",
+  "phase1": "A Lua library for validating hostnames against DNS records",
+  "phase2": "Implemented with Lua 5.3, supports LuaJIT, and uses LuaSocket for DNS queries",
+  "phase3": "Used for openresty configuration, ensuring proper hostname resolution and SSL/TLS validation"
 }

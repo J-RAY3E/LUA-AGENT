@@ -13,5 +13,9 @@
     "statemachine"
   ],
   "raw_content": "# Knife\nA collection of useful micro-modules for Lua.\n![Knife logo](knife.png)\n * [knife.base](readme/base.md) - A base class for class-based OOP.\n * [knife.behavior](readme/behavior.md) - A state machine manager.\n * [knife.bind](readme/bind.md) - Bind arguments to functions.\n * [knife.chain](readme/chain.md) - Flatten async code with chained functions.\n * [knife.convoke](readme/convoke.md) - Flatten async code with coroutines.\n * [knife.event](readme/event.md) - Dispatch and handle events.\n * [knife.memoize](readme/memoize.md) - A memoization function.\n * [knife.serialize](readme/serialize.md) - Store data structures as strings.\n * [knife.system](readme/system.md) - An entity component system.\n * [knife.test](readme/test.md) - A fixture-free test framework.\n * [knife.timer](readme/timer.md) - Create timers and tweens.\nEach module is self-contained, with no dependencies.",
-  "source": "https://luarocks.org/modules/rinkaa/knife"
+  "source": "https://luarocks.org/modules/rinkaa/knife",
+  "generated_summary": "knife is a library for batteries, game, serialization, test, object, love, event, datastructure, statemachine complete usually used in the fields of batteries, game, serialization, test, object, love, event, datastructure, statemachine.",
+  "phase1": "knife is a Lua library that # Knife\nA collection of useful micro-modules for Lua.\n![Knife logo](knife.png)\n * [knife.base](readme/base.md) - A base class for class-based OOP.\n * [knife.behavior](readme/behavior.md) - A state mac",
+  "phase2": "knife is a Lua module installable via LuaRocks",
+  "phase3": "Used in the domain of batteries, game development, game engine, interactive media, data serialization, encoding, marshalling, test, object-oriented programming, class system, inheritance, LÖVE2D game framework, 2D game development, event, datastructure, statemachine"
 }

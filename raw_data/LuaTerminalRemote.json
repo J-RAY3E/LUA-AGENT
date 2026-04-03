@@ -5,5 +5,9 @@
     "commandline"
   ],
   "raw_content": "This is a companion Lua module provided with LuaTerminal and it allows easy connection to a socket terminal opened by LuaTerminal by any Lua script.",
-  "source": "https://luarocks.org/modules/aryajur/luaterminalremote"
+  "source": "https://luarocks.org/modules/aryajur/luaterminalremote",
+  "generated_summary": "LuaTerminalRemote is a library for easy connection to a socket terminal opened by LuaTerminal, complete usually used in the fields of commandline.",
+  "phase1": "LuaTerminalRemote is a Lua library that This is a companion Lua module provided with LuaTerminal and it allows easy connection to a socket terminal opened by LuaTerminal by any Lua script",
+  "phase2": "LuaTerminalRemote is a Lua module installable via LuaRocks",
+  "phase3": "Used in the domain of commandline"
 }

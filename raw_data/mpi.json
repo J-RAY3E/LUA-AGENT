@@ -5,5 +5,9 @@
     "mpi"
   ],
   "raw_content": "MPI for Lua provides bindings for the Message Passing Interface (MPI). LuaJIT is a just-in-time compiler for the Lua language that provides native C data structures through its foreign function interface (FFI) library. MPI for Lua supports MPI-2.1, MPI-2.2 and MPI-3.0 using Open MPI or MPICH and LuaJIT.",
-  "source": "https://luarocks.org/modules/pc/mpi"
+  "source": "https://luarocks.org/modules/pc/mpi",
+  "generated_summary": "mpi is a library for providing bindings for the Message Passing Interface (MPI) complete usually used in the fields of mpi.",
+  "phase1": "A Lua library for MPI bindings with support for MPI-2.1, MPI-2.2, and MPI-3.0 using Open MPI or MPICH and LuaJIT.",
+  "phase2": "Provides bindings for the Message Passing Interface (MPI) with LuaJIT, a Just-In-Time compiler for Lua.",
+  "phase3": "Supports MPI-2.1, MPI-2.2, and MPI-3.0 using Open MPI or MPICH, and LuaJIT for efficient message passing and parallel computing."
 }

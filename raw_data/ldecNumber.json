@@ -5,5 +5,9 @@
     "math"
   ],
   "raw_content": "Lua decNumber, a Lua 5.1 wrapper for IBM decNumber, implements the proposed General Decimal Arithmetic standard IEEE 754r. It has the Lua 5.1 arithmetic operators and more, full control over rounding modes, and working precision up to 69 decimal digits.",
-  "source": "https://luarocks.org/modules/dougcurrie/ldecnumber"
+  "source": "https://luarocks.org/modules/dougcurrie/ldecnumber",
+  "generated_summary": "ldecNumber is a library for implementing the General Decimal Arithmetic standard in Lua, complete usually used in the fields of math.",
+  "phase1": "A Lua 5.1 wrapper for IBM decNumber, implementing IEEE 754r General Decimal Arithmetic with Lua 5.1 arithmetic operators and full control over rounding modes.",
+  "phase2": "Supports working precision up to 69 decimal digits, providing full control over rounding modes.",
+  "phase3": "Includes full Lua 5.1 arithmetic operators and more, offering a powerful and flexible decimal arithmetic library."
 }

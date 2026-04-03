@@ -7,5 +7,9 @@
     "function"
   ],
   "raw_content": "lfunctimer (Lua Function Timer) is a simple lib aiming to collect the stats \nof function execution times",
-  "source": "https://luarocks.org/modules/utmhikari/lfunctimer"
+  "source": "https://luarocks.org/modules/utmhikari/lfunctimer",
+  "generated_summary": "lfunctimer is a library for collecting function execution times complete usually used in debug and profiling.",
+  "phase1": "lfunctimer is a Lua library that lfunctimer (Lua Function Timer) is a simple lib aiming to collect the stats \nof function execution times",
+  "phase2": "lfunctimer is a Lua module installable via LuaRocks",
+  "phase3": "Used in the domain of debugging, profiling, introspection, profiling, function"
 }
