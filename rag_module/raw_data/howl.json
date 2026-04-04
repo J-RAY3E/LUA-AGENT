@@ -1,0 +1,15 @@
+{
+  "rock_name": "howl",
+  "summary": "Comment Lua code with a special flavor of markdown and generate documentation for multiple formats (wiki for git repos and vim help file) etc.",
+  "tags": [
+    "doc",
+    "markdown",
+    "parser"
+  ],
+  "raw_content": "Comment Lua code with a special flavor of markdown and generate documentation for multiple formats (wiki for git repos and vim help file) etc.",
+  "source": "https://luarocks.org/modules/arkt8/howl",
+  "generated_summary": "howl is a library for generating documentation and parsing markdown complete usually used in the fields of doc, markdown, parser.",
+  "phase1": "A Lua library for commenting and generating documentation for Lua code with a special flavor of markdown.",
+  "phase2": "Supports multiple formats including wiki for git repos and vim help file.",
+  "phase3": "Generates documentation for Lua code with markdown comments, suitable for project documentation and version control."
+}

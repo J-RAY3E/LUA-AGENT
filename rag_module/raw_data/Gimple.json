@@ -1,0 +1,13 @@
+{
+  "rock_name": "Gimple",
+  "summary": "",
+  "tags": [
+    "git"
+  ],
+  "raw_content": "#  Gimple: making git simple\n\nGimple is a simple wrapper around git, walking you through some common operations.\n\nCurrently supported commands:\n\n* branch\n* commit\n* clone\n* init\n* revert\n\n## Todo:\n* colours\n* docs\n* testing\n",
+  "source": "https://github.com/therainingmonkey/gimple",
+  "generated_summary": "Gimple is a library for making git operations simpler through a wrapper complete usually used in the fields of git.",
+  "phase1": "A Lua library for interacting with Git repositories, providing basic commands like branch, commit, clone, init, and revert.",
+  "phase2": "Implemented as a pure Lua library, supporting Lua 5.1, 5.2, and LuaJIT, with configurable command-line arguments.",
+  "phase3": "Used for Git workflow automation, version control management, and basic Git operations in Lua scripts."
+}

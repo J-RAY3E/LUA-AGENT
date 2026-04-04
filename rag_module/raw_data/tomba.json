@@ -1,0 +1,14 @@
+{
+  "rock_name": "tomba",
+  "summary": "Tomba: Tomba.io is an Email Finder for B2B sales and email marketing\n     This is the Lua client library for the [Email Finder](https://tomba.io) API.\n     It allows you to lookup the following details :\n     - [Domain Search](https://tomba.io/domain-search) (Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.)\n     - [Email Finder](https://tomba.io/email-finder) (This API endpoint generates or retrieves the most likely em",
+  "tags": [
+    "database",
+    "email"
+  ],
+  "raw_content": "Tomba: Tomba.io is an Email Finder for B2B sales and email marketing\n     This is the Lua client library for the [Email Finder](https://tomba.io) API.\n     It allows you to lookup the following details :\n     - [Domain Search](https://tomba.io/domain-search) (Search emails are based on the website You give one domain name and it returns all the email addresses found on the internet.)\n     - [Email Finder](https://tomba.io/email-finder) (This API endpoint generates or retrieves the most likely email address from a domain name, a first name and a last name..)\n     - [Email Verifier](https://tomba.io/email-verifier) (checks the deliverability of a given email address, verifies if it has been found in our database, and returns their sources.)\n     - [Email Sources](https://developer.tomba.io/#email-sources) (Find email address source somewhere on the web .)\n     - [Company Domain autocomplete](https://developer.tomba.io/#autocomplete) (Company Autocomplete is an API that lets you auto-complete company names and retrieve logo and domain information.)",
+  "source": "https://luarocks.org/modules/benemohamed/tomba",
+  "generated_summary": "tomba is a library for email finder and related operations complete usually used in the fields of database, email.",
+  "phase1": "tomba is a Lua library that Tomba: Tomba.io is an Email Finder for B2B sales and email marketing\n     This is the Lua client library for the [Email Finder](https://tomba.io) API.\n     It allows you to lookup the following detail",
+  "phase2": "tomba is a Lua module installable via LuaRocks",
+  "phase3": "Used in the domain of database access, query execution, data persistence, email sending, SMTP, mail handling"
+}

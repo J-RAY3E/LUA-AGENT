@@ -1,0 +1,13 @@
+{
+  "rock_name": "pdh",
+  "summary": "",
+  "tags": [
+    "windows"
+  ],
+  "raw_content": "# Binding to Microsoft Performance Data Helper (PDH) library\n========\n[![Licence](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENCE.txt)\n[![Build status](https://ci.appveyor.com/api/projects/status/2m6mhmam77sllv19/branch/master?svg=true)](https://ci.appveyor.com/project/moteus/lua-pdh/branch/master)\n\n## Usage\n\n```Lua\nlocal pdh = require \"pdh\"\n\nassert(not pdh.disabled())\n\nlocal query = pdh.query()\n\nlocal path    = pdh.translate_path([[\\Processor(_Total)\\% Processor Time]])\nlocal counter = query:add_counter(path)\n\nquery:collect()\npdh.sleep(1)\nwhile true do\n  query:collect()\n  print(path, \" => \", math.floor(counter:as_double()))\n  pdh.sleep(1000)\nend\n```\n\n[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/moteus/lua-pdh/trend.png)](https://bitdeli.com/free \"Bitdeli Badge\")\n",
+  "source": "https://github.com/moteus/lua-pdh",
+  "generated_summary": "pdh is a library for binding to Microsoft Performance Data Helper (PDH) library complete usually used in the fields of windows.",
+  "phase1": "A Lua library for binding to Microsoft Performance Data Helper (PDH) library",
+  "phase2": "Provides access to system performance counters and statistics",
+  "phase3": "Used for monitoring system performance and collecting system metrics"
+}

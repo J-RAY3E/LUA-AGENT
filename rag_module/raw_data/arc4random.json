@@ -1,0 +1,13 @@
+{
+  "rock_name": "arc4random",
+  "summary": "",
+  "tags": [
+    "crypto"
+  ],
+  "raw_content": "A CSPRNG for Lua.\n\n\nRequirements\n------------\n\nlua >= 5.1\n\n\nInstallation\n------------\n\n\t$ luarocks install arc4random\n\n\nUsage\n-----\n\nThe library provides two methods, `random` and `buf`. `random` is\nintended to be a drop in replacement for `math.random`, so it handles\nthree cases.\n\n`arc4.random()` returns a random floating point number in the range\n[0,1). `arc4.random( n )` and `arc4.random( m, n )` return a random\ninteger in the range [1,n] and [m,n] respectively. All three cases match\nthe behavior of `math.random` so you can do `math.random = arc4.random`\nand everything will keep working.\n\n`arc4.buf( n )` returns a string of `n` random characters. It is\nsuitable for generating private encryption keys and IVs.\n\nSome example code:\n\n\tlocal arc4 = require( \"arc4random\" )\n\t\n\tprint( arc4.random() )\n\tprint( arc4.random( 3 ) )\n\tprint( arc4.random( -5, 5 ) )\n\t\n\tlocal str = arc4.buf( 16 )\n\tstr = str:gsub( \"(.)\", function( c )\n\t\treturn ( \"%02x\" ):format( string.byte( c ) )\n\tend )\n\tprint( str )\n",
+  "source": "http://github.com/mikejsavage/lua-arc4random",
+  "generated_summary": "arc4random is a library for a CSPRNG complete usually used in the fields of crypto.",
+  "phase1": "arc4random is a Lua library: A CSPRNG for Lua. Requirements lua >= 5.1",
+  "phase2": "Implemented as installable via LuaRocks",
+  "phase3": "Used in the domain of cryptography, encryption, hashing"
+}
