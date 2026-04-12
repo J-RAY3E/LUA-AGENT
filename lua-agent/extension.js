@@ -1,13 +1,44 @@
 const vscode = require('vscode');
 const axios = require('axios');
+const path = require('path');
+const fs = require('fs');
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'http://127.0.0.1:5000';
 
 function activate(context) {
-    console.log('LUA-AGENT VSCode extension activated');
+    console.log('LUA-AGENT activated');
 
-    // Command 1: Generate Code
-    let generateCode = vscode.commands.registerCommand('lua-agent.generateCode', async () => {
+    let openPanel = vscode.commands.registerCommand('lua-agent.openPanel', () => {
+        const panel = vscode.window.createWebviewPanel(
+            'lua-agent',
+            'LUA-AGENT',
+            vscode.ViewColumn.Beside,
+            { enableScripts: true, retainContextWhenHidden: true }
+        );
+
+        const webviewPath = path.join(context.extensionPath, 'webview.html');
+        const html = fs.readFileSync(webviewPath, 'utf8');
+        panel.webview.html = html;
+
+        panel.webview.onDidReceiveMessage(async message => {
+            switch(message.command) {
+                case 'generate':
+                    await handleGenerate(message.prompt, panel);
+                    break;
+                case 'search':
+                    await handleSearch(message.query, panel);
+                    break;
+                case 'validate':
+                    await handleValidate(message.code, panel);
+                    break;
+                case 'insertCode':
+                    insertCodeToEditor(message.code);
+                    break;
+            }
+        });
+    });
+
+    let quickGenerate = vscode.commands.registerCommand('lua-agent.generateCode', async () => {
         const prompt = await vscode.window.showInputBox({
             prompt: 'Describe the Lua code you want',
             placeHolder: 'e.g., Create a function to read CSV files'
@@ -15,109 +46,92 @@ function activate(context) {
 
         if (!prompt) return;
 
-        vscode.window.showInformationMessage('Generating code with LUA-AGENT...');
-
+        vscode.window.showInformationMessage('Generating code...');
+        
         try {
             const response = await axios.post(`${API_URL}/generate`, {
                 prompt: prompt,
                 use_rag: true
             });
 
-            if (response.data.status === 'success') {
-                const code = response.data.code;
-                
-                const editor = vscode.window.activeTextEditor;
-                if (editor) {
-                    await editor.edit(editBuilder => {
-                        editBuilder.insert(editor.selection.active, code + '\n');
-                    });
-                }
-                
-                vscode.window.showInformationMessage('✓ Code generated successfully!');
-            } else {
-                vscode.window.showErrorMessage(`Error: ${response.data.error}`);
-            }
-
+            insertCodeToEditor(response.data.code);
+            vscode.window.showInformationMessage('✓ Code generated!');
         } catch (error) {
-            vscode.window.showErrorMessage(`Connection Error: Make sure backend is running on ${API_URL}\n${error.message}`);
+            vscode.window.showErrorMessage(`Error: ${error.message}`);
         }
     });
 
-    // Command 2: Search Libraries
-    let searchLibraries = vscode.commands.registerCommand('lua-agent.searchLibraries', async () => {
-        const query = await vscode.window.showInputBox({
-            prompt: 'Search Lua libraries',
-            placeHolder: 'e.g., CSV parsing, HTTP requests'
+    context.subscriptions.push(openPanel, quickGenerate);
+}
+
+async function handleGenerate(prompt, panel) {
+    try {
+        const response = await axios.post(`${API_URL}/generate`, {
+            prompt: prompt,
+            use_rag: true
         });
 
-        if (!query) return;
+        panel.webview.postMessage({
+            type: 'showCode',
+            code: response.data.code,
+            libraries: response.data.libraries
+        });
 
-        try {
-            const response = await axios.post(`${API_URL}/search`, {
-                query: query,
-                k: 5
-            });
+    } catch (error) {
+        panel.webview.postMessage({
+            type: 'showError',
+            error: error.message
+        });
+    }
+}
 
-            if (response.data.status === 'success') {
-                const results = response.data.results;
-                
-                const items = results.map(r => ({
-                    label: `${r.library_name} (${r.similarity_score})`,
-                    description: r.description.substring(0, 60) + '...',
-                    detail: r.description
-                }));
+async function handleSearch(query, panel) {
+    try {
+        const response = await axios.post(`${API_URL}/search`, {
+            query: query,
+            k: 5
+        });
 
-                const selected = await vscode.window.showQuickPick(items, {
-                    placeHolder: 'Select a library'
-                });
+        panel.webview.postMessage({
+            type: 'showResults',
+            results: response.data.results
+        });
 
-                if (selected) {
-                    vscode.window.showInformationMessage(`Selected: ${selected.label}`);
-                }
-            }
+    } catch (error) {
+        panel.webview.postMessage({
+            type: 'showError',
+            error: error.message
+        });
+    }
+}
 
-        } catch (error) {
-            vscode.window.showErrorMessage(`Error: ${error.message}`);
-        }
-    });
+async function handleValidate(code, panel) {
+    try {
+        const response = await axios.post(`${API_URL}/validate`, {
+            code: code
+        });
 
-    // Command 3: Validate Code
-    let validateCode = vscode.commands.registerCommand('lua-agent.validateCode', async () => {
-        const editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            vscode.window.showErrorMessage('No file is open');
-            return;
-        }
+        panel.webview.postMessage({
+            type: 'validationResult',
+            valid: response.data.valid,
+            cleanCode: response.data.clean_code
+        });
 
-        try {
-            const code = editor.document.getText();
-            
-            const response = await axios.post(`${API_URL}/validate`, {
-                code: code
-            });
+    } catch (error) {
+        panel.webview.postMessage({
+            type: 'showError',
+            error: error.message
+        });
+    }
+}
 
-            if (response.data.valid) {
-                vscode.window.showInformationMessage('✓ Lua syntax is valid!');
-                
-                if (response.data.clean_code) {
-                    await editor.edit(editBuilder => {
-                        const fullRange = new vscode.Range(
-                            editor.document.positionAt(0),
-                            editor.document.positionAt(code.length)
-                        );
-                        editBuilder.replace(fullRange, response.data.clean_code);
-                    });
-                }
-            } else {
-                vscode.window.showErrorMessage('Lua syntax error!');
-            }
-
-        } catch (error) {
-            vscode.window.showErrorMessage(`Error: ${error.message}`);
-        }
-    });
-
-    context.subscriptions.push(generateCode, searchLibraries, validateCode);
+function insertCodeToEditor(code) {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+        editor.edit(editBuilder => {
+            editBuilder.insert(editor.selection.active, code + '\n');
+        });
+    }
 }
 
 function deactivate() {}

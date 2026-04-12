@@ -12,29 +12,30 @@
   ],
   "activationEvents": [],
   "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "lua-agent.generateCode",
-        "title": "LUA-AGENT: Generate Code"
-      },
-      {
-        "command": "lua-agent.searchLibraries",
-        "title": "LUA-AGENT: Search Libraries"
-      },
-      {
-        "command": "lua-agent.validateCode",
-        "title": "LUA-AGENT: Validate Code"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "lua-agent.generateCode",
-        "key": "ctrl+shift+l",
-        "mac": "cmd+shift+l"
-      }
-    ]
-  },
+"contributes": {
+  "commands": [
+    {
+      "command": "lua-agent.openPanel",
+      "title": "LUA-AGENT: Open Panel"
+    },
+    {
+      "command": "lua-agent.generateCode",
+      "title": "LUA-AGENT: Generate Code"
+    }
+  ],
+  "keybindings": [
+    {
+      "command": "lua-agent.generateCode",
+      "key": "ctrl+shift+l",
+      "mac": "cmd+shift+l"
+    },
+    {
+      "command": "lua-agent.openPanel",
+      "key": "ctrl+shift+k",
+      "mac": "cmd+shift+k"
+    }
+  ]
+},
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",

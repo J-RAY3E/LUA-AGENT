@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUA-AGENT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--vscode-editor-background);
+            color: var(--vscode-editor-foreground);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--vscode-panel-border);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: var(--vscode-descriptionForeground);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--vscode-panel-border);
+        }
+
+        .tab-btn {
+            padding: 10px 16px;
+            background: transparent;
+            border: none;
+            color: var(--vscode-editor-foreground);
+            cursor: pointer;
+            font-size: 13px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            color: var(--vscode-textLink-foreground);
+            border-bottom-color: var(--vscode-textLink-foreground);
+        }
+
+        .tab-btn:hover {
+            color: var(--vscode-textLink-foreground);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--vscode-descriptionForeground);
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            background: var(--vscode-input-background);
+            color: var(--vscode-input-foreground);
+            border: 1px solid var(--vscode-input-border);
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 12px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--vscode-focusBorder);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px 16px;
+            background: var(--vscode-button-background);
+            color: var(--vscode-button-foreground);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background: var(--vscode-button-hoverBackground);
+        }
+
+        button.secondary {
+            background: var(--vscode-button-secondaryBackground);
+            color: var(--vscode-button-secondaryForeground);
+        }
+
+        button.secondary:hover {
+            background: var(--vscode-button-secondaryHoverBackground);
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            background: var(--vscode-editor-background);
+            border: 1px solid var(--vscode-panel-border);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .result-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .result-score {
+            font-size: 11px;
+            color: var(--vscode-descriptionForeground);
+            margin-bottom: 8px;
+        }
+
+        .result-desc {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .code-block {
+            background: var(--vscode-textCodeBlock-background);
+            border: 1px solid var(--vscode-panel-border);
+            border-radius: 6px;
+            padding: 12px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 12px;
+        }
+
+        .code-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .code-actions button {
+            flex: 1;
+        }
+
+        .message {
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-size: 12px;
+        }
+
+        .message.loading {
+            background: var(--vscode-editorInfo-background);
+            color: var(--vscode-editorInfo-foreground);
+        }
+
+        .message.success {
+            background: var(--vscode-editorSuccessBackground);
+        }
+
+        .message.error {
+            background: var(--vscode-editorError-background);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid var(--vscode-descriptionForeground);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ LUA-AGENT</h1>
+            <p class="subtitle">Generate Lua code with AI</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('generate')">Generate</button>
+            <button class="tab-btn" onclick="switchTab('search')">Search</button>
+            <button class="tab-btn" onclick="switchTab('validate')">Validate</button>
+        </div>
+
+        <!-- Generate Tab -->
+        <div id="generate" class="tab-content active">
+            <div class="form-group">
+                <label>Describe your Lua code</label>
+                <textarea id="generatePrompt" placeholder="e.g., Create a function to read CSV files"></textarea>
+            </div>
+            <div class="button-group">
+                <button onclick="generateCode()">Generate Code</button>
+                <button class="secondary" onclick="generateCode()">Generate + Search</button>
+            </div>
+            <div id="generateStatus"></div>
+            <div id="generateResult"></div>
+        </div>
+
+        <!-- Search Tab -->
+        <div id="search" class="tab-content">
+            <div class="form-group">
+                <label>Search for Lua libraries</label>
+                <input type="text" id="searchQuery" placeholder="e.g., CSV parsing, HTTP requests">
+            </div>
+            <div class="button-group">
+                <button onclick="searchLibraries()">Search</button>
+            </div>
+            <div id="searchStatus"></div>
+            <div id="searchResults"></div>
+        </div>
+
+        <!-- Validate Tab -->
+        <div id="validate" class="tab-content">
+            <div class="form-group">
+                <label>Paste Lua code to validate</label>
+                <textarea id="validateCode" placeholder="Paste your Lua code here..."></textarea>
+            </div>
+            <div class="button-group">
+                <button onclick="validateCode()">Validate</button>
+            </div>
+            <div id="validateStatus"></div>
+            <div id="validateResult"></div>
+        </div>
+    </div>
+
+    <script>
+        const vscode = window.acquireVsCodeApi();
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function generateCode() {
+            const prompt = document.getElementById('generatePrompt').value;
+            if (!prompt) {
+                showStatus('generateStatus', 'Please enter a description', 'error');
+                return;
+            }
+            showStatus('generateStatus', 'Generating code...', 'loading');
+            vscode.postMessage({ command: 'generate', prompt: prompt });
+        }
+
+        function searchLibraries() {
+            const query = document.getElementById('searchQuery').value;
+            if (!query) {
+                showStatus('searchStatus', 'Please enter a search query', 'error');
+                return;
+            }
+            showStatus('searchStatus', 'Searching...', 'loading');
+            vscode.postMessage({ command: 'search', query: query });
+        }
+
+        function validateCode() {
+            const code = document.getElementById('validateCode').value;
+            if (!code) {
+                showStatus('validateStatus', 'Please paste some code', 'error');
+                return;
+            }
+            showStatus('validateStatus', 'Validating...', 'loading');
+            vscode.postMessage({ command: 'validate', code: code });
+        }
+
+        function insertCode(code) {
+            vscode.postMessage({ command: 'insertCode', code: code });
+        }
+
+        function showStatus(elementId, message, type) {
+            const el = document.getElementById(elementId);
+            if (message) {
+                const spinner = type === 'loading' ? '<span class="spinner"></span> ' : '';
+                el.innerHTML = '<div class="message ' + type + '">' + spinner + message + '</div>';
+            } else {
+                el.innerHTML = '';
+            }
+        }
+
+        window.addEventListener('message', event => {
+            const message = event.data;
+            switch(message.type) {
+                case 'showCode':
+                    showGeneratedCode(message.code, message.libraries);
+                    break;
+                case 'showResults':
+                    showSearchResults(message.results);
+                    break;
+                case 'validationResult':
+                    showValidationResult(message.valid, message.cleanCode);
+                    break;
+                case 'showError':
+                    showStatus('generateStatus', message.error, 'error');
+                    break;
+            }
+        });
+
+        function showGeneratedCode(code, libraries) {
+            showStatus('generateStatus', 'Code generated!', 'success');
+            let html = '<div class="results"><div class="code-block"><code>' + escapeHtml(code) + '</code></div>';
+            html += '<div class="code-actions"><button onclick="insertCode(\'' + escapeQuotes(code) + '\')">Insert Code</button>';
+            html += '<button class="secondary" onclick="copyCode()">Copy</button></div></div>';
+            document.getElementById('generateResult').innerHTML = html;
+        }
+
+        function showSearchResults(results) {
+            showStatus('searchStatus', 'Found ' + results.length + ' results', 'success');
+            let html = '<div class="results">';
+            results.forEach(r => {
+                html += '<div class="result-item"><div class="result-title">' + r.library_name + '</div>';
+                html += '<div class="result-score">Similarity: ' + Math.round(r.similarity_score * 100) + '%</div>';
+                html += '<div class="result-desc">' + r.description + '</div></div>';
+            });
+            html += '</div>';
+            document.getElementById('searchResults').innerHTML = html;
+        }
+
+        function showValidationResult(valid, cleanCode) {
+            if (valid) {
+                showStatus('validateStatus', 'Lua syntax is valid!', 'success');
+                const html = '<div class="results"><div class="code-block"><code>' + escapeHtml(cleanCode) + '</code></div></div>';
+                document.getElementById('validateResult').innerHTML = html;
+            } else {
+                showStatus('validateStatus', 'Lua syntax error!', 'error');
+            }
+        }
+
+        function escapeHtml(text) {
+            const map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'};
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        function escapeQuotes(text) {
+            return text.replace(/'/g, "\\'");
+        }
+
+        function copyCode() {
+            alert('Copy code feature coming soon');
+        }
+    </script>
+</body>
+</html>
