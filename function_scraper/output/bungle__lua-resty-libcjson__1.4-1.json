@@ -1,0 +1,328 @@
+{
+  "lua-resty-libcjson": {
+    "version": "1.4-1",
+    "source_homepage": "https://github.com/bungle/lua-resty-libcjson",
+    "functions": {
+      "lua_resty_libcjson": {
+        "name_funct": "lua_resty_libcjson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A LuaJIT FFI-based cJSON library (tested with OpenResty too).",
+        "extraction_method": "llm",
+        "source_ref": "README.md## lua-resty-libcjson"
+      },
+      "ffi_load": {
+        "name_funct": "ffi_load",
+        "input_format": "ffi_load(\"cjson\")",
+        "output_format": "ffi_load(\"cjson\")",
+        "description": "Load the cJSON library for Lua.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Compiling and Installing cJSON C-library"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "value",
+        "output_format": "table or simple value",
+        "description": "Decodes JSON value or structure and returns either Lua table or simple value.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Lua API"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "value or table",
+        "output_format": "string",
+        "description": "Encodes Lua value or table and returns equivalent JSON string. Optionally formatted.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Lua API"
+      },
+      "lua_table": {
+        "name_funct": "lua_table",
+        "input_format": "table of strings",
+        "output_format": "table of strings",
+        "description": "Creates a Lua table from a list of strings.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmarks"
+      },
+      "lua_resty_libcjson.decode": {
+        "name_funct": "lua_resty_libcjson.decode",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Decode a JSON string into a Lua table. Takes a JSON string as input and returns a table representing the decoded JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## lua-resty-libcjson"
+      },
+      "lua_resty_libcjson.encode": {
+        "name_funct": "lua_resty_libcjson.encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Encode a Lua table into a JSON string. Takes a table as input and returns a JSON string representing the encoded table.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## lua-resty-libcjson"
+      },
+      "is_array": {
+        "name_funct": "is_array",
+        "input_format": "table",
+        "output_format": "boolean",
+        "description": "Checks if a table contains only non-negative integers and returns true if the maximum key is equal to the number of keys.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function is_array"
+      },
+      "json.decval": {
+        "name_funct": "json.decval",
+        "input_format": "j",
+        "output_format": "false, true, null, valuedouble, ffi_str, setmetatable, json.parse, setmetatable, json.parse",
+        "description": "Decodes a JSON value and returns the appropriate type based on the JSON type.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.decval"
+      },
+      "ffi_str": {
+        "name_funct": "ffi_str",
+        "input_format": "string or number",
+        "output_format": "string",
+        "description": "Converts a string or number to a string representation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.parse"
+      },
+      "json.parse": {
+        "name_funct": "json.parse",
+        "input_format": "json value",
+        "output_format": "table",
+        "description": "Parses a JSON value and returns a table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.parse"
+      },
+      "json.encval": {
+        "name_funct": "json.encval",
+        "input_format": "value",
+        "output_format": "encval",
+        "description": "Encodes a JSON value and returns the encoded value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.encval"
+      },
+      "cjson.cJSON_CreateObject": {
+        "name_funct": "cjson.cJSON_CreateObject",
+        "input_format": "value",
+        "output_format": "object",
+        "description": "Creates a new JSON object.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.encode"
+      },
+      "cjson.cJSON_AddItemToObject": {
+        "name_funct": "cjson.cJSON_AddItemToObject",
+        "input_format": "key, value",
+        "output_format": "void",
+        "description": "Adds a key-value pair to the JSON object.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.encode"
+      },
+      "cjson.cJSON_CreateNull": {
+        "name_funct": "cjson.cJSON_CreateNull",
+        "input_format": "value",
+        "output_format": "null",
+        "description": "Creates a new JSON null value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.encode"
+      },
+      "cjson.cJSON_Print": {
+        "name_funct": "cjson.cJSON_Print",
+        "input_format": "object",
+        "output_format": "string",
+        "description": "Prints the JSON object to a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.encode"
+      },
+      "cjson.cJSON_PrintUnformatted": {
+        "name_funct": "cjson.cJSON_PrintUnformatted",
+        "input_format": "object",
+        "output_format": "string",
+        "description": "Prints the JSON object to a string without formatting.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.encode"
+      },
+      "json.minify": {
+        "name_funct": "json.minify",
+        "input_format": "value",
+        "output_format": "string",
+        "description": "Minify JSON string or encode value to JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson.lua#function json.minify"
+      },
+      "io.open": {
+        "name_funct": "io.open",
+        "input_format": "filename (string)",
+        "output_format": "file handle (table)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "os.clock": {
+        "name_funct": "os.clock",
+        "input_format": "none",
+        "output_format": "current system clock (number)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "string.format": {
+        "name_funct": "string.format",
+        "input_format": "format string (string), arguments (table)",
+        "output_format": "formatted string (string)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "require": {
+        "name_funct": "require",
+        "input_format": "module name (string)",
+        "output_format": "module (table)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "resty.libcjson.decode": {
+        "name_funct": "resty.libcjson.decode",
+        "input_format": "json content (string)",
+        "output_format": "decoded json (table)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "file:read": {
+        "name_funct": "file:read",
+        "input_format": "filename (string), buffer size (number)",
+        "output_format": "read content (string)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "file:close": {
+        "name_funct": "file:close",
+        "input_format": "file handle (table)",
+        "output_format": "none",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "clock": {
+        "name_funct": "clock",
+        "input_format": "none",
+        "output_format": "current system clock (number)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "d": {
+        "name_funct": "d",
+        "input_format": "json content (string)",
+        "output_format": "decoded json (table)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "format": {
+        "name_funct": "format",
+        "input_format": "format string (string), arguments (table)",
+        "output_format": "formatted string (string)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsondec.lua#File: lib\\resty\\libcjson\\libcjsondec.lua"
+      },
+      "open": {
+        "name_funct": "open",
+        "input_format": "filename (string), mode (string)",
+        "output_format": "file handle (table)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "e": {
+        "name_funct": "e",
+        "input_format": "json object (table)",
+        "output_format": "encoded JSON string (string)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "file": {
+        "name_funct": "file",
+        "input_format": "filename (string), mode (string)",
+        "output_format": "file handle (table)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "content": {
+        "name_funct": "content",
+        "input_format": "no arguments",
+        "output_format": "file contents (string)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "t": {
+        "name_funct": "t",
+        "input_format": "file contents (string)",
+        "output_format": "decoded JSON object (table)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "x": {
+        "name_funct": "x",
+        "input_format": "no arguments",
+        "output_format": "current system clock (number)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "z": {
+        "name_funct": "z",
+        "input_format": "no arguments",
+        "output_format": "elapsed time (number)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "print": {
+        "name_funct": "print",
+        "input_format": "format string (string), arguments (table)",
+        "output_format": "none",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\libcjsonenc.lua#File: lib\\resty\\libcjson\\libcjsonenc.lua"
+      },
+      "cjson.safe.decode": {
+        "name_funct": "cjson.safe.decode",
+        "input_format": "string",
+        "output_format": "decoded JSON object",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\luacjsondec.lua#File: lib\\resty\\libcjson\\luacjsondec.lua"
+      },
+      "read": {
+        "name_funct": "read",
+        "input_format": "filename",
+        "output_format": "file contents as string",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\luacjsondec.lua#File: lib\\resty\\libcjson\\luacjsondec.lua"
+      },
+      "close": {
+        "name_funct": "close",
+        "input_format": "file handle",
+        "output_format": "none",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\luacjsondec.lua#File: lib\\resty\\libcjson\\luacjsondec.lua"
+      },
+      "cjson.safe.encode": {
+        "name_funct": "cjson.safe.encode",
+        "input_format": "json table (table)",
+        "output_format": "encoded json string (string)",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\libcjson\\luacjsonenc.lua#File: lib\\resty\\libcjson\\luacjsonenc.lua"
+      }
+    }
+  }
+}

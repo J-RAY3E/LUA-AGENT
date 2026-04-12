@@ -1,0 +1,32 @@
+{
+  "lua-ljson": {
+    "version": "0.1.0-1",
+    "source_homepage": "https://github.com/rusty-sec/ljson",
+    "functions": {
+      "ljson.decode": {
+        "name_funct": "ljson.decode",
+        "input_format": "string",
+        "output_format": "Lua Table",
+        "description": "Decodes a JSON string into a Lua table.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## rust-json"
+      },
+      "ljson.encode": {
+        "name_funct": "ljson.encode",
+        "input_format": "Lua Table",
+        "output_format": "string",
+        "description": "Encodes a Lua table into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## rust-json"
+      },
+      "lua_ljson": {
+        "name_funct": "lua_ljson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A Lua library for JSON manipulation.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Installation"
+      }
+    }
+  }
+}

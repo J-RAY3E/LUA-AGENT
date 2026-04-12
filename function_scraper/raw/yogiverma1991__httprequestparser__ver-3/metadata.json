@@ -1,0 +1,9 @@
+{
+  "module_name": "httprequestparser",
+  "author": "yogiverma1991",
+  "downloads": "361",
+  "summary": "http request parser written in lua for json, xml.",
+  "version": "ver-3",
+  "homepage_url": "https://github.com/yogiverma007/httprequestparser",
+  "label": "json"
+}

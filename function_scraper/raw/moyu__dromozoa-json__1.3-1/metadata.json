@@ -1,0 +1,9 @@
+{
+  "module_name": "dromozoa-json",
+  "author": "moyu",
+  "downloads": "619",
+  "summary": "JSON encoder and decoder",
+  "version": "1.3-1",
+  "homepage_url": "https://github.com/dromozoa/dromozoa-json/",
+  "label": "json"
+}

@@ -1,0 +1,9 @@
+{
+  "module_name": "lunajson",
+  "author": "grafi",
+  "downloads": "505k",
+  "summary": "A strict and fast JSON parser/decoder/encoder written in pure Lua",
+  "version": "1.2.3-1",
+  "homepage_url": "https://github.com/grafi-tt/lunajson",
+  "label": "json"
+}

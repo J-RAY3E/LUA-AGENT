@@ -1,0 +1,744 @@
+{
+  "lunajson": {
+    "version": "1.2.3-1",
+    "source_homepage": "https://github.com/grafi-tt/lunajson",
+    "functions": {
+      "Lunajson": {
+        "name_funct": "Lunajson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Lunajson is a SAX-style JSON parser and simple JSON decoder/encoder. It is tested on Lua 5.1, Lua 5.2, Lua 5.3, Lua 5.4, and LuaJIT 2.1. It is written only in pure Lua and has no dependencies. Even so, decoding speed matches lpeg-based JSON implementations because it is carefully optimized. The parser and decoder reject input that is not conformant to the JSON specification (ECMA-404), and the encoder always yields conformant output. The parser and decoder also handle UTF/Unicode surrogate pairs correctly.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## ![Lunajson](logo/lunajson.png)"
+      },
+      "matches": {
+        "name_funct": "matches",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install"
+      },
+      "lpeg-based JSON implementations": {
+        "name_funct": "lpeg-based JSON implementations",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install"
+      },
+      "ECMA-404": {
+        "name_funct": "ECMA-404",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install"
+      },
+      "parser and decoder": {
+        "name_funct": "parser and decoder",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install"
+      },
+      "reject input": {
+        "name_funct": "reject input",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install"
+      },
+      "conformant output": {
+        "name_funct": "conformant output",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install"
+      },
+      "UTF/Unicode surrogate pairs": {
+        "name_funct": "UTF/Unicode surrogate pairs",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install"
+      },
+      "lunajson.decode": {
+        "name_funct": "lunajson.decode",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Decodes a JSON string into a Lua table.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Simple Usage"
+      },
+      "lunajson.encode": {
+        "name_funct": "lunajson.encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Encodes a Lua table into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Simple Usage"
+      },
+      "module:func": {
+        "name_funct": "module:func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function performs a specific operation on the input data.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### API"
+      },
+      "decode": {
+        "name_funct": "decode",
+        "input_format": "jsonstr, [pos, [nullv, [arraylen]]]",
+        "output_format": "decoded value, [position after end of JSON]",
+        "description": "Decodes a JSON string and returns the decoded value. If `pos` is specified, it returns the position immediately after the end of decoded JSON. If `nullv` is specified, it returns the optional sentinel value `nullv` if `jsonstr` contains valid JSON, otherwise an error is raised.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### lunajson.decode(jsonstr, [pos, [nullv, [arraylen]]])"
+      },
+      "ary[0]": {
+        "name_funct": "ary[0]",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This behavior is useful when empty arrays should not be confused with empty objects.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### lunajson.encode(value, [nullv])"
+      },
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function returns the decoded value if `jsonstr` contains valid JSON, otherwise an error will be raised. If `pos` is specified, it also returns the position immediately after the end of decoded JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### lunajson.encode(value, [nullv])"
+      },
+      "global_func": {
+        "name_funct": "global_func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function encodes a table `t` as a JSON array if a value `t[1]` is present or a number `t[0]` is present. If `t[0]` is present, its value is considered as the length of the array. Then the array may contain `nil` and those will be encoded as `null`. Otherwise, this function scans non-`nil` values starting from index 1, up to the first `nil` it finds. If this constraint is not met or unsupported types (e.g., function) are contained in `value`, an error will be raised.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### lunajson.encode(value, [nullv])"
+      },
+      "lunajson.newparser": {
+        "name_funct": "lunajson.newparser",
+        "input_format": "input (string), saxtbl (table)",
+        "output_format": "new parser object",
+        "description": "Creates a new parser object for parsing JSON input using SAX (Simple API for XML) table.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### lunajson.newparser(input, saxtbl)"
+      },
+      "lunajson.newfileparser": {
+        "name_funct": "lunajson.newfileparser",
+        "input_format": "filename or function returning string or nil",
+        "output_format": "parser context",
+        "description": "Create and return a sax-style parser context for parsing JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### lunajson.newfileparser(filename, saxtbl)"
+      },
+      "position": {
+        "name_funct": "position",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "position as a number. If input is ended, it returns `nil`. It does not change current position.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmark"
+      },
+      "parsercontext.read": {
+        "name_funct": "parsercontext.read",
+        "input_format": "Return the `n`-length string starting from current position, and increase the index by `n`. If the input ends, the returned string and the updated position will be truncated.",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Return the `n`-length string starting from current position, and increase the index by `n`. If the input ends, the returned string and the updated position will be truncated.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmark"
+      },
+      "_decode_error": {
+        "name_funct": "_decode_error",
+        "input_format": "pos (string), errmsg (string)",
+        "output_format": "error message (string), error level (number)",
+        "description": "Encodes a parse error with a position and error message.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function _decode_error"
+      },
+      "f_str_ctrl_pat": {
+        "name_funct": "f_str_ctrl_pat",
+        "input_format": "not explicitly stated",
+        "output_format": "pattern (string)",
+        "description": "Defines a string control pattern based on the Lua version.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function _decode_error"
+      },
+      "r": {
+        "name_funct": "r",
+        "input_format": "pos, errmsg",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Parse error function",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function newdecoder"
+      },
+      "error": {
+        "name_funct": "error",
+        "input_format": "errmsg",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Error function",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function newdecoder"
+      },
+      "newdecoder": {
+        "name_funct": "newdecoder",
+        "input_format": "nil",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Decoder function",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function newdecoder"
+      },
+      "decode_error": {
+        "name_funct": "decode_error",
+        "input_format": "local errmsg",
+        "output_format": "local pos, local errmsg",
+        "description": "Decodes an error message and returns the position and error message.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function decode_error"
+      },
+      "f_err": {
+        "name_funct": "f_err",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function that decodes an error message and raises an error with the specified message.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_err"
+      },
+      "f_nul": {
+        "name_funct": "f_nul",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Checks if the substring 'ull' is at the beginning of the JSON string and returns nullv if true, otherwise returns an error message.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_nul"
+      },
+      "f_fls": {
+        "name_funct": "f_fls",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Checks if a string starts with 'alse' and returns false if so, otherwise returns true.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_fls"
+      },
+      "f_tru": {
+        "name_funct": "f_tru",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Checks if a string starts with 'rue' and returns true if it does, otherwise returns false.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_tru"
+      },
+      "match": {
+        "name_funct": "match",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "match a pattern against a string",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function number_error"
+      },
+      "tostring": {
+        "name_funct": "tostring",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "convert a value to a string",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function number_error"
+      },
+      "find": {
+        "name_funct": "find",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "find the first occurrence of a substring within a string",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function number_error"
+      },
+      "gsub": {
+        "name_funct": "gsub",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "perform a global substitution of substrings in a string",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function number_error"
+      },
+      "tonumber": {
+        "name_funct": "tonumber",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "convert a string to a number",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function number_error"
+      },
+      "number_error": {
+        "name_funct": "number_error",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "return an error message for invalid number input",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function number_error"
+      },
+      "f_zro": {
+        "name_funct": "f_zro",
+        "input_format": "json, optional number, optional character",
+        "output_format": "number",
+        "description": "Converts a JSON number to a Lua number, handling scientific notation and negative numbers.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_zro"
+      },
+      "f_num": {
+        "name_funct": "f_num",
+        "input_format": "([0-9]+%.?[0-9]*)([-+.A-Za-z]*)",
+        "output_format": "c",
+        "description": "Converts a number string to a Lua number, handling scientific notation and optional minus sign.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_num"
+      },
+      "f_mns": {
+        "name_funct": "f_mns",
+        "input_format": "byte(json, pos)",
+        "output_format": "c",
+        "description": "skip minus sign and decode number",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_mns"
+      },
+      "f_str_hextbl": {
+        "name_funct": "f_str_hextbl",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "hex table for string encoding",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function surrogate_first_error"
+      },
+      "f_str_escapetbl": {
+        "name_funct": "f_str_escapetbl",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "escape table for string encoding",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function surrogate_first_error"
+      },
+      "surrogate_first_error": {
+        "name_funct": "surrogate_first_error",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "error function for handling surrogate pairs",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function surrogate_first_error"
+      },
+      "f_str_subst": {
+        "name_funct": "f_str_subst",
+        "input_format": "ch (string), ucode (number)",
+        "output_format": "char (number), string",
+        "description": "Substitutes a Unicode character by its hexadecimal representation and escapes it if necessary.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_str_subst"
+      },
+      "f_str": {
+        "name_funct": "f_str",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "converts a JSON string to a UTF-8 encoded string, handling escape sequences and surrogate pairs.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_str"
+      },
+      "f_ary": {
+        "name_funct": "f_ary",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Parse a JSON array and return the array as a table.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_ary"
+      },
+      "f_obj": {
+        "name_funct": "f_obj",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "parses an object in JSON",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\decoder.lua#function f_obj"
+      },
+      "newencoder": {
+        "name_funct": "newencoder",
+        "input_format": "local v, nullv",
+        "output_format": "local i, builder, visited",
+        "description": "Creates a new encoder instance. Initializes the encoder with default settings.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function newencoder"
+      },
+      "f_string": {
+        "name_funct": "f_string",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Encodes a string for use in Lua's string table. It replaces special characters with their escaped representations and adds double quotes around the string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function f_string"
+      },
+      "f_table": {
+        "name_funct": "f_table",
+        "input_format": "o, visited, builder, i",
+        "output_format": "builder, i",
+        "description": "Traverses a table, encoding its elements into a builder string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function f_table"
+      },
+      "f_tostring": {
+        "name_funct": "f_tostring",
+        "input_format": "value",
+        "output_format": "string",
+        "description": "Converts a value to a string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function f_table"
+      },
+      "f_number": {
+        "name_funct": "f_number",
+        "input_format": "value",
+        "output_format": "string",
+        "description": "Converts a value to a string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function f_table"
+      },
+      "i": {
+        "name_funct": "i",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "variable used in the code",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function doencode"
+      },
+      "builder": {
+        "name_funct": "builder",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "a table used for building JSON structures",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function doencode"
+      },
+      "o": {
+        "name_funct": "o",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "an object used for tracking visited types",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function doencode"
+      },
+      "visited": {
+        "name_funct": "visited",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "a table used for tracking visited types",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function doencode"
+      },
+      "__index": {
+        "name_funct": "__index",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "function to handle invalid type values",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function doencode"
+      },
+      "doencode": {
+        "name_funct": "doencode",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "function to encode values",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function doencode"
+      },
+      "encode": {
+        "name_funct": "encode",
+        "input_format": "v_, nullv_",
+        "output_format": "concat(builder)",
+        "description": "Encodes a value into a string representation. Returns the concatenated builder string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\encoder.lua#function encode"
+      },
+      "newparser": {
+        "name_funct": "newparser",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the newparser function",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson.lua#File: src\\lunajson.lua"
+      },
+      "newfileparser": {
+        "name_funct": "newfileparser",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the newfileparser function",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson.lua#File: src\\lunajson.lua"
+      },
+      "_parse_error": {
+        "name_funct": "_parse_error",
+        "input_format": "pos (string), errmsg (string)",
+        "output_format": "nil",
+        "description": "Parse error function. Throws an error at the specified position with the given error message.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function _parse_error"
+      },
+      "type": {
+        "name_funct": "type",
+        "input_format": "value (any)",
+        "output_format": "string",
+        "description": "Returns the type of the given value.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function _parse_error"
+      },
+      "unpack": {
+        "name_funct": "unpack",
+        "input_format": "table (table)",
+        "output_format": "table",
+        "description": "Unpacks a table into its elements.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function _parse_error"
+      },
+      "open": {
+        "name_funct": "open",
+        "input_format": "filename (string)",
+        "output_format": "file",
+        "description": "Opens a file for reading.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function _parse_error"
+      },
+      "nop": {
+        "name_funct": "nop",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A no-operation function. It does nothing.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function nop"
+      },
+      "axtbl.endobject": {
+        "name_funct": "axtbl.endobject",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Ends an object in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "axtbl.startarray": {
+        "name_funct": "axtbl.startarray",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Starts an array in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "axtbl.endarray": {
+        "name_funct": "axtbl.endarray",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Ends an array in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "axtbl.string": {
+        "name_funct": "axtbl.string",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a string in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "axtbl.number": {
+        "name_funct": "axtbl.number",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a number in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "axtbl.boolean": {
+        "name_funct": "axtbl.boolean",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a boolean value in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "axtbl.null": {
+        "name_funct": "axtbl.null",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a null value in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "sax_startarray": {
+        "name_funct": "sax_startarray",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Starts an array in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "sax_endarray": {
+        "name_funct": "sax_endarray",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Ends an array in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "sax_string": {
+        "name_funct": "sax_string",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a string in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "sax_number": {
+        "name_funct": "sax_number",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a number in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "sax_boolean": {
+        "name_funct": "sax_boolean",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a boolean value in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "sax_null": {
+        "name_funct": "sax_null",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a null value in the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "tryc": {
+        "name_funct": "tryc",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Attempts to read a character from the JSON stream.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tryc"
+      },
+      "parse_error": {
+        "name_funct": "parse_error",
+        "input_format": "errmsg",
+        "output_format": "errmsg",
+        "description": "Parse an error message and return the parsed error.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function parse_error"
+      },
+      "tellc": {
+        "name_funct": "tellc",
+        "input_format": "no explicit input",
+        "output_format": "returns a string or nil",
+        "description": "Tells the current state of the system or parses error messages.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tellc"
+      },
+      "spaces": {
+        "name_funct": "spaces",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "skip spaces and prepare the next char",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function spaces"
+      },
+      "generic_constant": {
+        "name_funct": "generic_constant",
+        "input_format": "target, targetlen, ret, sax_f",
+        "output_format": "ret",
+        "description": "Validates a string against a target string and returns the result of a SAX function.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function generic_constant"
+      },
+      "generic_number": {
+        "name_funct": "generic_number",
+        "input_format": "local mns = json",
+        "output_format": "local buf, i, is_int = {}, 1, true",
+        "description": "Generates a buffer with a number of integers from a JSON string. Returns the buffer and the index of the last integer added.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function generic_number"
+      },
+      "nxt": {
+        "name_funct": "nxt",
+        "input_format": "c",
+        "output_format": "num",
+        "description": "Reads characters from a buffer and processes them according to the rules for integer numbers.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function nxt"
+      },
+      "pos": {
+        "name_funct": "pos",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "adjusts the position pointer in the JSON string",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function f_zro"
+      },
+      "num": {
+        "name_funct": "num",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "extracts a number from the JSON string",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function f_zro"
+      },
+      "fixedtonumber": {
+        "name_funct": "fixedtonumber",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "converts a string to a number",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function f_zro"
+      },
+      "f_str_surrogate_prev": {
+        "name_funct": "f_str_surrogate_prev",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function surrogate_first_error"
+      },
+      "run": {
+        "name_funct": "run",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Starts the execution of the dispatcher function.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function run"
+      },
+      "read": {
+        "name_funct": "read",
+        "input_format": "n (non-negative integer)",
+        "output_format": "string",
+        "description": "Reads a specified number of characters from a JSON string starting from the current position. If the number is negative, it raises an error. Otherwise, it returns the substring starting from the current position to the new position.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function read"
+      },
+      "tellpos": {
+        "name_funct": "tellpos",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function tellpos"
+      },
+      "gen": {
+        "name_funct": "gen",
+        "input_format": "local fp",
+        "output_format": "local s",
+        "description": "Reads 8192 bytes from a file pointer and returns the read data. If the file pointer is closed, it closes the file and returns nil.",
+        "extraction_method": "llm",
+        "source_ref": "src\\lunajson\\sax.lua#function gen"
+      }
+    }
+  }
+}

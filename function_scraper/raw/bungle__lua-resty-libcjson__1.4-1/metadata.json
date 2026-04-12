@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-resty-libcjson",
+  "author": "bungle",
+  "downloads": "16.7k",
+  "summary": "LuaJIT FFI-based cJSON library (tested with OpenResty too).",
+  "version": "1.4-1",
+  "homepage_url": "https://github.com/bungle/lua-resty-libcjson",
+  "label": "json"
+}

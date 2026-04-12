@@ -1,0 +1,1064 @@
+{
+  "lonejson": {
+    "version": "0.2.0-1",
+    "source_homepage": "https://github.com/sa6mwa/lonejson",
+    "functions": {
+      "lonejson": {
+        "name_funct": "lonejson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A schema-guided JSON library for C. It maps JSON objects directly into C structs and back again, with a particular emphasis on object-framed streams, predictable fixed-capacity decoding, and pipelines that need to move large values through JSON without holding everything in memory at once.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## lonejson"
+      },
+      "LONEJSON_FIELD_*": {
+        "name_funct": "LONEJSON_FIELD_*",
+        "input_format": "C struct fields",
+        "output_format": "JSON-visible fields",
+        "description": "Define JSON-visible fields for struct fields using macros.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Use-case"
+      },
+      "lonejson_map": {
+        "name_funct": "lonejson_map",
+        "input_format": "C struct",
+        "output_format": "JSON map",
+        "description": "Create a map from a C struct to JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Use-case"
+      },
+      "lonejson_parse": {
+        "name_funct": "lonejson_parse",
+        "input_format": "JSON string",
+        "output_format": "C struct",
+        "description": "Parse JSON string into a C struct.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Use-case"
+      },
+      "lonejson_stream": {
+        "name_funct": "lonejson_stream",
+        "input_format": "C struct",
+        "output_format": "JSON map",
+        "description": "Stream JSON map to a C struct.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Use-case"
+      },
+      "lonejson_validate": {
+        "name_funct": "lonejson_validate",
+        "input_format": "C struct",
+        "output_format": "boolean",
+        "description": "Validate C struct against JSON schema.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Use-case"
+      },
+      "lonejson_serialize": {
+        "name_funct": "lonejson_serialize",
+        "input_format": "C struct",
+        "output_format": "JSON string",
+        "description": "Serialize C struct to JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Use-case"
+      },
+      "lonejson_init": {
+        "name_funct": "lonejson_init",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "initialize the destination with `lonejson_init(...)`",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Integration"
+      },
+      "lonejson_clear_destination": {
+        "name_funct": "lonejson_clear_destination",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "configure the backing storage and parse with `clear_destination = 0`",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Integration"
+      },
+      "lonejson_generator_cleanup": {
+        "name_funct": "lonejson_generator_cleanup",
+        "input_format": "pointer to generator",
+        "output_format": "none",
+        "description": "Clean up resources associated with the generator",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Quick start"
+      },
+      "lonejson_parse_cstr": {
+        "name_funct": "lonejson_parse_cstr",
+        "input_format": "const char *json, lonejson_map *map, user_doc *doc, lonejson_error *error",
+        "output_format": "lonejson_status",
+        "description": "Parses a JSON string into a user_doc struct.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Parse one object into a struct"
+      },
+      "lonejson_cleanup": {
+        "name_funct": "lonejson_cleanup",
+        "input_format": "void **user_doc_map, void **doc",
+        "output_format": "void",
+        "description": "Free the memory allocated for a document map and a document object.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Read an object-framed stream"
+      },
+      "lonejson_stream_open_fd": {
+        "name_funct": "lonejson_stream_open_fd",
+        "input_format": "lonejson_stream *stream, void **user_doc_map, int fd, void *user_data",
+        "output_format": "lonejson_status status",
+        "description": "Open a stream from a file descriptor and initialize a document map and a document object.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Read an object-framed stream"
+      },
+      "lonejson_stream_next": {
+        "name_funct": "lonejson_stream_next",
+        "input_format": "lonejson_stream_result *result, void **doc",
+        "output_format": "lonejson_stream_result result",
+        "description": "Get the next result from a stream. Returns LONEJSON_STREAM_OBJECT for an object, LONEJSON_STREAM_EOF for the end of the stream, and LONEJSON_STREAM_ERROR for an error.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Read an object-framed stream"
+      },
+      "lonejson_stream_close": {
+        "name_funct": "lonejson_stream_close",
+        "input_format": "lonejson_stream *stream",
+        "output_format": "void",
+        "description": "Close a stream.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Read an object-framed stream"
+      },
+      "lonejson_serialize_buffer": {
+        "name_funct": "lonejson_serialize_buffer",
+        "input_format": "const char **, const char **, const char *, size_t, size_t *, size_t *, lonejson_error *",
+        "output_format": "size_t, lonejson_error *",
+        "description": "Serialize a buffer of JSON data. Returns the number of bytes written and an error code.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Emit JSON Lines"
+      },
+      "lonejson_serialize_jsonl_buffer": {
+        "name_funct": "lonejson_serialize_jsonl_buffer",
+        "input_format": "const char **, const char **, size_t, size_t, const char *, size_t, size_t *, size_t *, lonejson_error *",
+        "output_format": "size_t, lonejson_error *",
+        "description": "Serialize a JSON list of documents to a buffer. Returns the number of bytes written and an error code.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Emit JSON Lines"
+      },
+      "large_field_handling": {
+        "name_funct": "large_field_handling",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Handles large fields in a structured manner.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Large field handling"
+      },
+      "ingest_doc": {
+        "name_funct": "ingest_doc",
+        "input_format": "ingest_doc",
+        "output_format": "ingest_doc",
+        "description": "A structure representing a JSON document with a spooled body.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Inbound spool-backed fields"
+      },
+      "ingest_doc_map": {
+        "name_funct": "ingest_doc_map",
+        "input_format": "ingest_doc_map",
+        "output_format": "ingest_doc_map",
+        "description": "A map representing a field mapping for the ingest_doc structure.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Inbound spool-backed fields"
+      },
+      "ingest_spool": {
+        "name_funct": "ingest_spool",
+        "input_format": "ingest_spool_options",
+        "output_format": "ingest_spool_options",
+        "description": "Options for configuring spill behavior on the ingest_doc field mapping.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Inbound spool-backed fields"
+      },
+      "lonejson_source_set_path": {
+        "name_funct": "lonejson_source_set_path",
+        "input_format": "source path",
+        "output_format": "none",
+        "description": "Sets the path for a source. This function is used to attach the backing source to a document.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Outbound source-backed fields"
+      },
+      "LD_BASE64_SOURCE_REQ": {
+        "name_funct": "LD_BASE64_SOURCE_REQ",
+        "input_format": "outbound_bytes_doc, payload, \"payload\"",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function to process outbound bytes with a payload.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "query_doc": {
+        "name_funct": "query_doc",
+        "input_format": "namespace_[16], selector, fields",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A structure representing a query document.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "query_doc_fields": {
+        "name_funct": "query_doc_fields",
+        "input_format": "namespace_[16], selector, fields",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Fields for the query_doc structure.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "lonejson_json_value": {
+        "name_funct": "lonejson_json_value",
+        "input_format": "json_value, json_value, json_value",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Handles JSON values and their operations.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "lonejson_parse_options": {
+        "name_funct": "lonejson_parse_options",
+        "input_format": "lonejson_parse_options",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Options for parsing JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "lonejson_value_visitor": {
+        "name_funct": "lonejson_value_visitor",
+        "input_format": "lonejson_value_visitor",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Visitor for handling JSON values.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "lonejson_json_value_set_parse_sink": {
+        "name_funct": "lonejson_json_value_set_parse_sink",
+        "input_format": "lonejson_json_value, FILE *, user, error, status",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Sets a sink for parsing JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "lonejson_json_value_set_parse_visitor": {
+        "name_funct": "lonejson_json_value_set_parse_visitor",
+        "input_format": "lonejson_json_value, lonejson_value_visitor, user, error, status",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Sets a visitor for parsing JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "lonejson_json_value_enable_parse_capture": {
+        "name_funct": "lonejson_json_value_enable_parse_capture",
+        "input_format": "lonejson_json_value, FILE *, user, error, status",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Enables capture of compact JSON bytes.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Embedded arbitrary JSON values"
+      },
+      "on_number_chunk": {
+        "name_funct": "on_number_chunk",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Visiting Arbitrary JSON Values"
+      },
+      "on_number_end": {
+        "name_funct": "on_number_end",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Visiting Arbitrary JSON Values"
+      },
+      "on_boolean": {
+        "name_funct": "on_boolean",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Visiting Arbitrary JSON Values"
+      },
+      "on_null": {
+        "name_funct": "on_null",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Visiting Arbitrary JSON Values"
+      },
+      "lonejson_default_value_visitor": {
+        "name_funct": "lonejson_default_value_visitor",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Pretty printing"
+      },
+      "lonejson_default_read_result": {
+        "name_funct": "lonejson_default_read_result",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Pretty printing"
+      },
+      "lonejson_default_allocator": {
+        "name_funct": "lonejson_default_allocator",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Pretty printing"
+      },
+      "lonejson_error": {
+        "name_funct": "lonejson_error",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Pretty printing"
+      },
+      "lonejson_error_init": {
+        "name_funct": "lonejson_error_init",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Pretty printing"
+      },
+      "lonejson_default_owned_buffer": {
+        "name_funct": "lonejson_default_owned_buffer",
+        "input_format": "not specified",
+        "output_format": "not specified",
+        "description": "returns a default owned buffer for serialization",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmarks"
+      },
+      "lonejson_serialize_owned": {
+        "name_funct": "lonejson_serialize_owned",
+        "input_format": "user_doc_map, doc, owned, write_options, error",
+        "output_format": "not specified",
+        "description": "serializes data using the provided write options",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmarks"
+      },
+      "lonejson_free_owned_buffer": {
+        "name_funct": "lonejson_free_owned_buffer",
+        "input_format": "owned",
+        "output_format": "not specified",
+        "description": "deletes the owned buffer",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmarks"
+      },
+      "lonejson_bench": {
+        "name_funct": "lonejson_bench",
+        "input_format": "not specified",
+        "output_format": "not specified",
+        "description": "runs the Lua benchmark suite",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmarks"
+      },
+      "lonejson_bench_freeze_baseline": {
+        "name_funct": "lonejson_bench_freeze_baseline",
+        "input_format": "not specified",
+        "output_format": "not specified",
+        "description": "freezes the benchmark baseline",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Benchmarks"
+      },
+      "lj_bench_freeze_baseline": {
+        "name_funct": "lj_bench_freeze_baseline",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "refresh the committed baseline with the benchmark schema, case set, or measurement method changes",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Short aliases"
+      },
+      "module.build": {
+        "name_funct": "module.build",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Builds and installs the Lua binding into the local LuaRocks tree.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Lua binding"
+      },
+      "module.install": {
+        "name_funct": "module.install",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Installs the Lua binding into the local LuaRocks tree.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Lua binding"
+      },
+      "module.run_test": {
+        "name_funct": "module.run_test",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Runs the integration test for the Lua binding.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Lua binding"
+      },
+      "module.run_example": {
+        "name_funct": "module.run_example",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Runs the Lua example for the Lua binding.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Lua binding"
+      },
+      "json_value": {
+        "name_funct": "json_value",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "arbitrary",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Example programs"
+      },
+      "Build and install it into the local LuaRocks tree": {
+        "name_funct": "Build and install it into the local LuaRocks tree",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "arbitrary",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Example programs"
+      },
+      "Run the integration test": {
+        "name_funct": "Run the integration test",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "arbitrary",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Example programs"
+      },
+      "Run the Lua example": {
+        "name_funct": "Run the Lua example",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "arbitrary",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Example programs"
+      },
+      "See [examples/README.md](examples/README.md)": {
+        "name_funct": "See [examples/README.md](examples/README.md)",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "arbitrary",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Example programs"
+      },
+      "The example programs cover one-shot parsing, object-framed streams, fixed-storage mappings, spool-to-disk fields, source-backed outbound fields, string/file/JSONL serialization, optional curl integration, and the Lua binding.": {
+        "name_funct": "The example programs cover one-shot parsing, object-framed streams, fixed-storage mappings, spool-to-disk fields, source-backed outbound fields, string/file/JSONL serialization, optional curl integration, and the Lua binding.",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "arbitrary",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Example programs"
+      },
+      "set": {
+        "name_funct": "set",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "The example programs cover one-shot parsing, object-framed streams, fixed-storage mappings, spool-to-disk fields, source-backed outbound fields, string/file/JSONL serialization, optional curl integration, and the Lua binding.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Release artifacts"
+      },
+      "prefers": {
+        "name_funct": "prefers",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "prefers a curl-enabled native build when curl is available in the build environment and falls back automatically to a curl-free build otherwise. The same release version source of truth is used for the source-only archive and the generated standalone header artifact.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Verification"
+      },
+      "make_build": {
+        "name_funct": "make_build",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "writes the standalone C example binaries to `examples/bin/`",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "parse_string": {
+        "name_funct": "parse_string",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "serialize_jsonl": {
+        "name_funct": "serialize_jsonl",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "parse_file": {
+        "name_funct": "parse_file",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "parse_reader": {
+        "name_funct": "parse_reader",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "serialize_file": {
+        "name_funct": "serialize_file",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "push_parser": {
+        "name_funct": "push_parser",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "generator_pull": {
+        "name_funct": "generator_pull",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "json_value_buffer": {
+        "name_funct": "json_value_buffer",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "json_value_parse": {
+        "name_funct": "json_value_parse",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "json_value_visitor": {
+        "name_funct": "json_value_visitor",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "json_value_source": {
+        "name_funct": "json_value_source",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "spooled_text": {
+        "name_funct": "spooled_text",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "spooled_bytes": {
+        "name_funct": "spooled_bytes",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "source_text": {
+        "name_funct": "source_text",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "source_bytes": {
+        "name_funct": "source_bytes",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "serialize_string": {
+        "name_funct": "serialize_string",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "fixed_storage": {
+        "name_funct": "fixed_storage",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_IMPLEMENTATION` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "curl_get": {
+        "name_funct": "curl_get",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_WITH_CURL` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "curl_examples": {
+        "name_funct": "curl_examples",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines `LONEJSON_WITH_CURL` and compiles against a generated standalone header",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "compose_up": {
+        "name_funct": "compose_up",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "starts the local test rig",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md## Examples"
+      },
+      "lua-rock": {
+        "name_funct": "lua-rock",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Build and install the Lua module into the local LuaRocks tree.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md### Lua binding"
+      },
+      "lua-binding": {
+        "name_funct": "lua-binding",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Run the Lua example.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md### Lua binding"
+      },
+      "require": {
+        "name_funct": "require",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Loads a Lua module or package.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md## lonejson Lua binding"
+      },
+      "lj": {
+        "name_funct": "lj",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Loads the lonejson Lua binding.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md## lonejson Lua binding"
+      },
+      "cords.clear": {
+        "name_funct": "cords.clear",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Clears and reuses the cords, passes through object-framed streams, and combines with spool-backed fields for large text or byte payloads.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Building and testing from this repository"
+      },
+      "cords.reuse": {
+        "name_funct": "cords.reuse",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Clears and reuses the cords, passes through object-framed streams, and combines with spool-backed fields for large text or byte payloads.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Building and testing from this repository"
+      },
+      "cords.combine": {
+        "name_funct": "cords.combine",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Clears and reuses the cords, passes through object-framed streams, and combines with spool-backed fields for large text or byte payloads.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Building and testing from this repository"
+      },
+      "lj.object": {
+        "name_funct": "lj.object",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.object` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.field": {
+        "name_funct": "lj.field",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.field` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.string": {
+        "name_funct": "lj.string",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.string` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.i64": {
+        "name_funct": "lj.i64",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.i64` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.bool": {
+        "name_funct": "lj.bool",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.bool` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.json_value": {
+        "name_funct": "lj.json_value",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.json_value` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.string_array": {
+        "name_funct": "lj.string_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.string_array` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.i64_array": {
+        "name_funct": "lj.i64_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.i64_array` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.f64_array": {
+        "name_funct": "lj.f64_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.f64_array` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.boolean_array": {
+        "name_funct": "lj.boolean_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.boolean_array` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.object_array": {
+        "name_funct": "lj.object_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.object_array` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.spooled_text": {
+        "name_funct": "lj.spooled_text",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.spooled_text` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "lj.spooled_bytes": {
+        "name_funct": "lj.spooled_bytes",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the `lj.spooled_bytes` function",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### The schema DSL"
+      },
+      "User:decode": {
+        "name_funct": "User:decode",
+        "input_format": "JSON string",
+        "output_format": "Lua table",
+        "description": "Decodes a JSON string into a Lua table.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Table mode"
+      },
+      "User:decode_path": {
+        "name_funct": "User:decode_path",
+        "input_format": "path",
+        "output_format": "Lua table",
+        "description": "Decodes a JSON object from a path.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Table mode"
+      },
+      "User:decode_fd": {
+        "name_funct": "User:decode_fd",
+        "input_format": "file handle",
+        "output_format": "Lua table",
+        "description": "Decodes a JSON object from a file handle.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Table mode"
+      },
+      "User:write_path": {
+        "name_funct": "User:write_path",
+        "input_format": "value, path, options",
+        "output_format": "none",
+        "description": "Writes a value to a path.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Table mode"
+      },
+      "User:write_fd": {
+        "name_funct": "User:write_fd",
+        "input_format": "value, file handle, options",
+        "output_format": "none",
+        "description": "Writes a value to a file handle.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Table mode"
+      },
+      "schema:decode_path": {
+        "name_funct": "schema:decode_path",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Reusable records"
+      },
+      "schema:decode_fd": {
+        "name_funct": "schema:decode_fd",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Reusable records"
+      },
+      "schema:write_path": {
+        "name_funct": "schema:write_path",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Reusable records"
+      },
+      "schema:write_fd": {
+        "name_funct": "schema:write_fd",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Reusable records"
+      },
+      "stream_path": {
+        "name_funct": "stream_path",
+        "input_format": "path to stream",
+        "output_format": "record",
+        "description": "Creates a stream for reading JSONL data.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Object-framed streams"
+      },
+      "new_record": {
+        "name_funct": "new_record",
+        "input_format": "none",
+        "output_format": "record",
+        "description": "Creates a new record object.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Object-framed streams"
+      },
+      "stream:next": {
+        "name_funct": "stream:next",
+        "input_format": "record",
+        "output_format": "tuple",
+        "description": "Reads the next object from the stream and returns it.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Object-framed streams"
+      },
+      "stream:close": {
+        "name_funct": "stream:close",
+        "input_format": "none",
+        "output_format": "none",
+        "description": "Closes the stream and releases resources.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Object-framed streams"
+      },
+      "User:compile_get": {
+        "name_funct": "User:compile_get",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Compiles a getter closure for a string field.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Path compilation and accessors"
+      },
+      "User:compile_count": {
+        "name_funct": "User:compile_count",
+        "input_format": "string",
+        "output_format": "number",
+        "description": "Compiles a count closure for a string field.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Path compilation and accessors"
+      },
+      "User:new_record": {
+        "name_funct": "User:new_record",
+        "input_format": "table",
+        "output_format": "record",
+        "description": "Creates a new record object.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Path compilation and accessors"
+      },
+      "User:decode_into": {
+        "name_funct": "User:decode_into",
+        "input_format": "record",
+        "output_format": "record",
+        "description": "Decodes a record from a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Path compilation and accessors"
+      },
+      "w_record": {
+        "name_funct": "w_record",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Spool-backed fields"
+      },
+      "User.decode_into": {
+        "name_funct": "User.decode_into",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Spool-backed fields"
+      },
+      "print": {
+        "name_funct": "print",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Spool-backed fields"
+      },
+      "compile_path": {
+        "name_funct": "compile_path",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Spool-backed fields"
+      },
+      "Blob": {
+        "name_funct": "Blob",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the class's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Spool-backed fields"
+      },
+      "lj.schema": {
+        "name_funct": "lj.schema",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Spool-backed fields"
+      },
+      "lj.chunks": {
+        "name_funct": "lj.chunks",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Spool-backed fields"
+      },
+      "sink": {
+        "name_funct": "sink",
+        "input_format": "chunk: string",
+        "output_format": "none",
+        "description": "Sinks a chunk of data.",
+        "extraction_method": "llm",
+        "source_ref": "lua\\README.md### Error handling"
+      },
+      "latest.json": {
+        "name_funct": "latest.json",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "stores the most recent benchmark run as one JSON object and is committed so `bench-compare` works from the repo checkout.",
+        "extraction_method": "llm",
+        "source_ref": "perflogs\\README.md## Performance Logs"
+      },
+      "history.jsonl": {
+        "name_funct": "history.jsonl",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "appends every benchmark run as compact JSONL.",
+        "extraction_method": "llm",
+        "source_ref": "perflogs\\README.md## Performance Logs"
+      },
+      "baseline.json": {
+        "name_funct": "baseline.json",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "stores a frozen run copied from the last history entry and is committed as the comparison baseline.",
+        "extraction_method": "llm",
+        "source_ref": "perflogs\\README.md## Performance Logs"
+      },
+      "runs/<timestamp_epoch_ns>.json": {
+        "name_funct": "runs/<timestamp_epoch_ns>.json",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "stores archived benchmark reports.",
+        "extraction_method": "llm",
+        "source_ref": "perflogs\\README.md## Performance Logs"
+      },
+      "bench-compare": {
+        "name_funct": "bench-compare",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "labels deltas under 3% as noise, deltas under 5% as small, and larger deltas as material.",
+        "extraction_method": "llm",
+        "source_ref": "perflogs\\README.md## Performance Logs"
+      },
+      "bench-gate": {
+        "name_funct": "bench-gate",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "is the hard check: it fails if the baseline schema version differs from the latest run, if the benchmark configuration differs from the baseline, if the baseline is missing any current benchmark lanes, or if the baseline is missing any current benchmark lanes.",
+        "extraction_method": "llm",
+        "source_ref": "perflogs\\README.md## Performance Logs"
+      },
+      "vendor_json_test_suite": {
+        "name_funct": "vendor_json_test_suite",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Vendors only the `test_parsing/` subset from the upstream JSONTestSuite project.",
+        "extraction_method": "llm",
+        "source_ref": "tests\\fixtures\\vendor\\json_test_suite\\README.md## Vendored JSONTestSuite Subset"
+      },
+      "lua-bench-gate": {
+        "name_funct": "lua-bench-gate",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Checks Lua benchmark schema version against baseline and verifies presence of lonejson Lua benchmark lanes. Also checks for negative throughput regression of 5% or more.",
+        "extraction_method": "llm",
+        "source_ref": "perflogs\\lua\\README.md## Lua Performance Logs"
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "hjson-lua": {
+    "version": "0.3.0-1",
+    "source_homepage": "https://github.com/hjson/hjson-lua",
+    "functions": {
+      "hjson": {
+        "name_funct": "hjson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A lightweight H/JSON library for Lua",
+        "extraction_method": "llm",
+        "source_ref": "README.md## hjson-lua"
+      },
+      "hjson_lua": {
+        "name_funct": "hjson_lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Ported from [hjson-py](https://github.com/hjson/hjson-py). Inspired by rxi - [json.lua](https://github.com/rxi/json.lua).",
+        "extraction_method": "llm",
+        "source_ref": "README.md## hjson-lua"
+      },
+      "setup": {
+        "name_funct": "setup",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Initializes the setup for the application. This function is called at the beginning of the script to set up the environment and any necessary configurations.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Setup"
+      },
+      "drop": {
+        "name_funct": "drop",
+        "input_format": "hjson.lua, hjson folder",
+        "output_format": "not specified",
+        "description": "Drop the hjson.lua and hjson folder into the project.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Manual"
+      },
+      "require": {
+        "name_funct": "require",
+        "input_format": "hjson.lua",
+        "output_format": "hjson.lua",
+        "description": "Require the hjson.lua file.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Manual"
+      },
+      "encode": {
+        "name_funct": "encode",
+        "input_format": "obj (Lua object), options (table)",
+        "output_format": "HJSON string",
+        "description": "Converts Lua object to HJSON string. Parameters include obj (Lua object) and options (table). Options include indent (string of whitespace characters or number of spaces), skip_keys (boolean), sort_keys (boolean), item_sort_key (function), and invalid_objects_as_type (boolean).",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "stringify": {
+        "name_funct": "stringify",
+        "input_format": "obj (Lua object), options (table)",
+        "output_format": "HJSON string",
+        "description": "Converts Lua object to HJSON string. Parameters include obj (Lua object) and options (table). Options include indent (string of whitespace characters or number of spaces), skip_keys (boolean), sort_keys (boolean), item_sort_key (function), and invalid_objects_as_type (boolean).",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "decode": {
+        "name_funct": "decode",
+        "input_format": "str (H/JSON string), strict (boolean), object_hook (function), object_pairs_hook (function)",
+        "output_format": "Lua object",
+        "description": "Converts H/JSON string to Lua object. Parameters include str (H/JSON string), strict (boolean), object_hook (function), and object_pairs_hook (function).",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "parse": {
+        "name_funct": "parse",
+        "input_format": "str (H/JSON string), strict (boolean), object_hook (function), object_pairs_hook (function)",
+        "output_format": "Lua object",
+        "description": "Converts H/JSON string to Lua object. Parameters include str (H/JSON string), strict (boolean), object_hook (function), and object_pairs_hook (function).",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "hook": {
+        "name_funct": "hook",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows adjusting table before generation.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### License"
+      },
+      "pairs": {
+        "name_funct": "pairs",
+        "input_format": "table (in array form) composited from key/value pairs",
+        "output_format": "table",
+        "description": "Called before the table for object_hook is generated.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### License"
+      },
+      "HJsonEncodeOptions": {
+        "name_funct": "HJsonEncodeOptions",
+        "input_format": "indent, skip_keys, sort_keys, item_sort_key, invalid_objects_as_type",
+        "output_format": "nil",
+        "description": "Options for encoding JSON.",
+        "extraction_method": "llm",
+        "source_ref": "hjson.lua#Block 1"
+      },
+      "new": {
+        "name_funct": "new",
+        "input_format": "options",
+        "output_format": "decoder",
+        "description": "Creates a new decoder instance with given options.",
+        "extraction_method": "llm",
+        "source_ref": "hjson.lua#Block 2"
+      },
+      "encode_json": {
+        "name_funct": "encode_json",
+        "input_format": "any, HJsonEncodeOptions?",
+        "output_format": "string?, string?",
+        "description": "Encodes a JSON object into a JSON string. Options can be provided for custom encoding.",
+        "extraction_method": "llm",
+        "source_ref": "hjson.lua#Block 3"
+      },
+      "encode_to_json": {
+        "name_funct": "encode_to_json",
+        "input_format": "any",
+        "output_format": "string? result, string? error",
+        "description": "Encodes a JSON object into a string using HJsonEncodeOptions.",
+        "extraction_method": "llm",
+        "source_ref": "hjson.lua#Block 4"
+      }
+    }
+  }
+}

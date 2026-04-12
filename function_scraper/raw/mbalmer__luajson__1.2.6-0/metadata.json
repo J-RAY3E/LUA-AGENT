@@ -1,0 +1,9 @@
+{
+  "module_name": "luajson",
+  "author": "mbalmer",
+  "downloads": "26",
+  "summary": "A JSON encoder and decoder for Lua",
+  "version": "1.2.6-0",
+  "homepage_url": "http://github.com/arcapos/luajson",
+  "label": "json"
+}

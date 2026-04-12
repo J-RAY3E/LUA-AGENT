@@ -1,0 +1,56 @@
+{
+  "jsonrpc4lua": {
+    "version": "1.0.1-1",
+    "source_homepage": "http://github.com/pdxmeshnet/jsonrpc4lua/",
+    "functions": {
+      "module": {
+        "name_funct": "module",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A JSON RPC over HTTP Lua module. It is a fork of [json4lua](https://github.com/craigmj/json4lua), refactored to use [CJSON](http://www.kyne.com/~mark/software/lua-cjson.php).",
+        "extraction_method": "llm",
+        "source_ref": "README.md## jsonrpc4lua"
+      },
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function is used for some purpose related to the module. It takes in some arguments and returns a specific value or structure.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Dependencies"
+      },
+      "global_func": {
+        "name_funct": "global_func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This global function is used for some purpose related to the global context. It takes in some arguments and returns a specific value or structure.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Dependencies"
+      },
+      "jsonrpc4lua": {
+        "name_funct": "jsonrpc4lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Install the `jsonrpc4lua` package using `luarocks`.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Installation"
+      },
+      "fix_cgilua": {
+        "name_funct": "fix_cgilua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Fixes issues related to CGILua integration.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Required CGILua Fix"
+      },
+      "JSONRPC4Lua": {
+        "name_funct": "JSONRPC4Lua",
+        "input_format": "not applicable",
+        "output_format": "not applicable",
+        "description": "A Lua implementation of the JSON-RPC protocol. This library provides a simple and efficient way to create and send JSON-RPC requests and responses in Lua.",
+        "extraction_method": "llm",
+        "source_ref": "doc\\VERSION.txt#Section 1"
+      }
+    }
+  }
+}

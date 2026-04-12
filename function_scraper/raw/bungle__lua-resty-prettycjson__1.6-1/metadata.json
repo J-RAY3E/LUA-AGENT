@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-resty-prettycjson",
+  "author": "bungle",
+  "downloads": "31.5k",
+  "summary": "JSON Pretty Formatter for Lua cJSON",
+  "version": "1.6-1",
+  "homepage_url": "https://github.com/bungle/lua-resty-prettycjson",
+  "label": "json"
+}

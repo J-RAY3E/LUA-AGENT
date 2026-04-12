@@ -1,0 +1,9 @@
+{
+  "module_name": "eja",
+  "author": "ubaldo",
+  "downloads": "69",
+  "summary": "A micro http server that can serve dynamic generated content.",
+  "version": "1-0",
+  "homepage_url": "https://github.com/eja/eja",
+  "label": "json"
+}

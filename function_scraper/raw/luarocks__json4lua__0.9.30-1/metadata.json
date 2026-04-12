@@ -1,0 +1,9 @@
+{
+  "module_name": "json4lua",
+  "author": "luarocks",
+  "downloads": "239k",
+  "summary": "JSON4Lua and JSONRPC4Lua implement JSON (JavaScript Object Notation) encoding and decoding and a JSON-RPC-over-http client for Lua.",
+  "version": "0.9.30-1",
+  "homepage_url": "http://json.luaforge.net/",
+  "label": "json"
+}

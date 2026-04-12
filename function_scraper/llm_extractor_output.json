@@ -1,0 +1,18 @@
+[
+    {
+        "name": "StringUtils.split",
+        "input_format": "string, string",
+        "output_format": "table, number",
+        "description": "Splits the string `str` using the separator `sep`. If `sep` is not provided, it defaults to a space. Returns a table containing the split sub-strings, and the total count.",
+        "extraction_method": "llm",
+        "source_ref": "StringUtils/README.md#### Library: StringUtils"
+    },
+    {
+        "name": "StringUtils.to_uppercase",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Converts all characters in `str` to uppercase format. Returns the uppercase string.",
+        "extraction_method": "llm",
+        "source_ref": "StringUtils/README.md#### Library: StringUtils"
+    }
+]

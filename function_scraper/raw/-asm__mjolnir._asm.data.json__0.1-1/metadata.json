@@ -1,0 +1,9 @@
+{
+  "module_name": "mjolnir._asm.data.json",
+  "author": "-asm",
+  "downloads": "172",
+  "summary": "Json encoding and decoding functions for Mjolnir",
+  "version": "0.1-1",
+  "homepage_url": "https://github.com/asmagill/mjolnir_asm.data",
+  "label": "json"
+}

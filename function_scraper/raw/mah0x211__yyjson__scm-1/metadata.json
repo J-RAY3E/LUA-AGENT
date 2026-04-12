@@ -1,0 +1,9 @@
+{
+  "module_name": "yyjson",
+  "author": "mah0x211",
+  "downloads": "7,413",
+  "summary": "lua bindings for yyjson.",
+  "version": "scm-1",
+  "homepage_url": "https://github.com/mah0x211/lua-yyjson",
+  "label": "json"
+}

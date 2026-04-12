@@ -1,0 +1,240 @@
+{
+  "lua-yajl": {
+    "version": "scm-1",
+    "source_homepage": "http://github.com/brimworks/lua-yajl",
+    "functions": {
+      "tap.ok": {
+        "name_funct": "tap.ok",
+        "input_format": "assert_true (boolean), desc (string or nil)",
+        "output_format": "msg (string)",
+        "description": "Prints an assertion message indicating whether an assertion is true or not. If a description is provided, it is appended to the message.",
+        "extraction_method": "llm",
+        "source_ref": "tap.lua#function tap.ok"
+      },
+      "main": {
+        "name_funct": "main",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "The main function of the script, calling various other functions.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "test_simple": {
+        "name_funct": "test_simple",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A simple test function.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "test_issue_13": {
+        "name_funct": "test_issue_13",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A test function for issue 13.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "null_at_end_of_array": {
+        "name_funct": "null_at_end_of_array",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A function that returns null at the end of an array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "null_object_value": {
+        "name_funct": "null_object_value",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A function that returns null if the object has no value.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "weird_numbers": {
+        "name_funct": "weird_numbers",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A function that returns weird numbers.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "number_in_string": {
+        "name_funct": "number_in_string",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A function that returns a number from a string.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "test_generator": {
+        "name_funct": "test_generator",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A test function for generator.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "test_to_value": {
+        "name_funct": "test_to_value",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "A test function for converting to value.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function main"
+      },
+      "to_value": {
+        "name_funct": "to_value",
+        "input_format": "string",
+        "output_format": "any",
+        "description": "Converts a string to a value using YAJL library.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function to_value"
+      },
+      "yajl.parser": {
+        "name_funct": "yajl.parser",
+        "input_format": "string",
+        "output_format": "result",
+        "description": "Parse JSON string and return a YAJL value.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_issue_13"
+      },
+      "custom": {
+        "name_funct": "custom",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Custom JSON serializer function.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_issue_13"
+      },
+      "yajl.to_value": {
+        "name_funct": "yajl.to_value",
+        "input_format": "json string",
+        "output_format": "value",
+        "description": "Converts a JSON string to a value using the yajl library.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_to_value"
+      },
+      "yajl.to_string": {
+        "name_funct": "yajl.to_string",
+        "input_format": "value",
+        "output_format": "string",
+        "description": "Converts a value to a string using the yajl library.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_to_value"
+      },
+      "yajl.generator": {
+        "name_funct": "yajl.generator",
+        "input_format": "function",
+        "output_format": "generator",
+        "description": "Generates JSON data.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.open_array": {
+        "name_funct": "yajl.generator.open_array",
+        "input_format": "void",
+        "output_format": "void",
+        "description": "Starts a new array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.value": {
+        "name_funct": "yajl.generator.value",
+        "input_format": "table",
+        "output_format": "void",
+        "description": "Adds a value to the current array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.integer": {
+        "name_funct": "yajl.generator.integer",
+        "input_format": "number",
+        "output_format": "void",
+        "description": "Adds an integer to the current array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.double": {
+        "name_funct": "yajl.generator.double",
+        "input_format": "number",
+        "output_format": "void",
+        "description": "Adds a double to the current array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.number": {
+        "name_funct": "yajl.generator.number",
+        "input_format": "number",
+        "output_format": "void",
+        "description": "Adds a number to the current array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.string": {
+        "name_funct": "yajl.generator.string",
+        "input_format": "string",
+        "output_format": "void",
+        "description": "Adds a string to the current array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.empty": {
+        "name_funct": "yajl.generator.empty",
+        "input_format": "void",
+        "output_format": "void",
+        "description": "Adds an empty array to the current array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.null": {
+        "name_funct": "yajl.generator.null",
+        "input_format": "void",
+        "output_format": "void",
+        "description": "Adds a null value to the current array.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.open_object": {
+        "name_funct": "yajl.generator.open_object",
+        "input_format": "void",
+        "output_format": "void",
+        "description": "Starts a new object.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "yajl.generator.close": {
+        "name_funct": "yajl.generator.close",
+        "input_format": "void",
+        "output_format": "void",
+        "description": "Closes the current object.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_generator"
+      },
+      "table.concat": {
+        "name_funct": "table.concat",
+        "input_format": "table of strings",
+        "output_format": "string",
+        "description": "Concatenates elements of a table into a single string.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_simple"
+      },
+      "assert": {
+        "name_funct": "assert",
+        "input_format": "table of expected and actual values",
+        "output_format": "boolean",
+        "description": "Checks if the expected value matches the actual value.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function test_simple"
+      },
+      "to_string": {
+        "name_funct": "to_string",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "converts JSON string to Lua value",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#function null_at_end_of_array"
+      }
+    }
+  }
+}

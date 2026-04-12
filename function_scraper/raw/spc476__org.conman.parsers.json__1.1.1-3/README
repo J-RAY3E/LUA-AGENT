@@ -1,0 +1,478 @@
+
+The code herein contains LPeg [1] routines for parsing some common data
+formats.  The current formats are:
+
+abnf
+
+	The core ruleset from RFC-5234.  These rules are used often in RFCs.
+
+ascii
+ascii.char
+ascii.control
+ascii.ctrl
+
+	Match a single ASCII character.  The top level module will match
+	both graphical charaters and control characters.  The "ascii.char"
+	module only matches the graphical characters; the "ascii.control"
+	module only matches the control codes.  The "ascii.ctrl" will return
+	the name of a control character, or nil if not a control character.
+
+iso
+iso.char
+iso.control
+iso.ctrl
+
+	Match a single ISO character.  The top level module will match both
+	graphical, control characters and control sequences.  The "iso.char"
+	only matches the ISO graphical characters; the iso.control" module
+	mathces only control characters (for example, <ESC>E or \133).  The
+	"iso.ctrl" will return the name of the control character, plus any
+	associated data as appropriate.  For example:
+
+		<ESC>[32;40m
+
+	will return a name of "SGR" and a two element array containing 32
+	and 40.
+
+	NOTE:  These modules only deal with the ISO defined characters, and
+	will NOT match those defined by ASCII.  To match a graphical character
+	that matches both ASCII and ISO:
+
+		char = require "org.conman.parsers.ascii.char
+		     + require "org.conman.parsers.iso.char
+
+
+email
+
+	Parses email headers as defined in:
+
+		RFC-0822	Internet Message Format
+		RFC-1036	Standard for Interchange of USENET Messages
+		RFC-2045	Multipurpose Internet Mail Extensions I
+		RFC-2046	Multipurpose Internet Mail Extensions II
+		RFC-2047	Multipurpose Internet Mail Extensions III
+		RFC-2048	Multipurpose Internet Mail Extensions IV
+		RFC-2369	The Use of URLs as Meta-Syntax for Core Mail 
+				List Commands and their Transport through 
+				Message Header Fields
+		RFC-2822	Internet Message Format	
+		RFC-2919	A Structured Field and Namespace for the Identification of Mailing Lists
+		RFC-5064	The Archived-At Message Header Field
+		RFC-5322	Internet Message Format
+
+	Headers are returned in a Lua table.  For example, the following
+	headers:
+
+		Return-Path: <sean@conman.org>
+		Received: from brevard.conman.org (brevard.conman.org 
+			[66.252.224.242])
+			by mail.example.com (Postfix) 
+			with ESMTP id 538562EA5D07
+			for <sherlock@example.com>; 
+			Fri, 28 Dec 2012 21:40:11 -0500
+		From: Sean Conner <sean@conman.org>
+		To: Sherlock Holmes <sherlock@example.com>,
+			the-scooby-gang: Fred <fred@example.net>,
+				Daphne <daphne@example.net>,
+				Velma <velma@example.net>,
+				Shaggy <shaggy@example.net>,
+				Scobby-Doo <scooby@example.net>;,
+			The Batman <batman@example.org>
+		Subject: I know who did it!
+		Date: Fri, 28 Dec 2012 21:40:11 -0500
+		Message-ID: <1234.5678.90abcd@conman.org>
+
+	Will return the following Lua table:
+
+		{
+		  received =
+		  {
+		    [1] =
+		    {
+		      with = "ESMTP",
+		      from = "brevard.conman.org",
+		      id = "538562EA5D07",
+		      when =
+		      {
+		        min = 0.000000,
+		        zone = -18000.000000,
+		        day = 28.000000,
+		        month = 12.000000,
+		        year = 2012.000000,
+		        sec = 1.000000,
+		        hour = 1.000000,
+		        weekday = "Fri",
+		      },
+		      for =
+		      {
+		        address = "sherlock@example.com",
+		      },
+		      by = "mail.example.com",
+		    },
+		  },
+		  to =
+		  {
+		    [1] =
+		    {
+		      name = "Sherlock Holmes",
+		      address = "sherlock@example.com",
+		    },
+		    [2] =
+		    {
+		      ['the-scooby-gang'] =
+		      {
+		        [1] =
+		        {
+		          name = "Fred",
+		          address = "fred@example.net",
+		        },
+		        [2] =
+		        {
+		          name = "Daphne",
+		          address = "daphne@example.net",
+		        },
+		        [3] =
+		        {
+		          name = "Velma",
+		          address = "velma@example.net",
+		        },
+		        [4] =
+		        {
+		          name = "Shaggy",
+		          address = "shaggy@example.net",
+		        },
+		        [5] =
+		        {
+		          name = "Scobby-Doo",
+		          address = "scooby@example.net",
+		        },
+		      },
+		    },
+		    [3] =
+		    {
+		      name = "The Batman",
+		      address = "batman@example.org",
+		    },
+		  },
+		  from =
+		  {
+		    [1] =
+		    {
+		      name = "Sean Conner",
+		      address = "sean@conman.org",
+		    },
+		  },
+		  date =
+		  {
+		    min = 0.000000,
+		    zone = -18000.000000,
+		    day = 28.000000,
+		    month = 12.000000,
+		    year = 2012.000000,
+		    sec = 1.000000,
+		    hour = 1.000000,
+		    weekday = "Fri",
+		  },
+		  return_path =
+		  {
+		    [1] =
+		    {
+		      address = "sean@conman.org",
+		    },
+		  },
+		  message_id = "1234.5678.90abcd@conman.org",
+		  subject = "I know who did it!",
+		}
+
+	The only fields not supported are the Resent-* fields; they are
+	rarely used and the semantics are particularly hard to support via
+	parsing only.  These fields, as well as any other fields not
+	otherwise understood or parsable will end up on a field called
+	'generic' with the key being the raw header name.
+
+json
+
+	Implements a JSON parser.  It requires some additional modules [2]
+	to run.  This will parse a JSON file into a Lua table.  The full
+	grammar is supported, but it expects the input to be valid UTF-8.
+
+	A JSON null value will be converted to nil.  If you won't want this
+	behavior, define a global variable called "null" to be the value
+	you want for a JSON null.
+
+jsons
+
+	Another implementation of a JSON parser.  This one "streams" the
+	input, meaning it will handle large JSON files the other one won't,
+	and is a drop in replacement.  You can also pass in a function that
+	will return more data so you can actually "stream" data into the
+	parser.
+
+ip
+
+	Provides two LPeg patterns, IPv4 and IPv6 which parse and convert
+	said addresses directly into their network-order binary formats.
+
+ip-text
+
+	Provides two LPeg patterns, IPv4 and IPv6 which parse and return said
+	addresses as text, unlike the ip module above.
+
+ini
+
+	Provides a INI file parser that returns a Lua table from a INI
+	file.  A sample INI file such as:
+
+		; we allow "default" values
+
+		default = ok
+
+		[section1]
+
+		var1 = foo
+		var2 = 12,23,34,54,44
+		VAR3 = "var3=foo",33,44,55
+		var2 = apple
+		Var4 = 55
+
+		[section2]
+			# another comment
+			; and so is this one
+		
+			var1 = foo bar baz ; this is a comment
+			var2 = "foo bar baz ; this is not a comment"
+
+		[section1]
+
+			var4=this is a test
+			var5= this is also a test
+			var2 = pear
+			var3 = 88,99
+
+
+	will result in a Lua table of:
+
+		{
+		  section1 =
+		  {
+		    var1 = "foo",
+		    var5 = "this is also a test",
+		    var4 =
+		    {
+		      [1] = "55",
+		      [2] = "this is a test",
+		    },
+		    var3 =
+		    {
+		      [1] = "var3=foo",
+		      [2] = "33",
+		      [3] = "44",
+		      [4] = "55",
+		      [5] = "88",
+		      [6] = "99",
+		    },
+		    var2 =
+		    {
+		      [1] = "12",
+		      [2] = "23",
+		      [3] = "34",
+		      [4] = "54",
+		      [5] = "44",
+		      [6] = "apple",
+		      [7] = "pear",
+		    },
+		  },
+		  default = "ok",
+		  section2 =
+		  {
+		    var1 = "foo bar baz ",
+		    var2 = "foo bar baz ; this is not a comment",
+		  },
+		}
+
+strftime
+	Parses the format string for strftime() (or os.date() for Lua) and
+	returns an LPeg expression that can parse that format, with the
+	exceptions of "%c", "%x" and "%X" (all system specific formats).
+	For example, the format, "%A, %d %B %Y @ %H:%M:%S" will return the
+	LPeg expression to parse this:
+
+		Monday, 02 July 2018 @ 16:02:48
+
+	into
+
+		{
+		  min = 2.000000,
+		  wday = 2.000000,
+		  day = 2.000000,
+		  month = 7.000000,
+		  sec = 48.000000,
+		  hour = 16.000000,
+		  year = 2018.000000,
+		}
+
+	This will even work with other locales, such as "se_NO.UTF-8",
+	which will allow LPeg to parse:
+
+		vuossárga, 02 suoidnemánu 2018 @ 16:02:48
+
+	into
+
+		{
+		  min = 2,000000,
+		  wday = 2,000000,
+		  day = 2,000000,
+		  month = 7,000000,
+		  sec = 48,000000,
+		  hour = 16,000000,
+		  year = 2018,000000,
+		}
+
+url
+
+	Parses URLs per RFC-3986.  By default, it will handle the following
+	URL types:
+
+		http:
+		https:
+		file:
+		ftp:
+
+	Given the following URL:
+
+		http://www.conman.org/people/spc/index.cgi?one=1%3F&two=2&three=3#target1
+
+	It will be broken down into a Lua table as follows:
+
+		{
+                  scheme   = "http",
+		  host     = "www.conman.org",
+                  port     = 80,
+		  path     = "/people/spc/index.cgi",
+		  query    = "one=1%3F&two=2&three=3",
+		  fragment = "target1",
+		}
+
+	Other URLs can be parsed, but a URL like:
+
+		mailto:sean@conman.org?cc=fred@example.com,velma@example.net&subject=Current%20Mystery
+
+	will be broken down as:
+
+		{
+		  scheme = "mailto",
+		  path   = "sean@conman.org",
+	          query  = "cc=fred@example.com,velma@example.net&subject=Current%20Mystery",
+                }
+
+	which may require more parsing than provided here.
+
+url.gopher
+
+	Parses "gopher:" URLs per RFC-4266.  Given this URL:
+
+		gopher://gopher.conman.org/0foobar%09search%20String%09plus
+
+	it will be broken down as:
+
+		{
+                  scheme   = "gopher",
+		  host     = "gopher.conman.org",
+                  port     = 70.000000,
+		  type     = "file",
+                  selector = "foobar",
+		  search   = "search String",
+		  plus     = "plus",
+		}
+
+	If you need to parse other URLs in addition to "gopher:" types,
+	you can do:
+
+		gopher = require "org.conman.parsers.url.gopher"
+		url    = require "org.conman.parsers.url"
+		
+		url  = gopher + url
+		info = url:match(my_url)	
+
+url.siptel
+
+	Parses "sip:" and "sips:" URIs per RFC-3261.  
+	Parses "tel:" URIs per RFC-3966.
+
+	Examples:
+
+		sip = require "org.conman.parsers.url.sip"
+		u = sip:match [[sip:annc@example.com;play=file://fs.example.net//clips/my-intro.dvi;content-type=video/mpeg%3bencode%d3314M-25/625-50]]
+
+	results in:
+
+		{
+		  host       = "example.com",
+		  port       = 5060.000000,
+		  user       = "annc",
+		  scheme     = "sip",
+		  parameters =
+		  {
+		    play             = "file://fs.example.net//clips/my-intro.dvi",
+		    ["content-type"] = "video/mpeg%3bencode%d3314M-25/625-50",
+		  },
+		}
+	
+	and 
+
+		u = sip:match [[sip:+1-(555)-555-1212;ext=1234@example.net;user=phone]]
+
+	results in:
+
+		{
+		  host = "example.net",
+		  port = 5060.000000,
+		  user =
+		  {
+		    number     = "15555551212",
+		    global     = true,
+		    parameters =
+		    {
+		      ext = "1234",
+		    },
+		  },
+		  scheme     = "sip",
+		  parameters =
+		  {
+		    user = "phone",
+		  },
+		}
+
+	and
+
+		tel = require "org.conman.parsers.url.tel"
+		u = tel:match "tel:+1-(555)-555-1212;ext=1234"
+
+	results in:
+
+		{
+		  scheme = "tel",
+		  number = "15555551212",
+		  global = true,
+		  parameters =
+		  {
+		    ext = "1234",
+		  },
+		}
+
+	If you need to parse other URLs in addition to these types,
+	you can do:
+
+		siptel = require "org.conman.parsers.url.sip"
+		url    = require "org.conman.parsers.url"
+
+		url  = siptel + url
+		info = url:match(my_url)
+
+soundex.lua
+
+	Implements the Soundex algorithm.
+
+[1]	http://www.inf.puc-rio.br/~roberto/lpeg/
+
+[2]	https://github.com/spc476/lua-conmanorg

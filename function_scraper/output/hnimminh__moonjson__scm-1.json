@@ -1,0 +1,280 @@
+{
+  "moonjson": {
+    "version": "scm-1",
+    "source_homepage": "http://github.com/hnimminh/moonjson",
+    "functions": {
+      "JSON": {
+        "name_funct": "JSON",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A lightweight JavaScript Object Notation library for Lua",
+        "extraction_method": "llm",
+        "source_ref": "README.md## MOON JSON"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "value",
+        "output_format": "string",
+        "description": "Returns a string representing `value` encoded in JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "string",
+        "output_format": "value",
+        "description": "Returns a value representing the decoded JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "ncode": {
+        "name_funct": "ncode",
+        "input_format": "value",
+        "output_format": "string",
+        "description": "Returns a string representing `value` encoded in JSON.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Notes"
+      },
+      "rse_arrays_tables_with_mixed_key_types": {
+        "name_funct": "rse_arrays_tables_with_mixed_key_types",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function handles arrays and tables with mixed key types or invalid numbers (NaN, -inf, inf). It raises an error for such arrays or tables. It also converts `null` values within arrays or objects to `nil` before decoding.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Editor ##"
+      },
+      "null_values_conversion": {
+        "name_funct": "null_values_conversion",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function converts `null` values within arrays or objects to `nil` before decoding. It raises an error for arrays or tables with invalid numbers (NaN, -inf, inf).",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Editor ##"
+      },
+      "rxi": {
+        "name_funct": "rxi",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function or method named 'rxi' is described as a placeholder or a function that is not further defined in the provided text.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Origin Authors ##"
+      },
+      "escape_char": {
+        "name_funct": "escape_char",
+        "input_format": "c (string)",
+        "output_format": "string",
+        "description": "Escapes a character by adding a backslash and the appropriate escape sequence. If the character is not in the escape_char_map, it returns the character as a string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function escape_char"
+      },
+      "encode_nil": {
+        "name_funct": "encode_nil",
+        "input_format": "val (any)",
+        "output_format": "string",
+        "description": "Encodes nil value to 'null'.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function encode_nil"
+      },
+      "encode_table": {
+        "name_funct": "encode_table",
+        "input_format": "val, stack",
+        "output_format": "string",
+        "description": "Encodes a table into a JSON string. Handles arrays and objects differently.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function encode_table"
+      },
+      "encode": {
+        "name_funct": "encode",
+        "input_format": "table, stack",
+        "output_format": "string",
+        "description": "Encodes a table into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function encode_string"
+      },
+      "encode_string": {
+        "name_funct": "encode_string",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Encodes a string into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function encode_string"
+      },
+      "encode_number": {
+        "name_funct": "encode_number",
+        "input_format": "val",
+        "output_format": "string",
+        "description": "Encodes a number value to a string representation with a precision of 14 decimal places.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function encode_number"
+      },
+      "type_func_map": {
+        "name_funct": "type_func_map",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "A table mapping types to their corresponding encoding functions.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function encode_number"
+      },
+      "encode_boolean": {
+        "name_funct": "encode_boolean",
+        "input_format": "boolean",
+        "output_format": "string",
+        "description": "Converts a boolean value to a string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function json.encode"
+      },
+      "create_set": {
+        "name_funct": "create_set",
+        "input_format": "variable names (types, names, optionality)",
+        "output_format": "variable names (types, structure, or multiple returns)",
+        "description": "Creates a set from a variable number of arguments.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function create_set"
+      },
+      "space_chars": {
+        "name_funct": "space_chars",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Creates a set of space characters.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function create_set"
+      },
+      "delim_chars": {
+        "name_funct": "delim_chars",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Creates a set of delimiter characters.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function create_set"
+      },
+      "escape_chars": {
+        "name_funct": "escape_chars",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Creates a set of escape characters.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function create_set"
+      },
+      "literals": {
+        "name_funct": "literals",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Creates a set of literal values.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function create_set"
+      },
+      "literal_map": {
+        "name_funct": "literal_map",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Maps literal strings to their corresponding values.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function create_set"
+      },
+      "next_char": {
+        "name_funct": "next_char",
+        "input_format": "string, integer, set, boolean",
+        "output_format": "integer",
+        "description": "Returns the next character in the string, or the length of the string if no character is found.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function next_char"
+      },
+      "decode_error": {
+        "name_funct": "decode_error",
+        "input_format": "str, idx, msg",
+        "output_format": "error message",
+        "description": "Decodes error message by counting line and column numbers.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function decode_error"
+      },
+      "codepoint_to_utf8": {
+        "name_funct": "codepoint_to_utf8",
+        "input_format": "n (integer)",
+        "output_format": "string",
+        "description": "Converts a Unicode codepoint to UTF-8 encoded bytes. Returns an error if the codepoint is invalid.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function codepoint_to_utf8"
+      },
+      "ror": {
+        "name_funct": "ror",
+        "input_format": "str (string), idx (integer), msg (string)",
+        "output_format": "void",
+        "description": "Ror function is not a Lua function, but a comment. It seems to be a placeholder for a function that performs some operation on a string and an index.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function codepoint_to_utf8"
+      },
+      "string.char": {
+        "name_funct": "string.char",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "returns a string composed of characters from the specified range",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_unicode_escape"
+      },
+      "string.format": {
+        "name_funct": "string.format",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "formats a string with placeholders",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_unicode_escape"
+      },
+      "parse_string": {
+        "name_funct": "parse_string",
+        "input_format": "string, integer",
+        "output_format": "string, integer",
+        "description": "解析字符串，处理控制字符、转义字符和Unicode编码。",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_string"
+      },
+      "parse_number": {
+        "name_funct": "parse_number",
+        "input_format": "string, integer",
+        "output_format": "number, integer",
+        "description": "Parses a number from a string starting at the given index. Returns the number and the index after the number.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_number"
+      },
+      "parse_literal": {
+        "name_funct": "parse_literal",
+        "input_format": "string, integer, table of characters",
+        "output_format": "table of literal, integer",
+        "description": "Parses a literal from a string starting at a given index. Returns the literal and the index after the literal.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_literal"
+      },
+      "parse_array": {
+        "name_funct": "parse_array",
+        "input_format": "string, integer",
+        "output_format": "table, integer",
+        "description": "Parses an array from a string, returning the parsed array and the index after the last element.",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_array"
+      },
+      "parse": {
+        "name_funct": "parse",
+        "input_format": "string, integer",
+        "output_format": "string, integer",
+        "description": "解析字符串，返回解析后的字符串和解析位置的增量",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_object"
+      },
+      "parse_object": {
+        "name_funct": "parse_object",
+        "input_format": "string, integer",
+        "output_format": "table, integer",
+        "description": "解析对象，返回解析后的对象和解析位置的增量",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_object"
+      },
+      "char_func_map": {
+        "name_funct": "char_func_map",
+        "input_format": "string",
+        "output_format": "function",
+        "description": "字典，映射字符到相应的解析函数",
+        "extraction_method": "llm",
+        "source_ref": "src\\json.lua#function parse_object"
+      }
+    }
+  }
+}

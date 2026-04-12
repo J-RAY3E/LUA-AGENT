@@ -1,0 +1,9 @@
+{
+  "module_name": "lua_json",
+  "author": "luarocks",
+  "downloads": "98",
+  "summary": "A Lua module for JSON",
+  "version": "scm-1",
+  "homepage_url": "http://github.com/mbalmer/luajson",
+  "label": "json"
+}

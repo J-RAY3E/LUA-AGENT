@@ -1,0 +1,296 @@
+{
+  "mjolnir._asm.data.json": {
+    "version": "0.1-1",
+    "source_homepage": "https://github.com/asmagill/mjolnir_asm.data",
+    "functions": {
+      "mjolnir._asm.data": {
+        "name_funct": "mjolnir._asm.data",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Functions for data encoding and decoding data within Mjolnir. This module contains a variety of modules that were separated in Hydra, but seemed too small/somewhat related enough that combining them seemed reasonable.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "Mjolnir": {
+        "name_funct": "Mjolnir",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This module contains a variety of modules that were separated in Hydra, but seemed too small/somewhat related enough that combining them seemed reasonable.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Special Note"
+      },
+      "mjolnir._asm.data.base64": {
+        "name_funct": "mjolnir._asm.data.base64",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This module provides base64 encoding and decoding for Mjolnir.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Sub Modules (See folder README.md)"
+      },
+      "mjolnir._asm.data.json": {
+        "name_funct": "mjolnir._asm.data.json",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This module provides JSON encoding and decoding for Mjolnir.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Sub Modules (See folder README.md)"
+      },
+      "mjolnir._asm.data.pasteboard": {
+        "name_funct": "mjolnir._asm.data.pasteboard",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This module provides access to the OS X clipboard from within Mjolnir.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Sub Modules (See folder README.md)"
+      },
+      "mjolnir._asm.utf8_53": {
+        "name_funct": "mjolnir._asm.utf8_53",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Functions providing basic support for UTF-8 encodings within Mjolnir.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Sub Modules (See folder README.md)"
+      },
+      "require": {
+        "name_funct": "require",
+        "input_format": "module name",
+        "output_format": "module object",
+        "description": "Loads a module from the file system.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Require"
+      },
+      "data.hexdump": {
+        "name_funct": "data.hexdump",
+        "input_format": "string, optional count",
+        "output_format": "string",
+        "description": "Treats the input string as a binary blob and returns a prettied up hex dump of it's contents. By default, a newline character is inserted after every 16 bytes, though this can be changed by also providing the optional count argument.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Functions"
+      },
+      "data.userdata_tostring": {
+        "name_funct": "data.userdata_tostring",
+        "input_format": "userdata",
+        "output_format": "string",
+        "description": "Returns the userdata object as a binary string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Functions"
+      },
+      "data.uuid": {
+        "name_funct": "data.uuid",
+        "input_format": "none",
+        "output_format": "string",
+        "description": "Returns a newly generated UUID as a string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Functions"
+      },
+      "data.applekeys": {
+        "name_funct": "data.applekeys",
+        "input_format": "none",
+        "output_format": "array of symbols",
+        "description": "Returns an array of symbols representing special keys in the mac environment.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Variables"
+      },
+      "mjolnir._asm.data.base64.encode": {
+        "name_funct": "mjolnir._asm.data.base64.encode",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Encode a string to base64.",
+        "extraction_method": "llm",
+        "source_ref": "base64\\README.md#Section 1"
+      },
+      "mjolnir._asm.data.base64.decode": {
+        "name_funct": "mjolnir._asm.data.base64.decode",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Decode a base64 string to a string.",
+        "extraction_method": "llm",
+        "source_ref": "base64\\README.md#Section 1"
+      },
+      "base64": {
+        "name_funct": "base64",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Base64 encoding and decoding functions",
+        "extraction_method": "llm",
+        "source_ref": "base64\\README.md#### Require"
+      },
+      "base64.encode": {
+        "name_funct": "base64.encode",
+        "input_format": "val",
+        "output_format": "str",
+        "description": "Returns the base64 encoding of the string provided, optionally split into lines of `width` characters per line.",
+        "extraction_method": "llm",
+        "source_ref": "base64\\README.md#### Functions"
+      },
+      "base64.decode": {
+        "name_funct": "base64.decode",
+        "input_format": "str",
+        "output_format": "val",
+        "description": "Returns a Lua string representing the given base64 string.",
+        "extraction_method": "llm",
+        "source_ref": "base64\\README.md#### Functions"
+      },
+      "mjolnir._asm": {
+        "name_funct": "mjolnir._asm",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides functionality for traversing Objective-C objects using the mjolnir._asm library.",
+        "extraction_method": "llm",
+        "source_ref": "json\\README.md#### Luarocks Install"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "val (table), prettyprint? (boolean)",
+        "output_format": "str",
+        "description": "Converts a Lua value to a JSON string; prettyprint is optional.",
+        "extraction_method": "llm",
+        "source_ref": "json\\README.md#### Functions"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "str",
+        "output_format": "val (table)",
+        "description": "Converts a JSON string to a Lua value.",
+        "extraction_method": "llm",
+        "source_ref": "json\\README.md#### Functions"
+      },
+      "data.pasteboard.changecount": {
+        "name_funct": "data.pasteboard.changecount",
+        "input_format": "no input",
+        "output_format": "number",
+        "description": "Returns the number of times the pasteboard owner changed. Useful to see if the pasteboard was updated by checking if the value of this function changes.",
+        "extraction_method": "llm",
+        "source_ref": "pasteboard\\README.md#### Functions"
+      },
+      "data.pasteboard.getcontents": {
+        "name_funct": "data.pasteboard.getcontents",
+        "input_format": "no input",
+        "output_format": "string",
+        "description": "Returns the contents of the pasteboard as a string. Returns nil if it can't be done.",
+        "extraction_method": "llm",
+        "source_ref": "pasteboard\\README.md#### Functions"
+      },
+      "data.pasteboard.setcontents": {
+        "name_funct": "data.pasteboard.setcontents",
+        "input_format": "string",
+        "output_format": "boolean",
+        "description": "Sets the contents of the pasteboard to the string value passed in. Returns true if successful, false otherwise.",
+        "extraction_method": "llm",
+        "source_ref": "pasteboard\\README.md#### Functions"
+      },
+      "utf8.utf8_53": {
+        "name_funct": "utf8.utf8_53",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides basic support for UTF-8 encodings within Mjolnir. Primarily based on the UTF-8 Library as provided by Lua 5.3.alpha. Wrapper to allow easy inclusion within the Mjolnir environment.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#Section 1"
+      },
+      "count": {
+        "name_funct": "count",
+        "input_format": "subject string, byte sequence, or negative index",
+        "output_format": "count of occurrences of a character or substring",
+        "description": "Counts the number of occurrences of a character or substring within a given byte sequence or negative index.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Luarocks Install"
+      },
+      "chars": {
+        "name_funct": "chars",
+        "input_format": "subject string, byte sequence, or negative index",
+        "output_format": "list of characters or substrings",
+        "description": "Returns a list of characters or substrings within a given byte sequence or negative index.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Luarocks Install"
+      },
+      "utf8_53": {
+        "name_funct": "utf8_53",
+        "input_format": "module",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function or method for UTF-8 encoding and decoding.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Require"
+      },
+      "utf8_53.char": {
+        "name_funct": "utf8_53.char",
+        "input_format": "zero or more integers",
+        "output_format": "string",
+        "description": "Converts each integer to its corresponding UTF-8 byte sequence and returns a string with the concatenation of all these sequences.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Functions"
+      },
+      "utf8_53.codes": {
+        "name_funct": "utf8_53.codes",
+        "input_format": "string",
+        "output_format": "position, codepoint",
+        "description": "Returns values so that the construction for p, c in utf8_53.codes(s) do body end will iterate over all characters in string s, with p being the position (in bytes) and c the code point of each character. It raises an error if it meets any invalid byte sequence.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Functions"
+      },
+      "utf8_53.codepoint": {
+        "name_funct": "utf8_53.codepoint",
+        "input_format": "string, integer",
+        "output_format": "codepoint, ...",
+        "description": "Returns the codepoints (as integers) from all characters in s that start between byte position i and j (both included). The default for i is 1 and for j is -1. It raises an error if it meets any invalid byte sequence.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Functions"
+      },
+      "utf8_53.len": {
+        "name_funct": "utf8_53.len",
+        "input_format": "string, integer",
+        "output_format": "count | nil, position",
+        "description": "Returns the number of UTF-8 characters in string s that start between positions i and j (both inclusive). The default for i is 1 and for j is -1. If it finds any invalid byte sequence, returns nil plus the position of the first invalid byte.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Functions"
+      },
+      "utf8_53.offset": {
+        "name_funct": "utf8_53.offset",
+        "input_format": "string, integer",
+        "output_format": "position",
+        "description": "Returns the position (in bytes) where the encoding of the n-th character of s (counting from position i) starts. A negative n gets characters before position i. The default for i is 1 when n is non-negative and #s + 1 otherwise, so that utf8_53.offset(s, -n) gets the offset of the n-th character from the end of the string. If the specified character is not in the subject or right after its end, the function returns nil.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Functions"
+      },
+      "utf8_53.charpatt": {
+        "name_funct": "utf8_53.charpatt",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "A pattern that matches exactly one UTF-8 byte sequence in a valid UTF-8 string.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Variables"
+      },
+      "hydra.utf8.count": {
+        "name_funct": "hydra.utf8.count",
+        "input_format": "str",
+        "output_format": "integer",
+        "description": "Counts the number of UTF-8 characters in a string.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Notes"
+      },
+      "hydra.utf8.chars": {
+        "name_funct": "hydra.utf8.chars",
+        "input_format": "str",
+        "output_format": "[string]",
+        "description": "Returns an array of individual UTF-8 characters from a string.",
+        "extraction_method": "llm",
+        "source_ref": "utf8_53\\README.md#### Notes"
+      },
+      "mjolnir._asm.data.applekeys": {
+        "name_funct": "mjolnir._asm.data.applekeys",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Array of symbols representing special keys in the mac environment, as per http://macbiblioblog.blogspot.com/2005/05/special-key-symbols.html.",
+        "extraction_method": "llm",
+        "source_ref": "init.lua#File: init.lua"
+      },
+      "mjolnir._asm.data.hexdump": {
+        "name_funct": "mjolnir._asm.data.hexdump",
+        "input_format": "string, number",
+        "output_format": "string",
+        "description": "Treats the input string as a binary blob and returns a prettied up hex dump of it's contents. By default, a newline character is inserted after every 16 bytes, though this can be changed by also providing the optional count argument.",
+        "extraction_method": "llm",
+        "source_ref": "init.lua#File: init.lua"
+      }
+    }
+  }
+}

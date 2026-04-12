@@ -1,0 +1,9 @@
+{
+  "module_name": "json-lua",
+  "author": "jiyinyiyong",
+  "downloads": "153k",
+  "summary": "JSON encoder/decoder",
+  "version": "0.1-4",
+  "homepage_url": "https://github.com/tiye/json-lua",
+  "label": "json"
+}

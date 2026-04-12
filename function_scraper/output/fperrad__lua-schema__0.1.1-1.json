@@ -1,0 +1,128 @@
+{
+  "lua-schema": {
+    "version": "0.1.1-1",
+    "source_homepage": "https://fperrad.frama.io/lua-schema",
+    "functions": {
+      "download": {
+        "name_funct": "download",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Downloads the Lua schema file from the specified URL.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md## lua-schema"
+      },
+      "installation": {
+        "name_funct": "installation",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides instructions for installing the Lua schema.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md## lua-schema"
+      },
+      "test": {
+        "name_funct": "test",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Runs tests to ensure the Lua schema is functioning correctly.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md## lua-schema"
+      },
+      "copyright_and_license": {
+        "name_funct": "copyright_and_license",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides information about the copyright and license of the Lua schema.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md## lua-schema"
+      },
+      "validate": {
+        "name_funct": "validate",
+        "input_format": "JSON instance or equivalent data model",
+        "output_format": "boolean indicating validation success",
+        "description": "Validates data against a JSON Schema. Validates data from a JSON instance or from any equivalent data model, such as CBOR, Message Pack, UBJSON, or plain Lua.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Overview"
+      },
+      "lua-schema": {
+        "name_funct": "lua-schema",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A Lua implementation of JSON Schema for Lua 5.1, 5.2, 5.3, 5.4, and 5.5. It supports various formats and keywords, including `date-time`, `date`, `time`, `duration`, `email`, `hostname`, `ipv4`, `ipv6`, `uri`, `uri-reference`, `iri`, `iri-reference`, `uuid`, `uri-template`, `json-pointer`, `relative-json-pointer`, `regex`, `idn-email`, `idn-hostname`, and `leap-second`. It is in beta stage and is developed for Lua 5.1, 5.2, 5.3, 5.4, and 5.5. It is monitored by Bowtie, which provides independent reports on its implementation.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Status"
+      },
+      "implemented": {
+        "name_funct": "implemented",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "The function is not implemented for the specified format.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Download"
+      },
+      "leap_second": {
+        "name_funct": "leap_second",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "The function is not implemented for the specified format.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Download"
+      },
+      "lua_schema": {
+        "name_funct": "lua_schema",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "The function is monitored by Bowtie, which gives independent reports.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Download"
+      },
+      "make": {
+        "name_funct": "make",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Builds the Lua schema package.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Installation"
+      },
+      "luarocks": {
+        "name_funct": "luarocks",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Install LuaRocks package manager.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Installation"
+      },
+      "dation": {
+        "name_funct": "dation",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "The use of regular expression (keyword `pattern` & `patternProperties`) depends on [Lrexlib-PCRE2](https://rrthomas.github.io/lrexlib/), but it is optional.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Test"
+      },
+      "dkjson": {
+        "name_funct": "dkjson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "make install",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Test"
+      },
+      "lua-TestAssertion": {
+        "name_funct": "lua-TestAssertion",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "make test",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Test"
+      },
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function is used for some purpose related to the library or documentation.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### Copyright and License"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "module_name": "hjson-lua",
+  "author": "cryi",
+  "downloads": "239",
+  "summary": "A lightweight H/JSON library for Lua.",
+  "version": "0.3.0-1",
+  "homepage_url": "https://github.com/hjson/hjson-lua",
+  "label": "json"
+}

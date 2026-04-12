@@ -1,0 +1,3432 @@
+{
+  "eja": {
+    "version": "1-0",
+    "source_homepage": "https://github.com/eja/eja",
+    "functions": {
+      "eja": {
+        "name_funct": "eja",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "eja is a versatile command-line tool primarily designed as a lightweight web server for static and dynamic content. It also functions as a text scanner utility (similar to awk but using Lua patterns) and a standalone Lua 5.2 interpreter with extended functionalities baked in.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## eja - Micro Web Server and Lua Toolkit"
+      },
+      "string_format": {
+        "name_funct": "string_format",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Simple string formatting utility",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Installation"
+      },
+      "Library_Management": {
+        "name_funct": "Library_Management",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Simple update/install/remove mechanism for .eja libraries",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Installation"
+      },
+      "System_Setup": {
+        "name_funct": "System_Setup",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Helper command to create default directories and configuration files",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Installation"
+      },
+      "make": {
+        "name_funct": "make",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Builds a static binary using the `make` command.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "sudo": {
+        "name_funct": "sudo",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Sudo command to install the `eja` binary and man page.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "eja --export": {
+        "name_funct": "eja --export",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "creates a bytecode file for the specified script",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Web Server Functionality"
+      },
+      "eja --update": {
+        "name_funct": "eja --update",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "updates eja itself or a specific library",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Web Server Functionality"
+      },
+      "eja --web": {
+        "name_funct": "eja --web",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Starts an eja server with directory listing enabled on port 35248.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## Start eja, enabling directory listing on the default port (35248)"
+      },
+      "module:cd": {
+        "name_funct": "module:cd",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Change the current directory to the specified path. The path is relative to the user's home directory.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## with index.html at the root"
+      },
+      "module:cd:~/projects/my_website": {
+        "name_funct": "module:cd:~/projects/my_website",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Change the current directory to the specified path. The path is relative to the user's home directory.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## with index.html at the root"
+      },
+      "eja.web_start": {
+        "name_funct": "eja.web_start",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Starts the web server daemon.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Configuration"
+      },
+      "eja.web_stop": {
+        "name_funct": "eja.web_stop",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Stops the web server daemon running on the default port.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Configuration"
+      },
+      "eja.web_stop_port": {
+        "name_funct": "eja.web_stop_port",
+        "input_format": "port (integer)",
+        "output_format": "no output",
+        "description": "Stops the web server daemon running on the specified port.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Configuration"
+      },
+      "eja.init": {
+        "name_funct": "eja.init",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Loads runtime configuration from `/etc/eja/eja.init`.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Configuration"
+      },
+      "eja.setup": {
+        "name_funct": "eja.setup",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Creates default directories and a basic configuration file.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Configuration"
+      },
+      "ejaEncode": {
+        "name_funct": "ejaEncode",
+        "input_format": "data (string), password (string)",
+        "output_format": "encoded_data (string)",
+        "description": "Encrypts data using AES and Base64 encoding. If password is empty, returns Base64 encoded data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function ejaEncode"
+      },
+      "ejaDecode": {
+        "name_funct": "ejaDecode",
+        "input_format": "data (string), password (string)",
+        "output_format": "result (string)",
+        "description": "Decodes data using AES encryption with a password. Returns the decrypted data if password is valid, otherwise returns the base64 decoded data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function ejaDecode"
+      },
+      "ejaAES": {
+        "name_funct": "ejaAES",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "AES encryption function implementation",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function ejaAES"
+      },
+      "aes": {
+        "name_funct": "aes",
+        "input_format": "not applicable",
+        "output_format": "not applicable",
+        "description": "Implementation of AES with nearly pure Lua (only bitlib is needed)",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function aes"
+      },
+      "private.affinMap": {
+        "name_funct": "private.affinMap",
+        "input_format": "byte",
+        "output_format": "result",
+        "description": "Calculate the affine transformation for the S-Box of AES.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.affinMap"
+      },
+      "bit.bor": {
+        "name_funct": "bit.bor",
+        "input_format": "mask",
+        "output_format": "new_mask",
+        "description": "Bitwise OR operation on the 'mask' variable.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcSBox"
+      },
+      "bit.band": {
+        "name_funct": "bit.band",
+        "input_format": "mask",
+        "output_format": "new_mask",
+        "description": "Bitwise AND operation on the 'mask' variable.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcSBox"
+      },
+      "bit.bxor": {
+        "name_funct": "bit.bxor",
+        "input_format": "result",
+        "output_format": "result",
+        "description": "Bitwise XOR operation on the 'result' variable.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcSBox"
+      },
+      "gf.invert": {
+        "name_funct": "gf.invert",
+        "input_format": "inverse",
+        "output_format": "inverse",
+        "description": "Invert the binary value of the 'inverse' variable.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcSBox"
+      },
+      "private.calcSBox": {
+        "name_funct": "private.calcSBox",
+        "input_format": "none",
+        "output_format": "SBox",
+        "description": "Calculate the S-Box and inverse S-Box of AES.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcSBox"
+      },
+      "private.iSBox": {
+        "name_funct": "private.iSBox",
+        "input_format": "none",
+        "output_format": "iSBox",
+        "description": "Inverse of the S-Box.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcSBox"
+      },
+      "private.SBox": {
+        "name_funct": "private.SBox",
+        "input_format": "in (integer)",
+        "output_format": "out (integer)",
+        "description": "Applies the S-box transformation to the input.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcRoundTables"
+      },
+      "private.calcRoundTables": {
+        "name_funct": "private.calcRoundTables",
+        "input_format": "none",
+        "output_format": "none",
+        "description": "Calculates the round tables for the encryption algorithm.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcRoundTables"
+      },
+      "util.putByte": {
+        "name_funct": "util.putByte",
+        "input_format": "byte, index",
+        "output_format": "byte",
+        "description": "Put a byte into a specific index of a table",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcInvRoundTables"
+      },
+      "gf.mul": {
+        "name_funct": "gf.mul",
+        "input_format": "byte, index",
+        "output_format": "byte",
+        "description": "Multiply a byte by a constant and return the result",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.calcInvRoundTables"
+      },
+      "private.rotWord": {
+        "name_funct": "private.rotWord",
+        "input_format": "word",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects (max 2 sentences)",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.rotWord"
+      },
+      "private.subWord": {
+        "name_funct": "private.subWord",
+        "input_format": "word",
+        "output_format": "integer",
+        "description": "Subtracts a word from the S-box and returns the result.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.subWord"
+      },
+      "util.getByte": {
+        "name_funct": "util.getByte",
+        "input_format": "word",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Extracts a byte from a word.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.expandEncryptionKey"
+      },
+      "public.expandEncryptionKey": {
+        "name_funct": "public.expandEncryptionKey",
+        "input_format": "key",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Generates the key schedule for AES encryption.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.expandEncryptionKey"
+      },
+      "private.invMixColumnOld": {
+        "name_funct": "private.invMixColumnOld",
+        "input_format": "word",
+        "output_format": "new_word",
+        "description": "Inverse mix column function",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.invMixColumnOld"
+      },
+      "public.expandDecryptionKey": {
+        "name_funct": "public.expandDecryptionKey",
+        "input_format": "key",
+        "output_format": "keySchedule",
+        "description": "Generate the decryption key schedule for AES. It uses the encryption key schedule and inverts the mix column operation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.expandDecryptionKey"
+      },
+      "keySchedule": {
+        "name_funct": "keySchedule",
+        "input_format": "public.KEY_TYPE, public.ROUNDS",
+        "output_format": "keySchedule",
+        "description": "Initialize the key schedule with the decryption key and rounds.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.addRoundKey"
+      },
+      "private.addRoundKey": {
+        "name_funct": "private.addRoundKey",
+        "input_format": "public.KEY_TYPE, public.KEY_TYPE, integer",
+        "output_format": "public.KEY_TYPE",
+        "description": "Add the round key to the state.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.addRoundKey"
+      },
+      "doRound": {
+        "name_funct": "doRound",
+        "input_format": "origState, dstState",
+        "output_format": "dstState",
+        "description": "Encrypts the state using the last encryption round (ShiftRow and SubBytes).",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.doRound"
+      },
+      "private.tableInv0": {
+        "name_funct": "private.tableInv0",
+        "input_format": "byte",
+        "output_format": "byte",
+        "description": "apply the inverse of the first table",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.doInvRound"
+      },
+      "private.tableInv1": {
+        "name_funct": "private.tableInv1",
+        "input_format": "byte",
+        "output_format": "byte",
+        "description": "apply the inverse of the second table",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.doInvRound"
+      },
+      "private.tableInv2": {
+        "name_funct": "private.tableInv2",
+        "input_format": "byte",
+        "output_format": "byte",
+        "description": "apply the inverse of the third table",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.doInvRound"
+      },
+      "private.tableInv3": {
+        "name_funct": "private.tableInv3",
+        "input_format": "byte",
+        "output_format": "byte",
+        "description": "apply the inverse of the fourth table",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.doInvRound"
+      },
+      "private.doInvRound": {
+        "name_funct": "private.doInvRound",
+        "input_format": "table, table",
+        "output_format": "none",
+        "description": "perform the inverse decryption round",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.doInvRound"
+      },
+      "private.doInvLastRound": {
+        "name_funct": "private.doInvLastRound",
+        "input_format": "origState, dstState",
+        "output_format": "dstState",
+        "description": "Performs the last decryption round of the encryption process.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.doInvLastRound"
+      },
+      "public.encrypt": {
+        "name_funct": "public.encrypt",
+        "input_format": "key (encryption key schedule), input (array with input data), inputOffset (start index for input), output (array for encrypted data), outputOffset (start index for output)",
+        "output_format": "output (array for decrypted data)",
+        "description": "Encrypts 16 bytes using a key schedule and rounds.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encrypt"
+      },
+      "util.intsToBytes": {
+        "name_funct": "util.intsToBytes",
+        "input_format": "state, output, outputOffset",
+        "output_format": "output",
+        "description": "converts an array of integers to bytes",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decrypt"
+      },
+      "public.decrypt": {
+        "name_funct": "public.decrypt",
+        "input_format": "key, input, inputOffset, output, outputOffset",
+        "output_format": "output",
+        "description": "decrypts 16 bytes using a key and input data",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decrypt"
+      },
+      "und": {
+        "name_funct": "und",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "undocumented",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function buffer"
+      },
+      "return.util.intsToBytes": {
+        "name_funct": "return.util.intsToBytes",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "converts a table of integers to a byte array",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function buffer"
+      },
+      "private.calcInvRoundTables": {
+        "name_funct": "private.calcInvRoundTables",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "calculates the inverse round tables",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function buffer"
+      },
+      "return.public": {
+        "name_funct": "return.public",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "returns the public object",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function buffer"
+      },
+      "buffer": {
+        "name_funct": "buffer",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "returns the buffer object",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function buffer"
+      },
+      "public.new": {
+        "name_funct": "public.new",
+        "input_format": "no input",
+        "output_format": "returns an empty table",
+        "description": "Creates a new instance of the class. Returns an empty table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.new"
+      },
+      "public.addString": {
+        "name_funct": "public.addString",
+        "input_format": "stack (table), s (string)",
+        "output_format": "stack (table)",
+        "description": "Adds a string to a stack and merges adjacent strings in descending order.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.addString"
+      },
+      "public.toString": {
+        "name_funct": "public.toString",
+        "input_format": "stack",
+        "output_format": "stack[1]",
+        "description": "Reverses the stack by concatenating elements and returns the first element.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.toString"
+      },
+      "ciphermode": {
+        "name_funct": "ciphermode",
+        "input_format": "key (byte array), string (string), modefunction (function)",
+        "output_format": "encrypted string",
+        "description": "Encrypts a string using the specified cipher mode.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function ciphermode"
+      },
+      "public.encryptString": {
+        "name_funct": "public.encryptString",
+        "input_format": "key, data, modeFunction",
+        "output_format": "string",
+        "description": "Encrypts a string using AES encryption with a given key and modeFunction.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptString"
+      },
+      "aes.expandEncryptionKey": {
+        "name_funct": "aes.expandEncryptionKey",
+        "input_format": "key",
+        "output_format": "keySched",
+        "description": "Expands the encryption key for AES.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptString"
+      },
+      "buffer.new": {
+        "name_funct": "buffer.new",
+        "input_format": "nil",
+        "output_format": "buffer",
+        "description": "Creates a new buffer object.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptString"
+      },
+      "buffer.addString": {
+        "name_funct": "buffer.addString",
+        "input_format": "buffer, string",
+        "output_format": "nil",
+        "description": "Adds a string to the end of the buffer.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptString"
+      },
+      "string.byte": {
+        "name_funct": "string.byte",
+        "input_format": "string, number, number",
+        "output_format": "number",
+        "description": "Returns the byte value of a character in a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptString"
+      },
+      "string.char": {
+        "name_funct": "string.char",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Converts a table of bytes into a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptString"
+      },
+      "modeFunction": {
+        "name_funct": "modeFunction",
+        "input_format": "keySched, byteData, iv",
+        "output_format": "nil",
+        "description": "Applies a mode function to the byteData.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptString"
+      },
+      "encryptECB": {
+        "name_funct": "encryptECB",
+        "input_format": "keySched, byteData, iv",
+        "output_format": "byteData",
+        "description": "Encrypts the byteData using the ECB mode with the given keySched and IV.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptECB"
+      },
+      "encryptCBC": {
+        "name_funct": "encryptCBC",
+        "input_format": "keySched, byteData, iv",
+        "output_format": "byteData",
+        "description": "Encrypts the byteData using the CBC mode with the given keySched and IV.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptECB"
+      },
+      "public.encryptCBC": {
+        "name_funct": "public.encryptCBC",
+        "input_format": "keySched (string), byteData (table), iv (table)",
+        "output_format": "byteData (table)",
+        "description": "Encrypts data using the CBC mode with a given key schedule and IV. The output is the encrypted data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptCBC"
+      },
+      "public.encryptOFB": {
+        "name_funct": "public.encryptOFB",
+        "input_format": "keySched (string), byteData (table), iv (string)",
+        "output_format": "encryptedData (table)",
+        "description": "Encrypts byteData using OFB mode with AES and XORs the IV.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptOFB"
+      },
+      "public.encryptCFB": {
+        "name_funct": "public.encryptCFB",
+        "input_format": "keySched (byte array), byteData (string), iv (byte array)",
+        "output_format": "byteData (string)",
+        "description": "Encrypts data using the CFB mode with a given key schedule and IV.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptCFB"
+      },
+      "util.xorIV": {
+        "name_funct": "util.xorIV",
+        "input_format": "byteData (string), iv (string)",
+        "output_format": "byteData (string)",
+        "description": "Performs XOR operation between the input byteData and the IV.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.encryptCFB"
+      },
+      "ypt": {
+        "name_funct": "ypt",
+        "input_format": "keySched, iv, 1, iv, 1",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "not found in the provided text",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptString"
+      },
+      "for loop": {
+        "name_funct": "for loop",
+        "input_format": "j, 1, 16",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "not found in the provided text",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptString"
+      },
+      "public.decryptString": {
+        "name_funct": "public.decryptString",
+        "input_format": "key, data, modeFunction",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "decrypts a string using a specified mode function",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptString"
+      },
+      "aes.expandDecryptionKey": {
+        "name_funct": "aes.expandDecryptionKey",
+        "input_format": "key",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "not found in the provided text",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptString"
+      },
+      "public.decryptOFB": {
+        "name_funct": "public.decryptOFB",
+        "input_format": "keySched, byteData, iv",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "not found in the provided text",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptString"
+      },
+      "public.decryptCFB": {
+        "name_funct": "public.decryptCFB",
+        "input_format": "keySched, byteData, iv",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "not found in the provided text",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptString"
+      },
+      "decryptECB": {
+        "name_funct": "decryptECB",
+        "input_format": "keySched, byteData, iv",
+        "output_format": "iv",
+        "description": "Decrypts data using Electronic Code Book mode with the given key schedule and IV.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptECB"
+      },
+      "decryptCBC": {
+        "name_funct": "decryptCBC",
+        "input_format": "keySched, byteData, iv",
+        "output_format": "iv",
+        "description": "Decrypts data using Cipher Block Chaining mode with the given key schedule and IV.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptECB"
+      },
+      "public.decryptCBC": {
+        "name_funct": "public.decryptCBC",
+        "input_format": "keySched (string), byteData (table), iv (table)",
+        "output_format": "nextIV (table)",
+        "description": "Decrypts data using the CBC mode with a given key schedule and IV. Returns the next IV after decryption.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptCBC"
+      },
+      "decryptOFB": {
+        "name_funct": "decryptOFB",
+        "input_format": "keySched (string), byteData (table), iv (table)",
+        "output_format": "iv (table)",
+        "description": "Decrypts data using the OFB mode with a given key schedule and IV. Returns the IV for the next block.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.decryptOFB"
+      },
+      "gf": {
+        "name_funct": "gf",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Finite field generator function",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function gf"
+      },
+      "add": {
+        "name_funct": "add",
+        "input_format": "operand1, operand2",
+        "output_format": "result",
+        "description": "Adds two polynomials by performing a bitwise XOR operation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.add"
+      },
+      "subtract": {
+        "name_funct": "subtract",
+        "input_format": "operand1, operand2",
+        "output_format": "result",
+        "description": "Subtracts two polynomials by performing a bitwise XOR operation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.add"
+      },
+      "public.sub": {
+        "name_funct": "public.sub",
+        "input_format": "operand1, operand2",
+        "output_format": "result of bit.bxor(operand1, operand2)",
+        "description": "Returns the bitwise XOR of two operands.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.sub"
+      },
+      "public.invert": {
+        "name_funct": "public.invert",
+        "input_format": "operand",
+        "output_format": "return_value",
+        "description": "Invert the operand using logarithmic and exponential tables.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.invert"
+      },
+      "private.ord": {
+        "name_funct": "private.ord",
+        "input_format": "none",
+        "output_format": "none",
+        "description": "Not explicitly defined in the provided text.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.invert"
+      },
+      "private.log": {
+        "name_funct": "private.log",
+        "input_format": "operand",
+        "output_format": "none",
+        "description": "Not explicitly defined in the provided text.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.invert"
+      },
+      "private.exp": {
+        "name_funct": "private.exp",
+        "input_format": "exponent",
+        "output_format": "none",
+        "description": "Not explicitly defined in the provided text.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.invert"
+      },
+      "ic.invert": {
+        "name_funct": "ic.invert",
+        "input_format": "operand",
+        "output_format": "result",
+        "description": "Invert the operand using logarithmic and exponential tables.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.mul"
+      },
+      "public.mul": {
+        "name_funct": "public.mul",
+        "input_format": "operand1, operand2",
+        "output_format": "result",
+        "description": "Multiply two elements using logarithm tables.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.mul"
+      },
+      "public.div": {
+        "name_funct": "public.div",
+        "input_format": "operand1, operand2",
+        "output_format": "result of division",
+        "description": "Divides two elements using logarithms and exponentiation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.div"
+      },
+      "public.printExp": {
+        "name_funct": "public.printExp",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Prints the logarithmic and exponentiation table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.printExp"
+      },
+      "private.initMulTable": {
+        "name_funct": "private.initMulTable",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Initialize multiplication table for modular exponentiation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.initMulTable"
+      },
+      "bit.lshift": {
+        "name_funct": "bit.lshift",
+        "input_format": "a (number), b (number)",
+        "output_format": "result (number)",
+        "description": "Left shift operation on a number.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function util"
+      },
+      "util": {
+        "name_funct": "util",
+        "input_format": "no arguments",
+        "output_format": "public (table)",
+        "description": "Utility function to initialize and return the public table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function util"
+      },
+      "public.byteParity": {
+        "name_funct": "public.byteParity",
+        "input_format": "byte",
+        "output_format": "integer",
+        "description": "Calculate the parity of a byte using bitwise operations.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.byteParity"
+      },
+      "public.getByte": {
+        "name_funct": "public.getByte",
+        "input_format": "number, index",
+        "output_format": "number",
+        "description": "Extracts a byte from a number at a specified index.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.getByte"
+      },
+      "public.putByte": {
+        "name_funct": "public.putByte",
+        "input_format": "number, index",
+        "output_format": "number",
+        "description": "Converts a byte to an integer by shifting and banding.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.putByte"
+      },
+      "public.bytesToInts": {
+        "name_funct": "public.bytesToInts",
+        "input_format": "bytes, start, n",
+        "output_format": "ints",
+        "description": "Converts an array of integers to an array of bytes.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.bytesToInts"
+      },
+      "public.intsToBytes": {
+        "name_funct": "public.intsToBytes",
+        "input_format": "ints, output, outputOffset, n",
+        "output_format": "output",
+        "description": "Converts an integer array to a byte array.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.intsToBytes"
+      },
+      "private.bytesToHex": {
+        "name_funct": "private.bytesToHex",
+        "input_format": "bytes (array of integers)",
+        "output_format": "hexBytes (string)",
+        "description": "Converts an array of bytes to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.bytesToHex"
+      },
+      "public.toHexString": {
+        "name_funct": "public.toHexString",
+        "input_format": "data (type, name, optional)",
+        "output_format": "result (type, structure, multiple returns)",
+        "description": "Converts data to a hexadecimal string. Handles numbers, tables, and strings. Returns the hexadecimal string or the original data if it's not a number or table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.toHexString"
+      },
+      "string.format": {
+        "name_funct": "string.format",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.padByteString"
+      },
+      "type": {
+        "name_funct": "type",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.padByteString"
+      },
+      "public.padByteString": {
+        "name_funct": "public.padByteString",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.padByteString"
+      },
+      "data": {
+        "name_funct": "data",
+        "input_format": "prefix, data",
+        "output_format": "description of return value",
+        "description": "Concatenates the prefix and data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.properlyDecrypted"
+      },
+      "paddingLength": {
+        "name_funct": "paddingLength",
+        "input_format": "data",
+        "output_format": "description of return value",
+        "description": "Calculates the padding length based on the data length.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.properlyDecrypted"
+      },
+      "padding": {
+        "name_funct": "padding",
+        "input_format": "paddingLength",
+        "output_format": "description of return value",
+        "description": "Generates padding based on the random values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.properlyDecrypted"
+      },
+      "private.properlyDecrypted": {
+        "name_funct": "private.properlyDecrypted",
+        "input_format": "data",
+        "output_format": "description of return value",
+        "description": "Checks if the data is properly decrypted.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.properlyDecrypted"
+      },
+      "public.unpadByteString": {
+        "name_funct": "public.unpadByteString",
+        "input_format": "data",
+        "output_format": "string",
+        "description": "Unpads a byte string by removing the first 8 bytes and returning the rest.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.unpadByteString"
+      },
+      "putByte": {
+        "name_funct": "putByte",
+        "input_format": "string, integer",
+        "output_format": "integer",
+        "description": "Puts a byte into the data",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.xorIV"
+      },
+      "xorIV": {
+        "name_funct": "xorIV",
+        "input_format": "table, table",
+        "output_format": "table",
+        "description": "Performs XOR operation on data and IV",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.xorIV"
+      },
+      "string.sub": {
+        "name_funct": "string.sub",
+        "input_format": "string, integer, integer",
+        "output_format": "string",
+        "description": "Returns a substring of the string",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.xorIV"
+      },
+      "private.pwToKey": {
+        "name_funct": "private.pwToKey",
+        "input_format": "password (string), keyLength (number)",
+        "output_format": "key (table with string.byte)",
+        "description": "Generates a key from a password and key length.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function private.pwToKey"
+      },
+      "ciphermode.decryptString": {
+        "name_funct": "ciphermode.decryptString",
+        "input_format": "key, data, ciphermode.decryptCFB",
+        "output_format": "result",
+        "description": "Decrypts a string using a specific cipher mode.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaPwToKey"
+      },
+      "util.unpadByteString": {
+        "name_funct": "util.unpadByteString",
+        "input_format": "plain",
+        "output_format": "result",
+        "description": "Unpads a byte string to remove PKCS5 padding.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaPwToKey"
+      },
+      "public.ejaPwToKey": {
+        "name_funct": "public.ejaPwToKey",
+        "input_format": "password, size",
+        "output_format": "key",
+        "description": "Generates a key from a password using eja integration.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaPwToKey"
+      },
+      "public.ejaEncrypt": {
+        "name_funct": "public.ejaEncrypt",
+        "input_format": "password (string), data (string), size (number), mode (string)",
+        "output_format": "cipher (string or nil)",
+        "description": "Encrypts data using ECB, CBC, OFB, or CFB modes with a given password and size.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaEncrypt"
+      },
+      "ciphermode.encryptCBC": {
+        "name_funct": "ciphermode.encryptCBC",
+        "input_format": "key, data, mode",
+        "output_format": "encrypted data",
+        "description": "Encrypts data using the CBC mode with the given key and mode.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaDecrypt"
+      },
+      "ciphermode.encryptString": {
+        "name_funct": "ciphermode.encryptString",
+        "input_format": "key, data, mode",
+        "output_format": "encrypted data",
+        "description": "Encrypts data using the specified mode with the given key.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaDecrypt"
+      },
+      "ciphermode.decryptCBC": {
+        "name_funct": "ciphermode.decryptCBC",
+        "input_format": "key, data, mode",
+        "output_format": "decrypted data",
+        "description": "Decrypts data using the CBC mode with the given key and mode.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaDecrypt"
+      },
+      "public.ejaDecrypt": {
+        "name_funct": "public.ejaDecrypt",
+        "input_format": "password, data, size, mode",
+        "output_format": "decrypted data",
+        "description": "Decrypts data using the specified mode with the given password and mode.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\aes.lua#function public.ejaDecrypt"
+      },
+      "ejaBase64Encode": {
+        "name_funct": "ejaBase64Encode",
+        "input_format": "data",
+        "output_format": "encoded_data",
+        "description": "Encode data using Base64 encoding.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\base64.lua#function ejaBase64Encode"
+      },
+      "ejaBase64Decode": {
+        "name_funct": "ejaBase64Decode",
+        "input_format": "data",
+        "output_format": "decoded_data",
+        "description": "Decode a Base64 encoded string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\base64.lua#function ejaBase64Decode"
+      },
+      "ejaDbPath": {
+        "name_funct": "ejaDbPath",
+        "input_format": "name (string), id (string)",
+        "output_format": "path (string)",
+        "description": "Creates a database path based on the given name and optional ID. It constructs the path by appending the name with a suffix indicating the database type and ID if provided. It also checks if the directory exists and creates it if it doesn't. If the directory exists, it appends the ID to the path.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbPath"
+      },
+      "eja.pathVar": {
+        "name_funct": "eja.pathVar",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbPut"
+      },
+      "ejaDirCreatePath": {
+        "name_funct": "ejaDirCreatePath",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbPut"
+      },
+      "ejaFileWrite": {
+        "name_funct": "ejaFileWrite",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbPut"
+      },
+      "ejaFileStat": {
+        "name_funct": "ejaFileStat",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbPut"
+      },
+      "ejaTablePack": {
+        "name_funct": "ejaTablePack",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbPut"
+      },
+      "ejaDbPut": {
+        "name_funct": "ejaDbPut",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbPut"
+      },
+      "ejaDbDel": {
+        "name_funct": "ejaDbDel",
+        "input_format": "name (string), id (integer)",
+        "output_format": "result (boolean)",
+        "description": "Deletes a database entry by name and ID. Returns true on success, false on failure.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbDel"
+      },
+      "ejaDbNew": {
+        "name_funct": "ejaDbNew",
+        "input_format": "name, ...",
+        "output_format": "last, return last, ...",
+        "description": "Creates a new entry in the ejaDb table with the given name. Returns the new entry's ID or nil if the insertion fails.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbNew"
+      },
+      "ejaDbGet": {
+        "name_funct": "ejaDbGet",
+        "input_format": "name, id, regex",
+        "output_format": "string, table",
+        "description": "Retrieve data from a database file based on name and ID. If regex is provided, it returns the first match. Otherwise, it returns a table of values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbGet"
+      },
+      "ejaFileRead": {
+        "name_funct": "ejaFileRead",
+        "input_format": "ejaDbPath(name, id)",
+        "output_format": "nil",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbLast"
+      },
+      "ejaDbLast": {
+        "name_funct": "ejaDbLast",
+        "input_format": "name",
+        "output_format": "last",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbLast"
+      },
+      "on_ejaDbLast": {
+        "name_funct": "on_ejaDbLast",
+        "input_format": "name",
+        "output_format": "last",
+        "description": "Returns the last number in a directory named 'name'.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbList"
+      },
+      "ejaDbList": {
+        "name_funct": "ejaDbList",
+        "input_format": "name",
+        "output_format": "number",
+        "description": "Returns a sorted list of numbers in a directory named 'name'.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\db.lua#function ejaDbList"
+      },
+      "ejaDirList": {
+        "name_funct": "ejaDirList",
+        "input_format": "d (directory)",
+        "output_format": "list of files and directories",
+        "description": "List all files and directories in a given directory.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirList"
+      },
+      "ejaDirCreate": {
+        "name_funct": "ejaDirCreate",
+        "input_format": "d (string)",
+        "output_format": "none",
+        "description": "Creates a directory. The directory name is passed as the first argument.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirCreate"
+      },
+      "ejaFileCheck": {
+        "name_funct": "ejaFileCheck",
+        "input_format": "string f",
+        "output_format": "boolean",
+        "description": "Checks if a file exists. Returns true if the file exists, false otherwise.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileCheck"
+      },
+      "ejaFileAppend": {
+        "name_funct": "ejaFileAppend",
+        "input_format": "string (filename, optional data)",
+        "output_format": "boolean (success), string (filename, optional data)",
+        "description": "Appends data to the end of a file. If data is not provided, appends an empty string. Returns true on success, false on failure.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileAppend"
+      },
+      "ejaFileSize": {
+        "name_funct": "ejaFileSize",
+        "input_format": "string",
+        "output_format": "number",
+        "description": "Calculates the size of a file in bytes. Returns -1 if the file cannot be opened.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileSize"
+      },
+      "ejaFileCopy": {
+        "name_funct": "ejaFileCopy",
+        "input_format": "fileIn, fileOut",
+        "output_format": "none",
+        "description": "Copy a file from one location to another using ejaExecute.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileCopy"
+      },
+      "ejaFileRemove": {
+        "name_funct": "ejaFileRemove",
+        "input_format": "string",
+        "output_format": "nil",
+        "description": "Removes a file specified by the input argument.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileRemove"
+      },
+      "ejaFileMove": {
+        "name_funct": "ejaFileMove",
+        "input_format": "old (string), new (string)",
+        "output_format": "none",
+        "description": "Moves a file from the old path to the new path.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileMove"
+      },
+      "ejaFileLoad": {
+        "name_funct": "ejaFileLoad",
+        "input_format": "string (filename)",
+        "output_format": "none",
+        "description": "Loads a Lua script from a file and runs it.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileLoad"
+      },
+      "ejaFileTmp": {
+        "name_funct": "ejaFileTmp",
+        "input_format": "no input",
+        "output_format": "string",
+        "description": "Generates a temporary file path in /tmp or /tmp/eja.tmp.file based on the current time.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaFileTmp"
+      },
+      "ejaDirListSort": {
+        "name_funct": "ejaDirListSort",
+        "input_format": "table (d)",
+        "output_format": "table (t)",
+        "description": "Sorts a directory list alphabetically.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirListSort"
+      },
+      "ejaDirTable": {
+        "name_funct": "ejaDirTable",
+        "input_format": "d",
+        "output_format": "tt",
+        "description": "Extracts directory names from a table. Returns a table of directory names.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirTable"
+      },
+      "ejaDirTableSort": {
+        "name_funct": "ejaDirTableSort",
+        "input_format": "table (d)",
+        "output_format": "table (t)",
+        "description": "Sorts a table based on its keys.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirTableSort"
+      },
+      "ejaDirListSafe": {
+        "name_funct": "ejaDirListSafe",
+        "input_format": "directory (string)",
+        "output_format": "table (list of strings)",
+        "description": "Returns a list of files in the directory, excluding hidden files.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirListSafe"
+      },
+      "ejaDirTree": {
+        "name_funct": "ejaDirTree",
+        "input_format": "path",
+        "output_format": "string",
+        "description": "Recursively traverse a directory and return a formatted string of directory tree information.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirTree"
+      },
+      "ejaSprintf": {
+        "name_funct": "ejaSprintf",
+        "input_format": "string, table",
+        "output_format": "string",
+        "description": "Formats a string with table values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirCheck"
+      },
+      "ejaDirCheck": {
+        "name_funct": "ejaDirCheck",
+        "input_format": "path",
+        "output_format": "boolean",
+        "description": "Checks if the directory at the given path is a directory.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\file.lua#function ejaDirCheck"
+      },
+      "ejaFormInput": {
+        "name_funct": "ejaFormInput",
+        "input_format": "o (table), name (string), mode (string), label (string)",
+        "output_format": "value (string)",
+        "description": "Reads input value from an object and returns it. If the value is not found, it reads from standard input and returns it. It also updates the object's value with the new value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormInput"
+      },
+      "ejaFormSelect": {
+        "name_funct": "ejaFormSelect",
+        "input_format": "o (table), name (string), matrix (table), label (string)",
+        "output_format": "value (string)",
+        "description": "Selects a value from a matrix based on the provided name. If the name is not found in the matrix, it prompts the user to input a value and returns the input value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormSelect"
+      },
+      "lue": {
+        "name_funct": "lue",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Initializes a variable `lue` with the value of `value[name]`.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormOutput"
+      },
+      "value": {
+        "name_funct": "value",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Returns the value of `value[name]`.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormOutput"
+      },
+      "ejaPrintf": {
+        "name_funct": "ejaPrintf",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Prints formatted output to the console.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormOutput"
+      },
+      "ejaString": {
+        "name_funct": "ejaString",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Converts input to a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormOutput"
+      },
+      "ejaJsonEncode": {
+        "name_funct": "ejaJsonEncode",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a Lua table to a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormOutput"
+      },
+      "ejaFormOutput": {
+        "name_funct": "ejaFormOutput",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Forms and returns the output of `ejaJsonEncode`.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaFormOutput"
+      },
+      "ejaForm": {
+        "name_funct": "ejaForm",
+        "input_format": "type(o) == 'table'",
+        "output_format": "o, o.form, o.form.value, o.form.element, o.form.input, o.form.select, o.form.output",
+        "description": "Converts a table to an ejaWebForm object with form, value, element, input, select, and output methods.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\form.lua#function ejaForm"
+      },
+      "ejaJsonDecode": {
+        "name_funct": "ejaJsonDecode",
+        "input_format": "val (string), pos (number)",
+        "output_format": "decoded (table)",
+        "description": "Decodes a JSON string starting from the given position. Returns the decoded JSON object.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJsonDecode"
+      },
+      "ejaJsonFileWrite": {
+        "name_funct": "ejaJsonFileWrite",
+        "input_format": "file (string), array (table)",
+        "output_format": "nil or string (data)",
+        "description": "Writes a JSON-encoded array to a file. Returns nil on failure or the encoded data on success.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJsonFileWrite"
+      },
+      "ejaJsonFileRead": {
+        "name_funct": "ejaJsonFileRead",
+        "input_format": "file",
+        "output_format": "data, nil",
+        "description": "Reads a JSON file and decodes it into a Lua table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJsonFileRead"
+      },
+      "ejaJsonPost": {
+        "name_funct": "ejaJsonPost",
+        "input_format": "url, array, timeout",
+        "output_format": "table",
+        "description": "Send a POST request to a URL and return the decoded JSON response.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJsonPost"
+      },
+      "bWrite": {
+        "name_funct": "bWrite",
+        "input_format": "fd, head",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Writes data to a file descriptor.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJson"
+      },
+      "ejaWebWrite": {
+        "name_funct": "ejaWebWrite",
+        "input_format": "fd, body",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Writes data to a file descriptor using ejaWebRead.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJson"
+      },
+      "ejaWebRead": {
+        "name_funct": "ejaWebRead",
+        "input_format": "fd, size",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Reads data from a file descriptor.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJson"
+      },
+      "ejaWebClose": {
+        "name_funct": "ejaWebClose",
+        "input_format": "fd",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Closes a file descriptor.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJson"
+      },
+      "table.concat": {
+        "name_funct": "table.concat",
+        "input_format": "table, pattern",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Concatenates elements of a table with a specified pattern.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJson"
+      },
+      "ejaJson": {
+        "name_funct": "ejaJson",
+        "input_format": "mode, val, posOrState, nullVal",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function for JSON operations.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ejaJson"
+      },
+      "enable_access_to_blocked_metatables": {
+        "name_funct": "enable_access_to_blocked_metatables",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Enable access to blocked metatables without changing them.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function isarray"
+      },
+      "isarray": {
+        "name_funct": "isarray",
+        "input_format": "table tbl",
+        "output_format": "boolean, number",
+        "description": "Check if a table is an array and return the maximum index and the maximum value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function isarray"
+      },
+      "max": {
+        "name_funct": "max",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "maximum value in the array",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function escapeutf8"
+      },
+      "arraylen": {
+        "name_funct": "arraylen",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "length of the array",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function escapeutf8"
+      },
+      "n": {
+        "name_funct": "n",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "number of elements in the array",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function escapeutf8"
+      },
+      "at": {
+        "name_funct": "at",
+        "input_format": "value",
+        "output_format": "string",
+        "description": "Converts a value to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function fsub"
+      },
+      "fsub": {
+        "name_funct": "fsub",
+        "input_format": "string, string, string",
+        "output_format": "string",
+        "description": "Replaces occurrences of a pattern in a string with a replacement string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function fsub"
+      },
+      "gsub": {
+        "name_funct": "gsub",
+        "input_format": "string, pattern, replacement",
+        "output_format": "string",
+        "description": "gsub always builds a new string in a buffer, even when no match exists. First using find should be more efficient when most strings don't contain the pattern.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function quotestring"
+      },
+      "strfind": {
+        "name_funct": "strfind",
+        "input_format": "string, pattern",
+        "output_format": "boolean",
+        "description": "checks if the pattern is found in the string",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function quotestring"
+      },
+      "escapeutf8": {
+        "name_funct": "escapeutf8",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "escapes special characters in a UTF-8 string",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function quotestring"
+      },
+      "quotestring": {
+        "name_funct": "quotestring",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "quotes a string based on the regexp 'escapable' in https://github.com/douglascrockford/JSON-js",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function quotestring"
+      },
+      "replace": {
+        "name_funct": "replace",
+        "input_format": "string, string, string",
+        "output_format": "string",
+        "description": "replaces occurrences of a substring with another substring in a string",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function replace"
+      },
+      "updatedecpoint": {
+        "name_funct": "updatedecpoint",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Updates the decimal point separator based on the current locale.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function updatedecpoint"
+      },
+      "num2str": {
+        "name_funct": "num2str",
+        "input_format": "num",
+        "output_format": "string",
+        "description": "Converts a number to a string, replacing the number with a decimal point if necessary.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function num2str"
+      },
+      "str2num": {
+        "name_funct": "str2num",
+        "input_format": "str",
+        "output_format": "num",
+        "description": "Converts a string to a number. If the string contains a decimal point, it is first converted to a number with the default decimal point. If not, it attempts to convert the string to a number with the updated decimal point.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function str2num"
+      },
+      "addnewline2": {
+        "name_funct": "addnewline2",
+        "input_format": "level (number), buffer (table), buflen (number)",
+        "output_format": "buflen (number)",
+        "description": "Adds a newline followed by a specified number of spaces to the buffer. Returns the new buffer length.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function addnewline2"
+      },
+      "json.addnewline": {
+        "name_funct": "json.addnewline",
+        "input_format": "state",
+        "output_format": "state",
+        "description": "Adds a newline character to the JSON state buffer. If indentation is enabled, it also adds a newline to the next level of indentation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function json.addnewline"
+      },
+      "addpair": {
+        "name_funct": "addpair",
+        "input_format": "key (string or number), value (any), prev (boolean), indent (boolean), level (number), buffer (string), buflen (number), tables (table), globalorder (table), state (table)",
+        "output_format": "encoded value (string), error message (string)",
+        "description": "Adds a key-value pair to a JSON buffer, handling indentation and encoding.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function addpair"
+      },
+      "encode2": {
+        "name_funct": "encode2",
+        "input_format": "value, indent, level, buffer, buflen, tables, globalorder, state",
+        "output_format": "encoded value",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function appendcustom"
+      },
+      "appendcustom": {
+        "name_funct": "appendcustom",
+        "input_format": "res, buffer, state",
+        "output_format": "new buffer length",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function appendcustom"
+      },
+      "exception": {
+        "name_funct": "exception",
+        "input_format": "reason, value, state, buffer, buflen, defaultmessage",
+        "output_format": "nil, defaultmessage, nil, msg or defaultmessage",
+        "description": "Handles exceptions by calling the exception handler, appending custom data, and returning the result.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function exception"
+      },
+      "json.encodeexception": {
+        "name_funct": "json.encodeexception",
+        "input_format": "reason, value, state, defaultmessage",
+        "output_format": "quotestring('<defaultmessage>')",
+        "description": "Encodes an exception into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function json.encodeexception"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "value, state",
+        "output_format": "boolean, string",
+        "description": "Encodes a JSON value into a string. Returns true if successful, otherwise returns an error message.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function json.encode"
+      },
+      "concat": {
+        "name_funct": "concat",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Concatenates two strings.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function loc"
+      },
+      "strlen": {
+        "name_funct": "strlen",
+        "input_format": "string",
+        "output_format": "integer",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function unterminated"
+      },
+      "loc": {
+        "name_funct": "loc",
+        "input_format": "string, position",
+        "output_format": "string",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function unterminated"
+      },
+      "unterminated": {
+        "name_funct": "unterminated",
+        "input_format": "string, string, integer",
+        "output_format": "string, integer, string",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function unterminated"
+      },
+      "scanwhite": {
+        "name_funct": "scanwhite",
+        "input_format": "str, pos",
+        "output_format": "pos",
+        "description": "Scan through a string for UTF-8 Byte Order Mark (BOM) or comment markers.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function scanwhite"
+      },
+      "strchar": {
+        "name_funct": "strchar",
+        "input_format": "integer",
+        "output_format": "string",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function unichar"
+      },
+      "unichar": {
+        "name_funct": "unichar",
+        "input_format": "integer",
+        "output_format": "string or nil",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function unichar"
+      },
+      "scanstring": {
+        "name_funct": "scanstring",
+        "input_format": "string, integer",
+        "output_format": "table, integer",
+        "description": "Scan a string for escaped characters and return the decoded value or an error message.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function scanstring"
+      },
+      "scanvalue": {
+        "name_funct": "scanvalue",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Scan a JSON value from the given string starting at the specified position.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function scantable"
+      },
+      "scantable": {
+        "name_funct": "scantable",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Scan a JSON table or array from the given string starting at the specified position.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function scantable"
+      },
+      "optionalmetatables": {
+        "name_funct": "optionalmetatables",
+        "input_format": "variable number of arguments",
+        "output_format": "table of metatables",
+        "description": "Creates optional metatables for JSON objects and arrays.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function optionalmetatables"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "string, optional, optional, optional, optional",
+        "output_format": "optional, optional",
+        "description": "Decodes a JSON string into a Lua table or array.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function json.decode"
+      },
+      "json.use_lpeg": {
+        "name_funct": "json.use_lpeg",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Checks the version of LPeg and raises an error if it's 0.11 due to a bug.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function json.use_lpeg"
+      },
+      "ErrorCall": {
+        "name_funct": "ErrorCall",
+        "input_format": "str, pos, msg, state",
+        "output_format": "boolean",
+        "description": "记录错误信息，如果状态信息不存在则添加错误信息和位置信息。",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function ErrorCall"
+      },
+      "Err": {
+        "name_funct": "Err",
+        "input_format": "msg",
+        "output_format": "ErrorCall",
+        "description": "Return an error message with a custom error call.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function Err"
+      },
+      "SingleLineComment": {
+        "name_funct": "SingleLineComment",
+        "input_format": "None",
+        "output_format": "None",
+        "description": "Create a single-line comment.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function Err"
+      },
+      "MultiLineComment": {
+        "name_funct": "MultiLineComment",
+        "input_format": "None",
+        "output_format": "None",
+        "description": "Create a multi-line comment.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function Err"
+      },
+      "Space": {
+        "name_funct": "Space",
+        "input_format": "None",
+        "output_format": "None",
+        "description": "Create a space character.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function Err"
+      },
+      "PlainChar": {
+        "name_funct": "PlainChar",
+        "input_format": "None",
+        "output_format": "None",
+        "description": "Create a plain character.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function Err"
+      },
+      "EscapeSequence": {
+        "name_funct": "EscapeSequence",
+        "input_format": "None",
+        "output_format": "None",
+        "description": "Create an escape sequence.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function Err"
+      },
+      "HexDigit": {
+        "name_funct": "HexDigit",
+        "input_format": "None",
+        "output_format": "None",
+        "description": "Create a hexadecimal digit.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function Err"
+      },
+      "UTF16Surrogate": {
+        "name_funct": "UTF16Surrogate",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function UTF16Surrogate"
+      },
+      "parsearray": {
+        "name_funct": "parsearray",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "parses an array and stores its elements directly",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function UTF16BMP"
+      },
+      "parseobject": {
+        "name_funct": "parseobject",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "parses an object and stores its properties directly",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function UTF16BMP"
+      },
+      "pegmatch": {
+        "name_funct": "pegmatch",
+        "input_format": "str, pos, nullval, state",
+        "output_format": "npos, pos, nt, t, cont",
+        "description": "Parse an array or object based on peg grammar",
+        "extraction_method": "llm",
+        "source_ref": "lib\\json.lua#function parseobject"
+      },
+      "ejaLoad": {
+        "name_funct": "ejaLoad",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Loads the eja module and initializes its paths and options.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\load.lua#function ejaLoad"
+      },
+      "ejaLog": {
+        "name_funct": "ejaLog",
+        "input_format": "level (string), message (string)",
+        "output_format": "None",
+        "description": "Logs a message with a specified level to a log file.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\log.lua#function ejaLog"
+      },
+      "ejaError": {
+        "name_funct": "ejaError",
+        "input_format": "value, ...",
+        "output_format": "no output",
+        "description": "Logs an error message with a specified log level and value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\log.lua#function ejaError"
+      },
+      "ejaWarn": {
+        "name_funct": "ejaWarn",
+        "input_format": "value, ...",
+        "output_format": "no output",
+        "description": "Logs a warning message with a severity level of 'W' and a formatted string. If the log level is 2 or higher, the message is logged.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\log.lua#function ejaWarn"
+      },
+      "ejaInfo": {
+        "name_funct": "ejaInfo",
+        "input_format": "value, ...",
+        "output_format": "ejaLog, ejaSprintf",
+        "description": "Prints a formatted string to the log if the log level is 3 or higher.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\log.lua#function ejaInfo"
+      },
+      "ejaDebug": {
+        "name_funct": "ejaDebug",
+        "input_format": "value, ...",
+        "output_format": "ejaLog('D', ejaSprintf(value, ...))",
+        "description": "Logs debug information with level 4 or higher. Prints debug message with value and additional arguments.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\log.lua#function ejaDebug"
+      },
+      "ejaTrace": {
+        "name_funct": "ejaTrace",
+        "input_format": "value, ...",
+        "output_format": "ejaLog('T', ejaSprintf(value, ...))",
+        "description": "Logs a trace message with severity 'T' and formatted value if log level is 5 or higher.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\log.lua#function ejaTrace"
+      },
+      "ejaMariaOpen": {
+        "name_funct": "ejaMariaOpen",
+        "input_format": "host (string, optional), port (number, optional), user (string), pass (string), database (string), charset (string, optional), size (number, optional)",
+        "output_format": "boolean, ejaMaria.db",
+        "description": "Opens a MariaDB connection and returns true if successful, false otherwise.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function ejaMariaOpen"
+      },
+      "Maria": {
+        "name_funct": "Maria",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Creates a new Maria object",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function ejaMariaQuery"
+      },
+      "db": {
+        "name_funct": "db",
+        "input_format": "host, port, user, password, database, charset, max_packet_size",
+        "output_format": "no output",
+        "description": "Connects to a Maria database",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function ejaMariaQuery"
+      },
+      "ejaNumber": {
+        "name_funct": "ejaNumber",
+        "input_format": "number",
+        "output_format": "number",
+        "description": "Returns the number of rows affected by a query",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function ejaMariaQuery"
+      },
+      "ejaMariaQuery": {
+        "name_funct": "ejaMariaQuery",
+        "input_format": "variable number of arguments",
+        "output_format": "query, err",
+        "description": "Executes a Maria query",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function ejaMariaQuery"
+      },
+      "ejaMariaClose": {
+        "name_funct": "ejaMariaClose",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Closes the MariaDB database connection.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function ejaMariaClose"
+      },
+      "query": {
+        "name_funct": "query",
+        "input_format": "a string or table",
+        "output_format": "a table or nil",
+        "description": "Executes a MariaDB query. Returns a table or nil if an error occurs.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function ejaMariaClose"
+      },
+      "converters": {
+        "name_funct": "converters",
+        "input_format": "data, i",
+        "output_format": "converted_value, i + 2",
+        "description": "converts data at index i to a number using the converters table",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _get_byte2"
+      },
+      "_get_byte3": {
+        "name_funct": "_get_byte3",
+        "input_format": "data (string), i (number)",
+        "output_format": "result (number), i (number)",
+        "description": "Extracts the first three bytes of a string starting at index i, concatenates them, and returns the result along with the new index.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _get_byte3"
+      },
+      "_get_byte4": {
+        "name_funct": "_get_byte4",
+        "input_format": "data (string), i (number)",
+        "output_format": "result (number), i (number)",
+        "description": "Extracts 4 bytes from the data starting at index i, concatenates them, and returns the result along with the new index.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _get_byte4"
+      },
+      "_get_byte8": {
+        "name_funct": "_get_byte8",
+        "input_format": "data, i",
+        "output_format": "lo + hi * 4294967296, i + 8",
+        "description": "Extracts 8 bytes from the data starting at index i, performs a bitwise operation, and returns the result along with the new index.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _get_byte8"
+      },
+      "_set_byte2": {
+        "name_funct": "_set_byte2",
+        "input_format": "n (integer)",
+        "output_format": "strchar (string, integer, integer)",
+        "description": "Converts a byte to a character based on the band operation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _set_byte2"
+      },
+      "_set_byte3": {
+        "name_funct": "_set_byte3",
+        "input_format": "n (number)",
+        "output_format": "string",
+        "description": "Sets the byte at the specified position in a string based on the given number.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _set_byte3"
+      },
+      "_set_byte4": {
+        "name_funct": "_set_byte4",
+        "input_format": "n (integer)",
+        "output_format": "str (string)",
+        "description": "Sets the first four bytes of a string to the specified integer value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _set_byte4"
+      },
+      "_from_cstring": {
+        "name_funct": "_from_cstring",
+        "input_format": "string, integer",
+        "output_format": "string, integer",
+        "description": "Extracts a substring from a string, stopping at the first occurrence of a null character, or returns nil if not found.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _from_cstring"
+      },
+      "_to_cstring": {
+        "name_funct": "_to_cstring",
+        "input_format": "data",
+        "output_format": "string",
+        "description": "Converts a Lua value to a C-style string by appending a null terminator.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _to_cstring"
+      },
+      "_to_binary_coded_string": {
+        "name_funct": "_to_binary_coded_string",
+        "input_format": "data",
+        "output_format": "binary_coded_string",
+        "description": "Converts a string to a binary-coded string representation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _to_binary_coded_string"
+      },
+      "_dump": {
+        "name_funct": "_dump",
+        "input_format": "data",
+        "output_format": "string",
+        "description": "Dumps a Lua table to a hexadecimal string representation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _dump"
+      },
+      "_dumphex": {
+        "name_funct": "_dumphex",
+        "input_format": "data",
+        "output_format": "concat(bytes, \" \")",
+        "description": "Converts a string of bytes into a hexadecimal string representation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _dumphex"
+      },
+      "_compute_token": {
+        "name_funct": "_compute_token",
+        "input_format": "password (string), scramble (string)",
+        "output_format": "bytes (table)",
+        "description": "Compute a token from a password and scramble. Returns a table of bytes.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _compute_token"
+      },
+      "sha1": {
+        "name_funct": "sha1",
+        "input_format": "password",
+        "output_format": "stage1, stage2, stage3, n, bytes, concat(bytes)",
+        "description": "Compute SHA-1 hash of a password and other strings.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "xor": {
+        "name_funct": "xor",
+        "input_format": "byte1, byte2",
+        "output_format": "result",
+        "description": "Perform bitwise XOR operation on two bytes.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "new_tab": {
+        "name_funct": "new_tab",
+        "input_format": "size, element_type",
+        "output_format": "tab",
+        "description": "Create a new table with a specified size and element type.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "strbyte": {
+        "name_funct": "strbyte",
+        "input_format": "string, byte",
+        "output_format": "byte",
+        "description": "Get the byte at a specific position in a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "band": {
+        "name_funct": "band",
+        "input_format": "a, b",
+        "output_format": "result",
+        "description": "Bitwise AND operation on two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "ngx": {
+        "name_funct": "ngx",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "A hypothetical function for logging messages.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "set_byte3": {
+        "name_funct": "set_byte3",
+        "input_format": "size",
+        "output_format": "byte",
+        "description": "Set the third byte of a size.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "send_packet": {
+        "name_funct": "send_packet",
+        "input_format": "self, req, size",
+        "output_format": "sock:send(packet)",
+        "description": "Send a packet over a socket.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _send_packet"
+      },
+      "ket_no": {
+        "name_funct": "ket_no",
+        "input_format": "not explicitly stated",
+        "output_format": "not explicitly stated",
+        "description": "increments the packet number",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _recv_packet"
+      },
+      "ngx.say": {
+        "name_funct": "ngx.say",
+        "input_format": "not explicitly stated",
+        "output_format": "not explicitly stated",
+        "description": "prints a message to the server",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _recv_packet"
+      },
+      "local packet": {
+        "name_funct": "local packet",
+        "input_format": "not explicitly stated",
+        "output_format": "not explicitly stated",
+        "description": "concatenates packet components",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _recv_packet"
+      },
+      "return": {
+        "name_funct": "return",
+        "input_format": "not explicitly stated",
+        "output_format": "not explicitly stated",
+        "description": "returns a value",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _recv_packet"
+      },
+      "_parse_ok_packet": {
+        "name_funct": "_parse_ok_packet",
+        "input_format": "local packet",
+        "output_format": "local res, pos",
+        "description": "Parse an OK packet and return a table with various fields.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _parse_ok_packet"
+      },
+      "parse_eof_packet": {
+        "name_funct": "parse_eof_packet",
+        "input_format": "packet, pos",
+        "output_format": "warning_count, status_flags",
+        "description": "Parse an EOF packet and return the warning count and status flags.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _parse_eof_packet"
+      },
+      "_parse_err_packet": {
+        "name_funct": "_parse_err_packet",
+        "input_format": "local errno, pos = _get_byte2(packet, 2)",
+        "output_format": "errno, message, sqlstate",
+        "description": "解析错误报文，提取错误码、消息和SQL状态码",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _parse_err_packet"
+      },
+      "_parse_field_packet": {
+        "name_funct": "_parse_field_packet",
+        "input_format": "data",
+        "output_format": "col",
+        "description": "解析字段包，返回字段对象",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _parse_field_packet"
+      },
+      "_parse_row_data_packet": {
+        "name_funct": "_parse_row_data_packet",
+        "input_format": "data, cols, compact",
+        "output_format": "row",
+        "description": "Parse row data packet and return a table of values for each column.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _parse_row_data_packet"
+      },
+      "null": {
+        "name_funct": "null",
+        "input_format": "none",
+        "output_format": "string",
+        "description": "Return the string 'null' as a placeholder for null values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _parse_row_data_packet"
+      },
+      "compact": {
+        "name_funct": "compact",
+        "input_format": "boolean",
+        "output_format": "row",
+        "description": "sets row[i] to value if compact is true, otherwise sets row[name] to value",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _recv_field_packet"
+      },
+      "recv_field_packet": {
+        "name_funct": "recv_field_packet",
+        "input_format": "self",
+        "output_format": "row",
+        "description": "receives field packet, parses typ, and returns parsed data",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _recv_field_packet"
+      },
+      "new": {
+        "name_funct": "new",
+        "input_format": "self",
+        "output_format": "sock, err",
+        "description": "Create a new socket object.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.new"
+      },
+      "_M.set_timeout": {
+        "name_funct": "_M.set_timeout",
+        "input_format": "self, timeout",
+        "output_format": "sock, sock:settimeout(timeout)",
+        "description": "Sets the timeout for a socket. Returns the socket object if successful, or an error message if not.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.set_timeout"
+      },
+      "_M.connect": {
+        "name_funct": "_M.connect",
+        "input_format": "opts",
+        "output_format": "ok, err",
+        "description": "Connects to a database or socket, handling various options and parameters.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.connect"
+      },
+      "set_keepalive": {
+        "name_funct": "set_keepalive",
+        "input_format": "self, ...",
+        "output_format": "sock, result",
+        "description": "Sets keepalive options for the socket. Returns the socket object if successful, or an error message otherwise.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.set_keepalive"
+      },
+      "get_reused_times": {
+        "name_funct": "get_reused_times",
+        "input_format": "self.sock",
+        "output_format": "reused times",
+        "description": "Returns the number of times the socket has been reused.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.get_reused_times"
+      },
+      "setkeepalive": {
+        "name_funct": "setkeepalive",
+        "input_format": "additional arguments",
+        "output_format": "returns the result of the setkeepalive function",
+        "description": "Sets the keepalive parameters for the socket.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.get_reused_times"
+      },
+      "_M.close": {
+        "name_funct": "_M.close",
+        "input_format": "self",
+        "output_format": "nil, error message",
+        "description": "Closes the socket associated with the object and returns the result of closing the socket.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.close"
+      },
+      "_M.server_ver": {
+        "name_funct": "_M.server_ver",
+        "input_format": "self",
+        "output_format": "nil, server version",
+        "description": "Return the server version.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.server_ver"
+      },
+      "send_query": {
+        "name_funct": "send_query",
+        "input_format": "self, query",
+        "output_format": "bytes, error",
+        "description": "Sends a query to the server and returns the number of bytes sent and any error encountered.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function send_query"
+      },
+      "read_result": {
+        "name_funct": "read_result",
+        "input_format": "self, est_nrows",
+        "output_format": "rows, err",
+        "description": "Reads the result set of a query and returns the result rows and any error.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function read_result"
+      },
+      "_M.set_compact_arrays": {
+        "name_funct": "_M.set_compact_arrays",
+        "input_format": "self, value",
+        "output_format": "self.compact",
+        "description": "Sets the compact flag for the module.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.set_compact_arrays"
+      },
+      "_M": {
+        "name_funct": "_M",
+        "input_format": "self",
+        "output_format": "module",
+        "description": "Module containing the function definitions.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\maria.lua#function _M.set_compact_arrays"
+      },
+      "eja.mime": {
+        "name_funct": "eja.mime",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides MIME type mappings for various file formats.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\mime.lua#File: lib\\mime.lua (part 2)"
+      },
+      "ejaXmlEncode": {
+        "name_funct": "ejaXmlEncode",
+        "input_format": "str",
+        "output_format": "string",
+        "description": "Encodes XML entities in a string. Converts characters to their hexadecimal representation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaXmlEncode"
+      },
+      "ejaUrlDecode": {
+        "name_funct": "ejaUrlDecode",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Decodes URL-encoded characters in a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaUrlDecode"
+      },
+      "ejaCheck": {
+        "name_funct": "ejaCheck",
+        "input_format": "a (any), b (any)",
+        "output_format": "boolean",
+        "description": "Checks if two values are equal, considering numeric types, tables, or strings.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaCheck"
+      },
+      "ejaOct2Dec": {
+        "name_funct": "ejaOct2Dec",
+        "input_format": "string",
+        "output_format": "number",
+        "description": "Converts an octal string to a decimal number.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaOct2Dec"
+      },
+      "if": {
+        "name_funct": "if",
+        "input_format": "boolean, table, string, number, function, or nil",
+        "output_format": "nil",
+        "description": "Conditional statement to check if a condition is true.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaOct2Dec"
+      },
+      "next": {
+        "name_funct": "next",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Returns the next element in a table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaOct2Dec"
+      },
+      "tonumber": {
+        "name_funct": "tonumber",
+        "input_format": "string",
+        "output_format": "number",
+        "description": "Converts a string to a number.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaOct2Dec"
+      },
+      "ejaReadLine": {
+        "name_funct": "ejaReadLine",
+        "input_format": "value, ...",
+        "output_format": "string",
+        "description": "Reads a line of input from the standard input and returns it. If `value` is provided, it writes `value` to the standard output before reading.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaReadLine"
+      },
+      "ejaTime": {
+        "name_funct": "ejaTime",
+        "input_format": "no input",
+        "output_format": "returns os.time() + (tm / 1000000000)",
+        "description": "Calculates the current time in seconds since the Unix epoch plus the duration of the system time in nanoseconds.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\misc.lua#function ejaTime"
+      },
+      "ejaPidWrite": {
+        "name_funct": "ejaPidWrite",
+        "input_format": "name (string), pid (number)",
+        "output_format": "none",
+        "description": "Writes the process ID (pid) of the current process to a file named 'eja.pid.<name>' in the path 'eja.pathLock'. If pid is not provided, it retrieves the process ID using ejaPid().",
+        "extraction_method": "llm",
+        "source_ref": "lib\\pid.lua#function ejaPidWrite"
+      },
+      "ejaPidKill": {
+        "name_funct": "ejaPidKill",
+        "input_format": "name",
+        "output_format": "nil",
+        "description": "Kill a process by its PID. If the process is not found, it will be removed from the lock file.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\pid.lua#function ejaPidKill"
+      },
+      "ejaPidKillTree": {
+        "name_funct": "ejaPidKillTree",
+        "input_format": "name",
+        "output_format": "none",
+        "description": "Kill a process tree and its children. Kills the process with the given name and its children recursively.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\pid.lua#function ejaPidKillTree"
+      },
+      "ber": {
+        "name_funct": "ber",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "not applicable",
+        "extraction_method": "llm",
+        "source_ref": "lib\\pid.lua#function ejaPidKillTreeSub"
+      },
+      "ejaProcPidChildren": {
+        "name_funct": "ejaProcPidChildren",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "returns a table of child processes of the given process ID",
+        "extraction_method": "llm",
+        "source_ref": "lib\\pid.lua#function ejaPidKillTreeSub"
+      },
+      "ejaKill": {
+        "name_funct": "ejaKill",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "kills a process with the given PID and signal number",
+        "extraction_method": "llm",
+        "source_ref": "lib\\pid.lua#function ejaPidKillTreeSub"
+      },
+      "ejaPidKillTreeSub": {
+        "name_funct": "ejaPidKillTreeSub",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "recursively kills child processes of a given process ID",
+        "extraction_method": "llm",
+        "source_ref": "lib\\pid.lua#function ejaPidKillTreeSub"
+      },
+      "ejaProcCpuCount": {
+        "name_funct": "ejaProcCpuCount",
+        "input_format": "no input",
+        "output_format": "integer",
+        "description": "Counts the number of CPUs based on the presence of the 'present' file or the 'processor' line in the CPU information file.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaProcCpuCount"
+      },
+      "rocCpuCount": {
+        "name_funct": "rocCpuCount",
+        "input_format": "no input",
+        "output_format": "integer",
+        "description": "Returns the number of physical CPU cores on the system.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaProcCpuSum"
+      },
+      "ejaProcCpuSum": {
+        "name_funct": "ejaProcCpuSum",
+        "input_format": "no input",
+        "output_format": "integer",
+        "description": "Calculates the total CPU usage across all processes.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaProcCpuSum"
+      },
+      "ejaProcCpuSumPid": {
+        "name_funct": "ejaProcCpuSumPid",
+        "input_format": "string, string, string, string, string, string, string, string, string, string, string, string, string, string, string, string, string, string",
+        "output_format": "number, string",
+        "description": "Calculates the CPU sum and process name for a given process ID (PID).",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaProcCpuSumPid"
+      },
+      "ejaProcCpuCheck": {
+        "name_funct": "ejaProcCpuCheck",
+        "input_format": "name",
+        "output_format": "pid, pidCpu",
+        "description": "Check for a specific process name in the list of process IDs and their CPU usage.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaProcCpuCheck"
+      },
+      "rocCpuCheck": {
+        "name_funct": "rocCpuCheck",
+        "input_format": "name",
+        "output_format": "nil",
+        "description": "Check CPU usage for a given process name.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaProcPidChildren"
+      },
+      "ejaProcPidStat": {
+        "name_funct": "ejaProcPidStat",
+        "input_format": "pid",
+        "output_format": "table of process statistics",
+        "description": "Returns a table of process statistics for a given process ID.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaProcPidStat"
+      },
+      "ejaGetELF": {
+        "name_funct": "ejaGetELF",
+        "input_format": "no input",
+        "output_format": "string",
+        "description": "获取当前进程的 ELF 文件路径",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaGetELF"
+      },
+      "ejaGetMAC": {
+        "name_funct": "ejaGetMAC",
+        "input_format": "ip (optional)",
+        "output_format": "mac (string)",
+        "description": "获取指定IP的MAC地址，或从网络接口中获取第一个以1开头的接口的MAC地址。",
+        "extraction_method": "llm",
+        "source_ref": "lib\\proc.lua#function ejaGetMAC"
+      },
+      "ejaRock": {
+        "name_funct": "ejaRock",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "This function is not a Lua function but a C function. It is likely part of a C library that is being used in Lua code.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaRock"
+      },
+      "ejaFork": {
+        "name_funct": "ejaFork",
+        "input_format": "no explicit input",
+        "output_format": "return unistd.fork()",
+        "description": "Creates a child process using the fork() system call.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaFork"
+      },
+      "ejaForkClean": {
+        "name_funct": "ejaForkClean",
+        "input_format": "no input",
+        "output_format": "returns a boolean indicating success",
+        "description": "waits for a long time without blocking, useful for testing purposes",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaForkClean"
+      },
+      "ejaPid": {
+        "name_funct": "ejaPid",
+        "input_format": "no input",
+        "output_format": "returns integer",
+        "description": "Returns the process ID of the current process.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaPid"
+      },
+      "ejaSleep": {
+        "name_funct": "ejaSleep",
+        "input_format": "t (number)",
+        "output_format": "nil",
+        "description": "Sleeps for a specified duration in seconds. Returns nil.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSleep"
+      },
+      "ejaSocketOpen": {
+        "name_funct": "ejaSocketOpen",
+        "input_format": "domain (string), type (string), protocol (string)",
+        "output_format": "sock.socket(domain, type, protocol)",
+        "description": "Opens a socket to a specified domain, type, and protocol.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketOpen"
+      },
+      "ejaSocketClose": {
+        "name_funct": "ejaSocketClose",
+        "input_format": "fd (integer)",
+        "output_format": "nil",
+        "description": "Closes a file descriptor. Returns nothing.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketClose"
+      },
+      "ejaSocketListen": {
+        "name_funct": "ejaSocketListen",
+        "input_format": "fd (integer), backlog (integer)",
+        "output_format": "true or nil",
+        "description": "Listen for incoming connections on a socket. Returns true if successful, nil on error.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketListen"
+      },
+      "ejaSocketConnect": {
+        "name_funct": "ejaSocketConnect",
+        "input_format": "fd (integer), addr (string)",
+        "output_format": "boolean",
+        "description": "Attempts to connect to a socket. Returns true on success, nil on failure.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketConnect"
+      },
+      "ejaSocketBind": {
+        "name_funct": "ejaSocketBind",
+        "input_format": "fd (integer), addr (string)",
+        "output_format": "boolean",
+        "description": "Binds a socket to a specified address. Returns true on success, nil on failure.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketBind"
+      },
+      "ejaSocketAccept": {
+        "name_funct": "ejaSocketAccept",
+        "input_format": "fd",
+        "output_format": "sock",
+        "description": "Accepts a new connection on the given file descriptor.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketAccept"
+      },
+      "ejaSocketRead": {
+        "name_funct": "ejaSocketRead",
+        "input_format": "fd (integer), count (integer)",
+        "output_format": "data (string)",
+        "description": "Read data from a socket. Returns the data read.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketRead"
+      },
+      "ejaSocketWrite": {
+        "name_funct": "ejaSocketWrite",
+        "input_format": "fd (number), buffer (string)",
+        "output_format": "result (number)",
+        "description": "Writes data to a socket. Returns the number of bytes sent.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketWrite"
+      },
+      "ejaSocketGetAddrInfo": {
+        "name_funct": "ejaSocketGetAddrInfo",
+        "input_format": "host (string), service (string), protocol (string)",
+        "output_format": "addrinfo (table)",
+        "description": "Get address information for a given host and service using the specified protocol.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketGetAddrInfo"
+      },
+      "ejaSocketReceive": {
+        "name_funct": "ejaSocketReceive",
+        "input_format": "fd (integer), count (integer)",
+        "output_format": "result (string)",
+        "description": "Receive data from a socket. Returns the received data as a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketReceive"
+      },
+      "ejaSocketSend": {
+        "name_funct": "ejaSocketSend",
+        "input_format": "fd (number), buffer (string)",
+        "output_format": "result (number)",
+        "description": "Sends data to a socket. Returns the number of bytes sent.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketSend"
+      },
+      "ejaSocketOptionSet": {
+        "name_funct": "ejaSocketOptionSet",
+        "input_format": "fd (number), level (string), optname (string), val (number), len (number)",
+        "output_format": "result (boolean or number)",
+        "description": "Sets socket option on a file descriptor. If `len` is provided, it sets the option with a length; otherwise, it sets the option without a length.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketOptionSet"
+      },
+      "sock": {
+        "name_funct": "sock",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "A table representing socket-related functions and methods.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\rock.lua#function ejaSocketOptionSet"
+      },
+      "ejaScan": {
+        "name_funct": "ejaScan",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "扫描并处理脚本中的特定模式，输出匹配的记录。",
+        "extraction_method": "llm",
+        "source_ref": "lib\\scan.lua#function ejaScan"
+      },
+      "ejaSha256": {
+        "name_funct": "ejaSha256",
+        "input_format": "value (string)",
+        "output_format": "hexadecimal string",
+        "description": "Encrypts a given value using the SHA-256 algorithm.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function ejaSha256"
+      },
+      "str2hexa": {
+        "name_funct": "str2hexa",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Converts a string of bytes into a string of hexadecimal digits.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function str2hexa"
+      },
+      "num2s": {
+        "name_funct": "num2s",
+        "input_format": "local l, n = i, i + 4",
+        "output_format": "return s",
+        "description": "Converts a big-endian sequence of four bytes into a number.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function num2s"
+      },
+      "s232num": {
+        "name_funct": "s232num",
+        "input_format": "string, integer",
+        "output_format": "integer",
+        "description": "Converts a string to a 32-bit unsigned integer.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function s232num"
+      },
+      "preproc": {
+        "name_funct": "preproc",
+        "input_format": "msg (string), len (number)",
+        "output_format": "msg (string), len (number)",
+        "description": "Preprocesses a message by appending a bit '1', a specified number of '0's, and the length of the message in bits.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function preproc"
+      },
+      "initH256": {
+        "name_funct": "initH256",
+        "input_format": "H (table)",
+        "output_format": "H (table)",
+        "description": "Initialize the H256 hash function with initial values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function initH256"
+      },
+      "bit32.band": {
+        "name_funct": "bit32.band",
+        "input_format": "unsigned integer",
+        "output_format": "unsigned integer",
+        "description": "Bitwise AND operation on two unsigned integers.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function finalresult256"
+      },
+      "digestblock": {
+        "name_funct": "digestblock",
+        "input_format": "string, integer, table",
+        "output_format": "string",
+        "description": "Processes a block of data and updates the hash state.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function finalresult256"
+      },
+      "finalresult256": {
+        "name_funct": "finalresult256",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Computes the final hash value for SHA-1.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function finalresult256"
+      },
+      "ejaSha1": {
+        "name_funct": "ejaSha1",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "applies the SHA-1 hash algorithm to a value",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function ejaSha1"
+      },
+      "ZERO": {
+        "name_funct": "ZERO",
+        "input_format": "no input",
+        "output_format": "W32 object",
+        "description": "Returns a W32 object representing a 32-bit integer from a string of 8 hex digits.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function ZERO"
+      },
+      "hex_to_bits": {
+        "name_funct": "hex_to_bits",
+        "input_format": "string of 8 hex digits",
+        "output_format": "table of boolean values",
+        "description": "Converts a string of 8 hex digits to a table representing the corresponding binary values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function ZERO"
+      },
+      "from_hex": {
+        "name_funct": "from_hex",
+        "input_format": "string of 8 hex digits",
+        "output_format": "W32 object",
+        "description": "Converts a string of 8 hex digits into a W32 object representing that number.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function from_hex"
+      },
+      "hex": {
+        "name_funct": "hex",
+        "input_format": "string",
+        "output_format": "nil",
+        "description": "A hexadecimal string to be processed.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function COPY"
+      },
+      "W32": {
+        "name_funct": "W32",
+        "input_format": "nil",
+        "output_format": "table",
+        "description": "A table to store the processed data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function COPY"
+      },
+      "letter": {
+        "name_funct": "letter",
+        "input_format": "string",
+        "output_format": "nil",
+        "description": "A hexadecimal letter to be processed.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function COPY"
+      },
+      "b": {
+        "name_funct": "b",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "A table of 4-bit values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function COPY"
+      },
+      "old": {
+        "name_funct": "old",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "The original table to be copied.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function COPY"
+      },
+      "COPY": {
+        "name_funct": "COPY",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "A function that copies the properties of the 'old' table to a new table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function COPY"
+      },
+      "ADD": {
+        "name_funct": "ADD",
+        "input_format": "local first, ...",
+        "output_format": "local a, b, sum",
+        "description": "Add two boolean arrays together, propagating carries.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function ADD"
+      },
+      "XOR": {
+        "name_funct": "XOR",
+        "input_format": "first, ... (any number of arguments)",
+        "output_format": "a (array of boolean)",
+        "description": "Performs an XOR operation on multiple boolean values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function XOR"
+      },
+      "AND": {
+        "name_funct": "AND",
+        "input_format": "a (table), b (table)",
+        "output_format": "c (table)",
+        "description": "Returns a boolean table where only the bits set in both input tables are true.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function AND"
+      },
+      "OR": {
+        "name_funct": "OR",
+        "input_format": "a, b",
+        "output_format": "c",
+        "description": "Returns a boolean array where only the true bits from a and b are set.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function OR"
+      },
+      "OR3": {
+        "name_funct": "OR3",
+        "input_format": "a, b, c",
+        "output_format": "d",
+        "description": "Returns a boolean array where only true bits from a, b, and c are set.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function OR3"
+      },
+      "NOT": {
+        "name_funct": "NOT",
+        "input_format": "a (table)",
+        "output_format": "b (table)",
+        "description": "NOT function takes a table `a` and returns a new table `b` where only the true bits (1s) from `a` are set.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function NOT"
+      },
+      "ROTATE": {
+        "name_funct": "ROTATE",
+        "input_format": "bits (number), a (table)",
+        "output_format": "table",
+        "description": "Rotates the elements of a table to the left by a specified number of bits.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function ROTATE"
+      },
+      "asHEX": {
+        "name_funct": "asHEX",
+        "input_format": "a string",
+        "output_format": "a hexadecimal string",
+        "description": "Converts a binary string to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function asHEX"
+      },
+      "hex_to_binary": {
+        "name_funct": "hex_to_binary",
+        "input_format": "hex",
+        "output_format": "string",
+        "description": "Convert a hexadecimal string to a binary string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function hex_to_binary"
+      },
+      "hmac_sha1": {
+        "name_funct": "hmac_sha1",
+        "input_format": "key (string), text (string)",
+        "output_format": "sha1 result",
+        "description": "Compute HMAC-SHA1 of a key and text. Key is first hashed with SHA1 and then XORed with 0x36 and 0x5c. The result is then hashed with SHA1 again.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function hmac_sha1"
+      },
+      "key_xord_with_0x36": {
+        "name_funct": "key_xord_with_0x36",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "XORs each character of the key with 0x36 and appends the result to the original key.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function hmac_sha1_binary"
+      },
+      "key_xord_with_0x5c": {
+        "name_funct": "key_xord_with_0x5c",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "XORs each character of the key with 0x5c and appends the result to the original key.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function hmac_sha1_binary"
+      },
+      "hmac_sha1_binary": {
+        "name_funct": "hmac_sha1_binary",
+        "input_format": "string, string",
+        "output_format": "string",
+        "description": "Calculates the HMAC-SHA1 hash of the key and the input text.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sha.lua#function hmac_sha1_binary"
+      },
+      "ejaShell": {
+        "name_funct": "ejaShell",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "Starts an interactive Lua shell. If a shell script is provided, it runs the script. Otherwise, it prints a message and waits for user input.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\shell.lua#function ejaShell"
+      },
+      "ejaStructPack": {
+        "name_funct": "ejaStructPack",
+        "input_format": "format (string), ... (varargs)",
+        "output_format": "ejaStruct (table)",
+        "description": "Packs data into a structured format. Returns a table representing the packed data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\struct.lua#function ejaStructPack"
+      },
+      "ejaStructUnPack": {
+        "name_funct": "ejaStructUnPack",
+        "input_format": "string, stream, number",
+        "output_format": "ejaStruct",
+        "description": "Unpacks a struct from a stream based on a format string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\struct.lua#function ejaStructUnPack"
+      },
+      "ejaStruct": {
+        "name_funct": "ejaStruct",
+        "input_format": "mode, format, ...",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function for structuring data in a specific format. The function takes optional parameters for mode and format, and returns a structured data representation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\struct.lua#function ejaStruct"
+      },
+      "struct.pack": {
+        "name_funct": "struct.pack",
+        "input_format": "format string, variable arguments",
+        "output_format": "string",
+        "description": "Packs a format string and variable arguments into a binary stream.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\struct.lua#function struct.pack"
+      },
+      "struct.unpack": {
+        "name_funct": "struct.unpack",
+        "input_format": "format, stream, pos",
+        "output_format": "vars",
+        "description": "Unpacks a stream according to a format string and returns the unpacked values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\struct.lua#function struct.unpack"
+      },
+      "ejaHelp": {
+        "name_funct": "ejaHelp",
+        "input_format": "no input",
+        "output_format": "prints help information",
+        "description": "Prints help information for the eja command.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaHelp"
+      },
+      "ejaRun": {
+        "name_funct": "ejaRun",
+        "input_format": "opt",
+        "output_format": "nil",
+        "description": "Runs functions based on the provided options.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaRun"
+      },
+      "ejaTableKeys": {
+        "name_funct": "ejaTableKeys",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Returns keys of a table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaRun"
+      },
+      "ejaTableSort": {
+        "name_funct": "ejaTableSort",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Sorts a table by keys.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaRun"
+      },
+      "ejaHelpFull": {
+        "name_funct": "ejaHelpFull",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Returns a table of help information.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaRun"
+      },
+      "ejaLibraryUpdate": {
+        "name_funct": "ejaLibraryUpdate",
+        "input_format": "libName (string, optional)",
+        "output_format": "None",
+        "description": "Updates the library specified by libName. Downloads the library from a URL or GitHub repository if the local file does not exist. If the library is found, it is updated; otherwise, it is not updated.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaLibraryUpdate"
+      },
+      "ejaLibraryRemove": {
+        "name_funct": "ejaLibraryRemove",
+        "input_format": "string",
+        "output_format": "void",
+        "description": "Remove a library file at the given path.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaLibraryRemove"
+      },
+      "ejaUpdate": {
+        "name_funct": "ejaUpdate",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Updates the eja library and loads the eja VM file.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaUpdate"
+      },
+      "ejaSetup": {
+        "name_funct": "ejaSetup",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Initialize eja system with web, log, and systemd configurations.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaSetup"
+      },
+      "ejaExecute": {
+        "name_funct": "ejaExecute",
+        "input_format": "string.format(v, ...)",
+        "output_format": "string",
+        "description": "Executes a command using os.execute.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaExecute"
+      },
+      "ejaInit": {
+        "name_funct": "ejaInit",
+        "input_format": "file (optional)",
+        "output_format": "nil",
+        "description": "Initialize the eja system. Loads the initialization file if specified.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaInit"
+      },
+      "eja.opt.init": {
+        "name_funct": "eja.opt.init",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "Initialize the eja options. If the init file is found, it loads the options and resets the init flag.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaModuleCheck"
+      },
+      "ejaVmFileLoad": {
+        "name_funct": "ejaVmFileLoad",
+        "input_format": "string",
+        "output_format": "nil",
+        "description": "Load a VM file. This function is not explicitly defined in the provided text, but it is likely a method of the eja module.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaModuleCheck"
+      },
+      "ejaModuleCheck": {
+        "name_funct": "ejaModuleCheck",
+        "input_format": "string",
+        "output_format": "boolean",
+        "description": "Check if a module is loaded. Returns true if the module is loaded, false otherwise. The searchers and loaders are optional.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaModuleCheck"
+      },
+      "ejaModuleLoad": {
+        "name_funct": "ejaModuleLoad",
+        "input_format": "name",
+        "output_format": "require result or false",
+        "description": "Loads a Lua module by name. If the module exists, it is required; otherwise, false is returned.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\sys.lua#function ejaModuleLoad"
+      },
+      "ejaTable": {
+        "name_funct": "ejaTable",
+        "input_format": "t (table)",
+        "output_format": "t (table)",
+        "description": "Converts a table to itself if it is a table, otherwise returns an empty table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTable"
+      },
+      "ejaTableGet": {
+        "name_funct": "ejaTableGet",
+        "input_format": "array, index",
+        "output_format": "key, value",
+        "description": "Retrieve a value from a table at a given index. If the index is negative, it is treated as the number of elements to skip from the end of the table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTableGet"
+      },
+      "ejaTablePut": {
+        "name_funct": "ejaTablePut",
+        "input_format": "array (table), key (string), value (any), index (number)",
+        "output_format": "array (table)",
+        "description": "Inserts a value into a table at a specified index or key. If the key already exists, it updates the value. Returns the modified table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTablePut"
+      },
+      "jaTablePut": {
+        "name_funct": "jaTablePut",
+        "input_format": "array, key, value, index",
+        "output_format": "array",
+        "description": "Inserts a value into a table at a specified index or key. If the key already exists, it updates the value. Returns the modified table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTableCount"
+      },
+      "ejaTableCount": {
+        "name_funct": "ejaTableCount",
+        "input_format": "array",
+        "output_format": "number",
+        "description": "Counts the number of key-value pairs in a table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTableCount"
+      },
+      "ejaTableMerge": {
+        "name_funct": "ejaTableMerge",
+        "input_format": "old (table), new (table)",
+        "output_format": "boolean",
+        "description": "Merges elements from new into old table. Returns true if successful, false otherwise.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTableMerge"
+      },
+      "ejaTableValues": {
+        "name_funct": "ejaTableValues",
+        "input_format": "t (table)",
+        "output_format": "a (table)",
+        "description": "Extracts table values into a new table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTableValues"
+      },
+      "ejaTableUnpack": {
+        "name_funct": "ejaTableUnpack",
+        "input_format": "a (table)",
+        "output_format": "return value (table)",
+        "description": "Unpacks a table into a sequence of values.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\table.lua#function ejaTableUnpack"
+      },
+      "ejaUntar": {
+        "name_funct": "ejaUntar",
+        "input_format": "fileIn (string), dirOut (string)",
+        "output_format": "i (integer)",
+        "description": "Untar a file into a directory. If dirOut is provided, it will create the directory if it doesn't exist.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\tar.lua#function ejaUntar"
+      },
+      "ejaVmInt2Hex": {
+        "name_funct": "ejaVmInt2Hex",
+        "input_format": "int",
+        "output_format": "string",
+        "description": "Converts an integer to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmInt2Hex"
+      },
+      "ejaVmByte2Hex": {
+        "name_funct": "ejaVmByte2Hex",
+        "input_format": "int",
+        "output_format": "string",
+        "description": "Converts a byte value to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmByte2Hex"
+      },
+      "ejaVmInstr2Hex": {
+        "name_funct": "ejaVmInstr2Hex",
+        "input_format": "int",
+        "output_format": "string",
+        "description": "Converts an integer to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmInstr2Hex"
+      },
+      "ejaVmSize2Hex": {
+        "name_funct": "ejaVmSize2Hex",
+        "input_format": "int",
+        "output_format": "string",
+        "description": "Converts a VM size integer to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmSize2Hex"
+      },
+      "ejaVmNum2Hex": {
+        "name_funct": "ejaVmNum2Hex",
+        "input_format": "int",
+        "output_format": "string",
+        "description": "Converts an integer to a hexadecimal string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmNum2Hex"
+      },
+      "ejaVmString2Hex": {
+        "name_funct": "ejaVmString2Hex",
+        "input_format": "data (string)",
+        "output_format": "out (string)",
+        "description": "Converts a string to its hexadecimal representation.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmString2Hex"
+      },
+      "ejaVmHex2Byte": {
+        "name_funct": "ejaVmHex2Byte",
+        "input_format": "little (boolean), hex (string), len (number)",
+        "output_format": "o (string)",
+        "description": "Converts a hexadecimal string to a byte string. Little-endian order is preserved. Returns the byte string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmHex2Byte"
+      },
+      "ejaVmByte2Int": {
+        "name_funct": "ejaVmByte2Int",
+        "input_format": "little (boolean), data (string)",
+        "output_format": "n (number)",
+        "description": "Converts a little-endian byte sequence to an integer.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmByte2Int"
+      },
+      "ejaVmFunction": {
+        "name_funct": "ejaVmFunction",
+        "input_format": "header, data, position",
+        "output_format": "table.concat(o), p-pos",
+        "description": "Processes a function definition, including instructions, constants, function length, upvalues, line info, locals, and upvalues.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmFunction"
+      },
+      "ejaVmHeader": {
+        "name_funct": "ejaVmHeader",
+        "input_format": "data:byte(5),data:byte(6),data:byte(7),data:byte(8),data:byte(9),data:byte(10),data:byte(11),data:byte(12)",
+        "output_format": "h={version=data:byte(5),format=data:byte(6),endian=data:byte(7),int=data:byte(8),size=data:byte(9),Instr=data:byte(10),num=data:byte(11),integral=data:byte(12)}",
+        "description": "Parse the header of a bytecode file.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmHeader"
+      },
+      "ejaVmExport": {
+        "name_funct": "ejaVmExport",
+        "input_format": "data",
+        "output_format": "o..t",
+        "description": "Exports data to an ejaVM header and function format.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmExport"
+      },
+      "ejaVmImport": {
+        "name_funct": "ejaVmImport",
+        "input_format": "data",
+        "output_format": "table, string",
+        "description": "Imports data into ejaVM format or converts to Lua format.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmImport"
+      },
+      "ejaVmToLua": {
+        "name_funct": "ejaVmToLua",
+        "input_format": "text",
+        "output_format": "table",
+        "description": "Converts eja VM bytecode to Lua bytecode.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function ejaVmToLua"
+      },
+      "aIn": {
+        "name_funct": "aIn",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "aIn is an array that stores the input data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function if"
+      },
+      "aOut": {
+        "name_funct": "aOut",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "aOut is an array that stores the output data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function if"
+      },
+      "out": {
+        "name_funct": "out",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "out is the final output string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\vm.lua#function if"
+      },
+      "ejaWeb": {
+        "name_funct": "ejaWeb",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Starts a web server with specified options and listens for incoming connections.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWeb"
+      },
+      "etClose": {
+        "name_funct": "etClose",
+        "input_format": "s",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Close the socket connection.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebStart"
+      },
+      "ejaWebThread": {
+        "name_funct": "ejaWebThread",
+        "input_format": "client, addr, port",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Start a web thread for the given client.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebStart"
+      },
+      "ejaWebStop": {
+        "name_funct": "ejaWebStop",
+        "input_format": "void",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Stop the web thread.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebStart"
+      },
+      "ejaWebStart": {
+        "name_funct": "ejaWebStart",
+        "input_format": "varargs",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Start a web thread.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebStart"
+      },
+      "ejaWebOpen": {
+        "name_funct": "ejaWebOpen",
+        "input_format": "string, number, number",
+        "output_format": "string",
+        "description": "Opens a web connection to a host and port.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebOpen"
+      },
+      "ejaWebGetOpen": {
+        "name_funct": "ejaWebGetOpen",
+        "input_format": "value, ...",
+        "output_format": "fd",
+        "description": "Opens a web connection and writes a GET request. Returns the file descriptor on success, or nil on failure.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebGetOpen"
+      },
+      "ejaWebGet": {
+        "name_funct": "ejaWebGet",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Gets data from a URL.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebGet"
+      },
+      "ejaWebHeader": {
+        "name_funct": "ejaWebHeader",
+        "input_format": "header, status, protocol",
+        "output_format": "header, data",
+        "description": "Generates a HTTP header.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebHeader"
+      },
+      "header": {
+        "name_funct": "header",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Set or retrieve the 'Content-Type' and 'Connection' headers.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebSocketProxy"
+      },
+      "ejaWebSocketProxy": {
+        "name_funct": "ejaWebSocketProxy",
+        "input_format": "string, string, string, string, string, string, number, number",
+        "output_format": "string",
+        "description": "Proxy WebSocket traffic between two hosts.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebSocketProxy"
+      },
+      "ejaWebList": {
+        "name_funct": "ejaWebList",
+        "input_format": "pathLocal, pathWeb",
+        "output_format": "table",
+        "description": "Generates an HTML list of web pages from a local and remote path.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\web.lua#function ejaWebList"
+      },
+      "ejaWebAuthHashCheck": {
+        "name_funct": "ejaWebAuthHashCheck",
+        "input_format": "key, path, ip, hash",
+        "output_format": "auth",
+        "description": "Checks if a given hash matches the SHA-256 hash of a combination of key, IP, and path. Returns the index of the time value that matches the hash.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webAuth.lua#function ejaWebAuthHashCheck"
+      },
+      "ejaWebAuthHashCreate": {
+        "name_funct": "ejaWebAuthHashCreate",
+        "input_format": "key (string), path (string), ip (string), power (number)",
+        "output_format": "hash (string)",
+        "description": "Creates a web authentication hash using the provided key, path, IP, and power.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webAuth.lua#function ejaWebAuthHashCreate"
+      },
+      "ejaWebAuth": {
+        "name_funct": "ejaWebAuth",
+        "input_format": "function parameters: web (type: table), level (type: number, default: 1), auth (type: string), path (type: string)",
+        "output_format": "return value: web (type: table)",
+        "description": "Authenticate a web request based on the provided level and path. If authentication is required, it checks the web authentication hash and updates the web object accordingly.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webAuth.lua#function ejaWebAuth"
+      },
+      "ejaWebFormInput": {
+        "name_funct": "ejaWebFormInput",
+        "input_format": "o (table), name (string), mode (string), label (string)",
+        "output_format": "value (string)",
+        "description": "Adds a web form input element to the table `o` with the specified `name`, `mode`, and `label`. If `o.value[name]` is not set, it sets the value to an empty string. Returns the value of the input element.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webForm.lua#function ejaWebFormInput"
+      },
+      "ejaWebFormSelect": {
+        "name_funct": "ejaWebFormSelect",
+        "input_format": "function parameters: o (table), name (string), matrix (table), label (string)",
+        "output_format": "return value: value (string)",
+        "description": "Selects a value from a matrix and adds it to the form element. If the element already exists, it updates the value. Returns the new value.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webForm.lua#function ejaWebFormSelect"
+      },
+      "ejaWebFormOutput": {
+        "name_funct": "ejaWebFormOutput",
+        "input_format": "function parameters (o, name, label, div, hide)",
+        "output_format": "function return value (string)",
+        "description": "Outputs a web form based on the provided data structure. The function generates HTML form elements based on the input data and returns the complete HTML string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webForm.lua#function ejaWebFormOutput"
+      },
+      "ejaWebForm": {
+        "name_funct": "ejaWebForm",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Create a web form with input elements and submit button.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webForm.lua#function ejaWebForm"
+      },
+      "ejaWebTazList": {
+        "name_funct": "ejaWebTazList",
+        "input_format": "size",
+        "output_format": "table",
+        "description": "List and sort eja.taz files in the tmp directory, removing those older than the given size.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webTaz.lua#function ejaWebTazList"
+      },
+      "ejaWebTaz": {
+        "name_funct": "ejaWebTaz",
+        "input_format": "web, size, file, web.query, web.postFile",
+        "output_format": "web, data, status",
+        "description": "Handles web requests for TAZ files, either from a specific file or a query string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webTaz.lua#function ejaWebTaz"
+      },
+      "ejaPathTmp": {
+        "name_funct": "ejaPathTmp",
+        "input_format": "none",
+        "output_format": "string",
+        "description": "Returns the path to the temporary directory.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webTaz.lua#function ejaWebTaz"
+      },
+      "ejaWebUser": {
+        "name_funct": "ejaWebUser",
+        "input_format": "username (string), password (string), power (number)",
+        "output_format": "None",
+        "description": "Registers a user with a username, password, and power level. Validates the username, password, and power level before appending to the web user file.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\webUser.lua#function ejaWebUser"
+      }
+    }
+  }
+}

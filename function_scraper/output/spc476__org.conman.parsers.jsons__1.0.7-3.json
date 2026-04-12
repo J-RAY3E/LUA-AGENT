@@ -1,0 +1,752 @@
+{
+  "org.conman.parsers.jsons": {
+    "version": "1.0.7-3",
+    "source_homepage": "https://github.com/spc476/LPeg-Parsers",
+    "functions": {
+      "abnf": {
+        "name_funct": "abnf",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "defines a set of regular expression rules for parsing BNF-like syntax",
+        "extraction_method": "llm",
+        "source_ref": "abnf.lua#File: abnf.lua"
+      },
+      "require": {
+        "name_funct": "require",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Imports modules based on the provided names.",
+        "extraction_method": "llm",
+        "source_ref": "ascii.lua#File: ascii.lua"
+      },
+      "file": {
+        "name_funct": "file",
+        "input_format": "group * (FS * group)^0",
+        "output_format": "group",
+        "description": "Parse an ASV file. Returns a group of records.",
+        "extraction_method": "llm",
+        "source_ref": "asv.lua#File: asv.lua"
+      },
+      "group": {
+        "name_funct": "group",
+        "input_format": "record * (GS * record)^0",
+        "output_format": "record",
+        "description": "Parse a group of records. Returns a record.",
+        "extraction_method": "llm",
+        "source_ref": "asv.lua#File: asv.lua"
+      },
+      "record": {
+        "name_funct": "record",
+        "input_format": "[hunit RS] unit *(RS unit)",
+        "output_format": "unit",
+        "description": "Parse a record. Returns a unit.",
+        "extraction_method": "llm",
+        "source_ref": "asv.lua#File: asv.lua"
+      },
+      "H": {
+        "name_funct": "H",
+        "input_format": "text",
+        "output_format": "pattern",
+        "description": "Create a pattern from a string by converting each character to lowercase and uppercase.",
+        "extraction_method": "llm",
+        "source_ref": "email.lua#function H"
+      },
+      "P": {
+        "name_funct": "P",
+        "input_format": "string",
+        "output_format": "pattern",
+        "description": "Create a pattern from a string by converting each character to lowercase and uppercase.",
+        "extraction_method": "llm",
+        "source_ref": "email.lua#function H"
+      },
+      "doset": {
+        "name_funct": "doset",
+        "input_format": "table, index",
+        "output_format": "table",
+        "description": "Accumulate values into a table. Values with the same key end up together, in the order they appear. The keys themselves are not in any particular order.",
+        "extraction_method": "llm",
+        "source_ref": "email.lua#function doset"
+      },
+      "append": {
+        "name_funct": "append",
+        "input_format": "table (t), list (l)",
+        "output_format": "table (t)",
+        "description": "Appends elements from a list to a table. If the list is a table with more than one element, it appends each element individually; otherwise, it appends the entire list as a single element.",
+        "extraction_method": "llm",
+        "source_ref": "email.lua#function append"
+      },
+      "parse_gopher_index": {
+        "name_funct": "parse_gopher_index",
+        "input_format": "line",
+        "output_format": "nil",
+        "description": "Parse a gopher index file.",
+        "extraction_method": "llm",
+        "source_ref": "gopher-index.lua#File: gopher-index.lua"
+      },
+      "strftime": {
+        "name_funct": "strftime",
+        "input_format": "require 'org.conman.parsers.strftime'",
+        "output_format": "module",
+        "description": "Parse strftime format strings",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "url": {
+        "name_funct": "url",
+        "input_format": "require 'org.conman.parsers.url'",
+        "output_format": "module",
+        "description": "Parse URL components",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "ih": {
+        "name_funct": "ih",
+        "input_format": "require 'org.conman.parsers.ih'",
+        "output_format": "module",
+        "description": "Parse HTTP headers",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "lpeg": {
+        "name_funct": "lpeg",
+        "input_format": "require 'lpeg'",
+        "output_format": "module",
+        "description": "Parse LPEG expressions",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "Cc": {
+        "name_funct": "Cc",
+        "input_format": "C",
+        "output_format": "function",
+        "description": "Character class",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "Cf": {
+        "name_funct": "Cf",
+        "input_format": "Cf",
+        "output_format": "function",
+        "description": "Character flag",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "Cg": {
+        "name_funct": "Cg",
+        "input_format": "Cg",
+        "output_format": "function",
+        "description": "Character group",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "Ct": {
+        "name_funct": "Ct",
+        "input_format": "Ct",
+        "output_format": "function",
+        "description": "Character token",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "C": {
+        "name_funct": "C",
+        "input_format": "C",
+        "output_format": "function",
+        "description": "Character",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "R": {
+        "name_funct": "R",
+        "input_format": "R",
+        "output_format": "function",
+        "description": "Character range",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "S": {
+        "name_funct": "S",
+        "input_format": "S",
+        "output_format": "function",
+        "description": "Character set",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "V": {
+        "name_funct": "V",
+        "input_format": "V",
+        "output_format": "function",
+        "description": "Character value",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "TEXT": {
+        "name_funct": "TEXT",
+        "input_format": "TEXT",
+        "output_format": "function",
+        "description": "Text characters",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "separators": {
+        "name_funct": "separators",
+        "input_format": "separators",
+        "output_format": "function",
+        "description": "Separators for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "token": {
+        "name_funct": "token",
+        "input_format": "token",
+        "output_format": "function",
+        "description": "Token for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "quoted_pair": {
+        "name_funct": "quoted_pair",
+        "input_format": "quoted_pair",
+        "output_format": "function",
+        "description": "Quoted pair for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "qdtext": {
+        "name_funct": "qdtext",
+        "input_format": "qdtext",
+        "output_format": "function",
+        "description": "Quoted text for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "quoted_string": {
+        "name_funct": "quoted_string",
+        "input_format": "quoted_string",
+        "output_format": "function",
+        "description": "Quoted string for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "ctext": {
+        "name_funct": "ctext",
+        "input_format": "ctext",
+        "output_format": "function",
+        "description": "CText for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "comment": {
+        "name_funct": "comment",
+        "input_format": "comment",
+        "output_format": "function",
+        "description": "Comment for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "attribute": {
+        "name_funct": "attribute",
+        "input_format": "attribute",
+        "output_format": "function",
+        "description": "Attribute for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "value": {
+        "name_funct": "value",
+        "input_format": "value",
+        "output_format": "function",
+        "description": "Value for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "parameter": {
+        "name_funct": "parameter",
+        "input_format": "parameter",
+        "output_format": "function",
+        "description": "Parameter for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "type": {
+        "name_funct": "type",
+        "input_format": "type",
+        "output_format": "function",
+        "description": "Type for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "subtype": {
+        "name_funct": "subtype",
+        "input_format": "subtype",
+        "output_format": "function",
+        "description": "Subtype for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "media_type": {
+        "name_funct": "media_type",
+        "input_format": "media_type",
+        "output_format": "function",
+        "description": "Media type for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "HTTP_date": {
+        "name_funct": "HTTP_date",
+        "input_format": "HTTP_date",
+        "output_format": "function",
+        "description": "HTTP date for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "cache_response_directive": {
+        "name_funct": "cache_response_directive",
+        "input_format": "cache_response_directive",
+        "output_format": "function",
+        "description": "Cache response directive for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "version": {
+        "name_funct": "version",
+        "input_format": "version",
+        "output_format": "function",
+        "description": "Version for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "indication": {
+        "name_funct": "indication",
+        "input_format": "indication",
+        "output_format": "function",
+        "description": "Indication for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "status": {
+        "name_funct": "status",
+        "input_format": "status",
+        "output_format": "function",
+        "description": "Status for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "msg": {
+        "name_funct": "msg",
+        "input_format": "msg",
+        "output_format": "function",
+        "description": "Message for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "response": {
+        "name_funct": "response",
+        "input_format": "response",
+        "output_format": "function",
+        "description": "Response for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "headers": {
+        "name_funct": "headers",
+        "input_format": "headers",
+        "output_format": "function",
+        "description": "HTTP headers for parsing",
+        "extraction_method": "llm",
+        "source_ref": "http-client.lua#File: http-client.lua"
+      },
+      "request": {
+        "name_funct": "request",
+        "input_format": "Method, location, version",
+        "output_format": "request",
+        "description": "Constructs a request object for HTTP requests.",
+        "extraction_method": "llm",
+        "source_ref": "http-server.lua#File: http-server.lua"
+      },
+      "Hc": {
+        "name_funct": "Hc",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Apply a function to a string.",
+        "extraction_method": "llm",
+        "source_ref": "ih.lua#function headers"
+      },
+      "COLON": {
+        "name_funct": "COLON",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Apply a function to a string.",
+        "extraction_method": "llm",
+        "source_ref": "ih.lua#function headers"
+      },
+      "generic": {
+        "name_funct": "generic",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Apply a function to a string.",
+        "extraction_method": "llm",
+        "source_ref": "ih.lua#function headers"
+      },
+      "merge": {
+        "name_funct": "merge",
+        "input_format": "dest, src",
+        "output_format": "dest",
+        "description": "Merge the contents of src into dest.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "CRLF": {
+        "name_funct": "CRLF",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing the carriage return and line feed sequence.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "SP": {
+        "name_funct": "SP",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a space and tab sequence.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "EQ": {
+        "name_funct": "EQ",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing an equals sign.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "COMMA": {
+        "name_funct": "COMMA",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a comma.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "char": {
+        "name_funct": "char",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a character.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "quoted": {
+        "name_funct": "quoted",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a quoted string.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "values": {
+        "name_funct": "values",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a list of values.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "pair": {
+        "name_funct": "pair",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a key-value pair.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "nvpairs": {
+        "name_funct": "nvpairs",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a list of key-value pairs.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "sname": {
+        "name_funct": "sname",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a string with a square bracket.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "section": {
+        "name_funct": "section",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing a section.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "ini": {
+        "name_funct": "ini",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Constant representing an initial value.",
+        "extraction_method": "llm",
+        "source_ref": "ini.lua#function doset"
+      },
+      "mh16": {
+        "name_funct": "mh16",
+        "input_format": "n",
+        "output_format": "accum",
+        "description": "Compute the factorial of n using a lookup table.",
+        "extraction_method": "llm",
+        "source_ref": "ip-text.lua#function mh16"
+      },
+      "mh16c": {
+        "name_funct": "mh16c",
+        "input_format": "local accum = h16c; for _ = 2 , n do accum = accum * h16c end; return accum",
+        "output_format": "local accum = h16c; for _ = 2 , n do accum = accum * h16c end; return accum",
+        "description": "Calculate the product of a series of 16-bit constants.",
+        "extraction_method": "llm",
+        "source_ref": "ip-text.lua#function mh16c"
+      },
+      "acc": {
+        "name_funct": "acc",
+        "input_format": "a, v",
+        "output_format": "a .. v",
+        "description": "Concatenates two strings a and v.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function acc"
+      },
+      "dec_octet": {
+        "name_funct": "dec_octet",
+        "input_format": "a, v",
+        "output_format": "position, string.char(n)",
+        "description": "Converts a digit to a character, returning the position and character.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function acc"
+      },
+      "IPv4": {
+        "name_funct": "IPv4",
+        "input_format": "a, v",
+        "output_format": "position, string.char(q) .. string.char(r)",
+        "description": "Converts an IPv4 address to a string, returning the position and characters.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function acc"
+      },
+      "h16": {
+        "name_funct": "h16",
+        "input_format": "a, v",
+        "output_format": "position, string.char(q) .. string.char(r)",
+        "description": "Converts a hexadecimal digit to a character, returning the position and characters.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function acc"
+      },
+      "h16c": {
+        "name_funct": "h16c",
+        "input_format": "a, v",
+        "output_format": "position, string.char(q) .. string.char(r)",
+        "description": "Converts a hexadecimal digit to a character, returning the position and characters.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function acc"
+      },
+      "ls32": {
+        "name_funct": "ls32",
+        "input_format": "a, v",
+        "output_format": "position, string.char(q) .. string.char(r)",
+        "description": "Converts an IPv4 address to a string, returning the position and characters.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function acc"
+      },
+      "Cmt": {
+        "name_funct": "Cmt",
+        "input_format": "function(_, position, capture)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Cmt function is a comment function that takes a position and a capture, converts the capture to a number, and returns a string.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mcc"
+      },
+      "HEXDIG": {
+        "name_funct": "HEXDIG",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "HEXDIG is a string containing hexadecimal digits.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mcc"
+      },
+      "tonumber": {
+        "name_funct": "tonumber",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "tonumber function is used to convert a string to a number.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mcc"
+      },
+      "floor": {
+        "name_funct": "floor",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "floor function is used to round down a number to the nearest integer.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mcc"
+      },
+      "string.char": {
+        "name_funct": "string.char",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "string.char function is used to convert an integer to a character.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mcc"
+      },
+      "string.rep": {
+        "name_funct": "string.rep",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "string.rep function is used to repeat a string a certain number of times.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mcc"
+      },
+      "mcc": {
+        "name_funct": "mcc",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "mcc is a function that takes an integer and returns a string representing a MAC address.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mcc"
+      },
+      "IPv6": {
+        "name_funct": "IPv6",
+        "input_format": "IPv4, mh16c, ls32",
+        "output_format": "IPv6",
+        "description": "Calculate the IPv6 address based on IPv4, mh16c, and ls32.",
+        "extraction_method": "llm",
+        "source_ref": "ip.lua#function mh16c"
+      },
+      "parse_iso_char": {
+        "name_funct": "parse_iso_char",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Parse a valid ISO character. This function combines parsing for ISO and ASCII characters.",
+        "extraction_method": "llm",
+        "source_ref": "iso.lua#File: iso.lua"
+      },
+      "onechar": {
+        "name_funct": "onechar",
+        "input_format": "n",
+        "output_format": "res",
+        "description": "Converts a character to its Unicode representation.",
+        "extraction_method": "llm",
+        "source_ref": "json.lua#function onechar"
+      },
+      "res": {
+        "name_funct": "res",
+        "input_format": "n",
+        "output_format": "res",
+        "description": "Concatenates the results of applying onechar to each character in the input.",
+        "extraction_method": "llm",
+        "source_ref": "json.lua#function onechar"
+      },
+      "utf8": {
+        "name_funct": "utf8",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "Loads the utf8 module.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function onechar"
+      },
+      "match": {
+        "name_funct": "match",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "Replaces fundat with a function that returns the next chunk of data to read.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function match"
+      },
+      "next_token": {
+        "name_funct": "next_token",
+        "input_format": "jsonS:match(data,pos)",
+        "output_format": "token, val, newpos",
+        "description": "Parse JSON token and value from data starting at pos.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function next_token"
+      },
+      "insert_list": {
+        "name_funct": "insert_list",
+        "input_format": "token, key, value, resume",
+        "output_format": "result[true] -> function to call for processing next token",
+        "description": "Inserts a value into a list or object structure and returns the modified result.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function insert_list"
+      },
+      "drain": {
+        "name_funct": "drain",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Drains the input string, removing leading spaces.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function drain"
+      },
+      "end_list": {
+        "name_funct": "end_list",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "Ends the list by removing leading spaces and returning the result.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function drain"
+      },
+      "array_value": {
+        "name_funct": "array_value",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Extracts values from an array or object.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function array_value"
+      },
+      "array": {
+        "name_funct": "array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Extracts values from an array or object.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function array_value"
+      },
+      "object_value": {
+        "name_funct": "object_value",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Takes a token and returns the next token in the stream.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function object_value"
+      },
+      "object": {
+        "name_funct": "object",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Takes a token and returns the next token in the stream.",
+        "extraction_method": "llm",
+        "source_ref": "jsons.lua#function object_value"
+      },
+      "parse_mime_type": {
+        "name_funct": "parse_mime_type",
+        "input_format": "type, parameters",
+        "output_format": "parsed MIME type",
+        "description": "Parse the MIME type from RFC-2045",
+        "extraction_method": "llm",
+        "source_ref": "mimetype.lua#File: mimetype.lua"
+      },
+      "soundex": {
+        "name_funct": "soundex",
+        "input_format": "initial, skip, cs1, cs2, cs3, cs4, cs5, cs6",
+        "output_format": "soundex",
+        "description": "soundex编码函数，将输入的字符串转换为soundex编码",
+        "extraction_method": "llm",
+        "source_ref": "soundex.lua#File: soundex.lua"
+      },
+      "validate_utf8_char": {
+        "name_funct": "validate_utf8_char",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Validates a valid UTF-8 character. Characters 192-193 and 245-255 will never appear in proper UTF-8 encoding.",
+        "extraction_method": "llm",
+        "source_ref": "utf8.lua#File: utf8.lua"
+      }
+    }
+  }
+}

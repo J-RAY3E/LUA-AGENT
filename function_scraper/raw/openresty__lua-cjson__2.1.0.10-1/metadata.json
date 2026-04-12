@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-cjson",
+  "author": "openresty",
+  "downloads": "23m",
+  "summary": "Fast JSON encoding/parsing support for Lua",
+  "version": "2.1.0.10-1",
+  "homepage_url": "https://github.com/openresty/lua-cjson",
+  "label": "json"
+}

@@ -1,0 +1,88 @@
+{
+  "lua-cjson": {
+    "version": "2.1.0.10-1",
+    "source_homepage": "https://github.com/openresty/lua-cjson",
+    "functions": {
+      "cjson.encode_empty_table_as_object": {
+        "name_funct": "cjson.encode_empty_table_as_object",
+        "input_format": "true|false|string",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Change the default behavior when encoding an empty Lua table. By default, empty Lua tables are encoded as empty JSON Objects. If this is set to false, empty Lua tables will be encoded as empty JSON Arrays instead.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.empty_array": {
+        "name_funct": "cjson.empty_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A lightuserdata, similar to `cjson.null`, which will be encoded as an empty JSON Array by `cjson.encode()`. For example, since `encode_empty_table_as_object` is `true` by default, `cjson.empty_array` will be encoded as `[]`.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.array_mt": {
+        "name_funct": "cjson.array_mt",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "When lua-cjson encodes a table with this metatable, it will systematically encode it as a JSON Array. The resulting, encoded Array will contain the array part of the table, and will be of the same length as the `#` operator on that table. Holes in the table will be encoded with the `null` JSON value.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.empty_array_mt": {
+        "name_funct": "cjson.empty_array_mt",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A metatable which can 'tag' a table as a JSON Array in case it is empty (that is, if the table has no elements). Instead of `local function serialize(arr)`, this is more concise: `local function serialize(arr) setmetatable(arr, cjson.empty_array_mt) return cjson.encode({some_array = arr}) end`.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.encode_number_precision": {
+        "name_funct": "cjson.encode_number_precision",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This fork allows encoding of numbers with a `precision` up to 16 decimals (vs. 14 in mpx/lua-cjson).",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.encode_escape_forward_slash": {
+        "name_funct": "cjson.encode_escape_forward_slash",
+        "input_format": "enabled|false",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "If enabled, forward slash '/' will be encoded as '\\/' in JSON. If disabled, forward slash '/' will be encoded as '/' (no escape is applied).",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.encode_skip_unsupported_value_types": {
+        "name_funct": "cjson.encode_skip_unsupported_value_types",
+        "input_format": "enabled|false",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "If enabled, cjson will not throw exception when there are unsupported types in the Lua table. For example, `cjson.encode_skip_unsupported_value_types(true)` will allow encoding of unsupported types.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.encode_indent": {
+        "name_funct": "cjson.encode_indent",
+        "input_format": "indent",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "If non-empty string provided, JSON values encoded by `cjson.encode()` will be formatted in a human-readable way, using `indent` for indentation at each nesting level. Also enables newlines and a space after colons.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.decode_array_with_array_mt": {
+        "name_funct": "cjson.decode_array_with_array_mt",
+        "input_format": "enabled|false",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "If enabled, JSON Arrays decoded by `cjson.decode` will result in Lua tables with the `array_mt` metatable. This can ensure a 1-to-1 relationship between arrays upon multiple encoding/decoding of your JSON data with this module.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "cjson.decode_allow_comment": {
+        "name_funct": "cjson.decode_allow_comment",
+        "input_format": "enabled|false",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "If enabled, allows JavaScript-style comments in `cjson.decode` input. Comments are treated as whitespace and may appear anywhere whitespace is valid in JSON. Supports single-line comments beginning with '//' and block comments enclosed with '/* ... */'.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      }
+    }
+  }
+}

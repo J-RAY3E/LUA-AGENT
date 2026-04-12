@@ -1,0 +1,488 @@
+{
+  "json-lua": {
+    "version": "0.1-4",
+    "source_homepage": "https://github.com/tiye/json-lua",
+    "functions": {
+      "JSON": {
+        "name_funct": "JSON",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A module for working with JSON data in Lua.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "JSON.decode": {
+        "name_funct": "JSON.decode",
+        "input_format": "raw JSON text",
+        "output_format": "decoded Lua value",
+        "description": "Decode a raw JSON text into a Lua value.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Usage"
+      },
+      "JSON.encode": {
+        "name_funct": "JSON.encode",
+        "input_format": "Lua value",
+        "output_format": "encoded JSON text",
+        "description": "Encode a Lua value into a JSON text.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Usage"
+      },
+      "JSON.encode_pretty": {
+        "name_funct": "JSON.encode_pretty",
+        "input_format": "Lua value",
+        "output_format": "pretty printed JSON text",
+        "description": "Encode a Lua value into a pretty printed JSON text.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Usage"
+      },
+      "encode_pretty": {
+        "name_funct": "encode_pretty",
+        "input_format": "lua_value, table, table",
+        "output_format": "pretty_json_text",
+        "description": "Converts a Lua value to a pretty-printed JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### array_newline option"
+      },
+      "test": {
+        "name_funct": "test",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "execute the Lua script 'test.lua'",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Test"
+      },
+      "onDecodeError": {
+        "name_funct": "onDecodeError",
+        "input_format": "message, text, location, etc",
+        "output_format": "message, text, location, etc",
+        "description": "Handles JSON decoding errors. Logs an error message and throws an error if the JSON data is invalid.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON:onDecodeError"
+      },
+      "JSON.assert": {
+        "name_funct": "JSON.assert",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Ensures that the JSON object is valid. Throws an error if not.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON.assert"
+      },
+      "JSON:onDecodeOfNilError": {
+        "name_funct": "JSON:onDecodeOfNilError",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Called when decoding is passed a nil value.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON.assert"
+      },
+      "JSON:onDecodeOfHTMLError": {
+        "name_funct": "JSON:onDecodeOfHTMLError",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Called when decoding is passed HTML instead of JSON.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON.assert"
+      },
+      "JSON:onDecodeError": {
+        "name_funct": "JSON:onDecodeError",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "If the JSON text passed to decode() has trailing garbage (e.g. as with the JSON '[123]xyzzy'), the method is invoked, where:",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON:onDecodeError"
+      },
+      "JSON:onTrailingGarbage": {
+        "name_funct": "JSON:onTrailingGarbage",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "If JSON:onTrailingGarbage() does not abort, it should return the value decode() should return, or nil + an error message.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON:onDecodeError"
+      },
+      "default_pretty_indent": {
+        "name_funct": "default_pretty_indent",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "default indentation for pretty-printing JSON",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON:onTrailingGarbage (part 2)"
+      },
+      "default_pretty_options": {
+        "name_funct": "default_pretty_options",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "default options for pretty-printing JSON",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON:onTrailingGarbage (part 2)"
+      },
+      "isArray": {
+        "name_funct": "isArray",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "JSON array type",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON:onTrailingGarbage (part 2)"
+      },
+      "isObject": {
+        "name_funct": "isObject",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "JSON object type",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function JSON:onTrailingGarbage (part 2)"
+      },
+      "OBJDEF.newArray": {
+        "name_funct": "OBJDEF.newArray",
+        "input_format": "tbl (optional)",
+        "output_format": "new table",
+        "description": "Creates a new JSON array object.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:newArray"
+      },
+      "newObject": {
+        "name_funct": "newObject",
+        "input_format": "tbl or {}",
+        "output_format": "setmetatable(tbl or {}, isObject)",
+        "description": "Creates a new object with optional table as input.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:newObject"
+      },
+      "getnum": {
+        "name_funct": "getnum",
+        "input_format": "type(op) == 'number' and op or op.N",
+        "output_format": "type(op) == 'number' and op or op.N",
+        "description": "Converts an object to a number if it is a number, otherwise returns the object itself.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__tostring": {
+        "name_funct": "__tostring",
+        "input_format": "T",
+        "output_format": "return T.S",
+        "description": "Converts an object to a string.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__unm": {
+        "name_funct": "__unm",
+        "input_format": "op",
+        "output_format": "return getnum(op)",
+        "description": "Returns the number value of the object.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__concat": {
+        "name_funct": "__concat",
+        "input_format": "op1, op2",
+        "output_format": "return tostring(op1) .. tostring(op2)",
+        "description": "Concatenates two strings.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__add": {
+        "name_funct": "__add",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) + getnum(op2)",
+        "description": "Adds two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__sub": {
+        "name_funct": "__sub",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) - getnum(op2)",
+        "description": "Subtracts two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__mul": {
+        "name_funct": "__mul",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) * getnum(op2)",
+        "description": "Multiplies two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__div": {
+        "name_funct": "__div",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) / getnum(op2)",
+        "description": "Divides two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__mod": {
+        "name_funct": "__mod",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) % getnum(op2)",
+        "description": "Modulo operation on two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__pow": {
+        "name_funct": "__pow",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) ^ getnum(op2)",
+        "description": "Exponentiation operation on two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__lt": {
+        "name_funct": "__lt",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) < getnum(op2)",
+        "description": "Less than comparison on two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__eq": {
+        "name_funct": "__eq",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) == getnum(op2)",
+        "description": "Equality comparison on two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "__le": {
+        "name_funct": "__le",
+        "input_format": "op1, op2",
+        "output_format": "return getnum(op1) <= getnum(op2)",
+        "description": "Less than or equal comparison on two numbers.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function getnum"
+      },
+      "isNumber.__index": {
+        "name_funct": "isNumber.__index",
+        "input_format": "item",
+        "output_format": "isNumber.__index(item)",
+        "description": "Returns the number representation of the item.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:asNumber"
+      },
+      "OBJDEF:asNumber": {
+        "name_funct": "OBJDEF:asNumber",
+        "input_format": "item",
+        "output_format": "OBJDEF:asNumber(item)",
+        "description": "Converts a number or string representation of a number to a number object.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:asNumber"
+      },
+      "OBJDEF:forceString": {
+        "name_funct": "OBJDEF:forceString",
+        "input_format": "item (table or number or string)",
+        "output_format": "string",
+        "description": "Converts an item to a string if it is a table with a 'S' field, otherwise returns the item as a string.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:forceString"
+      },
+      "on_OBJDEF:forceString": {
+        "name_funct": "on_OBJDEF:forceString",
+        "input_format": "type(item) == 'table' and type(item.S) == 'string'",
+        "output_format": "item.S or tostring(item)",
+        "description": "Converts a table item to a string if it is a string, otherwise returns the string as is.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:forceNumber"
+      },
+      "OBJDEF:forceNumber": {
+        "name_funct": "OBJDEF:forceNumber",
+        "input_format": "type(item) == 'table' and type(item.N) == 'number'",
+        "output_format": "item.N or tonumber(item)",
+        "description": "Converts a table item to a number if it is a number, otherwise returns the number as is.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:forceNumber"
+      },
+      "unicode_codepoint_as_utf8": {
+        "name_funct": "unicode_codepoint_as_utf8",
+        "input_format": "codepoint is a number",
+        "output_format": "string",
+        "description": "Converts a Unicode codepoint to its UTF-8 encoded representation.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function unicode_codepoint_as_utf8"
+      },
+      "onDecodeOfNilError": {
+        "name_funct": "onDecodeOfNilError",
+        "input_format": "string, string, string, string",
+        "output_format": "string",
+        "description": "Handles decode errors for nil values, logging them and possibly raising an assertion error.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:onTrailingGarbage"
+      },
+      "onDecodeOfHTMLError": {
+        "name_funct": "onDecodeOfHTMLError",
+        "input_format": "string, string, string, string",
+        "output_format": "string",
+        "description": "Handles decode errors for HTML content, logging them and possibly raising an assertion error.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:onTrailingGarbage"
+      },
+      "onEncodeError": {
+        "name_funct": "onEncodeError",
+        "input_format": "message (string), etc (optional string)",
+        "output_format": "message (string), assert (boolean)",
+        "description": "Encodes error message with additional encoded value if provided. Throws an assertion error if assert is false.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:onEncodeError"
+      },
+      "grok_number": {
+        "name_funct": "grok_number",
+        "input_format": "text:match('^-?[1-9]%d*', start) or text:match('^%d+', start)",
+        "output_format": "as_number, i",
+        "description": "Extracts the integer part of a number, optionally including a decimal and exponential part. Returns the number as a string if stringification is enabled.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function grok_number"
+      },
+      "grok_string": {
+        "name_funct": "grok_string",
+        "input_format": "text, start, options",
+        "output_format": "VALUE, i",
+        "description": "Grok a string, handling quotes and Unicode characters.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function grok_string"
+      },
+      "skip_whitespace": {
+        "name_funct": "skip_whitespace",
+        "input_format": "text, start",
+        "output_format": "match_end",
+        "description": "Skips leading whitespace in a string.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function skip_whitespace"
+      },
+      "grok_object": {
+        "name_funct": "grok_object",
+        "input_format": "text, start, options",
+        "output_format": "VALUE, i + 1",
+        "description": "Grok an object from a text string, skipping whitespace and handling errors.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function grok_object"
+      },
+      "grok_array": {
+        "name_funct": "grok_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "parses an array in JSON format",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function grok_array"
+      },
+      "grok_one": {
+        "name_funct": "grok_one",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "parses a single value in JSON format",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function grok_array"
+      },
+      "OBJDEF:decode": {
+        "name_funct": "OBJDEF:decode",
+        "input_format": "text, etc, options",
+        "output_format": "value, error_message",
+        "description": "Decodes a JSON string into a Lua table. Handles various edge cases and errors.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:decode"
+      },
+      "assert": {
+        "name_funct": "assert",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function used for asserting conditions in Lua code. It takes two arguments: a boolean condition and an error message. If the condition is false, it throws an error with the provided message.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function backslash_replacement_function"
+      },
+      "backslash_replacement_function": {
+        "name_funct": "backslash_replacement_function",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function that replaces certain characters in a string with their corresponding escape sequences. It takes a single character as input and returns a string with the appropriate escape sequences.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function backslash_replacement_function"
+      },
+      "json_string_literal": {
+        "name_funct": "json_string_literal",
+        "input_format": "value, options",
+        "output_format": "string",
+        "description": "Converts a JSON string literal to a UTF-8 encoded string. Escapes special characters and replaces line and paragraph separators with UTF-8 escape sequences.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function json_string_literal"
+      },
+      "object_or_array": {
+        "name_funct": "object_or_array",
+        "input_format": "self, table, etc",
+        "output_format": "nil, maximum_number_key, table",
+        "description": "Decide whether a table is an object or an array based on the presence of string or number keys.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function object_or_array"
+      },
+      "encode_value": {
+        "name_funct": "encode_value",
+        "input_format": "self, value, parents, etc, options, indent, for_key",
+        "output_format": "result_value",
+        "description": "Encodes a value into a JSON string. Handles various types of values and options.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function encode_value"
+      },
+      "top_level_encode": {
+        "name_funct": "top_level_encode",
+        "input_format": "self, value, etc, options",
+        "output_format": "val",
+        "description": "Encodes a value into a JSON format. Returns nil if the value is nil.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function top_level_encode"
+      },
+      "OBJDEF.__tostring": {
+        "name_funct": "OBJDEF.__tostring",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Returns a string describing the JSON encode/decode package.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF.__tostring"
+      },
+      "OBJDEF.__index": {
+        "name_funct": "OBJDEF.__index",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Returns the JSON encode/decode package.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF.__tostring"
+      },
+      "OBJDEF:new": {
+        "name_funct": "OBJDEF:new",
+        "input_format": "args",
+        "output_format": "new OBJDEF object",
+        "description": "Creates a new OBJDEF object with optional arguments.",
+        "extraction_method": "llm",
+        "source_ref": "JSON.lua#function OBJDEF:new"
+      },
+      "JSON:decode": {
+        "name_funct": "JSON:decode",
+        "input_format": "raw JSON text",
+        "output_format": "decoded Lua value",
+        "description": "Decode a JSON string into a Lua value.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#File: test.lua"
+      },
+      "JSON:encode": {
+        "name_funct": "JSON:encode",
+        "input_format": "Lua value",
+        "output_format": "JSON string",
+        "description": "Convert a Lua value into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#File: test.lua"
+      },
+      "JSON:encode_pretty": {
+        "name_funct": "JSON:encode_pretty",
+        "input_format": "Lua value",
+        "output_format": "pretty-printed JSON string",
+        "description": "Convert a Lua value into a pretty-printed JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#File: test.lua"
+      },
+      "inspect": {
+        "name_funct": "inspect",
+        "input_format": "Lua value",
+        "output_format": "string",
+        "description": "Inspect the value and return a string representation.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#File: test.lua"
+      }
+    }
+  }
+}

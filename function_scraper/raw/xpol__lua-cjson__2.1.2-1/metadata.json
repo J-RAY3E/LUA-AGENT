@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-cjson",
+  "author": "xpol",
+  "downloads": "96",
+  "summary": "A fast JSON encoding/parsing module",
+  "version": "2.1.2-1",
+  "homepage_url": "http://www.kyne.com.au/~mark/software/lua-cjson.php",
+  "label": "json"
+}

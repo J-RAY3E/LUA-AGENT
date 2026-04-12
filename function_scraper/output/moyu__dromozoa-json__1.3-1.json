@@ -1,0 +1,168 @@
+{
+  "dromozoa-json": {
+    "version": "1.3-1",
+    "source_homepage": "https://github.com/dromozoa/dromozoa-json/",
+    "functions": {
+      "dromozoa_json.encode": {
+        "name_funct": "dromozoa_json.encode",
+        "input_format": "value",
+        "output_format": "encoded_value",
+        "description": "Encodes a Lua value into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## dromozoa-json"
+      },
+      "dromozoa_json.decode": {
+        "name_funct": "dromozoa_json.decode",
+        "input_format": "string",
+        "output_format": "decoded_value",
+        "description": "Decodes a JSON string into a Lua value.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## dromozoa-json"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Decode a JSON string into a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Encode a table into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer": {
+        "name_funct": "pointer",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Create a pointer to a specific path in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer:get": {
+        "name_funct": "pointer:get",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Retrieve the value at a specific path in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer:put": {
+        "name_funct": "pointer:put",
+        "input_format": "string, table",
+        "output_format": "boolean",
+        "description": "Set the value at a specific path in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer:add": {
+        "name_funct": "pointer:add",
+        "input_format": "string, table",
+        "output_format": "boolean",
+        "description": "Add a value to a specific path in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer:remove": {
+        "name_funct": "pointer:remove",
+        "input_format": "string",
+        "output_format": "boolean",
+        "description": "Remove a value from a specific path in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer:replace": {
+        "name_funct": "pointer:replace",
+        "input_format": "string, table",
+        "output_format": "boolean",
+        "description": "Replace a value at a specific path in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer:move": {
+        "name_funct": "pointer:move",
+        "input_format": "string, table",
+        "output_format": "boolean",
+        "description": "Move a value from one path to another in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "pointer:test": {
+        "name_funct": "pointer:test",
+        "input_format": "string, table",
+        "output_format": "boolean",
+        "description": "Test if a value exists at a specific path in a table.",
+        "extraction_method": "llm",
+        "source_ref": "demo.lua#File: demo.lua"
+      },
+      "json": {
+        "name_funct": "json",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A pure JSON library for dromozoa.",
+        "extraction_method": "llm",
+        "source_ref": "test_patch.lua#File: test_patch.lua"
+      },
+      "patch": {
+        "name_funct": "patch",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A library for applying JSON patches.",
+        "extraction_method": "llm",
+        "source_ref": "test_patch.lua#File: test_patch.lua"
+      },
+      "data": {
+        "name_funct": "data",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Data structure representing JSON objects and arrays.",
+        "extraction_method": "llm",
+        "source_ref": "test_patch.lua#File: test_patch.lua"
+      },
+      "test": {
+        "name_funct": "test",
+        "input_format": "a, b",
+        "output_format": "a, b",
+        "description": "Asserts that json.encode(a) == b and json.decode(b) == b.",
+        "extraction_method": "llm",
+        "source_ref": "test_pure.lua#function test"
+      },
+      "cycle": {
+        "name_funct": "cycle",
+        "input_format": "a",
+        "output_format": "a",
+        "description": "Creates a cycle in the cycle table.",
+        "extraction_method": "llm",
+        "source_ref": "test_pure.lua#function test"
+      },
+      "result": {
+        "name_funct": "result",
+        "input_format": "a, b",
+        "output_format": "a, b",
+        "description": "Returns true if the result of pcall(json.encode, cycle) is not nil, and false otherwise.",
+        "extraction_method": "llm",
+        "source_ref": "test_pure.lua#function test"
+      },
+      "message": {
+        "name_funct": "message",
+        "input_format": "a",
+        "output_format": "a",
+        "description": "Returns the message from the result of pcall(json.encode, cycle).",
+        "extraction_method": "llm",
+        "source_ref": "test_pure.lua#function test"
+      },
+      "assert": {
+        "name_funct": "assert",
+        "input_format": "a, b",
+        "output_format": "a, b",
+        "description": "Asserts that a is equal to b.",
+        "extraction_method": "llm",
+        "source_ref": "test_pure.lua#function test"
+      }
+    }
+  }
+}

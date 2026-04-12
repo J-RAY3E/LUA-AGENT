@@ -1,0 +1,9 @@
+{
+  "module_name": "moonjson",
+  "author": "hnimminh",
+  "downloads": "18k",
+  "summary": "A lightweight JavaScript Object Notation library for Lua",
+  "version": "scm-1",
+  "homepage_url": "http://github.com/hnimminh/moonjson",
+  "label": "json"
+}

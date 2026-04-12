@@ -1,0 +1,9 @@
+{
+  "module_name": "luajwt",
+  "author": "x25",
+  "downloads": "478k",
+  "summary": "JSON Web Tokens for Lua",
+  "version": "1.3-4",
+  "homepage_url": "https://github.com/x25/luajwt",
+  "label": "json"
+}

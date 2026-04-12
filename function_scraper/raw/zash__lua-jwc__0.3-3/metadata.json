@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-jwc",
+  "author": "zash",
+  "downloads": "1,039",
+  "summary": "JSON Web Crypto",
+  "version": "0.3-3",
+  "homepage_url": "https://code.zash.se/lua-jwc",
+  "label": "json"
+}

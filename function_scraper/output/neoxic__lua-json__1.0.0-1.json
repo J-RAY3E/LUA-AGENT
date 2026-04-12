@@ -1,0 +1,32 @@
+{
+  "lua-json": {
+    "version": "1.0.0-1",
+    "source_homepage": "https://github.com/neoxic/lua-json",
+    "functions": {
+      "lua_json": {
+        "name_funct": "lua_json",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A JSON encoding/decoding module for Lua that supports inline data transformation and filtering via metamethods/handlers. It is written in C with 32/64-bit awareness and has no external dependencies.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "value, [event]",
+        "output_format": "text string containing a JSON representation of `value`",
+        "description": "Returns a text string containing a JSON representation of `value`. Optional `event` may be used to specify a metamethod name (default is `__toJSON`) that is called for every processed value. The value returned by the metamethod is used instead of the original value.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### json.encode(value, [event])"
+      },
+      "decode": {
+        "name_funct": "decode",
+        "input_format": "data, pos, handler",
+        "output_format": "value, index",
+        "description": "Decodes the value encoded in `data` along with the index of the first unread byte. Optional `pos` marks where to start reading in `data` (default is 1). Optional `handler` is called for each new table (root or nested), and its return value is used instead of the original table. When an array is decoded, its length is stored in a field `__array`.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### json.decode(data, [pos], [handler])"
+      }
+    }
+  }
+}

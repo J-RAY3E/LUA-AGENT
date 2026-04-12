@@ -1,0 +1,784 @@
+{
+  "rapidjson": {
+    "version": "0.7.2-1",
+    "source_homepage": "https://github.com/xpol/rapidjson",
+    "functions": {
+      "rapidjson": {
+        "name_funct": "rapidjson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A json module for LuaJIT 2.0/2.1 and Lua 5.1/5.2/5.3, based on the very fast RapidJSON C++ library.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## RapidJSON bindings for Lua"
+      },
+      "get_dependencies": {
+        "name_funct": "get_dependencies",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Returns a list of dependencies required for the module.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Dependencies"
+      },
+      "rapidjson.encode": {
+        "name_funct": "rapidjson.encode",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Encodes a JSON object into a string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "rapidjson.decode": {
+        "name_funct": "rapidjson.decode",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Decodes a JSON string into a JSON object.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "rapidjson.load": {
+        "name_funct": "rapidjson.load",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Loads a JSON object from a string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "rapidjson.dump": {
+        "name_funct": "rapidjson.dump",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Dumps a JSON object to a string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Usage"
+      },
+      "cmake": {
+        "name_funct": "cmake",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Builds the `rapidjosn.so` or `rapidjosn.dll` library using CMake.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Value Type Mappings"
+      },
+      "luautf8": {
+        "name_funct": "luautf8",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Install the luautf8 package using luarocks.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Test"
+      },
+      "busted": {
+        "name_funct": "busted",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Install the busted package using luarocks.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Test"
+      },
+      "make": {
+        "name_funct": "make",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Build the project using luarocks.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Test"
+      },
+      "module.performance.run": {
+        "name_funct": "module.performance.run",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Runs the performance benchmark for comparing speed of rapidjson and other json libraries.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Performance"
+      },
+      "compare_speed": {
+        "name_funct": "compare_speed",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "compares the speed of rapidjson and other json libraries for decoding and encoding.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### API"
+      },
+      "unit_tests": {
+        "name_funct": "unit_tests",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Pass all unit tests",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Release Steps"
+      },
+      "version_update": {
+        "name_funct": "version_update",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Update version in rapidjson-*.*.*-1.rockspec and update the name of the rockspec file",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Release Steps"
+      },
+      "tagging": {
+        "name_funct": "tagging",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Tag source code with that version (v*.*.*), and push",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Release Steps"
+      },
+      "rockspec_upload": {
+        "name_funct": "rockspec_upload",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Upload rapidjson-*.*.*-1.rockspec",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Release Steps"
+      },
+      "module:func": {
+        "name_funct": "module:func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function performs a specific task related to the module.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Changelog"
+      },
+      "rapidjson.null": {
+        "name_funct": "rapidjson.null",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This is a type in the rapidjson library that represents a null value. It is used to represent the absence of a value in JSON objects.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.7.0"
+      },
+      "decode": {
+        "name_funct": "decode",
+        "input_format": "C buffer, length",
+        "output_format": "decoded data",
+        "description": "Add support for decoding a C buffer with a length.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.6.0"
+      },
+      "pushDecoded": {
+        "name_funct": "pushDecoded",
+        "input_format": "C++ API",
+        "output_format": "none",
+        "description": "Export the C++ API `pushDecoded`.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.6.0"
+      },
+      "lua_stack_check": {
+        "name_funct": "lua_stack_check",
+        "input_format": "nil",
+        "output_format": "nil",
+        "description": "Ensures there is room on the Lua stack when decoding objects and arrays.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.5.2"
+      },
+      "remove_cpp11_features": {
+        "name_funct": "remove_cpp11_features",
+        "input_format": "no input",
+        "output_format": "no output",
+        "description": "Remove all c++11 feature requirements except move constructor.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.5.1"
+      },
+      "SchemaDocument": {
+        "name_funct": "SchemaDocument",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A class for validating JSON schemas.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.5.0"
+      },
+      "SchemaValidator": {
+        "name_funct": "SchemaValidator",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A class for validating JSON schemas using JSON pointer and schema.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.5.0"
+      },
+      "check_encoding_error": {
+        "name_funct": "check_encoding_error",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Checks encoding error for float point numbers.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.4.5"
+      },
+      "rapidjson_compiling_turn": {
+        "name_funct": "rapidjson_compiling_turn",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "RapidJSON compiling turn: use release config and turn SIMD on if supported.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.4.5"
+      },
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.4.4"
+      },
+      "check_circular_reference": {
+        "name_funct": "check_circular_reference",
+        "input_format": "table",
+        "output_format": "boolean",
+        "description": "Checks for circular references when encoding tables.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.4.0"
+      },
+      "table_encode": {
+        "name_funct": "table_encode",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Encodes a table as a JSON array if it has a meta field `__jsontype` set to 'array' or if its length is greater than 0. Otherwise, it encodes it as a JSON object with only string keys and their values.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.4.0"
+      },
+      "table_decode": {
+        "name_funct": "table_decode",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Decodes a table from a JSON object, ensuring that only string keys and their values are present.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.4.0"
+      },
+      "le": {
+        "name_funct": "le",
+        "input_format": "not specified",
+        "output_format": "not specified",
+        "description": "not specified",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.3.0"
+      },
+      "rapidjson.object": {
+        "name_funct": "rapidjson.object",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Create a JSON object from a table.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.2.0"
+      },
+      "rapidjson.array": {
+        "name_funct": "rapidjson.array",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Create a JSON array from a table.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.2.0"
+      },
+      "ort_keys": {
+        "name_funct": "ort_keys",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### 0.1.0"
+      },
+      "parse": {
+        "name_funct": "parse",
+        "input_format": "const char* json, size_t len",
+        "output_format": "rapidjson::Document",
+        "description": "Parse a JSON string into a Document object.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### A fast JSON parser/generator for C++ with both SAX/DOM style API"
+      },
+      "generate": {
+        "name_funct": "generate",
+        "input_format": "const rapidjson::Document& doc",
+        "output_format": "const char* json, size_t* len",
+        "description": "Generate a JSON string from a Document object.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### A fast JSON parser/generator for C++ with both SAX/DOM style API"
+      },
+      "RapidJSON GitHub": {
+        "name_funct": "RapidJSON GitHub",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides the GitHub repository for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Build status"
+      },
+      "RapidJSON Documentation": {
+        "name_funct": "RapidJSON Documentation",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides documentation for RapidJSON in multiple languages and formats.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Build status"
+      },
+      "Build status": {
+        "name_funct": "Build status",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides build status for RapidJSON on different platforms.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Build status"
+      },
+      "RapidJSON": {
+        "name_funct": "RapidJSON",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A JSON parser and generator for C++.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::SAX": {
+        "name_funct": "RapidJSON::SAX",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "SAX style API for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::DOM": {
+        "name_funct": "RapidJSON::DOM",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "DOM style API for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::MemoryAllocator": {
+        "name_funct": "RapidJSON::MemoryAllocator",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Memory allocator for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::UTF8": {
+        "name_funct": "RapidJSON::UTF8",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "UTF-8 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::UTF16": {
+        "name_funct": "RapidJSON::UTF16",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "UTF-16 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::UTF32": {
+        "name_funct": "RapidJSON::UTF32",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "UTF-32 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::DetectUTF8": {
+        "name_funct": "RapidJSON::DetectUTF8",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Detects UTF-8 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::ValidateUTF8": {
+        "name_funct": "RapidJSON::ValidateUTF8",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Validates UTF-8 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::TranscodeUTF8": {
+        "name_funct": "RapidJSON::TranscodeUTF8",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Transcodes UTF-8 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::TranscodeUTF16": {
+        "name_funct": "RapidJSON::TranscodeUTF16",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Transcodes UTF-16 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "RapidJSON::TranscodeUTF32": {
+        "name_funct": "RapidJSON::TranscodeUTF32",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Transcodes UTF-32 encoding for RapidJSON.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Introduction"
+      },
+      "Introducing JSON": {
+        "name_funct": "Introducing JSON",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides a brief introduction to JSON, including links to official resources.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "RFC7159: The JavaScript Object Notation (JSON) Data Interchange Format": {
+        "name_funct": "RFC7159: The JavaScript Object Notation (JSON) Data Interchange Format",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides a detailed specification of the JSON data interchange format.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "Standard ECMA-404: The JSON Data Interchange Format": {
+        "name_funct": "Standard ECMA-404: The JSON Data Interchange Format",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides a detailed specification of the JSON data interchange format.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "JSON Pointer": {
+        "name_funct": "JSON Pointer",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Adds support for JSON Pointer, a way to navigate JSON objects.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "JSON Schema": {
+        "name_funct": "JSON Schema",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Adds support for JSON Schema, a way to describe the structure of JSON data.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "relaxed JSON syntax": {
+        "name_funct": "relaxed JSON syntax",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Adds support for relaxed JSON syntax, including comments, trailing commas, and NaN/Infinity.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "C++11 Range-based for loop": {
+        "name_funct": "C++11 Range-based for loop",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Adds support for iterating arrays and objects using a C++11 range-based for loop.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "Reduce memory overhead of each Value": {
+        "name_funct": "Reduce memory overhead of each Value",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Reduces the memory overhead of each Value in x86-64 architecture.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Highlights in v1.1 (2016-8-25)"
+      },
+      "laxed_json_syntax": {
+        "name_funct": "laxed_json_syntax",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "comment, trailing comma, NaN/Infinity",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Compatibility"
+      },
+      "iterate_array_object": {
+        "name_funct": "iterate_array_object",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Iterating array/object with [C++11 Range-based for loop]",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Compatibility"
+      },
+      "reduce_memory_overhead": {
+        "name_funct": "reduce_memory_overhead",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of changes, referring to [change log](CHANGELOG.md)",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Compatibility"
+      },
+      "rm": {
+        "name_funct": "rm",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Removes the specified object from the system or project's include path.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "Visual C++ 2008/2010/2013 on Windows (32/64-bit)": {
+        "name_funct": "Visual C++ 2008/2010/2013 on Windows (32/64-bit)",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Platform/compiler combinations that have been tested.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "GNU C++ 3.8.x on Cygwin": {
+        "name_funct": "GNU C++ 3.8.x on Cygwin",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Platform/compiler combinations that have been tested.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "Clang 3.4 on Mac OS X (32/64-bit) and iOS": {
+        "name_funct": "Clang 3.4 on Mac OS X (32/64-bit) and iOS",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Platform/compiler combinations that have been tested.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "Clang 3.4 on Android NDK": {
+        "name_funct": "Clang 3.4 on Android NDK",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Platform/compiler combinations that have been tested.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "RapidJSON is a header-only C++ library": {
+        "name_funct": "RapidJSON is a header-only C++ library",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Library description.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "Users can build and run the unit tests on their platform/compiler": {
+        "name_funct": "Users can build and run the unit tests on their platform/compiler",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for building and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "RapidJSON uses following software as its dependencies": {
+        "name_funct": "RapidJSON uses following software as its dependencies",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Library dependencies.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "vcpkg install rapidjson": {
+        "name_funct": "vcpkg install rapidjson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Installation instructions using vcpkg.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "RapidJSON uses CMake as a general build tool": {
+        "name_funct": "RapidJSON uses CMake as a general build tool",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Library usage.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "RapidJSON uses Doxygen to build documentation": {
+        "name_funct": "RapidJSON uses Doxygen to build documentation",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Library usage.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "RapidJSON uses googletest for unit and performance testing": {
+        "name_funct": "RapidJSON uses googletest for unit and performance testing",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Library usage.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "To generate user documentation and run tests please proceed with the steps below": {
+        "name_funct": "To generate user documentation and run tests please proceed with the steps below",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "1. Execute `git submodule update --init` to get the files of thirdparty submodules (google test)": {
+        "name_funct": "1. Execute `git submodule update --init` to get the files of thirdparty submodules (google test)",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "2. Create directory called `build` in rapidjson source directory": {
+        "name_funct": "2. Create directory called `build` in rapidjson source directory",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "3. Change to `build` directory and run `cmake ..` command to configure your build": {
+        "name_funct": "3. Change to `build` directory and run `cmake ..` command to configure your build",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "4. On Windows, build the solution found in the build directory": {
+        "name_funct": "4. On Windows, build the solution found in the build directory",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "5. On Linux, run `make` from the build directory": {
+        "name_funct": "5. On Linux, run `make` from the build directory",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "On successful build you will find compiled test and example binaries in `bin` directory": {
+        "name_funct": "On successful build you will find compiled test and example binaries in `bin` directory",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "The generated documentation will be available in `doc/html` directory of the build tree": {
+        "name_funct": "The generated documentation will be available in `doc/html` directory of the build tree",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "To run tests after finished build please run `make test` or `ctest` from your build tree": {
+        "name_funct": "To run tests after finished build please run `make test` or `ctest` from your build tree",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "You can get detailed output using `ctest -V` command": {
+        "name_funct": "You can get detailed output using `ctest -V` command",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "It is possible to install library system-wide by running `make install` command from the build tree with administrative privileges": {
+        "name_funct": "It is possible to install library system-wide by running `make install` command from the build tree with administrative privileges",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "Once RapidJSON is installed, it is possible to use it from other CMake projects by adding `find_package(RapidJSON)` line to your CMakeLists.txt": {
+        "name_funct": "Once RapidJSON is installed, it is possible to use it from other CMake projects by adding `find_package(RapidJSON)` line to your CMakeLists.txt",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "User instructions for generating documentation and running tests.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Installation"
+      },
+      "filterkey": {
+        "name_funct": "filterkey",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A command line tool to remove all values with user-specified key.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Contributing"
+      },
+      "filterkeydom": {
+        "name_funct": "filterkeydom",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Same tool as above, but it demonstrates how to use a generator to populate a `Document`.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md### Contributing"
+      },
+      "Fork": {
+        "name_funct": "Fork",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Create a copy of the repository on GitHub.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "Clone": {
+        "name_funct": "Clone",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Download the project to your local machine.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "Checkout": {
+        "name_funct": "Checkout",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Select a new branch for development.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "Test": {
+        "name_funct": "Test",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Verify that changes pass all tests, including `unittest` and `preftest`.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "Commit": {
+        "name_funct": "Commit",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Save changes to your local branch.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "Push": {
+        "name_funct": "Push",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Upload your changes to your forked repository.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "Pull request": {
+        "name_funct": "Pull request",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Submit a request to merge your changes into the main repository.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "Merge": {
+        "name_funct": "Merge",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Ensure that the latest changes from the main repository are included in your branch.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\readme.md#### Workflow"
+      },
+      "JSON_checker": {
+        "name_funct": "JSON_checker",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Checks if a JSON file is valid according to the JSON specification.",
+        "extraction_method": "llm",
+        "source_ref": "rapidjson\\bin\\jsonchecker\\readme.txt#Section 1"
+      }
+    }
+  }
+}

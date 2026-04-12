@@ -1,0 +1,9 @@
+{
+  "module_name": "dkjson",
+  "author": "luarocks",
+  "downloads": "11.7k",
+  "summary": "David Kolf's JSON module for Lua",
+  "version": "2.5-1",
+  "homepage_url": "http://dkolf.de/src/dkjson-lua.fsl/",
+  "label": "json"
+}

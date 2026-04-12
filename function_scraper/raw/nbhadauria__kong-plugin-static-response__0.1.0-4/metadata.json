@@ -1,0 +1,9 @@
+{
+  "module_name": "kong-plugin-static-response",
+  "author": "nbhadauria",
+  "downloads": "7,585",
+  "summary": "Respond back with Static Content and Terminate the request.",
+  "version": "0.1.0-4",
+  "homepage_url": "https://github.com/IntelliGrape/kong-plugin-static-response",
+  "label": "json"
+}

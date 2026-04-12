@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-yajl",
+  "author": "luarocks",
+  "downloads": "182",
+  "summary": "Integrate the yajl JSON library with Lua.",
+  "version": "scm-1",
+  "homepage_url": "http://github.com/brimworks/lua-yajl",
+  "label": "json"
+}

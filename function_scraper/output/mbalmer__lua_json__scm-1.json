@@ -1,0 +1,32 @@
+{
+  "lua_json": {
+    "version": "scm-1",
+    "source_homepage": "http://github.com/mbalmer/luajson",
+    "functions": {
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Converts a table to a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "null.lua#File: null.lua"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "string or table",
+        "output_format": "table",
+        "description": "Converts a JSON string or table to a Lua table.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#File: test.lua"
+      },
+      "json.isnull": {
+        "name_funct": "json.isnull",
+        "input_format": "table",
+        "output_format": "boolean",
+        "description": "Checks if a table is null.",
+        "extraction_method": "llm",
+        "source_ref": "test.lua#File: test.lua"
+      }
+    }
+  }
+}

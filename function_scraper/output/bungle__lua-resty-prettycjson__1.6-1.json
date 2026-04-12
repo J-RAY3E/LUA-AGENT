@@ -1,0 +1,80 @@
+{
+  "lua-resty-prettycjson": {
+    "version": "1.6-1",
+    "source_homepage": "https://github.com/bungle/lua-resty-prettycjson",
+    "functions": {
+      "prettycjson": {
+        "name_funct": "prettycjson",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Pretty formats a Lua cJSON object.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## lua-resty-prettycjson"
+      },
+      "prettycjson.lua": {
+        "name_funct": "prettycjson.lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A Lua module for pretty-printing JSON objects.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Installation"
+      },
+      "opm.get": {
+        "name_funct": "opm.get",
+        "input_format": "string",
+        "output_format": "package",
+        "description": "Downloads a package from opm using the specified name.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Using OpenResty Package Manager (opm)"
+      },
+      "Changes": {
+        "name_funct": "Changes",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "records changes of every release of the module",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Changes"
+      },
+      "cjson.encode": {
+        "name_funct": "cjson.encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Encodes a table into a JSON string. Returns an error message if the Lua cJSON encoder is not found.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\prettycjson.lua#File: lib\\resty\\prettycjson.lua"
+      },
+      "table.concat": {
+        "name_funct": "table.concat",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Concatenates elements of a table into a single string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\prettycjson.lua#File: lib\\resty\\prettycjson.lua"
+      },
+      "string.sub": {
+        "name_funct": "string.sub",
+        "input_format": "string, integer, integer",
+        "output_format": "string",
+        "description": "Returns a substring of a string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\prettycjson.lua#File: lib\\resty\\prettycjson.lua"
+      },
+      "string.rep": {
+        "name_funct": "string.rep",
+        "input_format": "string, integer",
+        "output_format": "string",
+        "description": "Repeats a string a given number of times.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\prettycjson.lua#File: lib\\resty\\prettycjson.lua"
+      },
+      "string.concat": {
+        "name_funct": "string.concat",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Concatenates elements of a table into a single string.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\prettycjson.lua#File: lib\\resty\\prettycjson.lua"
+      }
+    }
+  }
+}

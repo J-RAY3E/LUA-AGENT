@@ -1,0 +1,9 @@
+{
+  "module_name": "rapidjson",
+  "author": "xpol",
+  "downloads": "134k",
+  "summary": "Very fast json module based on RapidJSON.",
+  "version": "0.7.2-1",
+  "homepage_url": "https://github.com/xpol/rapidjson",
+  "label": "json"
+}

@@ -1,0 +1,9 @@
+{
+  "module_name": "luajls",
+  "author": "javalikescript",
+  "downloads": "321",
+  "summary": "luajls is a set of Lua modules for developing stand-alone Lua applications",
+  "version": "0.7-3",
+  "homepage_url": "https://github.com/javalikescript/luajls",
+  "label": "json"
+}

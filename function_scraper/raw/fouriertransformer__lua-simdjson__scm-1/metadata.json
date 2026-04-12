@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-simdjson",
+  "author": "fouriertransformer",
+  "downloads": "3,100",
+  "summary": "Lua bindings for simdjson",
+  "version": "scm-1",
+  "homepage_url": "https://github.com/FourierTransformer/lua-simdjson",
+  "label": "json"
+}

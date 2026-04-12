@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-schema",
+  "author": "fperrad",
+  "downloads": "223",
+  "summary": "JSON Schema data validator",
+  "version": "0.1.1-1",
+  "homepage_url": "https://fperrad.frama.io/lua-schema",
+  "label": "json"
+}

@@ -1,0 +1,256 @@
+{
+  "httprequestparser": {
+    "version": "ver-3",
+    "source_homepage": "https://github.com/yogiverma007/httprequestparser",
+    "functions": {
+      "httprequestparser.getContentType": {
+        "name_funct": "httprequestparser.getContentType",
+        "input_format": "requestBodyBuffer",
+        "output_format": "Content-Type header",
+        "description": "Fetches Content-Type header from request body.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.getAccept": {
+        "name_funct": "httprequestparser.getAccept",
+        "input_format": "requestBodyBuffer",
+        "output_format": "Accept header",
+        "description": "Fetches Accept header from request body.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.getHost": {
+        "name_funct": "httprequestparser.getHost",
+        "input_format": "requestBodyBuffer",
+        "output_format": "host",
+        "description": "Fetches host from request body.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.getAllHeaders": {
+        "name_funct": "httprequestparser.getAllHeaders",
+        "input_format": "requestBodyBuffer",
+        "output_format": "table of headers",
+        "description": "Fetches All headers from request body in table form.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.getHttpMethod": {
+        "name_funct": "httprequestparser.getHttpMethod",
+        "input_format": "requestBodyBuffer",
+        "output_format": "Http method",
+        "description": "Fetches Http method from request body.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.getRequestURI": {
+        "name_funct": "httprequestparser.getRequestURI",
+        "input_format": "requestBodyBuffer",
+        "output_format": "http request uri",
+        "description": "Fetches http request uri from request body.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.findElementFromRequestBody": {
+        "name_funct": "httprequestparser.findElementFromRequestBody",
+        "input_format": "requestBodyBuffer, element",
+        "output_format": "element from request body",
+        "description": "Fetches any element from request body.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.isXMLBody": {
+        "name_funct": "httprequestparser.isXMLBody",
+        "input_format": "requestBodyBuffer",
+        "output_format": "true or false",
+        "description": "Returns true or false if request body is in XML format.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.isJSONBody": {
+        "name_funct": "httprequestparser.isJSONBody",
+        "input_format": "requestBodyBuffer",
+        "output_format": "true or false",
+        "description": "Returns true or false if request body is in JSON format.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.getRequestBodyAsString": {
+        "name_funct": "httprequestparser.getRequestBodyAsString",
+        "input_format": "requestBodyBuffer",
+        "output_format": "plain string",
+        "description": "Returns request body as plain string from http request buffer.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.handleJsonBody": {
+        "name_funct": "httprequestparser.handleJsonBody",
+        "input_format": "requestBodyBuffer",
+        "output_format": "Json Object",
+        "description": "Returns Json Object if request body is in JSON format. Can call dkjson modules function on this object.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "httprequestparser.handleXMLBody": {
+        "name_funct": "httprequestparser.handleXMLBody",
+        "input_format": "requestBodyBuffer",
+        "output_format": "XML Object",
+        "description": "Returns XML Object if request body is in XML format. Can call lxp.lom modules function on this object.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## http request parser"
+      },
+      "stBodyBuffer": {
+        "name_funct": "stBodyBuffer",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Converts the request body to a JSON object if it is in JSON format. It can call the dkjson module's function on this object.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Todos"
+      },
+      "isEmpty": {
+        "name_funct": "isEmpty",
+        "input_format": "string",
+        "output_format": "boolean",
+        "description": "Checks if a string is empty (nil, empty string, or empty string literal).",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function isEmpty"
+      },
+      "splitString": {
+        "name_funct": "splitString",
+        "input_format": "toSplitString (string), delimiter (string)",
+        "output_format": "result (table)",
+        "description": "Splits a string into an array of substrings using a specified delimiter. Returns the resulting table.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function splitString"
+      },
+      "trimString": {
+        "name_funct": "trimString",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Trims leading and trailing whitespace from a string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function trimString"
+      },
+      "_privatefindElementFromRequestBody": {
+        "name_funct": "_privatefindElementFromRequestBody",
+        "input_format": "requestBody (string), element (string)",
+        "output_format": "elementValue (string)",
+        "description": "Searches for a specific element within the request body and returns its value. If the element is not found, returns nil.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function _privatefindElementFromRequestBody"
+      },
+      "fetchFirstLineFromRequestPayLoad": {
+        "name_funct": "fetchFirstLineFromRequestPayLoad",
+        "input_format": "requestPayload",
+        "output_format": "string",
+        "description": "Splits the request payload into lines and finds the first empty line to stop the request body data from being added to the table.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function fetchFirstLineFromRequestPayLoad"
+      },
+      "elementValue": {
+        "name_funct": "elementValue",
+        "input_format": "line",
+        "output_format": "string",
+        "description": "Extracts the value from a line of the request payload.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function fetchFirstLineFromRequestPayLoad"
+      },
+      "fetchRequestBody": {
+        "name_funct": "fetchRequestBody",
+        "input_format": "requestBody (string)",
+        "output_format": "requestBody (string)",
+        "description": "Splits the request body into lines and checks for empty lines to determine the end of the request body. It then concatenates the non-empty lines into a single string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function fetchRequestBody"
+      },
+      "flag": {
+        "name_funct": "flag",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A boolean flag that is set to true if a condition is met.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.getContentType"
+      },
+      "table": {
+        "name_funct": "table",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Creates a table from a list of values.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.getContentType"
+      },
+      "table.concat": {
+        "name_funct": "table.concat",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Concatenates a table into a string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.getContentType"
+      },
+      "requestBody": {
+        "name_funct": "requestBody",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A table containing the request body.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.getContentType"
+      },
+      "requestBodyBuffer": {
+        "name_funct": "requestBodyBuffer",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A buffer containing the request body.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.getContentType"
+      },
+      "httprequestparser": {
+        "name_funct": "httprequestparser",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function that returns the Content-Type header from the request body.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.getContentType"
+      },
+      "mRequestPayLoad": {
+        "name_funct": "mRequestPayLoad",
+        "input_format": "requestBodyBuffer",
+        "output_format": "nil",
+        "description": "Parse the request payload and trim the string.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.findElementFromRequestBody"
+      },
+      "estparser.isXMLBody": {
+        "name_funct": "estparser.isXMLBody",
+        "input_format": "requesBodyBuffer",
+        "output_format": "boolean",
+        "description": "Determines if the request body is XML.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.isJSONBody"
+      },
+      "handleJsonBody": {
+        "name_funct": "handleJsonBody",
+        "input_format": "requestBodyBuffer",
+        "output_format": "JSON object",
+        "description": "Handles JSON body in request. Returns nil if not JSON, otherwise returns decoded JSON object.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.handleJsonBody"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Decodes a JSON string into a table.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.handleXMLBody"
+      },
+      "lom.parse": {
+        "name_funct": "lom.parse",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Parses an XML string into an XML object.",
+        "extraction_method": "llm",
+        "source_ref": "src\\httprequestparser.lua#function httprequestparser.handleXMLBody"
+      }
+    }
+  }
+}

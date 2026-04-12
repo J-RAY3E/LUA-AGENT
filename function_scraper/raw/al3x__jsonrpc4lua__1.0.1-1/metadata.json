@@ -1,0 +1,9 @@
+{
+  "module_name": "jsonrpc4lua",
+  "author": "al3x",
+  "downloads": "779",
+  "summary": "JSONRPC4Lua implement JSON-RPC-over-http client and server-side for Lua.",
+  "version": "1.0.1-1",
+  "homepage_url": "http://github.com/pdxmeshnet/jsonrpc4lua/",
+  "label": "json"
+}

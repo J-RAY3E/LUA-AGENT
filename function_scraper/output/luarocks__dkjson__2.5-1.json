@@ -1,0 +1,296 @@
+{
+  "dkjson": {
+    "version": "2.5-1",
+    "source_homepage": "http://dkolf.de/src/dkjson-lua.fsl/",
+    "functions": {
+      "dkjson": {
+        "name_funct": "dkjson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A JSON module for Lua that provides functions for working with JSON data.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md## dkjson – JSON Module for Lua [(dkolf.de)](http://dkolf.de/)"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Converts a table to a JSON string with optional indentation.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Encoding"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "string, optional indent, optional errors",
+        "output_format": "table, string",
+        "description": "decodes a JSON string into a table",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Decoding"
+      },
+      "async-await": {
+        "name_funct": "async-await",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A short introduction to the async-await programming syntax for running asynchronous tasks and how it can be implemented in the Lua programming language.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### [async-await in Lua](http://dkolf.de/lua-async-await)"
+      },
+      "dkjson.decode": {
+        "name_funct": "dkjson.decode",
+        "input_format": "string",
+        "output_format": "table",
+        "description": "Decodes a JSON string into a table.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### dkjson Versions"
+      },
+      "dkjson.encode": {
+        "name_funct": "dkjson.encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Encodes a table into a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md### dkjson Versions"
+      },
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "summary of purpose and side effects (max 2 sentences)",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.7 (2024-02-20)"
+      },
+      "use_lpeg": {
+        "name_funct": "use_lpeg",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "enables working with newer versions of LPeg and fixes error messages for ordered dictionaries.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.6 (2021-12-19)"
+      },
+      "decode": {
+        "name_funct": "decode",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "reads the documentation for version 2.6 of dkjson-lua.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.6 (2021-12-19)"
+      },
+      "dkjson.lua": {
+        "name_funct": "dkjson.lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A Lua library for JSON encoding and decoding.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.4 (2013-09-28)"
+      },
+      "dkjson-2.5.lua": {
+        "name_funct": "dkjson-2.5.lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A Lua library for JSON encoding and decoding, version 2.5.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.4 (2013-09-28)"
+      },
+      "dkjson-2.4.lua": {
+        "name_funct": "dkjson-2.4.lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A Lua library for JSON encoding and decoding, version 2.4.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.4 (2013-09-28)"
+      },
+      "dkjson-2.3.lua": {
+        "name_funct": "dkjson-2.3.lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A Lua library for JSON encoding and decoding, version 2.3.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.4 (2013-09-28)"
+      },
+      "double": {
+        "name_funct": "double",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "converts a string to a double",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.2 (2013-04-14)"
+      },
+      "register_module_table_in_global_variable": {
+        "name_funct": "register_module_table_in_global_variable",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "registers the module table in a global variable",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.2 (2013-04-14)"
+      },
+      "__jsontype": {
+        "name_funct": "__jsontype",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Returns the JSON type of a table. If the table is empty, it returns 'null'.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.1 (2011-07-08)"
+      },
+      "__tojson": {
+        "name_funct": "__tojson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Converts a Lua table to a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.1 (2011-07-08)"
+      },
+      "__jsonorder": {
+        "name_funct": "__jsonorder",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Returns the JSON order of a table.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.1 (2011-07-08)"
+      },
+      "__jsonvalue": {
+        "name_funct": "__jsonvalue",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Returns the JSON value of a table. If the table is empty, it returns 'null'.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.1 (2011-07-08)"
+      },
+      "fixed_decoding_single_numbers": {
+        "name_funct": "fixed_decoding_single_numbers",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Corrected the range of escaped Unicode control characters.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.1 (2011-07-08)"
+      },
+      "corrected_range_of_escaped_unicode_control_characters": {
+        "name_funct": "corrected_range_of_escaped_unicode_control_characters",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Corrected the range of escaped Unicode control characters.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.1 (2011-07-08)"
+      },
+      "encode": {
+        "name_funct": "encode",
+        "input_format": "table",
+        "output_format": "string",
+        "description": "Encode a Lua table as a JSON string.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 2.0 (2011-05-30)"
+      },
+      "dded": {
+        "name_funct": "dded",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "any": {
+        "name_funct": "any",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "explicitly": {
+        "name_funct": "explicitly",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "keyorder": {
+        "name_funct": "keyorder",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "values": {
+        "name_funct": "values",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "NaN": {
+        "name_funct": "NaN",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "+Inf": {
+        "name_funct": "+Inf",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "-Inf": {
+        "name_funct": "-Inf",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "original": {
+        "name_funct": "original",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "JavaScript": {
+        "name_funct": "JavaScript",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "dkjson-1.0": {
+        "name_funct": "dkjson-1.0",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "dkolf.de": {
+        "name_funct": "dkolf.de",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "contact": {
+        "name_funct": "contact",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      },
+      "RSS": {
+        "name_funct": "RSS",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "infers types and structures from context/comments",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### Version 1.0 (2010-08-28)"
+      }
+    }
+  }
+}

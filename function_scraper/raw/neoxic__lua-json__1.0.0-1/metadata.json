@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-json",
+  "author": "neoxic",
+  "downloads": "66k",
+  "summary": "JSON encoding/decoding module for Lua",
+  "version": "1.0.0-1",
+  "homepage_url": "https://github.com/neoxic/lua-json",
+  "label": "json"
+}

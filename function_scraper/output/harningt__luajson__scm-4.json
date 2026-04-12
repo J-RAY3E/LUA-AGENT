@@ -1,0 +1,368 @@
+{
+  "luajson": {
+    "version": "scm-4",
+    "source_homepage": "http://github.com/harningt/luajson",
+    "functions": {
+      "luajson": {
+        "name_funct": "luajson",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A JSON parser and constructor for Lua.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### LuaJSON"
+      },
+      "require": {
+        "name_funct": "require",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Load a Lua module or script.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Requirements"
+      },
+      "assert": {
+        "name_funct": "assert",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Assert a condition and return a string.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Requirements"
+      },
+      "lunitx": {
+        "name_funct": "lunitx",
+        "input_format": "version >= 0.8",
+        "output_format": "not applicable",
+        "description": "lunit-tests is a testing framework for Lua. It supports version 0.8 and above.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### For lunit-tests:"
+      },
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function performs some action on the input data.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### License"
+      },
+      "global_func": {
+        "name_funct": "global_func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This global function does something with the global state.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### License"
+      },
+      "example_function": {
+        "name_funct": "example_function",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function performs a simple arithmetic operation. It takes two numbers as input and returns their sum.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Module/Function overview:"
+      },
+      "json.encode": {
+        "name_funct": "json.encode",
+        "input_format": "ANY-valid",
+        "output_format": "string",
+        "description": "Takes in a JSON-encodable value and returns the JSON-encoded text. Valid input types include table, array-like table, string, number, boolean, and 'null' (represented by json.util.null).",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### json.encode (callable module referencing json.encode.encode)"
+      },
+      "json.decode": {
+        "name_funct": "json.decode",
+        "input_format": "string, optional boolean",
+        "output_format": "Lua object",
+        "description": "Takes in a string of JSON data and converts it into a Lua object. If 'strict' is set, then the strict JSON rule-set is used.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### json.decode (callable module referencing json.decode.decode)"
+      },
+      "clone": {
+        "name_funct": "clone",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Shallow-clones a table by iterating using pairs and assigning.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### json.util"
+      },
+      "decodeCall": {
+        "name_funct": "decodeCall",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Not a public function, used internally.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### json.util"
+      },
+      "doOptionMerge": {
+        "name_funct": "doOptionMerge",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "Not a public function, used internally.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### json.util"
+      },
+      "print_all_values": {
+        "name_funct": "print_all_values",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "Prints out all object values. If duplicates are found, they are referenced.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Attribution"
+      },
+      "merge_tables": {
+        "name_funct": "merge_tables",
+        "input_format": "table, ...",
+        "output_format": "table",
+        "description": "Shallow-merges a sequence of tables onto table t by iterating over each using pairs and assigning.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Attribution"
+      },
+      "make_encoder_customizable": {
+        "name_funct": "make_encoder_customizable",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Prepare to make the encoder customizable in a manner similar to the decoder",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-0.9.1.txt#Section 1"
+      },
+      "try_unicode_integration": {
+        "name_funct": "try_unicode_integration",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Try to create an integration point for unicode handling",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-0.9.1.txt#Section 1"
+      },
+      "add_custom_function_handling": {
+        "name_funct": "add_custom_function_handling",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Add custom 'function' handling for decoder (ex: b64(stringvalue))",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-0.9.1.txt#Section 1"
+      },
+      "lunit": {
+        "name_funct": "lunit",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A testing framework for Lua that allows for the creation of tests for small components in the luajson decoder/encoder sections.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-0.9.txt#Section 1"
+      },
+      "decoder": {
+        "name_funct": "decoder",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A module for handling the decoding of JSON data in Lua.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-0.9.txt#Section 1"
+      },
+      "encoder": {
+        "name_funct": "encoder",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A module for handling the encoding of JSON data in Lua.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-0.9.txt#Section 1"
+      },
+      "test": {
+        "name_funct": "test",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A module for handling the testing of JSON data in Lua.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-0.9.txt#Section 1"
+      },
+      "decode": {
+        "name_funct": "decode",
+        "input_format": "value to decode",
+        "output_format": "decoded value",
+        "description": "Handles number encoding/decoding for cases where tonumber/tostring don't work as expected.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.0.2.txt#Section 1"
+      },
+      "decode.object": {
+        "name_funct": "decode.object",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "fixes compatibility issue with LPeg 0.10 - function-checking vs number parsing",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.0.3.txt#Section 1"
+      },
+      "docs": {
+        "name_funct": "docs",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "adds reference for where bug reporting should go",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.0.3.txt#Section 1"
+      },
+      "decoder.learn_arbitrary_defaults": {
+        "name_funct": "decoder.learn_arbitrary_defaults",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "learns how to handle arbitrary sets of defaults (now + simple)",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.1.txt#Section 1"
+      },
+      "decoder.add_support_for_nil_return_values": {
+        "name_funct": "decoder.add_support_for_nil_return_values",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "adds support for nil return values",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.1.txt#Section 1"
+      },
+      "decoder.fix_bug_where_function_call_returns_nothing": {
+        "name_funct": "decoder.fix_bug_where_function_call_returns_nothing",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "fixes bug where function call returns nothing => error",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.1.txt#Section 1"
+      },
+      "decoder.add_support_for_simple_decoding": {
+        "name_funct": "decoder.add_support_for_simple_decoding",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "adds support for 'simple' decoding to map null and undefined => nil",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.1.txt#Section 1"
+      },
+      "decoder.remove_special_casing_of_null_values_in_array": {
+        "name_funct": "decoder.remove_special_casing_of_null_values_in_array",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "removes special casing of null values in an array",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.1.txt#Section 1"
+      },
+      "decoder.add_support_for_caching_new_arbitrary_configs": {
+        "name_funct": "decoder.add_support_for_caching_new_arbitrary_configs",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "adds support for caching new arbitrary configs",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.1.txt#Section 1"
+      },
+      "decoder.add_tests_for_simple_default_decoders": {
+        "name_funct": "decoder.add_tests_for_simple_default_decoders",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "adds tests for simple/default decoders stand-alone, in arrays, in objects",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.1.txt#Section 1"
+      },
+      "string_processor": {
+        "name_funct": "string_processor",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A function that can be used to specially handle string values and custom escape values.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.2.2.txt#Section 1"
+      },
+      "ungrouped": {
+        "name_funct": "ungrouped",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "François Perrad produced patches to make the library work better with Lua 5.2 and handle strict modes. It also introduces additional documentation about what varieties of Lua have been tested.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "fix_with_lua_5_2_strict": {
+        "name_funct": "fix_with_lua_5_2_strict",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "François Perrad fixed issues with Lua 5.2 strict mode.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "remove_condition_around_env_nil": {
+        "name_funct": "remove_condition_around_env_nil",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "François Perrad removed the condition around `_ENV = nil`.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "remove_conditional_is_52_code": {
+        "name_funct": "remove_conditional_is_52_code",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "François Perrad removed conditional code (is_52) for compatibility with Lua 5.2.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "fix_tests": {
+        "name_funct": "fix_tests",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "François Perrad fixed tests for Lua 5.2.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "fix_test_with_lua_5_2_0": {
+        "name_funct": "fix_test_with_lua_5_2_0",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "François Perrad fixed a test for Lua 5.2.0.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "merge_pull_request_21": {
+        "name_funct": "merge_pull_request_21",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Thomas Harning Jr merged pull request #21 from François Perrad.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "merge_pull_request_22": {
+        "name_funct": "merge_pull_request_22",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Thomas Harning Jr merged pull request #22 from François Perrad.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "merge_pull_request_23": {
+        "name_funct": "merge_pull_request_23",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Thomas Harning Jr merged pull request #23 from François Perrad.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "add_module_metadata": {
+        "name_funct": "add_module_metadata",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Thomas Harning Jr added module metadata as suggested by François Perrad.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "decoder_fix_5_2_strict_mode_state_object": {
+        "name_funct": "decoder_fix_5_2_strict_mode_state_object",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Thomas Harning Jr fixed issues with the decoder's state object in strict mode.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "docs_notes_tested_lua_versions": {
+        "name_funct": "docs_notes_tested_lua_versions",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Thomas Harning Jr added notes about the tested Lua versions in the documentation.",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.1.txt#Section 1"
+      },
+      "merge": {
+        "name_funct": "merge",
+        "input_format": "not specified",
+        "output_format": "not specified",
+        "description": "documents testing with the Penlight 'strict' module",
+        "extraction_method": "llm",
+        "source_ref": "docs\\ReleaseNotes-1.3.2.txt#Section 1"
+      }
+    }
+  }
+}

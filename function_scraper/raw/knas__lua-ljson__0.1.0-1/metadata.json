@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-ljson",
+  "author": "knas",
+  "downloads": "85",
+  "summary": "A fast Lua JSON library written in Rust for Lotus Project",
+  "version": "0.1.0-1",
+  "homepage_url": "https://github.com/rusty-sec/ljson",
+  "label": "json"
+}

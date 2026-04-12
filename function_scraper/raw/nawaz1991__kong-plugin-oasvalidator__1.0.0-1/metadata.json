@@ -1,0 +1,9 @@
+{
+  "module_name": "kong-plugin-oasvalidator",
+  "author": "nawaz1991",
+  "downloads": "123",
+  "summary": "A Kong plugin for validating HTTP requests against OpenAPI specifications.",
+  "version": "1.0.0-1",
+  "homepage_url": "https://nawaz1991.github.io/kong-plugin-oasvalidator",
+  "label": "json"
+}

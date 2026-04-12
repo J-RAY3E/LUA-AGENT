@@ -1,0 +1,9 @@
+{
+  "module_name": "dkjson",
+  "author": "dhkolf",
+  "downloads": "7m",
+  "summary": "David Kolf's JSON module for Lua",
+  "version": "2.8-2",
+  "homepage_url": "https://dkolf.de/dkjson-lua/",
+  "label": "json"
+}

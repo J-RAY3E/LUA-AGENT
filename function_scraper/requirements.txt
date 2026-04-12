@@ -1,0 +1,8 @@
+# Core dependencies
+requests>=2.31.0
+beautifulsoup4>=4.12.3
+html2text>=2024.2.26
+
+# Optional: JS-rendered documentation sites (requires: playwright install)
+# pip install crawl4ai && playwright install
+# crawl4ai>=0.4.0

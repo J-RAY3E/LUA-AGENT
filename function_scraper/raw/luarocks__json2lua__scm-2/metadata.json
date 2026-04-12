@@ -1,0 +1,9 @@
+{
+  "module_name": "json2lua",
+  "author": "luarocks",
+  "downloads": "1,996",
+  "summary": "A command-line tool to convert JSON to Lua",
+  "version": "scm-2",
+  "homepage_url": "http://github.com/agladysh/json2lua",
+  "label": "json"
+}

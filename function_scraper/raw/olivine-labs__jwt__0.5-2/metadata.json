@@ -1,0 +1,9 @@
+{
+  "module_name": "jwt",
+  "author": "olivine-labs",
+  "downloads": "11.4k",
+  "summary": "A library for encoding and decoding json web tokens.",
+  "version": "0.5-2",
+  "homepage_url": "https://github.com/luarocks/luarocks/blob/main/docs/download.md",
+  "label": "json"
+}

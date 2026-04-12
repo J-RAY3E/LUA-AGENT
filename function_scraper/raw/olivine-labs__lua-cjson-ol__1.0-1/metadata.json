@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-cjson-ol",
+  "author": "olivine-labs",
+  "downloads": "47k",
+  "summary": "A fast JSON encoding/parsing module",
+  "version": "1.0-1",
+  "homepage_url": "http://www.kyne.com.au/~mark/software/lua-cjson.php",
+  "label": "json"
+}

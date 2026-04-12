@@ -1,0 +1,24 @@
+{
+  "lua-cjson": {
+    "version": "2.1.2-1",
+    "source_homepage": "http://www.kyne.com.au/~mark/software/lua-cjson.php",
+    "functions": {
+      "Cloudflare": {
+        "name_funct": "Cloudflare",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Cloudflare is a popular web performance and security company.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md####  [ Cloudflare ](https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_526&utm_campaign=www.kyne.com.au)"
+      },
+      "validate_ssl_certificate": {
+        "name_funct": "validate_ssl_certificate",
+        "input_format": "server, domain name",
+        "output_format": "validation status, potential issues",
+        "description": "Checks if an SSL certificate is valid and matches the requested domain name. Returns a status and potential issues.",
+        "extraction_method": "llm",
+        "source_ref": "documentation.md#### If you're the owner of this website:"
+      }
+    }
+  }
+}

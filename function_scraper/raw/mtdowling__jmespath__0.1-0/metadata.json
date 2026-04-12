@@ -1,0 +1,9 @@
+{
+  "module_name": "jmespath",
+  "author": "mtdowling",
+  "downloads": "542",
+  "summary": "Declaratively specify how to extract elements from a JSON document, in Lua",
+  "version": "0.1-0",
+  "homepage_url": "https://github.com/mtdowling/jmespath.lua",
+  "label": "json"
+}

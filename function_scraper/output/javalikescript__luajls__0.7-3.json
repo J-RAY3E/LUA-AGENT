@@ -1,0 +1,192 @@
+{
+  "luajls": {
+    "version": "0.7-3",
+    "source_homepage": "https://github.com/javalikescript/luajls",
+    "functions": {
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What is luajls?"
+      },
+      "module": {
+        "name_funct": "module",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "operating system abstractions such as file system and network access",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What are the features?"
+      },
+      "HttpServer": {
+        "name_funct": "HttpServer",
+        "input_format": "self, port",
+        "output_format": "self, response",
+        "description": "HTTP server with support for secured communication using SSL",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What does it look like?"
+      },
+      "HttpClient": {
+        "name_funct": "HttpClient",
+        "input_format": "self, url",
+        "output_format": "self, response",
+        "description": "HTTP client for fetching data from a URL",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What does it look like?"
+      },
+      "nodePattern": {
+        "name_funct": "nodePattern",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function",
+        "extraction_method": "llm",
+        "source_ref": "README.md### How to install and use it?"
+      },
+      "set_environment_variables": {
+        "name_funct": "set_environment_variables",
+        "input_format": "not applicable",
+        "output_format": "not applicable",
+        "description": "Sets the environment variables *LUA_PATH* and *LUA_CPATH* to include the luajls home directory.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What are the supported Lua versions?"
+      },
+      "check_supported_versions": {
+        "name_funct": "check_supported_versions",
+        "input_format": "not applicable",
+        "output_format": "not applicable",
+        "description": "Determines the supported Lua versions and provides information about the compatibility levels.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What are the supported Lua versions?"
+      },
+      "browse_examples": {
+        "name_funct": "browse_examples",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides examples and applications for the LuaJS library.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What do you want to do?"
+      },
+      "browse_manual": {
+        "name_funct": "browse_manual",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides the user manual for the LuaJS library.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What do you want to do?"
+      },
+      "browse_api": {
+        "name_funct": "browse_api",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides the API documentation for the LuaJS library.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What do you want to do?"
+      },
+      "download_binaries": {
+        "name_funct": "download_binaries",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides download links for LuaJS binaries.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What do you want to do?"
+      },
+      "download_source_code": {
+        "name_funct": "download_source_code",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Provides access to the source code for LuaJS.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### What do you want to do?"
+      },
+      "A tiny web browser": {
+        "name_funct": "A tiny web browser",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows opening a web page without tabs.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "A cipher utility": {
+        "name_funct": "A cipher utility",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows encoding and decoding files.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "A discover utility": {
+        "name_funct": "A discover utility",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows discovering network services using mDNS or SSDP.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "An HTTP client": {
+        "name_funct": "An HTTP client",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows making HTTP requests to an HTTP server.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "An HTTP proxy": {
+        "name_funct": "An HTTP proxy",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows filtering and monitoring HTTP traffic.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "A MQTT client and server": {
+        "name_funct": "A MQTT client and server",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows publishing and subscribing to an MQTT server.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "A WebSocket client": {
+        "name_funct": "A WebSocket client",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows sending and receiving messages to a WebSocket server.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "A web server": {
+        "name_funct": "A web server",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows serving static files and supporting file upload and WebDAV.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "An ACME client": {
+        "name_funct": "An ACME client",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows obtaining a certificate for a local HTTP server.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "A WebView with documentation": {
+        "name_funct": "A WebView with documentation",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows browsing the luajls documentation, including Lua reference, LDoc, LuaUnit, and LuaCov.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      },
+      "A ZIP utility": {
+        "name_funct": "A ZIP utility",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Allows creating, extracting, or listing ZIP file content.",
+        "extraction_method": "llm",
+        "source_ref": "examples\\README.md#Section 1"
+      }
+    }
+  }
+}

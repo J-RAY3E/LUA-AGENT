@@ -1,0 +1,9 @@
+{
+  "module_name": "luajson",
+  "author": "luarocks",
+  "downloads": "1,869",
+  "summary": "customizable JSON decoder/encoder",
+  "version": "scm-4",
+  "homepage_url": "http://github.com/harningt/luajson",
+  "label": "json"
+}

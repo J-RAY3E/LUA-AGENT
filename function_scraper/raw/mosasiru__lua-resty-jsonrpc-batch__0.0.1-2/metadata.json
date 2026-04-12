@@ -1,0 +1,9 @@
+{
+  "module_name": "lua-resty-jsonrpc-batch",
+  "author": "mosasiru",
+  "downloads": "395",
+  "summary": "The Lua-Openresty implementation of JSON-RPC 2.0 Batch Request.",
+  "version": "0.0.1-2",
+  "homepage_url": "https://github.com/mosasiru/lua-resty-jsonrpc-batch",
+  "label": "json"
+}

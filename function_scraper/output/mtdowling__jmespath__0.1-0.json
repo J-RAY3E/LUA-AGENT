@@ -1,0 +1,792 @@
+{
+  "jmespath": {
+    "version": "0.1-0",
+    "source_homepage": "https://github.com/mtdowling/jmespath.lua",
+    "functions": {
+      "Lexer.new": {
+        "name_funct": "Lexer.new",
+        "input_format": "no input",
+        "output_format": "new Lexer object",
+        "description": "Creates a new Lexer object.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Lexer.new"
+      },
+      "tset": {
+        "name_funct": "tset",
+        "input_format": "no input",
+        "output_format": "table of token types and values",
+        "description": "Defines token types and values for the lexer.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Lexer.new"
+      },
+      "combine_seq": {
+        "name_funct": "combine_seq",
+        "input_format": "a, b",
+        "output_format": "result",
+        "description": "Combines two sequence tables into a new table.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function combine_seq"
+      },
+      "t.identifiers": {
+        "name_funct": "t.identifiers",
+        "input_format": "t.identifier_start, t.numbers",
+        "output_format": "t.identifiers",
+        "description": "Combines identifier start tokens with numbers.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function combine_seq"
+      },
+      "t.operators": {
+        "name_funct": "t.operators",
+        "input_format": "t.operator_start, {['<='] = 1, ['>='] = 1, ['!='] = 1, ['=='] = 1}",
+        "output_format": "t.operators",
+        "description": "Combines operator start tokens with valid operators.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function combine_seq"
+      },
+      "t.json_numbers": {
+        "name_funct": "t.json_numbers",
+        "input_format": "t.numbers, {['-'] = 1}",
+        "output_format": "t.json_numbers",
+        "description": "Combines number tokens with valid JSON number tokens.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function combine_seq"
+      },
+      "consume": {
+        "name_funct": "consume",
+        "input_format": "lexer",
+        "output_format": "lexer",
+        "description": "Consumes the next token from the lexer and modifies the lexer's state.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume"
+      },
+      "consume_identifier": {
+        "name_funct": "consume_identifier",
+        "input_format": "lexer",
+        "output_format": "table",
+        "description": "Consume an identifier token and return a table with position, type, and value.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_identifier"
+      },
+      "consume_number": {
+        "name_funct": "consume_number",
+        "input_format": "lexer",
+        "output_format": "buffer, start, return value",
+        "description": "Consumes characters from the lexer and appends them to the buffer. Returns the start position and the type and value of the consumed number.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_number"
+      },
+      "consume_lbracket": {
+        "name_funct": "consume_lbracket",
+        "input_format": "lexer",
+        "output_format": "table",
+        "description": "Consumes a lbracket token and returns a table with position, type, and value.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_lbracket"
+      },
+      "consume_operator": {
+        "name_funct": "consume_operator",
+        "input_format": "lexer",
+        "output_format": "token",
+        "description": "Consume an operator and return a token.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_operator"
+      },
+      "sume": {
+        "name_funct": "sume",
+        "input_format": "lexer",
+        "output_format": "table",
+        "description": "Parse a string of tokens.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_pipe"
+      },
+      "consume_pipe": {
+        "name_funct": "consume_pipe",
+        "input_format": "lexer",
+        "output_format": "table",
+        "description": "Parse a string of tokens inside of a delimiter.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_pipe"
+      },
+      "parse_inside": {
+        "name_funct": "parse_inside",
+        "input_format": "lexer, wrapper, skip_ws",
+        "output_format": "table",
+        "description": "Parses a string of tokens inside a delimiter.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_inside"
+      },
+      "consume_literal": {
+        "name_funct": "consume_literal",
+        "input_format": "lexer",
+        "output_format": "token",
+        "description": "Consume a literal token from the lexer and return the token.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_literal"
+      },
+      "consume_quoted_identifier": {
+        "name_funct": "consume_quoted_identifier",
+        "input_format": "lexer",
+        "output_format": "token",
+        "description": "Consumes a quoted string and returns a token.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function consume_quoted_identifier"
+      },
+      "Parser.advance": {
+        "name_funct": "Parser.advance",
+        "input_format": "self.pos, self.tokens, valid",
+        "output_format": "self.token, valid[self.token.type] or error message",
+        "description": "Peeks at the next token type without consuming it. Validates the token type against a set of valid types.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:advance"
+      },
+      "peek": {
+        "name_funct": "peek",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Peeks at the next token type without consuming it.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:peek"
+      },
+      "Parser:assert_not": {
+        "name_funct": "Parser:assert_not",
+        "input_format": "self.token.type",
+        "output_format": "error message",
+        "description": "Asserts that the current token is not of a specified type. If it is, an error is raised.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:assert_not"
+      },
+      "bp": {
+        "name_funct": "bp",
+        "input_format": "self.token.type",
+        "output_format": "integer",
+        "description": "Token binding precedence table. Determines the order of precedence for different token types.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:assert_not"
+      },
+      "current_node": {
+        "name_funct": "current_node",
+        "input_format": "nil",
+        "output_format": "table",
+        "description": "Cached current node used as identity nodes. Represents the current token being parsed.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:assert_not"
+      },
+      "after_dot": {
+        "name_funct": "after_dot",
+        "input_format": "self.token.type",
+        "output_format": "boolean",
+        "description": "Hash of token handlers. Determines the validity of tokens after a dot.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:assert_not"
+      },
+      "parselets": {
+        "name_funct": "parselets",
+        "input_format": "nil",
+        "output_format": "table",
+        "description": "Hash of token handlers. Determines the validity of tokens after a dot.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:assert_not"
+      },
+      "expr": {
+        "name_funct": "expr",
+        "input_format": "parser, rbp",
+        "output_format": "left",
+        "description": "Parse an expression based on the precedence level (rbp).",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function expr"
+      },
+      "parselets.nud_identifier": {
+        "name_funct": "parselets.nud_identifier",
+        "input_format": "parser",
+        "output_format": "result",
+        "description": "Parse an identifier.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function expr"
+      },
+      "parselets.nud_quoted_identifier": {
+        "name_funct": "parselets.nud_quoted_identifier",
+        "input_format": "parser",
+        "output_format": "result",
+        "description": "Parse a quoted identifier.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function expr"
+      },
+      "parselets.nud_current": {
+        "name_funct": "parselets.nud_current",
+        "input_format": "parser",
+        "output_format": "result",
+        "description": "Parse the current token.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function expr"
+      },
+      "parselets.nud_literal": {
+        "name_funct": "parselets.nud_literal",
+        "input_format": "parser",
+        "output_format": "result",
+        "description": "Parse a literal.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function expr"
+      },
+      "parselets.nud_expref": {
+        "name_funct": "parselets.nud_expref",
+        "input_format": "parser",
+        "output_format": "result",
+        "description": "Parse an expression reference.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function expr"
+      },
+      "parse_kvp": {
+        "name_funct": "parse_kvp",
+        "input_format": "key (type, name, optionality)",
+        "output_format": "value (type, structure, multiple values)",
+        "description": "Parse key-value pairs from a parser.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_kvp"
+      },
+      "parselets.nud_flatten": {
+        "name_funct": "parselets.nud_flatten",
+        "input_format": "current_node (type, name, optionality)",
+        "output_format": "children (type, structure, multiple children)",
+        "description": "Flatten a node into a list of children.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_kvp"
+      },
+      "parselets.nud_filter": {
+        "name_funct": "parselets.nud_filter",
+        "input_format": "current_node (type, name, optionality)",
+        "output_format": "children (type, structure, multiple children)",
+        "description": "Filter a node based on a condition.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_kvp"
+      },
+      "parse_multi_select_list": {
+        "name_funct": "parse_multi_select_list",
+        "input_format": "parser",
+        "output_format": "multi_select_list",
+        "description": "Parse a multi-select list of expressions.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_multi_select_list"
+      },
+      "parse_dot": {
+        "name_funct": "parse_dot",
+        "input_format": "parser, rbp",
+        "output_format": "expr(parser, rbp)",
+        "description": "Parse a dot notation expression. If it's a multi-select list, return it; otherwise, return an expression.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_dot"
+      },
+      "parse_projection": {
+        "name_funct": "parse_projection",
+        "input_format": "parser, rbp",
+        "output_format": "current_node",
+        "description": "Parses a projection expression in a parser. Returns the current node if the projection is valid, or throws an error if the syntax is incorrect.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_projection"
+      },
+      "parse_wildcard_object": {
+        "name_funct": "parse_wildcard_object",
+        "input_format": "parser, left",
+        "output_format": "object_projection, children",
+        "description": "Parse a wildcard object projection.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_wildcard_object"
+      },
+      "parse_wildcard_array": {
+        "name_funct": "parse_wildcard_array",
+        "input_format": "parser, left",
+        "output_format": "array_projection, children",
+        "description": "Parse a wildcard array projection. Returns an array projection with children.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_wildcard_array"
+      },
+      "parse_array_index_expr": {
+        "name_funct": "parse_array_index_expr",
+        "input_format": "parser.token.type",
+        "output_format": "return {type = 'index', value = parts[1]} or {type = 'slice', value = parts}",
+        "description": "解析数组索引表达式，返回索引或切片。",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_array_index_expr"
+      },
+      "parselet": {
+        "name_funct": "parselet",
+        "input_format": "nil",
+        "output_format": "return parselet",
+        "description": "解析let或nud。",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function parse_array_index_expr"
+      },
+      "ect": {
+        "name_funct": "ect",
+        "input_format": "parser, left",
+        "output_format": "table of table nodes",
+        "description": "Parses an expression into an Abstract Syntax Tree (AST).",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function throw"
+      },
+      "setmetatable": {
+        "name_funct": "setmetatable",
+        "input_format": "parselets, table",
+        "output_format": "table",
+        "description": "Sets the metamethods for a table.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function throw"
+      },
+      "throw": {
+        "name_funct": "throw",
+        "input_format": "parser, msg",
+        "output_format": "string",
+        "description": "Throws an error with a message.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function throw"
+      },
+      "parse": {
+        "name_funct": "parse",
+        "input_format": "string expression",
+        "output_format": "table of table nodes",
+        "description": "Parses an expression into an Abstract Syntax Tree (AST).",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Parser:parse"
+      },
+      "validate_arity": {
+        "name_funct": "validate_arity",
+        "input_format": "self, given, expected",
+        "output_format": "none",
+        "description": "validate the number of arguments a function expects",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function validate_arity"
+      },
+      "type_error": {
+        "name_funct": "type_error",
+        "input_format": "string, string",
+        "output_format": "error",
+        "description": "Raise a type error with a message.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function type_error"
+      },
+      "validate_type": {
+        "name_funct": "validate_type",
+        "input_format": "from, value, types",
+        "output_format": "msg",
+        "description": "Validates the type of a value against a list of allowed types. Returns an error message if the value does not match any of the types.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function validate_type"
+      },
+      "validate": {
+        "name_funct": "validate",
+        "input_format": "from, args, types",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Validates the arguments based on the provided types.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function validate"
+      },
+      "validate_seq": {
+        "name_funct": "validate_seq",
+        "input_format": "local function validate_seq(from, types, a, b)",
+        "output_format": "local ta, tb = Functions.type(a), Functions.type(b); local match = (#types and types[1] == 'any') or Functions.in_table(ta, types); if not match then type_error(from, 'encountered a type error in sequence. The argument must be an array of ' .. table.concat(types, '|') .. ' types. Found ' .. ta .. ', ' .. tb) end",
+        "description": "Validates the sequence types and checks for type mismatches.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function validate_seq"
+      },
+      "reduce_table": {
+        "name_funct": "reduce_table",
+        "input_format": "local function reduce_table(from, tbl, types, func)",
+        "output_format": "local ta, tb = Functions.type(tbl); local match = (#types and types[1] == 'any') or Functions.in_table(ta, types); if not match then type_error(from, 'encountered a type error in sequence. The argument must be an array of ' .. table.concat(types, '|') .. ' types. Found ' .. ta .. ', ' .. tb) end",
+        "description": "Reduces a table to a single value while validating the sequence types.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function validate_seq"
+      },
+      "typed_reduce": {
+        "name_funct": "typed_reduce",
+        "input_format": "string, table, table, function",
+        "output_format": "table",
+        "description": "Reduces a table to a single value while validating the sequence types",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function typed_reduce"
+      },
+      "func": {
+        "name_funct": "func",
+        "input_format": "table, table, integer",
+        "output_format": "table",
+        "description": "Applies a function to an item and an index.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function wrap_expr"
+      },
+      "wrap_expr": {
+        "name_funct": "wrap_expr",
+        "input_format": "string, function, table",
+        "output_format": "function",
+        "description": "Wraps a function with validation based on the given types.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function wrap_expr"
+      },
+      "sortfn": {
+        "name_funct": "sortfn",
+        "input_format": "a, b",
+        "output_format": "number",
+        "description": "Returns 0, 1, or -1 based on the comparison of two values.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function sortfn"
+      },
+      "fn_abs": {
+        "name_funct": "fn_abs",
+        "input_format": "number",
+        "output_format": "number",
+        "description": "Returns the absolute value of a number.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_abs"
+      },
+      "fn_sum": {
+        "name_funct": "fn_sum",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Sums the elements of an array of numbers. Validates the input array and uses a reduce function to accumulate the sum.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_sum"
+      },
+      "fn_avg": {
+        "name_funct": "fn_avg",
+        "input_format": "array",
+        "output_format": "number",
+        "description": "Calculates the average of the elements in an array. Returns the average of the array elements.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_avg"
+      },
+      "fn_ceil": {
+        "name_funct": "fn_ceil",
+        "input_format": "number",
+        "output_format": "number",
+        "description": "Ceil the given number.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_ceil"
+      },
+      "fn_contains": {
+        "name_funct": "fn_contains",
+        "input_format": "args[1] (string or table), args[2] (string or table)",
+        "output_format": "boolean",
+        "description": "Checks if the first argument contains the second argument as a substring or if the second argument is an array and checks for containment within the first argument.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_contains"
+      },
+      "fn_ends_with": {
+        "name_funct": "fn_ends_with",
+        "input_format": "string, string",
+        "output_format": "boolean",
+        "description": "Determines if the first argument ends with the second argument.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_ends_with"
+      },
+      "fn_floor": {
+        "name_funct": "fn_floor",
+        "input_format": "number",
+        "output_format": "number",
+        "description": "Rounds a number down to the nearest integer.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_floor"
+      },
+      "fn_join": {
+        "name_funct": "fn_join",
+        "input_format": "args (string, array)",
+        "output_format": "result (string)",
+        "description": "Joins elements of an array with a specified separator. Validates input and uses reduce function to concatenate elements.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_join"
+      },
+      "fn": {
+        "name_funct": "fn",
+        "input_format": "carry, item, index",
+        "output_format": "carry .. args[1] .. item",
+        "description": "Applies the 'join' function to the provided arguments.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_keys"
+      },
+      "fn_keys": {
+        "name_funct": "fn_keys",
+        "input_format": "args",
+        "output_format": "keys",
+        "description": "Returns the keys of the provided object.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_keys"
+      },
+      "fn_length": {
+        "name_funct": "fn_length",
+        "input_format": "args[1] (array, string, object)",
+        "output_format": "total (number)",
+        "description": "Calculates the length of an array or string. Returns the total number of elements. If the input is a table, it sums the number of elements in the table.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_length"
+      },
+      "fn_not_null": {
+        "name_funct": "fn_not_null",
+        "input_format": "args (table)",
+        "output_format": "i (table or nil)",
+        "description": "Check if any element in the table `args` is not `nil`.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_not_null"
+      },
+      "fn_max": {
+        "name_funct": "fn_max",
+        "input_format": "array",
+        "output_format": "number, string",
+        "description": "finds the maximum value in an array of numbers or strings",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_max"
+      },
+      "fn_max_by": {
+        "name_funct": "fn_max_by",
+        "input_format": "array, expression",
+        "output_format": "any",
+        "description": "Find the maximum value in an array based on a given expression.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_max_by"
+      },
+      "fn_min": {
+        "name_funct": "fn_min",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_min"
+      },
+      "fn_min_by": {
+        "name_funct": "fn_min_by",
+        "input_format": "array, expression",
+        "output_format": "any",
+        "description": "Find the minimum value in an array based on a given expression. The expression is evaluated for each item in the array, and the item with the smallest value according to the expression is returned.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_min_by"
+      },
+      "string.reverse": {
+        "name_funct": "string.reverse",
+        "input_format": "string",
+        "output_format": "string",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_reverse"
+      },
+      "fn_reverse": {
+        "name_funct": "fn_reverse",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_reverse"
+      },
+      "fn_sort": {
+        "name_funct": "fn_sort",
+        "input_format": "array",
+        "output_format": "array",
+        "description": "Sort an array of strings or numbers.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_sort"
+      },
+      "fn_sort_by": {
+        "name_funct": "fn_sort_by",
+        "input_format": "array, expression",
+        "output_format": "stable_sort, function (a, b) -> boolean",
+        "description": "Sorts an array based on a given expression. Validates the expression type and sorts the array using the stable sort algorithm.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_sort_by"
+      },
+      "stable_sort": {
+        "name_funct": "stable_sort",
+        "input_format": "array, function",
+        "output_format": "array, function",
+        "description": "Sorts an array using a stable sort algorithm.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_starts_with"
+      },
+      "sort_by": {
+        "name_funct": "sort_by",
+        "input_format": "array, array",
+        "output_format": "array, boolean",
+        "description": "Sorts an array based on a given expression.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_starts_with"
+      },
+      "starts_with": {
+        "name_funct": "starts_with",
+        "input_format": "string, string",
+        "output_format": "boolean",
+        "description": "Checks if the first character of a string matches a given substring.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_starts_with"
+      },
+      "fn_type": {
+        "name_funct": "fn_type",
+        "input_format": "args",
+        "output_format": "Functions.type(args[1])",
+        "description": "Validate the length of an argument and return the type of the first argument.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_type"
+      },
+      "fn_to_number": {
+        "name_funct": "fn_to_number",
+        "input_format": "args[1]",
+        "output_format": "tonumber(args[1])",
+        "description": "Converts the first argument to a number. Validates the number of arguments and throws an error if not exactly one argument is provided.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_to_number"
+      },
+      "fn_to_string": {
+        "name_funct": "fn_to_string",
+        "input_format": "args[1] (type: table, optional: false)",
+        "output_format": "result (type: string, optional: false)",
+        "description": "Converts a table to a string representation. If the table has a __tostring metamethod, it is used; otherwise, it is encoded using json.encode.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_to_string"
+      },
+      "fn_values": {
+        "name_funct": "fn_values",
+        "input_format": "args[1] (table)",
+        "output_format": "values (table)",
+        "description": "Extracts values from an object.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function fn_values"
+      },
+      "alidate": {
+        "name_funct": "alidate",
+        "input_format": "string, table, table of tables",
+        "output_format": "table",
+        "description": "Validate input values and return a table of validated values.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.in_table"
+      },
+      "in_table": {
+        "name_funct": "in_table",
+        "input_format": "mixed, table",
+        "output_format": "boolean",
+        "description": "Check if a value is present in a table.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.in_table"
+      },
+      "search": {
+        "name_funct": "search",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "search then return true end",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.reduce"
+      },
+      "reduce": {
+        "name_funct": "reduce",
+        "input_format": "table, function, initial",
+        "output_format": "carry",
+        "description": "Reduces a table using a callback function",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.reduce"
+      },
+      "is_jmespath": {
+        "name_funct": "is_jmespath",
+        "input_format": "mixed",
+        "output_format": "bool",
+        "description": "Determines if the given value is a JMESPath object",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.reduce"
+      },
+      "Functions.is_object": {
+        "name_funct": "Functions.is_object",
+        "input_format": "value",
+        "output_format": "bool",
+        "description": "Determines if the given value is an object (i.e., a table with non-nil keys).",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.is_object"
+      },
+      "Functions.is_array": {
+        "name_funct": "Functions.is_array",
+        "input_format": "value",
+        "output_format": "boolean",
+        "description": "Checks if the length of the input array is greater than 0.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.is_array"
+      },
+      "Functions.stable_sort": {
+        "name_funct": "Functions.stable_sort",
+        "input_format": "data (table), func (function)",
+        "output_format": "sorted_data (table)",
+        "description": "Sorts a table of data using a custom sorting function. The function returns a value that determines the order of elements. Ties are broken by the index of the element.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.stable_sort"
+      },
+      "Functions.jmespath_type": {
+        "name_funct": "Functions.jmespath_type",
+        "input_format": "value (mixed)",
+        "output_format": "string",
+        "description": "Returns the JMESPath type of a Lua variable.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.stable_sort"
+      },
+      "type": {
+        "name_funct": "type",
+        "input_format": "mixed value",
+        "output_format": "string",
+        "description": "Returns the JMESPath type of a Lua variable",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.type"
+      },
+      "Functions.is_equal": {
+        "name_funct": "Functions.is_equal",
+        "input_format": "two values (o1, o2), optional ignore metamethods (ignore_mt)",
+        "output_format": "boolean",
+        "description": "Checks if two values are equal, with deep comparison for tables.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.is_equal"
+      },
+      "Functions.new": {
+        "name_funct": "Functions.new",
+        "input_format": "config",
+        "output_format": "t, fn, args",
+        "description": "Creates a new function object with the given configuration.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Functions.new"
+      },
+      "multi_select_list": {
+        "name_funct": "multi_select_list",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Selects multiple values from a list of nodes.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Interpreter.new"
+      },
+      "multi_select_hash": {
+        "name_funct": "multi_select_hash",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Selects multiple values from a hash of nodes.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Interpreter.new"
+      },
+      "comparator": {
+        "name_funct": "comparator",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Compares two values and returns a boolean.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Interpreter.new"
+      },
+      "condition": {
+        "name_funct": "condition",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Checks if the first node's value is true for the second node's value.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Interpreter.new"
+      },
+      "function": {
+        "name_funct": "function",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Calls a function with the given arguments.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Interpreter.new"
+      },
+      "expref": {
+        "name_funct": "expref",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Expands an expression reference.",
+        "extraction_method": "llm",
+        "source_ref": "jmespath.lua#function Interpreter.new"
+      }
+    }
+  }
+}

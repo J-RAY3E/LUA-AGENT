@@ -1,0 +1,9 @@
+{
+  "module_name": "lonejson",
+  "author": "shadowinteger",
+  "downloads": "0",
+  "summary": "Streaming JSON mapping binding for lonejson",
+  "version": "0.2.0-1",
+  "homepage_url": "https://github.com/sa6mwa/lonejson",
+  "label": "json"
+}

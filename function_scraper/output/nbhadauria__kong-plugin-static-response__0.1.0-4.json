@@ -1,0 +1,56 @@
+{
+  "kong-plugin-static-response": {
+    "version": "0.1.0-4",
+    "source_homepage": "https://github.com/IntelliGrape/kong-plugin-static-response",
+    "functions": {
+      "get_static_response": {
+        "name_funct": "get_static_response",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "description of the function's purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md#Section 1"
+      },
+      "luarocks.install": {
+        "name_funct": "luarocks.install",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Installs a plugin using Luarocks.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Install from Luarocks"
+      },
+      "install_kong_plugin": {
+        "name_funct": "install_kong_plugin",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Install the kong-plugin-static-response plugin.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Build your Docker Image:"
+      },
+      "build_docker_image": {
+        "name_funct": "build_docker_image",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Build a custom Docker image with the kong-plugin-static-response plugin.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Build your Docker Image:"
+      },
+      "add_plugin": {
+        "name_funct": "add_plugin",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "Adds a new plugin to the system. The plugin is a module that can be loaded and used by the system.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Add Plugin"
+      },
+      "module.func": {
+        "name_funct": "module.func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "summary of purpose and side effects",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Set Content"
+      }
+    }
+  }
+}

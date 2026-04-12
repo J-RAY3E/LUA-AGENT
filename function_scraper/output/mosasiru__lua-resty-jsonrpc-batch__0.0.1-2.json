@@ -1,0 +1,296 @@
+{
+  "lua-resty-jsonrpc-batch": {
+    "version": "0.0.1-2",
+    "source_homepage": "https://github.com/mosasiru/lua-resty-jsonrpc-batch",
+    "functions": {
+      "module.batch_request": {
+        "name_funct": "module.batch_request",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "parses a batch request, validates it, and makes multi subrequests to upstream servers.",
+        "extraction_method": "llm",
+        "source_ref": "README.md## lua-resty-jsonrpc-batch"
+      },
+      "ngx_lua": {
+        "name_funct": "ngx_lua",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "A module for parsing and validating batch requests and making multi-subrequests to upstream servers.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Installation"
+      },
+      "module1_func": {
+        "name_funct": "module1_func",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This function performs a specific operation on the input data.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Synopsis"
+      },
+      "module2_method": {
+        "name_funct": "module2_method",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This method manipulates the input data in a particular way.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Synopsis"
+      },
+      "global_var": {
+        "name_funct": "global_var",
+        "input_format": "description of expected arguments (types, names, optionality)",
+        "output_format": "description of return values (types, structure, or multiple returns)",
+        "description": "This variable holds some global state that can be accessed and modified.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Synopsis"
+      },
+      "lua_need_request_body": {
+        "name_funct": "lua_need_request_body",
+        "input_format": "boolean",
+        "output_format": "boolean",
+        "description": "Determines whether to require the request body for the next request.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Basic Usage"
+      },
+      "jsonrpc_batch": {
+        "name_funct": "jsonrpc_batch",
+        "input_format": "table",
+        "output_format": "table",
+        "description": "A table representing a JSON-RPC batch request.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Basic Usage"
+      },
+      "jsonrpc_batch.new": {
+        "name_funct": "jsonrpc_batch.new",
+        "input_format": "client:jsonrpc_batch:new({})",
+        "output_format": "client",
+        "description": "Creates a new instance of the jsonrpc_batch module with default settings.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Advanced Usage"
+      },
+      "jsonrpc_batch.batch_request": {
+        "name_funct": "jsonrpc_batch.batch_request",
+        "input_format": "client:jsonrpc_batch.batch_request({})",
+        "output_format": "res, err",
+        "description": "Sends a batch request to the specified endpoint.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Advanced Usage"
+      },
+      "ngx.log": {
+        "name_funct": "ngx.log",
+        "input_format": "ngx.var.request_body",
+        "output_format": "string",
+        "description": "Logs a message to the error log with a critical level. If an error occurs, it exits the script with a status code of 500.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Methods"
+      },
+      "ngx.exit": {
+        "name_funct": "ngx.exit",
+        "input_format": "integer",
+        "output_format": "void",
+        "description": "Exits the script with the specified status code.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Methods"
+      },
+      "client:request": {
+        "name_funct": "client:request",
+        "input_format": "request json",
+        "output_format": "response json",
+        "description": "Make a request to a specified path and return the response.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### request"
+      },
+      "client:batch_request": {
+        "name_funct": "client:batch_request",
+        "input_format": "request json",
+        "output_format": "response json",
+        "description": "Make a batch request to multiple endpoints and return the responses.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### request"
+      },
+      "ngx": {
+        "name_funct": "ngx",
+        "input_format": "ngx.HTTP_ prefix + HTTP method",
+        "output_format": "HTTP method",
+        "description": "HTTP module for handling requests",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Object"
+      },
+      "before_subrequest": {
+        "name_funct": "before_subrequest",
+        "input_format": "request",
+        "output_format": "subrequest",
+        "description": "Executed before each subrequest. Can modify request or response.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Context"
+      },
+      "after_subrequest": {
+        "name_funct": "after_subrequest",
+        "input_format": "subrequest",
+        "output_format": "subrequest",
+        "description": "Executed after each subrequest. Can modify request or response.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Context"
+      },
+      "path": {
+        "name_funct": "path",
+        "input_format": "request",
+        "output_format": "path",
+        "description": "Specifies the path for the request. Can be a string or a function.",
+        "extraction_method": "llm",
+        "source_ref": "README.md#### Context"
+      },
+      "ngx.location.capture_multi": {
+        "name_funct": "ngx.location.capture_multi",
+        "input_format": "Table",
+        "output_format": "Table",
+        "description": "Capture multiple requests as subrequests.",
+        "extraction_method": "llm",
+        "source_ref": "README.md### Author"
+      },
+      "_M.new": {
+        "name_funct": "_M.new",
+        "input_format": "self, args (table)",
+        "output_format": "params (table)",
+        "description": "Creates a new instance of the module with optional parameters. Returns a table with the provided parameters.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.new"
+      },
+      "single_request": {
+        "name_funct": "single_request",
+        "input_format": "nil or true or args.allow_single_request",
+        "output_format": "nil or string",
+        "description": "Determines whether to use a single request or batch request based on the 'allow_single_request' argument.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.batch_request"
+      },
+      "return_setmetatable": {
+        "name_funct": "return_setmetatable",
+        "input_format": "nil or table",
+        "output_format": "nil or table",
+        "description": "Returns a setmetatable table.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.batch_request"
+      },
+      "batch_request": {
+        "name_funct": "batch_request",
+        "input_format": "nil or table",
+        "output_format": "nil or table",
+        "description": "Processes batch requests.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.batch_request"
+      },
+      "tch_request": {
+        "name_funct": "tch_request",
+        "input_format": "ctx, ctx.request",
+        "output_format": "ret",
+        "description": "Handles a request and returns the response or error.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M._single_request"
+      },
+      "subrequest_error_response": {
+        "name_funct": "subrequest_error_response",
+        "input_format": "ctx, ctx.request, subreq_resp",
+        "output_format": "error_body",
+        "description": "Returns an error response based on the subrequest.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M._single_request"
+      },
+      "request_error_response": {
+        "name_funct": "request_error_response",
+        "input_format": "ctx, ctx.request[i], subreq_resp",
+        "output_format": "table, cjson.encode(error_body)",
+        "description": "Handle request errors and build JSON response.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M._get_path"
+      },
+      "_get_path": {
+        "name_funct": "_get_path",
+        "input_format": "self, ctx, req",
+        "output_format": "ctx.path(self, ctx, req), ctx.path",
+        "description": "Get the path for the request.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M._get_path"
+      },
+      "_M.subrequest_error_response": {
+        "name_funct": "_M.subrequest_error_response",
+        "input_format": "self, ctx, req",
+        "output_format": "return value",
+        "description": "Generate a JSON response for a subrequest error. Returns a structured error response with id, jsonrpc, error, and data.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.subrequest_error_response"
+      },
+      "_M.invalid_error_response": {
+        "name_funct": "_M.invalid_error_response",
+        "input_format": "ctx, message",
+        "output_format": "error",
+        "description": "Generate an invalid error response with a specific message.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.invalid_error_response"
+      },
+      "cjson.null": {
+        "name_funct": "cjson.null",
+        "input_format": "type",
+        "output_format": "type",
+        "description": "A value representing a null value in JSON.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.raise_invalid_error"
+      },
+      "ctx.request": {
+        "name_funct": "ctx.request",
+        "input_format": "type",
+        "output_format": "type",
+        "description": "A request object from a context.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.raise_invalid_error"
+      },
+      "message": {
+        "name_funct": "message",
+        "input_format": "type",
+        "output_format": "type",
+        "description": "A message string to be used in error handling.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.raise_invalid_error"
+      },
+      "id": {
+        "name_funct": "id",
+        "input_format": "type",
+        "output_format": "type",
+        "description": "A unique identifier for the request.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.raise_invalid_error"
+      },
+      "self": {
+        "name_funct": "self",
+        "input_format": "type",
+        "output_format": "type",
+        "description": "A reference to the instance of the class.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.raise_invalid_error"
+      },
+      "error": {
+        "name_funct": "error",
+        "input_format": "type",
+        "output_format": "type",
+        "description": "A structure containing error details.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.raise_invalid_error"
+      },
+      "invalid_error": {
+        "name_funct": "invalid_error",
+        "input_format": "type",
+        "output_format": "type",
+        "description": "A message string representing an invalid error.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M.raise_invalid_error"
+      },
+      "_is_array": {
+        "name_funct": "_is_array",
+        "input_format": "table",
+        "output_format": "max, count",
+        "description": "Checks if a table is an array and returns the maximum index and count of elements.",
+        "extraction_method": "llm",
+        "source_ref": "lib\\resty\\jsonrpc\\batch.lua#function _M._is_array"
+      }
+    }
+  }
+}
