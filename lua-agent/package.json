@@ -17,18 +17,9 @@
     {
       "command": "lua-agent.openPanel",
       "title": "LUA-AGENT: Open Panel"
-    },
-    {
-      "command": "lua-agent.generateCode",
-      "title": "LUA-AGENT: Generate Code"
     }
   ],
   "keybindings": [
-    {
-      "command": "lua-agent.generateCode",
-      "key": "ctrl+shift+l",
-      "mac": "cmd+shift+l"
-    },
     {
       "command": "lua-agent.openPanel",
       "key": "ctrl+shift+k",
