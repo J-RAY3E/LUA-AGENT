@@ -1,0 +1,11 @@
+requests
+beautifulsoup4
+lxml
+sentence-transformers
+faiss-cpu
+luaparser
+numpy
+anthropic
+python-dotenv
+flask
+flask-cors
