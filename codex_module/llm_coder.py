@@ -1,27 +1,29 @@
 import requests
-import json
-import os
 import re
+import os
 
+# Configuration for Local LLM API (LM Studio compatible)
 LOCAL_API_URL = os.getenv("LOCAL_LLM_URL", "http://127.0.0.1:1234/v1")
 LOCAL_MODEL = os.getenv("LOCAL_LLM_MODEL", "deepseek-r1-distill-qwen-1.5b")
 
-def extract_structured_code(prompt: str, language: str = "lua") -> dict:
-    # Default return jika terjadi kegagalan total
-    fallback = {
-        "code": "-- Error: Failed to parse LLM output",
-        "libraries": {},
-        "functions": {}
-    }
+def extract_raw_lua_code(prompt: str) -> str:
+    """
+    Sends a prompt to the local LLM and extracts ONLY the raw Lua code.
+    Removes Markdown blocks, thinking tags, and extra text.
+    Returns a clean string ready for insertion into an editor.
+    """
     
-    system_prompt = f"""You are an elite {language.capitalize()} developer. 
-Return ONLY a valid JSON object. No markdown, no backticks, no text before/after JSON.
-Format:
-{{
-  "code": "source code here",
-  "libraries": {{}},
-  "functions": {{}}
-}}"""
+    # System Prompt: Strictly asks for RAW CODE only. No JSON.
+    system_prompt = """You are an expert Lua developer.
+Your task is to write Lua code based on the user's request.
+
+CRITICAL RULES:
+1. Return ONLY the raw Lua code.
+2. DO NOT wrap the code in JSON.
+3. DO NOT use Markdown code blocks (no ```lua or ```).
+4. DO NOT add explanations before or after the code.
+5. Include concise inline comments ('--') for clarity.
+6. Start directly with 'local' or 'function'."""
 
     payload = {
         "model": LOCAL_MODEL,
@@ -29,54 +31,56 @@ Format:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
         ],
-        "temperature": 0,
-        "max_tokens": 2048
+        "temperature": 0.1, # Low temperature for consistent code
+        "max_tokens": 1024
     }
 
     try:
+        # Send request to LM Studio
         response = requests.post(f"{LOCAL_API_URL}/chat/completions", json=payload, timeout=60)
+        
         if response.status_code != 200:
-            return fallback
+            return f"-- Error: API Request Failed (Status {response.status_code})"
 
-        content = response.json()['choices'][0]['message'].get('content', '')
+        # Extract raw content
+        raw_content = response.json()['choices'][0]['message'].get('content', '')
         
-        # 1. Bersihkan tag thinking (<think>...</think>)
-        content = re.sub(r'<think>.*?</think>', '', content, flags=re.DOTALL).strip()
-
-        # 2. STRATEGI GREEDY: Mencari { paling awal sampai } paling akhir
-        # Ini akan membuang teks "Extra data" yang muncul di bawah JSON
-        match = re.search(r'(\{.*\})', content, re.DOTALL)
+        # --- CLEANING PROCESS ---
         
-        if not match:
-            # Jika tidak ketemu kurung kurawal, kirim teks mentah sebagai kode
-            return {"code": content, "libraries": {}, "functions": {}}
-
-        json_str = match.group(1)
-
-        # 3. PEMBERSIHAN KHUSUS DEEPSEEK
-        # Ganti backticks (`) yang sering terselip di dalam value JSON
-        json_str = json_str.replace('`', '"')
+        # 1. Remove <think> tags (Specific to DeepSeek R1 models)
+        clean_content = re.sub(r'<think>.*?</think>', '', raw_content, flags=re.DOTALL)
         
-        # Hapus komentar // yang merusak standar JSON
-        json_str = re.sub(r'//.*', '', json_str)
+        # 2. Remove Markdown code blocks if the model ignores instructions
+        # Removes opening ```lua or ```
+        clean_content = re.sub(r'^```lua\s*', '', clean_content, flags=re.MULTILINE)
+        clean_content = re.sub(r'^```\s*', '', clean_content, flags=re.MULTILINE)
+        # Removes closing ```
+        clean_content = re.sub(r'\s*```$', '', clean_content, flags=re.MULTILINE)
+        
+        # 3. Strip leading/trailing whitespace
+        clean_content = clean_content.strip()
+        
+        # 4. Final check: If empty, return error
+        if not clean_content:
+            return "-- Error: LLM returned empty content"
+            
+        return clean_content
 
-        try:
-            # Gunakan strict=False untuk mentoleransi tab/newline fisik
-            return json.loads(json_str, strict=False)
-        except json.JSONDecodeError:
-            # Jika masih gagal, lakukan pembersihan newline agresif
-            try:
-                # Ganti newline sungguhan menjadi literal \n
-                json_str = re.sub(r'\n', '\\n', json_str)
-                # Perbaiki struktur penutup yang mungkin ikut rusak
-                json_str = json_str.replace('}\\n', '}').replace('",\\n', '",')
-                return json.loads(json_str, strict=False)
-            except:
-                # Jika tetap gagal, ambil field 'code' secara manual menggunakan regex
-                code_match = re.search(r'"code":\s*"(.*?)"', json_str, re.DOTALL)
-                code_val = code_match.group(1) if code_match else content
-                return {"code": code_val, "libraries": {}, "functions": {"error": "JSON partially parsed"}}
-
+    except requests.exceptions.ConnectionError:
+        return "-- Error: Could not connect to LM Studio. Is it running?"
     except Exception as e:
-        print(f"Final Fallback Error: {e}")
-        return fallback
+        print(f"Error in llm_coder: {e}")
+        return f"-- Error: {str(e)}"
+
+def extract_structured_code(prompt: str, language: str = "lua") -> dict:
+    """
+    Wrapper for backward compatibility with app.py if it still expects a dict.
+    However, for best results, use extract_raw_lua_code directly.
+    """
+    code = extract_raw_lua_code(prompt)
+    return {
+        "code": code,
+        "libraries": [],
+        "functions": [],
+        "is_raw": True
+    }

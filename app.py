@@ -1,175 +1,228 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
-from dotenv import load_dotenv
 import sys
 import json
+from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Import dari LUA-AGENT
+# ===== CONFIGURATION =====
+LOCAL_LLM_URL = os.getenv("LOCAL_LLM_URL", "http://127.0.0.1:1234/v1")
+LOCAL_LLM_MODEL = os.getenv("LOCAL_LLM_MODEL", "deepseek-r1-distill-qwen-1.5b")
+
+print(f"⚙️  Config: Using LLM at {LOCAL_LLM_URL}")
+print(f"⚙️  Config: Using Model {LOCAL_LLM_MODEL}")
+
+# ===== IMPORT MODULES =====
+rag_available = False
+codex_available = False
+
+# 1. Import RAG Module
 try:
     from rag_module.vector_engine import load_data, get_index, search
-    from codex_module.llm_coder import extract_structured_code
-    from codex_module.ast_lua_parser import validate_and_reconstruct_lua
-    print("✓ Successfully imported LUA-AGENT modules")
+    rag_available = True
+    print("✓ Successfully imported RAG module")
 except ImportError as e:
-    print(f"✗ Error importing modules: {e}")
-    sys.exit(1)
+    print(f"⚠️  RAG module not found or error: {e}")
+    print("   -> Search endpoint will be disabled.")
+    # Dummy functions
+    def load_data(): return []
+    def get_index(data): return None
+    def search(q, idx, data, k=3): return []
 
-# Config
-LM_STUDIO_URL = os.getenv("LM_STUDIO_URL", "http://127.0.0.1:1234/v1")
-
-print(f"LM Studio URL: {LM_STUDIO_URL}")
-
-# Load RAG data at startup
-print("Loading RAG data...")
+# 2. Import Codex Module
 try:
-    data = load_data()
-    index = get_index(data)
-    print(f"✓ Loaded {len(data)} fragments from LUA-AGENT database")
-except Exception as e:
-    print(f"✗ Error loading RAG data: {e}")
-    data = []
-    index = None
+    from codex_module.llm_coder import extract_raw_lua_code
+    from codex_module.ast_lua_parser import validate_and_reconstruct_lua
+    codex_available = True
+    print("✓ Successfully imported Codex module")
+except ImportError as e:
+    print(f"⚠️  Codex module not found or error: {e}")
+    print("   -> Generate/Validate endpoints will fail.")
+    # Dummy functions
+    def extract_raw_lua_code(p): return "-- Error: Module missing"
+    def validate_and_reconstruct_lua(c): return None
+
+# ===== INITIALIZATION =====
+rag_data = []
+rag_index = None
+
+if rag_available:
+    print("📚 Loading RAG data...")
+    try:
+        rag_data = load_data()
+        rag_index = get_index(rag_data)
+        print(f"✓ Loaded {len(rag_data)} fragments into memory")
+    except Exception as e:
+        print(f"✗ Error loading RAG data: {e}")
+        rag_data = []
+        rag_index = None
 
 # ===== API ENDPOINTS =====
 
 @app.route('/generate', methods=['POST'])
 def generate_code():
-    """Generate Lua code dengan RAG context"""
+    """
+    Generates CLEAN Lua code (Raw String) using LLM with optional RAG context.
+    Expects JSON: { "prompt": "...", "use_rag": true/false }
+    Returns JSON: { "code": "raw lua code string", "status": "success" }
+    """
+    if not codex_available:
+        return jsonify({"error": "Codex module not loaded"}), 503
+
     try:
         request_data = request.json
+        if not request_data or 'prompt' not in request_data:
+            return jsonify({"error": "Missing 'prompt' in request body"}), 400
+
         prompt = request_data.get('prompt', '')
         use_rag = request_data.get('use_rag', True)
         
-        print(f"Generating code for: {prompt}")
+        print(f"\n[GENERATE] Received prompt: {prompt[:50]}...")
         
-        # Get RAG context
+        # 1. Build Context from RAG (Optional)
         rag_context = ""
-        if use_rag and data and index:
-            print("Fetching RAG context...")
-            results = search(prompt, index, data, k=3)
-            rag_context = "\nRelevant Lua libraries:\n"
-            for r in results:
-                rag_context += f"- {r['rock_id']}: {r['content'][:100]}\n"
+        if use_rag and rag_data and rag_index:
+            try:
+                results = search(prompt, rag_index, rag_data, k=3)
+                if results:
+                    rag_context = "\n\nRelevant Lua Context from Database:\n"
+                    for r in results:
+                        content = r.get('content', r.get('text', ''))
+                        rock_id = r.get('rock_id', r.get('source', 'unknown'))
+                        rag_context += f"- [{rock_id}]: {content[:150]}...\n"
+                    print(f"[RAG] Found {len(results)} relevant contexts.")
+            except Exception as e:
+                print(f"[RAG] Search error: {e}")
+                rag_context = "" 
         
-        # Combine prompt dengan RAG context
-        full_prompt = prompt
-        if rag_context:
-            full_prompt = f"{prompt}\n{rag_context}"
+        # 2. Construct Final Prompt for RAW CODE
+        # Notice: We explicitly ask for NO JSON, NO Markdown
+        full_prompt = (
+            f"Task: {prompt}\n\n"
+            "Requirements:\n"
+            "1. Write valid Lua code.\n"
+            "2. Include concise inline comments ('--') for clarity.\n"
+            "3. Return ONLY the raw Lua code string.\n"
+            "4. DO NOT wrap in JSON.\n"
+            "5. DO NOT use Markdown blocks (no ```lua).\n"
+            f"{rag_context}"
+        )
         
-        # Generate code dengan LM Studio
-        code_result = extract_structured_code(full_prompt, language="lua")
+        # 3. Call LLM to get Raw Code
+        print("[LLM] Generating raw code...")
+        raw_code = extract_raw_lua_code(full_prompt)
         
-        if not code_result:
+        if not raw_code or raw_code.startswith("-- Error"):
             return jsonify({
-                "error": "Code generation failed",
-                "code": "-- Error: Could not generate code"
+                "error": "LLM returned empty or invalid response",
+                "code": "-- Error: Generation failed"
             }), 500
         
-        code = code_result.get('code', '')
-        libraries = code_result.get('libraries', {})
-        functions = code_result.get('functions', {})
+        # 4. Optional: Syntax Validation Check (Does not modify code, just checks validity)
+        syntax_valid = False
+        try:
+            if codex_available:
+                # We check validity but still return the original raw_code 
+                # to preserve comments and formatting exactly as generated
+                parsed = validate_and_reconstruct_lua(raw_code)
+                syntax_valid = (parsed is not None)
+        except Exception as e:
+            print(f"[VALIDATE] Error during validation: {e}")
+
+        print("[SUCCESS] Code generated successfully.")
         
-        # Validate Lua syntax
-        validated = validate_and_reconstruct_lua(code)
-        
+        # Return simple structure for Extension
         return jsonify({
-            "code": validated or code,
-            "libraries": libraries,
-            "functions": functions,
-            "syntax_valid": validated is not None,
+            "code": raw_code,
+            "syntax_valid": syntax_valid,
             "status": "success"
         })
         
     except Exception as e:
-        print(f"Error: {str(e)}")
+        print(f"[ERROR] Exception in /generate: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return jsonify({
             "error": str(e),
-            "code": f"-- Error: {str(e)}"
+            "code": f"-- Server Error: {str(e)}"
         }), 500
 
 @app.route('/search', methods=['POST'])
 def search_libraries():
-    """Search Lua libraries dari RAG database"""
+    """Search Lua libraries from RAG database"""
+    if not rag_available or not rag_data:
+        return jsonify({"error": "RAG system not initialized", "results": []}), 503
+
     try:
         request_data = request.json
+        if not request_data or 'query' not in request_data:
+            return jsonify({"error": "Missing 'query'"}), 400
+
         query = request_data.get('query', '')
         k = request_data.get('k', 5)
         
-        print(f"Searching for: {query}")
+        print(f"\n[SEARCH] Query: {query}")
+        results = search(query, rag_index, rag_data, k=k)
         
-        if not data or not index:
-            return jsonify({
-                "error": "RAG data not loaded",
-                "results": []
-            }), 500
-        
-        # Search
-        results = search(query, index, data, k=k)
-        
-        formatted = []
+        formatted_results = []
         for r in results:
-            formatted.append({
-                "library_name": r['rock_id'],
-                "similarity_score": round(r['similarity'], 3),
-                "description": r['content'][:300],
-                "source_phase": r['source_phase']
+            formatted_results.append({
+                "library_name": r.get('rock_id', r.get('source', 'unknown')),
+                "similarity_score": round(float(r.get('similarity', r.get('score', 0))), 3),
+                "description": r.get('content', r.get('text', ''))[:300],
+                "source_phase": r.get('source_phase', 'N/A')
             })
         
-        return jsonify({
-            "results": formatted,
-            "status": "success"
-        })
+        return jsonify({"results": formatted_results, "status": "success"})
         
     except Exception as e:
-        print(f"Error: {str(e)}")
-        return jsonify({
-            "error": str(e),
-            "results": []
-        }), 500
+        print(f"[ERROR] Exception in /search: {str(e)}")
+        return jsonify({"error": str(e), "results": []}), 500
 
 @app.route('/validate', methods=['POST'])
 def validate_code():
-    """Validate Lua syntax"""
+    """Validates Lua code syntax"""
+    if not codex_available:
+        return jsonify({"error": "Codex module not loaded"}), 503
+
     try:
         request_data = request.json
+        if not request_data or 'code' not in request_data:
+            return jsonify({"error": "Missing 'code'"}), 400
+            
         code = request_data.get('code', '')
-        
-        print("Validating Lua code...")
-        
         result = validate_and_reconstruct_lua(code)
+        is_valid = result is not None
         
         return jsonify({
-            "valid": result is not None,
-            "clean_code": result or code,
+            "valid": is_valid,
+            "clean_code": result if result else code,
             "status": "success"
         })
-        
     except Exception as e:
-        print(f"Error: {str(e)}")
-        return jsonify({
-            "error": str(e),
-            "valid": False
-        }), 500
+        return jsonify({"error": str(e), "valid": False}), 500
 
 @app.route('/health', methods=['GET'])
 def health():
-    """Health check"""
+    """Health check endpoint"""
     return jsonify({
         "status": "ok",
-        "rag_loaded": data is not None and len(data) > 0,
-        "lm_studio_url": LM_STUDIO_URL
+        "rag_loaded": rag_available and len(rag_data) > 0,
+        "codex_loaded": codex_available,
+        "llm_url": LOCAL_LLM_URL,
+        "model": LOCAL_LLM_MODEL
     })
 
 if __name__ == '__main__':
-    print("\n" + "="*50)
-    print("LUA-AGENT Backend Server")
-    print("="*50)
-    print("Starting on http://localhost:5000")
-    print("="*50 + "\n")
+    print("\n" + "="*60)
+    print("🚀 LUA-AGENT Backend Server Starting...")
+    print(f"🌍 Endpoint: http://localhost:5000")
+    print(f"🔌 LLM Connected: {LOCAL_LLM_URL}")
+    print("="*60 + "\n")
+    
     app.run(debug=True, port=5000, use_reloader=False)
