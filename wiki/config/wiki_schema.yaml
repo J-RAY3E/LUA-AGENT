@@ -1,0 +1,206 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Wiki Brain Schema — Controls how raw sources become wiki knowledge
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── Entity Types ──────────────────────────────────────────────────────
+# Each entity discovered during ingest gets its own wiki page.
+entity_types:
+  module:
+    description: "A Lua library or rock (e.g. lua-csv, middleclass)"
+    page_dir: "wiki/entities"
+    template: |
+      # {name}
+      
+      **Type**: Module  
+      **Source**: {source}  
+      **Last Updated**: {updated_at}
+      
+      ## Summary
+      {summary}
+      
+      ## Key Functions
+      {functions}
+      
+      ## Dependencies
+      {dependencies}
+      
+      ## See Also
+      {cross_references}
+
+  function:
+    description: "A specific function within a module"
+    page_dir: "wiki/entities"
+    template: |
+      # {module}.{name}
+      
+      **Type**: Function  
+      **Module**: [[{module}]]  
+      **Last Updated**: {updated_at}
+      
+      ## Signature
+      ```lua
+      {signature}
+      ```
+      
+      ## Description
+      {description}
+      
+      ## Parameters
+      {parameters}
+      
+      ## Returns
+      {returns}
+
+  concept:
+    description: "A high-level theme or domain (e.g. networking, OOP, serialization)"
+    page_dir: "wiki/concepts"
+    template: |
+      # {name}
+      
+      **Type**: Concept  
+      **Last Updated**: {updated_at}
+      
+      ## Overview
+      {overview}
+      
+      ## Related Modules
+      {related_modules}
+      
+      ## Notes
+      {notes}
+
+  dependency:
+    description: "An external dependency (e.g. LuaJIT, OpenSSL, libcurl)"
+    page_dir: "wiki/entities"
+    template: |
+      # {name}
+      
+      **Type**: Dependency  
+      **Last Updated**: {updated_at}
+      
+      ## Description
+      {description}
+      
+      ## Used By
+      {used_by}
+
+# ── Relations ─────────────────────────────────────────────────────────
+relations:
+  - name: references
+    description: "Page A references Page B (a soft link)"
+  - name: depends_on
+    description: "Module A depends on Module B to function"
+  - name: contradicts
+    description: "Information in Page A conflicts with Page B"
+  - name: part_of
+    description: "Function X is part of Module Y"
+  - name: related_to
+    description: "Concept A is related to Concept B"
+
+# ── Ingest Workflow ───────────────────────────────────────────────────
+# Steps executed (in order) when a new raw source is ingested.
+ingest_workflow:
+  steps:
+    - name: chunk
+      description: "Split source into chunks if it exceeds the context window"
+      max_chunk_tokens: 3000
+      overlap_tokens: 300
+
+    - name: summarize
+      description: "Generate a concise summary of the source content"
+      prompt_key: summarize
+
+    - name: extract_entities
+      description: "Identify modules, functions, concepts, and dependencies"
+      prompt_key: extract_entities
+
+    - name: update_wiki
+      description: "Create or update wiki pages for discovered entities"
+      target_dirs:
+        - "wiki/drafts"
+
+    - name: cross_reference
+      description: "Add links between related entities and concepts"
+
+    - name: contradiction_check
+      description: "Compare new info against existing wiki pages for conflicts"
+      prompt_key: contradiction_check
+      on_conflict: "note"  # Options: "note", "dispute_page", "halt"
+
+# ── Prompts ───────────────────────────────────────────────────────────
+# System prompts used by the LLM during each ingest step.
+prompts:
+  summarize: |
+    You are a Lua documentation expert. Summarize the following source text.
+    Write a clear, concise summary that captures:
+    - What the library/module does
+    - Key features and capabilities
+    - Target use cases
+    Keep it under 200 words. Write in plain English. No markdown headers.
+    
+    SOURCE TEXT:
+    {text}
+
+  extract_entities: |
+    You are a Lua knowledge extraction expert. Analyze this text and extract
+    ALL entities you can find. Return valid JSON only.
+    
+    OUTPUT FORMAT:
+    {{
+      "modules": [
+        {{"name": "...", "summary": "...", "source": "..."}}
+      ],
+      "functions": [
+        {{"name": "...", "module": "...", "signature": "...", "description": "...", "parameters": "...", "returns": "..."}}
+      ],
+      "concepts": [
+        {{"name": "...", "overview": "..."}}
+      ],
+      "dependencies": [
+        {{"name": "...", "description": "...", "used_by": "..."}}
+      ]
+    }}
+    
+    Rules:
+    - Only extract what is EXPLICITLY in the text. Do NOT invent.
+    - If a field is unknown, use "unknown".
+    - Module names should be lowercase and use hyphens.
+    
+    SOURCE TEXT:
+    {text}
+
+  contradiction_check: |
+    You are a knowledge consistency checker. Compare the NEW information against
+    the EXISTING wiki content. Identify any contradictions or conflicts.
+    
+    Return valid JSON:
+    {{
+      "contradictions": [
+        {{"entity": "...", "field": "...", "existing_value": "...", "new_value": "...", "severity": "low|medium|high"}}
+      ],
+      "is_consistent": true/false
+    }}
+    
+    If there are no contradictions, return {{"contradictions": [], "is_consistent": true}}.
+    
+    EXISTING WIKI CONTENT:
+    {existing}
+    
+    NEW INFORMATION:
+    {new_info}
+
+# ── LLM Config ────────────────────────────────────────────────────────
+llm:
+  api_url: "http://localhost:8080/v1"
+  model: "Volko76/Qwen2.5-1.5B-Instruct-Q5_K_M-GGUF:Q5_K_M"
+  temperature: 0.1
+  max_tokens: 2048
+  timeout: 120
+
+# ── Wiki Conventions ──────────────────────────────────────────────────
+conventions:
+  file_format: "markdown"
+  file_extension: ".md"
+  naming: "lowercase_with_hyphens"
+  cross_ref_syntax: "[[page_name]]"
+  metadata_header: true  # Each wiki page starts with YAML front matter
