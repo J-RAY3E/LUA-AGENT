@@ -1,7 +1,7 @@
 ---
 title: LUA_TSTRING
 category: entities
-created: 2026-04-14T10:38:17.059451+00:00
+created: 2026-04-14T20:05:43.087042+00:00
 status: published
 ---
 
@@ -15,4 +15,4 @@ LUA_TSTRING
 ```
 
 ## Description
-A string constant.
+The type of a string.

@@ -1,7 +1,7 @@
 ---
 title: lua_call
 category: entities
-created: 2026-04-14T10:38:17.055282+00:00
+created: 2026-04-14T20:05:23.587139+00:00
 status: published
 ---
 
@@ -12,20 +12,19 @@ status: published
 
 ## Signature
 ```lua
-int
+lua_pushresult
 ```
 
 ## Description
-Executes a Lua function.
+Call a function with a specified number of arguments.
 
 ## Parameters
-- `lua_State*` (lua_State*): The Lua state to execute the function in.
-- `int` (int): The index of the function to execute.
+- `nresults` (integer): Number of results to return.
 
 ## Returns
-- (int): The return value of the function.
+- (nil): No return value.
 
 ## Implementation Code
 ```c
-lua_call
+lua_pushresult
 ```

@@ -1,0 +1,30 @@
+---
+title: lua_gethookmask
+category: entities
+created: 2026-04-14T13:34:39.681852+00:00
+status: published
+---
+
+# lua_gethookmask
+
+**Type**: Function  
+**Module**: [[lua]]  
+
+## Signature
+```lua
+int lua_gethookmask (lua_State *L)
+```
+
+## Description
+Returns the current hook mask.
+
+## Parameters
+_None_
+
+## Returns
+- (int): The current hook mask.
+
+## Implementation Code
+```c
+int lua_gethookmask (lua_State *L);
+```

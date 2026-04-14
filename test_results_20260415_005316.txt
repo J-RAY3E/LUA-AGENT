@@ -1,0 +1,148 @@
+============================================================
+LUA CODING AGENT TEST RESULTS
+Generated on: 2026-04-15 00:53:16
+============================================================
+
+TEST: Last Array Element
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local wf = require("wf")
+local emails = wf.vars.emails
+local last_email = table.remove(emails, #emails)
+print(last_email)
+
+============================================================
+
+TEST: Increment Counter
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local wf = require("wf")
+local vars = wf.vars
+local function increase_try_count_n()
+    local try_count_n = vars.try_count_n
+    try_count_n = try_count_n + 1
+    vars.try_count_n = try_count_n
+end
+increase_try_count_n()
+print(vars.try_count_n)
+
+============================================================
+
+TEST: Clean Variables (REST Body)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local function cleanVariables(data)
+    local wf = data.wf
+    local vars = wf.vars.RESTbody.result
+    for _, item in ipairs(vars) do
+        for key, value in pairs(item) do
+            if key == "ID" then
+                item[key] = nil
+            elseif key == "ENTITY_ID" then
+                item[key] = nil
+            elseif key == "CALL" then
+                item[key] = nil
+            end
+        end
+    end
+end
+return cleanVariables
+
+============================================================
+
+TEST: ISO 8601 Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+function convert_to_iso8601(date, time)
+    local date_str = date .. time
+    local iso8601_str = string.format("%04d%02d%02d%02d%02d%02d", tonumber(date_str:sub(1, 4)), tonumber(date_str:sub(5, 6)), tonumber(date_str:sub(7, 8)), tonumber(date_str:sub(9, 10)), tonumber(date_str:sub(11, 12)), tonumber(date_str:sub(13, 14)))
+    return iso8601_str
+end
+local date = "20231015"
+local time = "153000"
+local iso8601 = convert_to_iso8601(date, time)
+print(iso8601)
+
+============================================================
+
+TEST: Type Check & Normalize Items
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local data = {
+    wf = {
+        vars = {
+            json = {
+                IDOC = {
+                    ZCDF_HEAD = {
+                        ZCDF_PACKAGES = {
+                            {
+                                id = "PKG001",
+                                number = "EXIDV001",
+                                weight = "10",
+                                volume = "50",
+                                length = "100",
+                                width = "50",
+                                height = "30",
+                                items = {
+                                    {
+                                        sku = "SKU001",
+                                        externalId = "MAT001",
+                                        quantity = "5",
+                                        weight = "2",
+                                    },
+                                    {
+                                        sku = "SKU002",
+                            
+... (truncated)
+
+============================================================
+
+TEST: Filter Array (Discount/Markdown)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local parsedCsv = wf.vars.parsedCsv
+local filteredCsv = {
+}
+for _, row in ipairs(parsedCsv) do
+    if row.Discount ~= nil or row.Markdown ~= nil then
+        table.insert(filteredCsv, row)
+    end
+end
+return filteredCsv
+
+============================================================
+
+TEST: Code Extension (Square)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local function square_number(number)
+    return number * number
+end
+local result = square_number(5)
+print(result)
+return result
+
+============================================================
+
+TEST: Unix Epoch Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local data = wf.initVariables.recallTime
+local parsedData = string.unpack("a8", data)
+local unixTime = parsedData
+return unixTime
+
+============================================================
+
+SUMMARY
+Total: 8
+Passed: 0
+Failed: 8

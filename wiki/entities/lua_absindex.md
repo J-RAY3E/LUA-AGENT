@@ -1,7 +1,7 @@
 ---
 title: lua_absindex
 category: entities
-created: 2026-04-14T10:36:09.607121+00:00
+created: 2026-04-14T18:30:03.731193+00:00
 status: published
 ---
 

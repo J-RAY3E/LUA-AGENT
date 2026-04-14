@@ -1,7 +1,7 @@
 ---
 title: lua_atpanic
 category: entities
-created: 2026-04-14T10:36:49.019611+00:00
+created: 2026-04-14T13:30:48.787831+00:00
 status: published
 ---
 

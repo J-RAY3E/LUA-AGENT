@@ -1,7 +1,7 @@
 ---
 title: lua_arith
 category: entities
-created: 2026-04-14T10:36:40.013552+00:00
+created: 2026-04-14T13:30:40.687067+00:00
 status: published
 ---
 

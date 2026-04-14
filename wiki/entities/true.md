@@ -1,7 +1,7 @@
 ---
 title: true
 category: entities
-created: 2026-04-14T10:38:17.061178+00:00
+created: 2026-04-14T20:05:43.089395+00:00
 status: published
 ---
 
@@ -15,4 +15,4 @@ true
 ```
 
 ## Description
-A boolean constant representing true.
+A boolean value representing true.

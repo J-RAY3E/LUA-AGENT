@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 # ===== CONFIGURATION =====
-LOCAL_LLM_URL = os.getenv("LOCAL_LLM_URL", "http://127.0.0.1:1234/v1")
+LOCAL_LLM_URL = os.getenv("LOCAL_LLM_URL", "http://127.0.0.1:8080/v1")
 LOCAL_LLM_MODEL = os.getenv("LOCAL_LLM_MODEL", "deepseek-r1-distill-qwen-1.5b")
 
 print(f"⚙️  Config: Using LLM at {LOCAL_LLM_URL}")
@@ -90,12 +90,12 @@ def generate_code():
             try:
                 results = search(prompt, rag_index, rag_data, k=3)
                 if results:
-                    rag_context = "\n\nRelevant Lua Context from Database:\n"
+                    rag_context = "\n\nRelevant Lua Technical Context from Database:\n"
                     for r in results:
                         content = r.get('content', r.get('text', ''))
                         rock_id = r.get('rock_id', r.get('source', 'unknown'))
-                        rag_context += f"- [{rock_id}]: {content[:150]}...\n"
-                    print(f"[RAG] Found {len(results)} relevant contexts.")
+                        rag_context += f"--- START ENTITY: {rock_id} ---\n{content}\n--- END ENTITY ---\n\n"
+                    print(f"[RAG] Found and injected {len(results)} exact relevant contexts.")
             except Exception as e:
                 print(f"[RAG] Search error: {e}")
                 rag_context = "" 

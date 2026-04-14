@@ -383,3 +383,4 @@ standard_libraries_string_pack__.md
 standard_libraries_string_packsize__.md
 standard_libraries_string_rep__.md
 standard_libraries_string_reverse__.md
+standard_libraries_string_sub__.md
