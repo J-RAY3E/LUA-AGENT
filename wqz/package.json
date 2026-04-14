@@ -1,0 +1,44 @@
+{
+  "name": "lua-agent",
+  "displayName": "LUA-AGENT",
+  "description": "VSCode integration for LUA-AGENT - Generate Lua code with AI",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "AI",
+    "Programming Languages"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+"contributes": {
+  "commands": [
+    {
+      "command": "lua-agent.openPanel",
+      "title": "LUA-AGENT: Open Panel"
+    }
+  ],
+  "keybindings": [
+    {
+      "command": "lua-agent.openPanel",
+      "key": "ctrl+shift+k",
+      "mac": "cmd+shift+k"
+    }
+  ]
+},
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.0",
+    "@types/vscode": "^1.75.0",
+    "eslint": "^8.29.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "axios": "^1.14.0"
+  }
+}

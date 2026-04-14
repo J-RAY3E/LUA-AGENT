@@ -1,0 +1,16 @@
+{
+  "rock_name": "Satelito",
+  "summary": "Satelito is a static site generator (SSG) made with Lua.\nSatelito uses Markdown (and HTML) for basic content and optionally Lua files for metadata. There is no front matter support; but Lua tables are used for storing functions that can extend the functionality of your site.\nFor templates, Satelito uses the Etlua templating language. It is simple but powerful, because it allows you to run Lua scripts directly in templates.\nThrough the use of Satelito you become familiar with Lua, a fast lightwei",
+  "tags": [
+    "markdown",
+    "ssg",
+    "web",
+    "html"
+  ],
+  "raw_content": "Satelito is a static site generator (SSG) made with Lua.\nSatelito uses Markdown (and HTML) for basic content and optionally Lua files for metadata. There is no front matter support; but Lua tables are used for storing functions that can extend the functionality of your site.\nFor templates, Satelito uses the Etlua templating language. It is simple but powerful, because it allows you to run Lua scripts directly in templates.\nThrough the use of Satelito you become familiar with Lua, a fast lightweight programming language that has a small learning curve.\nSee the project wiki for further details <https://codeberg.org/hs0ucy/Satelito/wiki>.",
+  "source": "https://luarocks.org/modules/hs0ucy/satelito",
+  "generated_summary": "Satelito is a static site generator (SSG) made with Lua, using Markdown and optionally Lua files for metadata, complete usually used in the fields of markdown, ssg, web, html.",
+  "phase1": "A static site generator written in Lua that supports Markdown and HTML content with optional Lua metadata files.",
+  "phase2": "Uses Etlua templating language to run Lua scripts directly in templates for dynamic content.",
+  "phase3": "Designed to be lightweight and fast, suitable for rapid development of static sites."
+}

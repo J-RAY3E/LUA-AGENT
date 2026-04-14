@@ -20,8 +20,8 @@ def _load_llm_config():
     """Load LLM settings from wiki_schema.yaml, with env-var overrides."""
     defaults = {
         "api_url": "http://localhost:8080/v1",
-        "model": "Volko76/Qwen2.5-1.5B-Instruct-Q5_K_M-GGUF:Q5_K_M",
-        "temperature": 0.1,
+        "model": "qwen2.5-coder-7b-instruct",
+        "temperature": 0.0,
         "max_tokens": 2048,
         "timeout": 120,
     }

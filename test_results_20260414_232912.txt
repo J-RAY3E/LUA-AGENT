@@ -1,0 +1,118 @@
+============================================================
+LUA CODING AGENT TEST RESULTS
+Generated on: 2026-04-14 23:29:12
+============================================================
+
+TEST: Last Array Element
+STATUS: PASS
+----------------------------------------
+Generated Code Snippet:
+return wf.vars.emails[#wf.vars.emails]
+
+============================================================
+
+TEST: Increment Counter
+STATUS: PASS
+----------------------------------------
+Generated Code Snippet:
+wf.vars.try_count_n = wf.vars.try_count_n + 1
+return wf.vars.try_count_n
+
+============================================================
+
+TEST: Clean Variables (REST Body)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+for i, item in ipairs(wf.vars.RESTbody.result) do
+    item.ID = nil
+    item.ENTITY_ID = nil
+    item.CALL = nil
+end
+return wf.vars.RESTbody.result
+
+============================================================
+
+TEST: ISO 8601 Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+function convertToISO8601(deliveryDate, deliveryTime)
+    local year = string.sub(deliveryDate, 1, 4)
+    local month = string.sub(deliveryDate, 5, 6)
+    local day = string.sub(deliveryDate, 7, 8)
+    local hour = string.sub(deliveryTime, 1, 2)
+    local minute = string.sub(deliveryTime, 3, 4)
+    local second = string.sub(deliveryTime, 5, 6)
+    return string.format("%s-%s-%sT%s:%s:%sZ", year, month, day, hour, minute, second)
+end
+local deliveryDate = wf.vars.json.IDOC.ZCDF_HEAD.DATUM
+local deliveryTime = wf.vars.json.IDOC.ZCDF_HEAD.TIME
+local iso8601Time = convertToISO8601(deliveryDate, deliveryTime)
+return iso8601Time
+
+============================================================
+
+TEST: Type Check & Normalize Items
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+function ensureItemsAsArray(package)
+    if type(package.items) ~= "table" then
+        package.items = {
+            package.items,
+        }
+    end
+end
+for i, package in ipairs(wf.vars.json.IDOC.ZCDF_HEAD.ZCDF_PACKAGES) do
+    ensureItemsAsArray(package)
+end
+return wf.vars.json.IDOC.ZCDF_HEAD.ZCDF_PACKAGES
+
+============================================================
+
+TEST: Filter Array (Discount/Markdown)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local filteredArray = _utils.array.new()
+for _, item in ipairs(wf.vars.parsedCsv) do
+    if item.Discount ~= "" and item.Markdown ~= "" then
+        table.insert(filteredArray, item)
+    end
+end
+return filteredArray
+
+============================================================
+
+TEST: Code Extension (Square)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+wf.vars.square = 5 * 5
+return wf.vars.square
+
+============================================================
+
+TEST: Unix Epoch Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local recallTime = wf.initVariables.recallTime
+local date, time = string.match(recallTime, "(%d+-%d+-%d+)T(%d+:%d+:%d+)")
+local unixTime = os.time({
+    year = tonumber(date:sub(1, 4)),
+    month = tonumber(date:sub(6, 7)),
+    day = tonumber(date:sub(9, 10)),
+    hour = tonumber(time:sub(1, 2)),
+    min = tonumber(time:sub(4, 5)),
+    sec = tonumber(time:sub(7, 8)),
+})
+return unixTime
+
+============================================================
+
+SUMMARY
+Total: 8
+Passed: 2
+Failed: 6

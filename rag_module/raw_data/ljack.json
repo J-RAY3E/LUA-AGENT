@@ -1,0 +1,16 @@
+{
+  "rock_name": "ljack",
+  "summary": "Lua binding for the JACK Audio Connection Kit, see https://jackaudio.org/.\n \n      This binding enables Lua scripting code to registrate ports and to manage port connections and Lua audio processor objects for the JACK Audio Connection Kit. \n      Realtime audio processing of the Lua processor objects has to be implemented in native C code.",
+  "tags": [
+    "audio",
+    "jack",
+    "binding",
+    "midi"
+  ],
+  "raw_content": "# LJACK \n[![Licence](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE)\n[![build status](https://github.com/osch/lua-ljack/workflows/build/badge.svg)](https://github.com/osch/lua-ljack/actions/workflows/build.yml)\n[![Install](https://img.shields.io/badge/Install-LuaRocks-brightgreen.svg)](https://luarocks.org/modules/osch/ljack)\n\n<!-- ---------------------------------------------------------------------------------------- -->\n\nLua binding for the [JACK Audio Connection Kit](https://jackaudio.org/).\n\nThis binding enables [Lua] scripting code to registrate ports and to manage port\nconnections and Lua audio processor objects for the JACK Audio Connection Kit. \nRealtime audio processing of [Lua processor objects](./doc/README.md#processor-objects) \nhas to be implemented in native C code. \n\n[Lua]:          https://www.lua.org\n\n<!-- ---------------------------------------------------------------------------------------- -->\n\n#### Further reading:\n   * [Documentation](./doc/README.md#ljack-documentation)\n   * [Examples](./examples/README.md#ljack-examples)\n\n<!-- ---------------------------------------------------------------------------------------- -->\n\n## First Example\n\n* This example lists all JACK ports and connects the first MIDI OUT port with\n  the first MIDI IN port if these are available:\n  \n    ```lua\n    local ljack = require(\"ljack\")\n    \n    local client = ljack.client_open(\"example01.lua\")\n    \n    local function listPorts(type, direction)\n        local list = client:get_ports(\".*\", type, direction)\n        print(\"Ports\", type, direction)\n        for _, p in ipairs(list) do\n            print(\"     \", p)\n        end\n        print()\n        return list\n    end\n    \n    local audioOutList = listPorts(\"AUDIO\", \"OUT\")\n    local audioInList  = listPorts(\"AUDIO\", \"IN\")\n    \n    local midiOutList = listPorts(\"MIDI\", \"OUT\")\n    local midiInList  = listPorts(\"MIDI\", \"IN\")\n    \n    if #midiInList > 0 and #midiOutList > 0 then\n        local p1, p2 = midiOutList[1], midiInList[1]\n        print(string.format(\"Connecting %q\\n\"..\n                            \"      with %q...\", p1, p2))\n        client:connect(p1, p2)\n    end\n    ```\n\n<!-- ---------------------------------------------------------------------------------------- -->\n",
+  "source": "https://github.com/osch/lua-ljack",
+  "generated_summary": "ljack is a library for binding Lua with the JACK Audio Connection Kit, enabling real-time audio processing.",
+  "phase1": "A Lua module for interfacing with the JACK Audio Connection Kit",
+  "phase2": "Provides functions for managing JACK ports and connections",
+  "phase3": "Used for audio processing and MIDI communication tasks"
+}

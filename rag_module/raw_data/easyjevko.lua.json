@@ -1,0 +1,21 @@
+{
+  "rock_name": "easyjevko.lua",
+  "summary": "Transforms Jevko to Lua values and back.\n \n\t\tJevko is a minimal general-purpose syntax.\n \n\t\tSee also: https://jevko.org",
+  "tags": [
+    "jevko",
+    "syntax",
+    "format",
+    "serialization",
+    "minimal",
+    "parser",
+    "parse",
+    "tree",
+    "trees"
+  ],
+  "raw_content": "![easyjevko.lua logo](logo.svg)\n\n# easyjevko.lua\n\nA library for Easy Jevko, a simple format built on [Jevko](https://jevko.org). \n\nTransforms Jevko to Lua values and back.\n\n# Dependencies\n\n[jevko.lua](https://github.com/jevko/jevko.lua) `0.1.0` -- [a copy](jevko.lua?raw=1) is included.\n\n# Features\n\n* Simple\n* Lightweight: ~ 4 KiB.\n\n<!-- * provides error messages with line and column information. -->\n\n# Usage\n\nCopy the [easyjevko.lua](easyjevko.lua?raw=1) file into your project and require it:\n\n```lua\neasyjevko = require \"easyjevko\"\n```\n\nYou can now use the following functions:\n\n## easyjevko.from_string(str)\n\nInput: string which contains a Jevko.\n\nDescription:\n\n* A Jevko without subjevkos is converted to a string.\n* A Jevko with subjevkos is converted to a table. The first subjevko decides the kind of table:\n  * If the first subjevko has empty or whitespace-only prefix then the Jevko will be converted to an array.\n  * Otherwise the Jevko will be converted to a map.\n* Leading and trailing spaces in object keys are ignored.\n\nOutput: Lua table/string.\n\n```js\neasyjevko.from_string(\"a [b]\") // -> {a = \"b\"}\n```\n\n## easyjevko.to_string(value)\n\n## easyjevko.to_pretty_string(value)\n\n## easyjevko.from_jevko(jevko)\n\n## easyjevko.to_jevko(value)\n\n## easyjevko.encode_pretty(jev)\n\n<!-- Same as [`jevko.encode`](#jevkoencode_prettyjev), except adds whitespace [[todo]]. -->\n\n# License\n\n[MIT](LICENSE)",
+  "source": "https://github.com/jevko/easyjevko.lua",
+  "generated_summary": "easyjevko.lua is a library for transforming Jevko to Lua values and back, complete usually used in the fields of jevko, syntax, format, serialization, minimal, parser, parse, tree, trees.",
+  "phase1": "A Lua library for parsing and encoding Jevko syntax, converting it to Lua values and back",
+  "phase2": "Transforms Jevko strings to Lua tables and arrays, and vice versa",
+  "phase3": "Minimal library with a focus on simplicity and efficiency"
+}

@@ -1,0 +1,118 @@
+============================================================
+LUA CODING AGENT TEST RESULTS
+Generated on: 2026-04-14 22:39:52
+============================================================
+
+TEST: Last Array Element
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local emails = wf.vars.emails
+if #emails > 0 then
+    return emails[#emails]
+else
+    return nil
+end
+
+============================================================
+
+TEST: Increment Counter
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+wf.vars.try_count_n = wf.vars.try_count_n + 1
+return wf.vars.try_count_n
+
+============================================================
+
+TEST: Clean Variables (REST Body)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local rest_body = wf.vars.rest_body
+local cleaned_values = _utils.array.new()
+if rest_body.ID then
+    _utils.array.push(cleaned_values, rest_body.ID)
+end
+if rest_body.ENTITY_ID then
+    _utils.array.push(cleaned_values, rest_body.ENTITY_ID)
+end
+if rest_body.CALL then
+    _utils.array.push(cleaned_values, rest_body.CALL)
+end
+return cleaned_values
+
+============================================================
+
+TEST: ISO 8601 Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local DATUM = wf.vars.DATUM
+local TIME = wf.vars.TIME
+local year = string.sub(DATUM, 1, 4)
+local month = string.sub(DATUM, 5, 6)
+local day = string.sub(DATUM, 7, 8)
+local hour = string.sub(TIME, 1, 2)
+local minute = string.sub(TIME, 3, 4)
+local second = string.sub(TIME, 5, 6)
+local iso_date_time = year .. "-" .. month .. "-" .. day .. "T" .. hour .. ":" .. minute .. ":" .. second
+return iso_date_time
+
+============================================================
+
+TEST: Type Check & Normalize Items
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local function ensureArrays()
+    local packages = wf.vars.ZCDF_PACKAGES
+    for i, package in ipairs(packages) do
+        if type(package.items) == "table" and not _utils.array.isArray(package.items) then
+            package.items = _utils.array.new(package.items)
+        end
+    end
+end
+ensureArrays()
+return true
+
+============================================================
+
+TEST: Filter Array (Discount/Markdown)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local filteredArray = {
+}
+for i, item in ipairs(parsedCsv) do
+    if (item.Discount ~= nil and item.Discount ~= "") or (item.Markdown ~= nil and item.Markdown ~= "") then
+        table.insert(filteredArray, item)
+    end
+end
+return filteredArray
+
+============================================================
+
+TEST: Code Extension (Square)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+wf.vars.square_of_five = 5 * 5
+return wf.vars.square_of_five
+
+============================================================
+
+TEST: Unix Epoch Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local recallTime = wf.initVariables.recallTime
+local unixTimestamp = os.time(os.date("*t", os.time(recallTime)))
+return unixTimestamp
+
+============================================================
+
+SUMMARY
+Total: 8
+Passed: 0
+Failed: 8

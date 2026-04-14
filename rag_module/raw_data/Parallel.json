@@ -1,0 +1,13 @@
+{
+  "rock_name": "Parallel",
+  "summary": "",
+  "tags": [
+    "threads"
+  ],
+  "raw_content": "lua-Parallel\n============\n\n[![Build Status](https://travis-ci.org/moteus/lua-Parallel.svg?branch=master)](https://travis-ci.org/moteus/lua-Parallel)\n[![Licence](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE)\n\n##Status\n\nI can change anything.\n\n##Usage\n\n```Lua\nlocal T = string.dump\n\nParallel.For(1, 100, T(function(thread_no)\n  FOR(function(i) print(thread_no .. \" :\" .. i) end)\nend))\n\nParallel.For(1, 100, T(function(thread_no)\n  FOR(function(i) return thread_no, math.pow(i, 2), math.sqrt(i) end)\nend), print)\n\nParallel.Invoke('print(1)','print(2)','print(3)')\n\n```\n\n[Parallel hash calculation](/examples/hash.lua)\n\n[Parallel ping hosts in network](/examples/pingnet.lua)\n",
+  "source": "https://github.com/moteus/lua-Parallel",
+  "generated_summary": "Parallel is a library for managing and executing tasks in parallel using threads, complete usually used in the fields of threads.",
+  "phase1": "A Lua library for parallel processing and concurrent tasks using threads",
+  "phase2": "Supports multi-threaded execution of functions and operations",
+  "phase3": "Ideal for speeding up computationally intensive tasks and parallelizing loops"
+}

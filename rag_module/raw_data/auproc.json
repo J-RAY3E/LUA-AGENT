@@ -1,0 +1,14 @@
+{
+  "rock_name": "auproc",
+  "summary": "Simple audio processor objects that can be used \n  \twith ljack ( https://luarocks.org/modules/osch/ljack )\n  \tor lrtaudio  ( https://luarocks.org/modules/osch/lrtaudio )",
+  "tags": [
+    "audio",
+    "midi"
+  ],
+  "raw_content": "# lua-auproc \n[![Licence](http://img.shields.io/badge/Licence-MIT-brightgreen.svg)](LICENSE)\n[![build status](https://github.com/osch/lua-auproc/workflows/build/badge.svg)](https://github.com/osch/lua-auproc/actions/workflows/build.yml)\n[![Install](https://img.shields.io/badge/Install-LuaRocks-brightgreen.svg)](https://luarocks.org/modules/osch/auproc)\n\n<!-- ---------------------------------------------------------------------------------------- -->\n\nThis package provides basic [Lua] audio processor objects to be used for realtime audio and \nmidi processing. The provided processor objects can be used in conjunction with Lua packages\nthat are implementing the [Auproc C API]  e.g. [LJACK](https://github.com/osch/lua-ljack)\nor [lrtaudio](https://github.com/osch/lua-lrtaudio).\n\n[Lua]:             https://www.lua.org\n[Auproc C API]:    https://github.com/lua-capis/lua-auproc-capi\n\n<!-- ---------------------------------------------------------------------------------------- -->\n\n#### Further reading:\n   * [Documentation](./doc/README.md#auproc-documentation)\n   * [LJACK Examples](https://github.com/osch/lua-ljack/tree/master/examples#ljack-examples)\n\n<!-- ---------------------------------------------------------------------------------------- -->\n\n\n",
+  "source": "https://github.com/osch/lua-auproc",
+  "generated_summary": "auproc is a library for audio and midi processing complete usually used in the fields of audio, midi.",
+  "phase1": "auproc is a Lua library that Simple audio processor objects that can be used \n  \twith ljack ( https://luarocks.org/modules/osch/ljack )\n  \tor lrtaudio  ( https://luarocks.org/modules/osch/lrtaudio )",
+  "phase2": "Implemented as installable via LuaRocks",
+  "phase3": "Used in the domain of audio processing, sound, multimedia, midi"
+}

@@ -1,0 +1,14 @@
+{
+  "rock_name": "Battery Status",
+  "summary": "A tiny app to display a battery status indicator\n      for primitive window managers such as Awesome",
+  "tags": [
+    "awesome",
+    "widget"
+  ],
+  "raw_content": "A tiny app to display a battery status indicator\n      for primitive window managers such as Awesome",
+  "source": "https://luarocks.org/modules/svarog/battery_status",
+  "generated_summary": "Battery Status is a library for displaying battery status indicators in Awesome window managers, usually used in the field of widget.",
+  "phase1": "A Lua library for displaying battery status indicators in window managers like Awesome.",
+  "phase2": "Implemented as a lightweight widget for window managers, providing battery status updates.",
+  "phase3": "Used to enhance the battery status display in window managers, offering a simple and efficient solution."
+}
