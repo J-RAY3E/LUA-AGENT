@@ -1,18 +1,30 @@
 ---
 title: lua_Number
 category: entities
-created: 2026-04-14T10:50:45.116305+00:00
+created: 2026-04-14T14:48:51.141080+00:00
 status: draft
 ---
 
 # lua_Number
 
-**Type**: API Type (typedef)  
+**Type**: Function  
+**Module**: [[lua.h]]  
 
-## Definition
-```c
+## Signature
+```lua
 lua_Number
 ```
 
 ## Description
-The type of the number.
+A floating-point number.
+
+## Parameters
+_None_
+
+## Returns
+- (lua_Number): A floating-point number.
+
+## Implementation Code
+```c
+lua_Number
+```

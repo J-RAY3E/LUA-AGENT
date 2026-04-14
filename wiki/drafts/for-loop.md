@@ -1,7 +1,7 @@
 ---
 title: for loop
 category: concepts
-created: 2026-04-14T10:50:45.103314+00:00
+created: 2026-04-14T14:49:05.683638+00:00
 status: draft
 ---
 
@@ -10,7 +10,7 @@ status: draft
 **Type**: Concept  
 
 ## Overview
-A loop that iterates over a sequence of items.
+A loop that iterates over a sequence of values.
 
 ## Implementation / Context Code
 ```lua
@@ -18,10 +18,10 @@ for loop
 ```
 
 ## Related Concepts
-_None_
+- [[for loop]]
 
 ## Related Modules
 _None_
 
 ## Notes
-_Auto-generated from source: api_lua_debug.md_
+_Auto-generated from source: api_valid_and_acceptable_indices.md_

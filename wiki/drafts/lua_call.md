@@ -1,7 +1,7 @@
 ---
 title: lua_call
 category: entities
-created: 2026-04-14T10:48:36.230507+00:00
+created: 2026-04-14T14:49:05.687628+00:00
 status: draft
 ---
 
@@ -12,21 +12,21 @@ status: draft
 
 ## Signature
 ```lua
-void lua_call (lua_State *L, int nargs, int nresults)
+int (*lua_call)(lua_State* L, int nops, int nresults)
 ```
 
 ## Description
-Calls a function. Like regular Lua calls, `lua_call` respects the `__call` metamethod. So, here the word "function" means any callable value.
+Calls a Lua function.
 
 ## Parameters
-- `L` (lua_State*): lua_State* is a pointer to a Lua state.
-- `nargs` (int): The number of arguments that you pushed onto the stack.
-- `nresults` (int): The number of results that the function returns.
+- `L` (lua_State*): The Lua state to call the function in.
+- `nops` (int): The number of arguments to pass to the function.
+- `nresults` (int): The number of results to expect from the function.
 
 ## Returns
-- (void): No return value.
+- (int): The number of results returned by the function.
 
 ## Implementation Code
 ```c
-void lua_call (lua_State *L, int nargs, int nresults)
+lua_Alloc, lua_State, lua_Number, etc.
 ```

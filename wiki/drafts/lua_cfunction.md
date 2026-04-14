@@ -1,7 +1,7 @@
 ---
 title: lua_CFunction
 category: entities
-created: 2026-04-14T10:48:56.716346+00:00
+created: 2026-04-14T13:31:18.565143+00:00
 status: draft
 ---
 

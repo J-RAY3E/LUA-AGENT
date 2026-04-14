@@ -1,7 +1,7 @@
 ---
 title: lua_gethook
 category: entities
-created: 2026-04-14T10:52:13.561798+00:00
+created: 2026-04-14T13:34:23.901614+00:00
 status: draft
 ---
 
@@ -12,7 +12,7 @@ status: draft
 
 ## Signature
 ```lua
-lua_Hook lua_gethook (lua_State *L);
+lua_Hook lua_gethook (lua_State *L)
 ```
 
 ## Description

@@ -1,7 +1,7 @@
 ---
 title: true
 category: entities
-created: 2026-04-14T10:50:45.120284+00:00
+created: 2026-04-14T13:48:38.135627+00:00
 status: draft
 ---
 
@@ -15,4 +15,4 @@ true
 ```
 
 ## Description
-A boolean value representing true.
+Boolean value representing true.

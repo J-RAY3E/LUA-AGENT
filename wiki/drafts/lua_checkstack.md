@@ -1,7 +1,7 @@
 ---
 title: lua_checkstack
 category: entities
-created: 2026-04-14T10:49:07.303247+00:00
+created: 2026-04-14T14:48:27.918843+00:00
 status: draft
 ---
 
@@ -12,19 +12,19 @@ status: draft
 
 ## Signature
 ```lua
-int lua_checkstack (lua_State *L, int n)
+lua_checkstack
 ```
 
 ## Description
-Ensures that the stack has space for at least `n` extra elements, that is, that you can safely push up to `n` values into it. It returns false if it cannot fulfill the request, either because it would cause the stack to be greater than a fixed maximum size (typically at least several thousand elements) or because it cannot allocate memory for the extra space. This function never shrinks the stack; if the stack already has space for the extra elements, it is left unchanged.
+Ensure that the stack has enough space for pushing new elements.
 
 ## Parameters
 _None_
 
 ## Returns
-- (int): Returns false if it cannot fulfill the request.
+- (lua_State): The Lua state with the updated stack.
 
 ## Implementation Code
 ```c
-int lua_checkstack (lua_State *L, int n)
+
 ```

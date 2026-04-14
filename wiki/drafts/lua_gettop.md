@@ -1,7 +1,7 @@
 ---
 title: lua_gettop
 category: entities
-created: 2026-04-14T10:54:04.866581+00:00
+created: 2026-04-14T13:36:08.667397+00:00
 status: draft
 ---
 
@@ -16,7 +16,7 @@ int lua_gettop (lua_State *L);
 ```
 
 ## Description
-Returns the index of the top element in the stack.
+Returns the index of the top element in the stack. Because indices start at 1, this result is equal to the number of elements in the stack; in particular, 0 means an empty stack.
 
 ## Parameters
 _None_

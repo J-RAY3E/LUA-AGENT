@@ -1,7 +1,7 @@
 ---
 title: lua_getextraspace
 category: entities
-created: 2026-04-14T10:51:44.849153+00:00
+created: 2026-04-14T13:33:57.587783+00:00
 status: draft
 ---
 
@@ -22,7 +22,7 @@ Returns a pointer to a raw memory area associated with the given Lua state. The 
 _None_
 
 ## Returns
-- (void *): Pointer to a raw memory area associated with the given Lua state.
+- (void *): A pointer to a raw memory area associated with the given Lua state.
 
 ## Implementation Code
 ```c

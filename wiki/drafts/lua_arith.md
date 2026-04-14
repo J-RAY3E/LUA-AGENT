@@ -1,7 +1,7 @@
 ---
 title: lua_arith
 category: entities
-created: 2026-04-14T10:48:13.674165+00:00
+created: 2026-04-14T13:30:40.687067+00:00
 status: draft
 ---
 
@@ -26,5 +26,5 @@ _None_
 
 ## Implementation Code
 ```c
-void lua_arith (lua_State *L, int op)
+void lua_arith (lua_State *L, int op);
 ```

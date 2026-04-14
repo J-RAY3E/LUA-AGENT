@@ -1,7 +1,7 @@
 ---
 title: lua_error
 category: entities
-created: 2026-04-14T10:51:08.372345+00:00
+created: 2026-04-14T13:33:24.374878+00:00
 status: draft
 ---
 

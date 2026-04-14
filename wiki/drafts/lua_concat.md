@@ -1,7 +1,7 @@
 ---
 title: lua_concat
 category: entities
-created: 2026-04-14T10:50:03.688512+00:00
+created: 2026-04-14T13:32:23.985134+00:00
 status: draft
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: lua_gettable
 category: entities
-created: 2026-04-14T10:53:56.059031+00:00
+created: 2026-04-14T13:36:00.041927+00:00
 status: draft
 ---
 
@@ -12,7 +12,7 @@ status: draft
 
 ## Signature
 ```lua
-int lua_gettable(lua_State *L, int index)
+int lua_gettable (lua_State *L, int index);
 ```
 
 ## Description
@@ -27,5 +27,5 @@ Pushes onto the stack the value `t[k]`, where `t` is the value at the given inde
 
 ## Implementation Code
 ```c
-int lua_gettable(lua_State *L, int index)
+int lua_gettable (lua_State *L, int index);
 ```

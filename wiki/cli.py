@@ -23,10 +23,14 @@ from wiki import ingest, query as query_module, lint as lint_module, tools
 def cmd_ingest(args):
     """Handle the 'ingest' command."""
     auto_promote = "--auto-promote" in args
-    filtered_args = [a for a in args if a != "--auto-promote"]
+    skip_existing = "--skip-existing" in args
+    filtered_args = [a for a in args if a not in ["--auto-promote", "--skip-existing"]]
+    
+    print(f"[DEBUG] auto_promote: {auto_promote}, skip_existing: {skip_existing}")
 
     if "--all" in filtered_args:
-        reports = ingest.ingest_all(auto_promote=auto_promote)
+        print(f"[DEBUG] Calling ingest_all with skip_existing={skip_existing}")
+        reports = ingest.ingest_all(auto_promote=auto_promote, skip_existing=skip_existing)
         # Save batch report
         report_path = os.path.join(tools.CONFIG_DIR, "last_batch_report.json")
         with open(report_path, "w", encoding="utf-8") as f:
@@ -34,14 +38,15 @@ def cmd_ingest(args):
         print(f"\n  Report saved to: {report_path}")
     elif filtered_args:
         filename = filtered_args[0]
-        report = ingest.ingest_source(filename, auto_promote=auto_promote)
+        print(f"[DEBUG] Calling ingest_source for {filename} with skip_existing={skip_existing}")
+        report = ingest.ingest_source(filename, auto_promote=auto_promote, skip_existing=skip_existing)
         # Save report
         report_path = os.path.join(tools.CONFIG_DIR, "last_ingest_report.json")
         with open(report_path, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)
         print(f"\n  Report saved to: {report_path}")
     else:
-        print("Usage: python -m wiki ingest <filename|--all> [--auto-promote]")
+        print("Usage: python -m wiki ingest <filename|--all> [--auto-promote] [--skip-existing]")
 
 
 def cmd_query(args):

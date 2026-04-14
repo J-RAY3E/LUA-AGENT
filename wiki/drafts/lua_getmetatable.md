@@ -1,7 +1,7 @@
 ---
 title: lua_getmetatable
 category: entities
-created: 2026-04-14T10:53:32.428113+00:00
+created: 2026-04-14T13:35:38.523096+00:00
 status: draft
 ---
 

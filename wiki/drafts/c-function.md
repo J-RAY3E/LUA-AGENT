@@ -1,7 +1,7 @@
 ---
 title: C function
 category: concepts
-created: 2026-04-14T10:48:56.714072+00:00
+created: 2026-04-14T13:31:18.562922+00:00
 status: draft
 ---
 
@@ -10,7 +10,7 @@ status: draft
 **Type**: Concept  
 
 ## Overview
-A C function that communicates with Lua.
+A C function that communicates with Lua using the Lua C API.
 
 ## Implementation / Context Code
 ```lua

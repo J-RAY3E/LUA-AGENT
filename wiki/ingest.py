@@ -173,38 +173,60 @@ def _write_entity_drafts(entities: dict, summary: str,
 
     # Write module pages
     for mod in entities.get("modules", []):
-        name = mod.get("name", "").strip()
-        if not name:
-            continue
+        # Handle case where mod might be a string instead of dict
+        if isinstance(mod, str):
+            name = mod.strip()
+            if not name:
+                continue
+            source = source_file
+            summary_text = summary
+        else:
+            name = mod.get("name", "").strip()
+            if not name:
+                continue
+            source = mod.get("source", source_file)
+            summary_text = mod.get("summary", summary)
 
         # Collect functions belonging to this module
         mod_functions = [
             f for f in entities.get("functions", [])
-            if f.get("module", "").lower() == name.lower()
+            if isinstance(f, dict) and f.get("module", "").lower() == name.lower()
         ]
 
         func_lines = []
         for fn in mod_functions:
-            sig = fn.get("signature", fn.get("name", ""))
-            desc = fn.get("description", "")
+            # Handle case where function might be a string
+            if isinstance(fn, str):
+                sig = fn
+                desc = ""
+            else:
+                sig = fn.get("signature", fn.get("name", ""))
+                desc = fn.get("description", "")
             func_lines.append(f"- `{sig}` - {desc}")
 
         # Collect dependencies
         mod_deps = [
             d for d in entities.get("dependencies", [])
-            if name.lower() in d.get("used_by", "").lower()
+            if isinstance(d, dict) and name.lower() in d.get("used_by", "").lower()
         ]
-        dep_lines = [f"- [[{d.get('name', '')}]]" for d in mod_deps]
+        dep_lines = []
+        for d in mod_deps:
+            if isinstance(d, dict):
+                dep_lines.append(f"- [[{d.get('name', '')}]]")
 
         # Build cross-references from concepts
-        xrefs = [f"- [[{c.get('name', '')}]]"
-                 for c in entities.get("concepts", [])]
+        xrefs = []
+        for c in entities.get("concepts", []):
+            if isinstance(c, dict):
+                xrefs.append(f"- [[{c.get('name', '')}]]")
+            elif isinstance(c, str) and c.strip():
+                xrefs.append(f"- [[{c.strip()}]]")
 
         content = (
             f"# {name}\n\n"
             f"**Type**: Module  \n"
-            f"**Source**: {mod.get('source', source_file)}  \n\n"
-            f"## Summary\n{mod.get('summary', summary)}\n\n"
+            f"**Source**: {source}  \n\n"
+            f"## Summary\n{summary_text}\n\n"
             f"## Key Functions\n"
             f"{chr(10).join(func_lines) if func_lines else '_None extracted_'}\n\n"
             f"## Dependencies\n"
@@ -218,13 +240,25 @@ def _write_entity_drafts(entities: dict, summary: str,
 
     # Write concept pages
     for concept in entities.get("concepts", []):
-        name = concept.get("name", "").strip()
-        if not name:
-            continue
+        # Handle case where concept might be a string instead of dict
+        if isinstance(concept, str):
+            name = concept.strip()
+            if not name:
+                continue
+            overview = ""
+            code = "_none_"
+            related_concepts = []
+        else:
+            name = concept.get("name", "").strip()
+            if not name:
+                continue
+            overview = concept.get("overview", "")
+            code = concept.get("code", "_none_")
+            related_concepts = concept.get("related_concepts", [])
 
         # Find related concepts
-        related_concepts = [
-            f"- [[{c}]]" for c in concept.get("related_concepts", []) if c
+        related_concepts_lines = [
+            f"- [[{c}]]" for c in related_concepts if c
         ]
 
         # Find related modules
@@ -236,10 +270,10 @@ def _write_entity_drafts(entities: dict, summary: str,
         content = (
             f"# {name}\n\n"
             f"**Type**: Concept  \n\n"
-            f"## Overview\n{concept.get('overview', '')}\n\n"
-            f"## Implementation / Context Code\n```lua\n{concept.get('code', '_none_')}\n```\n\n"
+            f"## Overview\n{overview}\n\n"
+            f"## Implementation / Context Code\n```lua\n{code}\n```\n\n"
             f"## Related Concepts\n"
-            f"{chr(10).join(related_concepts) if related_concepts else '_None_'}\n\n"
+            f"{chr(10).join(related_concepts_lines) if related_concepts_lines else '_None_'}\n\n"
             f"## Related Modules\n"
             f"{chr(10).join(related) if related else '_None_'}\n\n"
             f"## Notes\n_Auto-generated from source: {source_file}_\n"
@@ -379,13 +413,14 @@ def _check_contradictions(entities: dict, schema: dict) -> List[dict]:
 # MAIN: Ingest Pipeline
 # ═══════════════════════════════════════════════════════════════════════
 
-def ingest_source(filename: str, auto_promote: bool = False) -> dict:
+def ingest_source(filename: str, auto_promote: bool = False, skip_existing: bool = False) -> dict:
     """
     Full ingest pipeline for a single source file.
 
     Args:
         filename: Name of the file in raw/ to ingest.
         auto_promote: If True, automatically promote drafts after ingest.
+        skip_existing: If True, skip ingestion if draft already exists for this source.
 
     Returns:
         A report dict with stats about the ingest operation.
@@ -401,6 +436,16 @@ def ingest_source(filename: str, auto_promote: bool = False) -> dict:
         "contradictions": [],
         "status": "ok",
     }
+
+    # Step 0: Check if we should skip existing
+    if skip_existing:
+        # Check if any draft already exists - if so, skip entire ingestion
+        # This matches the request: "solo poner para existe el name of file in draft y suficiente"
+        drafts_dir = tools.DRAFTS_DIR
+        if os.path.exists(drafts_dir) and os.listdir(drafts_dir):
+            print(f"  [SKIP] Drafts already exist in {drafts_dir}. Skipping ingestion of {filename}")
+            report["status"] = "skipped"
+            return report
 
     # Step 0: Read source
     print(f"\n{'=' * 60}")
@@ -465,7 +510,7 @@ def ingest_source(filename: str, auto_promote: bool = False) -> dict:
     return report
 
 
-def ingest_all(auto_promote: bool = False) -> List[dict]:
+def ingest_all(auto_promote: bool = False, skip_existing: bool = False) -> List[dict]:
     """
     Ingest ALL files in raw/.
     Returns a list of ingest reports.
@@ -488,6 +533,7 @@ def ingest_all(auto_promote: bool = False) -> List[dict]:
     # Final summary
     ok = sum(1 for r in reports if r["status"] == "ok")
     err = sum(1 for r in reports if r["status"] == "error")
+    skipped = sum(1 for r in reports if r["status"] == "skipped")
     total_entities = sum(
         sum(r["entities_found"].values()) for r in reports
     )
@@ -496,7 +542,7 @@ def ingest_all(auto_promote: bool = False) -> List[dict]:
 
     print(f"\n{'=' * 60}")
     print(f"  BATCH COMPLETE")
-    print(f"  OK: {ok} | Errors: {err}")
+    print(f"  OK: {ok} | Errors: {err} | Skipped: {skipped}")
     print(f"  Total entities: {total_entities}")
     print(f"  Total drafts: {total_drafts}")
     print(f"  Total contradictions: {total_contradictions}")

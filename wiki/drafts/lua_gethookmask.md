@@ -1,7 +1,7 @@
 ---
 title: lua_gethookmask
 category: entities
-created: 2026-04-14T10:52:32.358374+00:00
+created: 2026-04-14T13:34:39.681852+00:00
 status: draft
 ---
 
@@ -12,7 +12,7 @@ status: draft
 
 ## Signature
 ```lua
-int lua_gethookmask (lua_State *L);
+int lua_gethookmask (lua_State *L)
 ```
 
 ## Description

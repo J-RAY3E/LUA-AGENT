@@ -1,7 +1,7 @@
 ---
 title: lua_copy
 category: entities
-created: 2026-04-14T10:50:13.382668+00:00
+created: 2026-04-14T13:32:32.041850+00:00
 status: draft
 ---
 

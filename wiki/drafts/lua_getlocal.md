@@ -1,7 +1,7 @@
 ---
 title: lua_getlocal
 category: entities
-created: 2026-04-14T10:53:21.866308+00:00
+created: 2026-04-14T13:35:27.830799+00:00
 status: draft
 ---
 

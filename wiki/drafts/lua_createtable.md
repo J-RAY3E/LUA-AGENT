@@ -1,7 +1,7 @@
 ---
 title: lua_createtable
 category: entities
-created: 2026-04-14T10:50:25.884263+00:00
+created: 2026-04-14T13:32:43.737994+00:00
 status: draft
 ---
 

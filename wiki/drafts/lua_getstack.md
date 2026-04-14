@@ -1,7 +1,7 @@
 ---
 title: lua_getstack
 category: entities
-created: 2026-04-14T10:53:43.893384+00:00
+created: 2026-04-14T13:35:48.924753+00:00
 status: draft
 ---
 
@@ -19,9 +19,9 @@ int lua_getstack (lua_State *L, int level, lua_Debug *ar)
 Gets information about the interpreter runtime stack.
 
 ## Parameters
-- `L` (lua_State*): The Lua state to operate on.
+- `L` (lua_State *): The Lua state to operate on.
 - `level` (int): The level of the stack to get information about.
-- `ar` (lua_Debug*): A structure to fill with information about the stack.
+- `ar` (lua_Debug *): A structure to fill with information about the stack.
 
 ## Returns
 - (int): Returns 1 if the stack information was successfully retrieved, 0 otherwise.

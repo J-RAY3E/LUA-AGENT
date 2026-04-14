@@ -1,18 +1,9 @@
 {
-  "source": "api_lua_getupvalue.md",
-  "timestamp": "2026-04-14T10:54:05.804668+00:00",
-  "summary": "**Summary:**\n\n`lua_getupvalue` is a Lua API function that retrieves information about the `n`-th upvalue of a closure at a specific function index. It pushes the upvalue's value onto the stack and returns its name. If the index `n` exceeds the number of upvalues, it returns `NULL`. This function is useful for introspecting closures and their associated values.",
-  "entities_found": {
-    "functions": 1,
-    "api_types": 0,
-    "concepts": 0,
-    "constants": 0,
-    "modules": 0,
-    "dependencies": 0
-  },
-  "drafts_created": [
-    "lua_getupvalue.md"
-  ],
+  "source": "api_lua_absindex.md",
+  "timestamp": "2026-04-14T13:20:26.371803+00:00",
+  "summary": "",
+  "entities_found": {},
+  "drafts_created": [],
   "contradictions": [],
-  "status": "ok"
+  "status": "skipped"
 }

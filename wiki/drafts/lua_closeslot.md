@@ -1,7 +1,7 @@
 ---
 title: lua_closeslot
 category: entities
-created: 2026-04-14T10:49:27.052684+00:00
+created: 2026-04-14T13:31:50.558733+00:00
 status: draft
 ---
 
@@ -16,7 +16,7 @@ void lua_closeslot (lua_State *L, int index)
 ```
 
 ## Description
-Close the to-be-closed slot at the given index and set its value to nil. The index must be the last index previously marked to be closed (see lua_toclose) that is still active (that is, not closed yet). A __close metamethod cannot yield when called through this function.
+Close the to-be-closed slot at the given index and set its value to nil. The index must be the last index previously marked to be closed (see `lua_toclose`) that is still active (that is, not closed yet). A `__close` metamethod cannot yield when called through this function.
 
 ## Parameters
 _None_

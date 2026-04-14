@@ -1,7 +1,7 @@
 ---
 title: lua_getupvalue
 category: entities
-created: 2026-04-14T10:54:16.354047+00:00
+created: 2026-04-14T13:36:20.457247+00:00
 status: draft
 ---
 

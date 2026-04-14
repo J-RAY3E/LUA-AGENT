@@ -1,7 +1,7 @@
 ---
 title: lua_gethookcount
 category: entities
-created: 2026-04-14T10:52:23.145815+00:00
+created: 2026-04-14T13:34:31.661565+00:00
 status: draft
 ---
 

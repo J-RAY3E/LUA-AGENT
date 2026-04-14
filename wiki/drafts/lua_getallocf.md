@@ -1,7 +1,7 @@
 ---
 title: lua_getallocf
 category: entities
-created: 2026-04-14T10:51:34.861872+00:00
+created: 2026-04-14T13:33:48.785310+00:00
 status: draft
 ---
 

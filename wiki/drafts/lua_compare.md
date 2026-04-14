@@ -1,7 +1,7 @@
 ---
 title: lua_compare
 category: entities
-created: 2026-04-14T10:49:53.192306+00:00
+created: 2026-04-14T13:32:14.677862+00:00
 status: draft
 ---
 

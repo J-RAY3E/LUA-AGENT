@@ -1,7 +1,7 @@
 ---
 title: lua_getglobal
 category: entities
-created: 2026-04-14T10:52:05.272516+00:00
+created: 2026-04-14T13:34:16.245426+00:00
 status: draft
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: lua_getfield
 category: entities
-created: 2026-04-14T10:51:56.405105+00:00
+created: 2026-04-14T13:34:08.086928+00:00
 status: draft
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: metatable
 category: concepts
-created: 2026-04-14T10:50:45.106239+00:00
+created: 2026-04-14T14:48:51.134891+00:00
 status: draft
 ---
 
@@ -10,7 +10,7 @@ status: draft
 **Type**: Concept  
 
 ## Overview
-A table that contains information about the object it is associated with.
+A table that contains information about a class or object.
 
 ## Implementation / Context Code
 ```lua
@@ -24,4 +24,4 @@ _None_
 _None_
 
 ## Notes
-_Auto-generated from source: api_lua_debug.md_
+_Auto-generated from source: api_status_codes.md_
