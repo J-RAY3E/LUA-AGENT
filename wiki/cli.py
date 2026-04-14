@@ -22,7 +22,6 @@ from wiki import ingest, query as query_module, lint as lint_module, tools
 
 # --- IMPORTS FOR CODE GENERATOR ---
 try:
-    # Import dari folder 'agents' yang berada di luar folder 'wiki'
     from agents.coder import generate_code
     from agents.validator import validate_and_reconstruct_lua
     HAS_AGENT = True
@@ -147,27 +146,18 @@ def cmd_agent(args):
     print(f"{'='*60}")
 
     try:
-        # Panggil generate_code dari agents.coder
-        # Parameter force_logic diteruskan ke logika internal (jika diperlukan)
         code = generate_code(task)
         
         if not code or code.startswith("--"):
             print(f"  [ERROR] Gagal menghasilkan kode valid: {code}")
             return
 
-        # Tampilkan preview
         preview = code[:300].replace('\n', '\\n')
         print(f"      Preview: {preview}...")
 
-        # Simpan kode
         safe_name = task.lower().replace(" ", "_").replace("?", "").replace("/", "_")[:40] + ".lua"
         filepath = generate_code.__globals__.get('save_code', lambda c, n, d="projects": None)(code, safe_name)
         
-        # Catatan: save_code ada di scope global agen, kita panggil ulang atau akses langsung
-        # Agar lebih aman, kita panggil fungsi yang sudah di-import atau definisikan ulang di sini
-        
-        # Kita gunakan fungsi save_code yang seharusnya tersedia di namespace agen
-        # Jika tidak, kita implementasi sederhana di sini:
         os.makedirs("projects", exist_ok=True)
         final_path = os.path.join("projects", safe_name)
         with open(final_path, "w", encoding="utf-8") as f:
