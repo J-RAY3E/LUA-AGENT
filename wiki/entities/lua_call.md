@@ -1,7 +1,7 @@
 ---
 title: lua_call
 category: entities
-created: 2026-04-14T10:38:17.055282+00:00
+created: 2026-04-14T14:49:05.687628+00:00
 status: published
 ---
 
@@ -12,20 +12,21 @@ status: published
 
 ## Signature
 ```lua
-int
+int (*lua_call)(lua_State* L, int nops, int nresults)
 ```
 
 ## Description
-Executes a Lua function.
+Calls a Lua function.
 
 ## Parameters
-- `lua_State*` (lua_State*): The Lua state to execute the function in.
-- `int` (int): The index of the function to execute.
+- `L` (lua_State*): The Lua state to call the function in.
+- `nops` (int): The number of arguments to pass to the function.
+- `nresults` (int): The number of results to expect from the function.
 
 ## Returns
-- (int): The return value of the function.
+- (int): The number of results returned by the function.
 
 ## Implementation Code
 ```c
-lua_call
+lua_Alloc, lua_State, lua_Number, etc.
 ```

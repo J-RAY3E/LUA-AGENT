@@ -1,0 +1,117 @@
+============================================================
+LUA CODING AGENT TEST RESULTS
+Generated on: 2026-04-14 21:52:32
+============================================================
+
+TEST: Last Array Element
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+function get_last_email()
+    if wf.isarray(wf.vars.emails) then
+        return last(wf.vars.emails)
+    else
+        return nil
+    end
+end
+
+============================================================
+
+TEST: Increment Counter
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+try_count_n = wf.initVariables.try_count_n + 1
+wf.initVariables.try_count_n = {
+    try_count_n,
+}
+return try_count_n
+
+============================================================
+
+TEST: Clean Variables (REST Body)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+function processEntityResults(entity)
+    local results = table()
+    for result in entity.entity.key do
+        results[wf.vars.id] = result['id']
+        results[wf.initVariables.entity_id] = result['entity_id']
+        results[wf.initVariables.call] = result['call']
+    end
+    lua_closethread(results)
+    return #results
+end
+
+============================================================
+
+TEST: ISO 8601 Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+function Lua_absindex (L, idx)
+    -- Get the variables from the workspace
+    local w = L->workspace
+    
+    -- Convert variables to arrays of strings
+    local array1 = _utils.array.new(2, "string")  -- size 2 for YYYYMMDD and HHMMSS
+    array1[1] = w->wf.vars.DATUM
+    array1[2] = w->wf.initVariables.DATUM
+    
+    local array2 = _utils.array.new(2, "string")
+    array2[1] = w->wf.vars.TIME
+    array2[2] = w->wf.initVariables.TIME
+
+    -- Combine the arrays into a single string
+    return array1[3] + array2[3]
+end
+
+============================================================
+
+TEST: Type Check & Normalize Items
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local a = 10
+local b = a
+for _, num in pairs(b) do
+    if not (is_number(num) or num == nil) then
+        return nil
+    end
+end
+return a + b
+
+============================================================
+
+TEST: Filter Array (Discount/Markdown)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+-- No code generated
+
+============================================================
+
+TEST: Code Extension (Square)
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+local var = luaL_valto
+doubles(5)
+var[1] = var * var
+return var
+
+============================================================
+
+TEST: Unix Epoch Conversion
+STATUS: FAIL
+----------------------------------------
+Generated Code Snippet:
+return Lua_absindex(0)
+
+============================================================
+
+SUMMARY
+Total: 8
+Passed: 0
+Failed: 8

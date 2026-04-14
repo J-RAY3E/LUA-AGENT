@@ -1,7 +1,7 @@
 ---
 title: lua_newstate
 category: entities
-created: 2026-04-14T10:38:17.053277+00:00
+created: 2026-04-14T14:49:05.685354+00:00
 status: published
 ---
 
@@ -12,7 +12,7 @@ status: published
 
 ## Signature
 ```lua
-lua_State*
+lua_State* (*lua_newstate)(lua_Alloc)
 ```
 
 ## Description
@@ -26,5 +26,5 @@ _None_
 
 ## Implementation Code
 ```c
-lua_newstate
+lua_Alloc, lua_State, lua_Number, etc.
 ```

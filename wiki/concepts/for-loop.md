@@ -1,7 +1,7 @@
 ---
 title: for loop
 category: concepts
-created: 2026-04-14T10:38:17.045563+00:00
+created: 2026-04-14T14:49:05.683638+00:00
 status: published
 ---
 
@@ -10,7 +10,7 @@ status: published
 **Type**: Concept  
 
 ## Overview
-A loop that repeats a block of code while a control variable goes through an arithmetic progression.
+A loop that iterates over a sequence of values.
 
 ## Implementation / Context Code
 ```lua
@@ -18,11 +18,10 @@ for loop
 ```
 
 ## Related Concepts
-- [[language concepts]]
 - [[for loop]]
 
 ## Related Modules
 _None_
 
 ## Notes
-_Auto-generated from source: language_for_statement.md_
+_Auto-generated from source: api_valid_and_acceptable_indices.md_

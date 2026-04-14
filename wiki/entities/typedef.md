@@ -1,7 +1,7 @@
 ---
 title: typedef
 category: entities
-created: 2026-04-14T10:38:17.057133+00:00
+created: 2026-04-14T14:49:05.690793+00:00
 status: published
 ---
 
@@ -11,7 +11,7 @@ status: published
 
 ## Definition
 ```c
-typedef
+lua_Alloc, lua_State, lua_Number, etc.
 ```
 
 ## Description

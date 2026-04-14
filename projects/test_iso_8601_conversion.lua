@@ -1,0 +1,10 @@
+function convert_to_iso8601(delivery, datum, time)
+    local year = string.sub(datum, 1, 4)
+    local month = string.sub(datum, 5, 6)
+    local day = string.sub(datum, 7, 8)
+    local hour = string.sub(time, 1, 2)
+    local minute = string.sub(time, 3, 4)
+    local second = string.sub(time, 5, 6)
+    return string.format("%s-%s-%sT%s:%s:%sZ", year, month, day, hour, minute, second)
+end
+return convert_to_iso8601(wf.vars.json.IDOC.ZCDF_HEAD.DELIVERY, wf.vars.json.IDOC.ZCDF_HEAD.DATUM, wf.vars.json.IDOC.ZCDF_HEAD.TIME)

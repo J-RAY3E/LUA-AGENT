@@ -1,0 +1,13 @@
+{
+  "rock_name": "lua_ip",
+  "summary": "Generic IP utilities",
+  "tags": [
+    "network"
+  ],
+  "raw_content": "# lua_ip\n\nLua utility library for IPs.\n\n## Usage\n\nTo retrieve the first, non-loopback, IPv4 IP address on the system. Optionally you can specify the interface to lookup.\n\n```lua\nlocal ip_utils = require \"lua_ip\"\n\n-- Retrieve first available IP address\nprint(\"IP address is: \"..ip_utils.get_ipv4())\n\n-- Retrieve specific interface\nprint(\"IP address for eth0 is: \"..ip_utils.get_ipv4(\"eth0\"))\n```\n\n",
+  "source": "https://github.com/Mashape/lua-ip",
+  "generated_summary": "lua_ip is a library for retrieving IPv4 addresses, complete usually used in the fields of network.",
+  "phase1": "A Lua library for handling IP addresses, providing functions to retrieve and manipulate IPv4 addresses on the system.",
+  "phase2": "Includes functions for getting the first non-loopback IPv4 address and specifying an interface for lookup.",
+  "phase3": "Utilized for network diagnostics and configuration tasks in Lua applications."
+}

@@ -1,0 +1,1 @@
+return wf.vars.emails[#wf.vars.emails]
