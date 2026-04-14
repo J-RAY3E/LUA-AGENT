@@ -1,0 +1,30 @@
+---
+title: lua_gethookcount
+category: entities
+created: 2026-04-14T10:52:23.145815+00:00
+status: draft
+---
+
+# lua_gethookcount
+
+**Type**: Function  
+**Module**: [[lua]]  
+
+## Signature
+```lua
+int lua_gethookcount (lua_State *L)
+```
+
+## Description
+Returns the current hook count.
+
+## Parameters
+_None_
+
+## Returns
+- (int): The current hook count.
+
+## Implementation Code
+```c
+int lua_gethookcount (lua_State *L);
+```

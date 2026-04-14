@@ -1,0 +1,7 @@
+# math.sqrt()
+
+**Category**: Standard Libraries
+
+### `math.sqrt (x)`
+
+Returns the square root of `x`. (You can also use the expression `x^0.5` to compute this value.)

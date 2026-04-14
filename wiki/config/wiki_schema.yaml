@@ -50,6 +50,11 @@ entity_types:
       
       ## Returns
       {returns}
+      
+      ## Code
+      ```lua
+      {code}
+      ```
 
   concept:
     description: "A high-level theme or domain (e.g. networking, OOP, serialization)"
@@ -63,11 +68,53 @@ entity_types:
       ## Overview
       {overview}
       
+      ## Code
+      ```lua
+      {code}
+      ```
+      
+      ## Related Concepts
+      {related_concepts}
+      
       ## Related Modules
       {related_modules}
       
       ## Notes
       {notes}
+
+  api_type:
+    description: "A C API type, typedef, struct, or macro"
+    page_dir: "wiki/entities"
+    template: |
+      # {name}
+      
+      **Type**: API Type  
+      **Last Updated**: {updated_at}
+      
+      ## Definition
+      ```c
+      {code}
+      ```
+      
+      ## Description
+      {description}
+
+  constant:
+    description: "A predefined constant or enum value"
+    page_dir: "wiki/entities"
+    template: |
+      # {name}
+      
+      **Type**: Constant  
+      **Last Updated**: {updated_at}
+      
+      ## Value
+      ```c
+      {code}
+      ```
+      
+      ## Description
+      {description}
 
   dependency:
     description: "An external dependency (e.g. LuaJIT, OpenSSL, libcurl)"
@@ -142,31 +189,25 @@ prompts:
     {text}
 
   extract_entities: |
-    You are a Lua knowledge extraction expert. Analyze this text and extract
-    ALL entities you can find. Return valid JSON only.
+    Extract entities from the text below. Return ONLY valid JSON.
+    Wrap answer in ```json blocks.
     
-    OUTPUT FORMAT:
-    {{
-      "modules": [
-        {{"name": "...", "summary": "...", "source": "..."}}
-      ],
-      "functions": [
-        {{"name": "...", "module": "...", "signature": "...", "description": "...", "parameters": "...", "returns": "..."}}
-      ],
-      "concepts": [
-        {{"name": "...", "overview": "..."}}
-      ],
-      "dependencies": [
-        {{"name": "...", "description": "...", "used_by": "..."}}
-      ]
-    }}
+    {
+      "functions": [{"name": "...", "module": "...", "signature": "...", "description": "...", "code": "...", "parameters": [{"name": "...", "type": "...", "description": "..."}], "returns": [{"type": "...", "description": "..."}]}],
+      "api_types": [{"name": "...", "type_of": "typedef|struct|macro", "description": "...", "code": "..."}],
+      "concepts": [{"name": "...", "overview": "...", "code": "...", "related_concepts": ["..."]}],
+      "constants": [{"name": "...", "description": "...", "code": "..."}]
+    }
     
-    Rules:
-    - Only extract what is EXPLICITLY in the text. Do NOT invent.
-    - If a field is unknown, use "unknown".
-    - Module names should be lowercase and use hyphens.
+    CRITICAL RULES:
+    - C types with "typedef" keyword: lua_Alloc, lua_State, lua_Number, etc. -> api_types
+    - C function declarations (lua_newstate, lua_call, etc) that take lua_State* as first param -> functions  
+    - Named constants like LUA_TSTRING, true, false -> constants
+    - Language concepts like "for loop", "metatable" -> concepts
+    - Only extract EXACTLY what is in text. Never invent.
+    - If no params/returns, use empty array []
     
-    SOURCE TEXT:
+    TEXT:
     {text}
 
   contradiction_check: |
@@ -174,14 +215,14 @@ prompts:
     the EXISTING wiki content. Identify any contradictions or conflicts.
     
     Return valid JSON:
-    {{
+    {
       "contradictions": [
-        {{"entity": "...", "field": "...", "existing_value": "...", "new_value": "...", "severity": "low|medium|high"}}
+        {"entity": "...", "field": "...", "existing_value": "...", "new_value": "...", "severity": "low|medium|high"}
       ],
       "is_consistent": true/false
-    }}
+    }
     
-    If there are no contradictions, return {{"contradictions": [], "is_consistent": true}}.
+    If there are no contradictions, return {"contradictions": [], "is_consistent": true}.
     
     EXISTING WIKI CONTENT:
     {existing}

@@ -1,0 +1,7 @@
+# string.lower()
+
+**Category**: Standard Libraries
+
+### `string.lower (s)`
+
+Receives a string and returns a copy of this string with all uppercase letters changed to lowercase. All other characters are left unchanged. The definition of what an uppercase letter is depends on the current locale.

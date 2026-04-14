@@ -1,0 +1,7 @@
+# getmetatable()
+
+**Category**: Standard Libraries
+
+### `getmetatable (object)`
+
+If `object` does not have a metatable, returns **nil**. Otherwise, if the object's metatable has a `__metatable` field, returns the associated value. Otherwise, returns the metatable of the given object.

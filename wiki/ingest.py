@@ -110,7 +110,7 @@ def _extract_entities_chunk(text: str, schema: dict) -> dict:
     result = llm_client.chat_json(prompt, temperature=0.05, max_tokens=1500)
 
     # Ensure all expected keys exist
-    for key in ["modules", "functions", "concepts", "dependencies"]:
+    for key in ["modules", "functions", "api_types", "constants", "concepts", "dependencies"]:
         if key not in result:
             result[key] = []
 
@@ -132,7 +132,7 @@ def _extract_entities_source(text: str, schema: dict) -> dict:
     print(f"    -> Entity extraction across {len(chunks)} chunks")
 
     # MAP
-    all_entities = {"modules": [], "functions": [],
+    all_entities = {"modules": [], "functions": [], "api_types": [], "constants": [],
                     "concepts": [], "dependencies": []}
 
     for c in chunks:
@@ -222,6 +222,11 @@ def _write_entity_drafts(entities: dict, summary: str,
         if not name:
             continue
 
+        # Find related concepts
+        related_concepts = [
+            f"- [[{c}]]" for c in concept.get("related_concepts", []) if c
+        ]
+
         # Find related modules
         related = [
             f"- [[{m.get('name', '')}]]"
@@ -232,6 +237,9 @@ def _write_entity_drafts(entities: dict, summary: str,
             f"# {name}\n\n"
             f"**Type**: Concept  \n\n"
             f"## Overview\n{concept.get('overview', '')}\n\n"
+            f"## Implementation / Context Code\n```lua\n{concept.get('code', '_none_')}\n```\n\n"
+            f"## Related Concepts\n"
+            f"{chr(10).join(related_concepts) if related_concepts else '_None_'}\n\n"
             f"## Related Modules\n"
             f"{chr(10).join(related) if related else '_None_'}\n\n"
             f"## Notes\n_Auto-generated from source: {source_file}_\n"
@@ -240,22 +248,42 @@ def _write_entity_drafts(entities: dict, summary: str,
         created.append(path)
         print(f"      [+] Draft: concepts/{name}")
 
-    # Write standalone function pages (not part of any module)
-    orphan_fns = [
-        f for f in entities.get("functions", [])
-        if not f.get("module") or f.get("module", "").lower() == "unknown"
-    ]
-    for fn in orphan_fns:
+    # Write function pages (for all functions)
+    for fn in entities.get("functions", []):
         name = fn.get("name", "").strip()
         if not name:
             continue
+        
+        module_name = fn.get("module", "unknown")
+        module_ref = f"[[{module_name}]]" if module_name and module_name.lower() != "unknown" else "_unknown_"
+        
+        # Format parameters
+        params_raw = fn.get("parameters", [])
+        if isinstance(params_raw, list) and len(params_raw) > 0:
+            params_str = "\n".join([f"- `{p.get('name', 'arg')}` ({p.get('type', 'any')}): {p.get('description', '')}" for p in params_raw if isinstance(p, dict)])
+        elif isinstance(params_raw, list):
+            params_str = "_None_"
+        else:
+            params_str = str(params_raw)
+            
+        # Format returns
+        returns_raw = fn.get("returns", [])
+        if isinstance(returns_raw, list) and len(returns_raw) > 0:
+            returns_str = "\n".join([f"- ({r.get('type', 'any')}): {r.get('description', '')}" for r in returns_raw if isinstance(r, dict)])
+        elif isinstance(returns_raw, list):
+            returns_str = "_None_"
+        else:
+            returns_str = str(returns_raw)
+
         content = (
             f"# {name}\n\n"
-            f"**Type**: Function  \n\n"
+            f"**Type**: Function  \n"
+            f"**Module**: {module_ref}  \n\n"
             f"## Signature\n```lua\n{fn.get('signature', name)}\n```\n\n"
             f"## Description\n{fn.get('description', '')}\n\n"
-            f"## Parameters\n{fn.get('parameters', '_unknown_')}\n\n"
-            f"## Returns\n{fn.get('returns', '_unknown_')}\n"
+            f"## Parameters\n{params_str}\n\n"
+            f"## Returns\n{returns_str}\n\n"
+            f"## Implementation Code\n```c\n{fn.get('code', '_none_')}\n```\n"
         )
         path = tools.write_draft(name, content, category="entities")
         created.append(path)
@@ -275,6 +303,36 @@ def _write_entity_drafts(entities: dict, summary: str,
         path = tools.write_draft(name, content, category="entities")
         created.append(path)
         print(f"      [+] Draft: entities/{name} (dependency)")
+
+    # Write api_types pages
+    for typ in entities.get("api_types", []):
+        name = typ.get("name", "").strip()
+        if not name:
+            continue
+        content = (
+            f"# {name}\n\n"
+            f"**Type**: API Type ({typ.get('type_of', 'unknown')})  \n\n"
+            f"## Definition\n```c\n{typ.get('code', '_none_')}\n```\n\n"
+            f"## Description\n{typ.get('description', '')}\n"
+        )
+        path = tools.write_draft(name, content, category="entities")
+        created.append(path)
+        print(f"      [+] Draft: entities/{name} (api_type)")
+
+    # Write constants pages
+    for const in entities.get("constants", []):
+        name = const.get("name", "").strip()
+        if not name:
+            continue
+        content = (
+            f"# {name}\n\n"
+            f"**Type**: Constant  \n\n"
+            f"## Value\n```c\n{const.get('code', '_none_')}\n```\n\n"
+            f"## Description\n{const.get('description', '')}\n"
+        )
+        path = tools.write_draft(name, content, category="entities")
+        created.append(path)
+        print(f"      [+] Draft: entities/{name} (constant)")
 
     return created
 
