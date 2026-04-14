@@ -1,9 +1,18 @@
 {
-  "source": "api_lua_absindex.md",
-  "timestamp": "2026-04-14T13:20:26.371803+00:00",
-  "summary": "",
-  "entities_found": {},
-  "drafts_created": [],
+  "source": "api_lua_closeslot.md",
+  "timestamp": "2026-04-14T20:04:07.304701+00:00",
+  "summary": "**Summary:**\n\n`lua_closeslot` is a Lua API function that closes a slot at a specified index and sets its value to `nil`. This function is used to finalize the closure of a slot, ensuring that it is properly closed and its value is reset. The index must be the last previously marked to be closed, and it must still be active (not closed yet). A `__close` metamethod cannot be called through this function.",
+  "entities_found": {
+    "functions": 1,
+    "api_types": 0,
+    "concepts": 0,
+    "constants": 0,
+    "modules": 0,
+    "dependencies": 0
+  },
+  "drafts_created": [
+    "lua_closeslot.md"
+  ],
   "contradictions": [],
-  "status": "skipped"
+  "status": "ok"
 }

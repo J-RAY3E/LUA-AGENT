@@ -1,7 +1,7 @@
 ---
 title: lua_closeslot
 category: entities
-created: 2026-04-14T13:31:50.558733+00:00
+created: 2026-04-14T20:04:16.726170+00:00
 status: draft
 ---
 

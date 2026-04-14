@@ -1,7 +1,7 @@
 ---
 title: lua_close
 category: entities
-created: 2026-04-14T13:31:41.122065+00:00
+created: 2026-04-14T19:07:48.486200+00:00
 status: draft
 ---
 
@@ -12,11 +12,11 @@ status: draft
 
 ## Signature
 ```lua
-void lua_close (lua_State *L);
+void
 ```
 
 ## Description
-Close all active to-be-closed variables in the main thread, release all objects in the given Lua state (calling the corresponding garbage-collection metamethods, if any), and frees all dynamic memory used by this state.
+Close a value by calling its __close metamethod.
 
 ## Parameters
 _None_
@@ -26,5 +26,5 @@ _None_
 
 ## Implementation Code
 ```c
-void lua_close (lua_State *L);
+void lua_close(lua_State *L, lua_CFunction metamethod)
 ```

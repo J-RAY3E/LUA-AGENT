@@ -1,14 +1,14 @@
 ---
 title: lua_Alloc
 category: entities
-created: 2026-04-14T14:48:51.136804+00:00
+created: 2026-04-14T20:05:43.076700+00:00
 status: draft
 ---
 
 # lua_Alloc
 
 **Type**: Function  
-**Module**: [[lua.h]]  
+**Module**: [[lua]]  
 
 ## Signature
 ```lua
@@ -22,7 +22,7 @@ Allocates memory for a Lua value.
 _None_
 
 ## Returns
-- (lua_Alloc): Allocated memory for a Lua value.
+- (lua_State): The allocated Lua state.
 
 ## Implementation Code
 ```c

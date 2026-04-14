@@ -1,7 +1,7 @@
 ---
 title: for loop
 category: concepts
-created: 2026-04-14T14:49:05.683638+00:00
+created: 2026-04-14T20:05:43.072603+00:00
 status: draft
 ---
 
@@ -18,10 +18,10 @@ for loop
 ```
 
 ## Related Concepts
-- [[for loop]]
+_None_
 
 ## Related Modules
 _None_
 
 ## Notes
-_Auto-generated from source: api_valid_and_acceptable_indices.md_
+_Auto-generated from source: manual_9___the_complete_syntax_of_lua.md_

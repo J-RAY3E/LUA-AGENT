@@ -1,14 +1,14 @@
 ---
 title: lua_Number
 category: entities
-created: 2026-04-14T14:48:51.141080+00:00
+created: 2026-04-14T20:05:43.083045+00:00
 status: draft
 ---
 
 # lua_Number
 
 **Type**: Function  
-**Module**: [[lua.h]]  
+**Module**: [[lua]]  
 
 ## Signature
 ```lua
@@ -22,7 +22,7 @@ A floating-point number.
 _None_
 
 ## Returns
-- (lua_Number): A floating-point number.
+- (lua_Number): The number.
 
 ## Implementation Code
 ```c

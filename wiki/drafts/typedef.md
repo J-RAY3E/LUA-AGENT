@@ -1,7 +1,7 @@
 ---
 title: typedef
 category: entities
-created: 2026-04-14T14:49:05.690793+00:00
+created: 2026-04-14T20:05:43.084749+00:00
 status: draft
 ---
 
@@ -11,8 +11,8 @@ status: draft
 
 ## Definition
 ```c
-lua_Alloc, lua_State, lua_Number, etc.
+typedef
 ```
 
 ## Description
-Defines a new type.
+A type definition.

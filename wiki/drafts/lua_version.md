@@ -1,30 +1,18 @@
 ---
-title: lua_version
+title: LUA_VERSION
 category: entities
-created: 2026-04-14T13:52:06.953638+00:00
+created: 2026-04-14T20:05:56.217602+00:00
 status: draft
 ---
 
-# lua_version
+# LUA_VERSION
 
-**Type**: Function  
-**Module**: [[lua]]  
+**Type**: Constant  
 
-## Signature
-```lua
-lua_Number lua_version (lua_State *L)
+## Value
+```c
+LUA_VERSION
 ```
 
 ## Description
-Returns the version number of this core.
-
-## Parameters
-_None_
-
-## Returns
-- (lua_Number): The version number of this core.
-
-## Implementation Code
-```c
-lua_Number lua_version (lua_State *L);
-```
+A constant representing the running Lua version.

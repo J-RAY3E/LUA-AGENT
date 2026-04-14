@@ -1,7 +1,7 @@
 ---
 title: LUA_TSTRING
 category: entities
-created: 2026-04-14T13:48:38.132041+00:00
+created: 2026-04-14T20:05:43.087042+00:00
 status: draft
 ---
 
@@ -15,4 +15,4 @@ LUA_TSTRING
 ```
 
 ## Description
-Type of a string.
+The type of a string.

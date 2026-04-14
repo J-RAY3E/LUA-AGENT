@@ -1,30 +1,18 @@
 ---
 title: lua_newstate
 category: entities
-created: 2026-04-14T14:49:05.685354+00:00
+created: 2026-04-14T20:05:23.590637+00:00
 status: draft
 ---
 
 # lua_newstate
 
-**Type**: Function  
-**Module**: [[lua]]  
+**Type**: API Type (typedef)  
 
-## Signature
-```lua
-lua_State* (*lua_newstate)(lua_Alloc)
+## Definition
+```c
+typedef struct lua_State *lua_newstate;
 ```
 
 ## Description
-Creates a new Lua state.
-
-## Parameters
-_None_
-
-## Returns
-- (lua_State*): A new Lua state.
-
-## Implementation Code
-```c
-lua_Alloc, lua_State, lua_Number, etc.
-```
+New state for Lua.

@@ -1,27 +1,30 @@
 ---
 title: collectgarbage
-category: concepts
-created: 2026-04-14T13:33:39.882218+00:00
+category: entities
+created: 2026-04-14T20:06:17.051433+00:00
 status: draft
 ---
 
 # collectgarbage
 
-**Type**: Concept  
+**Type**: Function  
+**Module**: [[Standard Libraries]]  
 
-## Overview
-
-
-## Implementation / Context Code
+## Signature
 ```lua
-_none_
+collectgarbage([opt, arg])
 ```
 
-## Related Concepts
+## Description
+This function is a generic interface to the garbage collector. It performs different functions according to its first argument, opt:
+
+## Parameters
 _None_
 
-## Related Modules
-_None_
+## Returns
+- (void): None
 
-## Notes
-_Auto-generated from source: api_lua_gc.md_
+## Implementation Code
+```c
+lua_Alloc, lua_State, lua_Number, etc.
+```

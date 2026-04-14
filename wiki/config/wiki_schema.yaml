@@ -206,6 +206,8 @@ prompts:
     - Language concepts like "for loop", "metatable" -> concepts
     - Only extract EXACTLY what is in text. Never invent.
     - If no params/returns, use empty array []
+    - JSON STRICT RULE: You MUST escape all newlines inside string values using \\n. Do NOT use literal newlines inside JSON string fields.
+    - JSON STRICT RULE: You MUST escape all double quotes inside string values using \\".
     
     TEXT:
     {text}

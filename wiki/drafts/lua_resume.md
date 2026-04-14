@@ -1,27 +1,18 @@
 ---
 title: lua_resume
-category: concepts
-created: 2026-04-14T13:53:13.392733+00:00
+category: entities
+created: 2026-04-14T19:43:15.759870+00:00
 status: draft
 ---
 
 # lua_resume
 
-**Type**: Concept  
+**Type**: API Type (function)  
 
-## Overview
-
-
-## Implementation / Context Code
-```lua
-int lua_resume (lua_State *L, int nresults, lua_KContext ctx, lua_KFunction k)
+## Definition
+```c
+lua_Alloc, lua_State, lua_Number
 ```
 
-## Related Concepts
-_None_
-
-## Related Modules
-_None_
-
-## Notes
-_Auto-generated from source: api_lua_yieldk.md_
+## Description
+Resumes a coroutine.

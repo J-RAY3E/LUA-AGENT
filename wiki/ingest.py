@@ -109,9 +109,13 @@ def _extract_entities_chunk(text: str, schema: dict) -> dict:
     prompt = prompt_template.replace("{text}", text)
     result = llm_client.chat_json(prompt, temperature=0.05, max_tokens=1500)
 
-    # Ensure all expected keys exist
+    # Ensure all expected keys exist and contain ONLY dictionaries
     for key in ["modules", "functions", "api_types", "constants", "concepts", "dependencies"]:
         if key not in result:
+            result[key] = []
+        elif isinstance(result[key], list):
+            result[key] = [item for item in result[key] if isinstance(item, dict)]
+        else:
             result[key] = []
 
     return result
@@ -147,6 +151,8 @@ def _extract_entities_source(text: str, schema: dict) -> dict:
         seen = {}
         deduped = []
         for entity in all_entities[key]:
+            if not isinstance(entity, dict):
+                continue
             name = entity.get("name", "").lower().strip()
             if name and name not in seen:
                 seen[name] = True
@@ -284,6 +290,7 @@ def _write_entity_drafts(entities: dict, summary: str,
 
     # Write function pages (for all functions)
     for fn in entities.get("functions", []):
+        if not isinstance(fn, dict): continue
         name = fn.get("name", "").strip()
         if not name:
             continue
@@ -325,6 +332,7 @@ def _write_entity_drafts(entities: dict, summary: str,
 
     # Write dependency pages
     for dep in entities.get("dependencies", []):
+        if not isinstance(dep, dict): continue
         name = dep.get("name", "").strip()
         if not name:
             continue
@@ -340,6 +348,7 @@ def _write_entity_drafts(entities: dict, summary: str,
 
     # Write api_types pages
     for typ in entities.get("api_types", []):
+        if not isinstance(typ, dict): continue
         name = typ.get("name", "").strip()
         if not name:
             continue
@@ -355,6 +364,7 @@ def _write_entity_drafts(entities: dict, summary: str,
 
     # Write constants pages
     for const in entities.get("constants", []):
+        if not isinstance(const, dict): continue
         name = const.get("name", "").strip()
         if not name:
             continue
@@ -439,13 +449,13 @@ def ingest_source(filename: str, auto_promote: bool = False, skip_existing: bool
 
     # Step 0: Check if we should skip existing
     if skip_existing:
-        # Check if any draft already exists - if so, skip entire ingestion
-        # This matches the request: "solo poner para existe el name of file in draft y suficiente"
-        drafts_dir = tools.DRAFTS_DIR
-        if os.path.exists(drafts_dir) and os.listdir(drafts_dir):
-            print(f"  [SKIP] Drafts already exist in {drafts_dir}. Skipping ingestion of {filename}")
-            report["status"] = "skipped"
-            return report
+        tracker_file = os.path.join(tools.CONFIG_DIR, "ingested_sources.txt")
+        if os.path.exists(tracker_file):
+            with open(tracker_file, "r", encoding="utf-8") as f:
+                if filename in f.read().splitlines():
+                    print(f"  [SKIP] '{filename}' is already processed. Skipping ingestion.")
+                    report["status"] = "skipped"
+                    return report
 
     # Step 0: Read source
     print(f"\n{'=' * 60}")
@@ -499,6 +509,11 @@ def ingest_source(filename: str, auto_promote: bool = False, skip_existing: bool
         promoted = tools.promote_all_drafts()
         print(f"    [OK] Promoted: {len(promoted)} page(s)")
 
+    # Mark as successfully ingested
+    tracker_file = os.path.join(tools.CONFIG_DIR, "ingested_sources.txt")
+    with open(tracker_file, "a", encoding="utf-8") as f:
+        f.write(filename + "\n")
+
     print(f"\n{'=' * 60}")
     print(f"  INGEST COMPLETE: {filename}")
     print(f"  Summary: {len(summary)} chars | "
@@ -527,7 +542,7 @@ def ingest_all(auto_promote: bool = False, skip_existing: bool = False) -> List[
     reports = []
     for i, src in enumerate(sources, 1):
         print(f"\n[{i}/{len(sources)}] Processing: {src}")
-        report = ingest_source(src, auto_promote=auto_promote)
+        report = ingest_source(src, auto_promote=auto_promote, skip_existing=skip_existing)
         reports.append(report)
 
     # Final summary

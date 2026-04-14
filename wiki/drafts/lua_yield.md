@@ -1,18 +1,18 @@
 ---
-title: LUA_YIELD
+title: lua_yield
 category: entities
-created: 2026-04-14T14:48:51.155982+00:00
+created: 2026-04-14T19:43:15.761972+00:00
 status: draft
 ---
 
-# LUA_YIELD
+# lua_yield
 
-**Type**: Constant  
+**Type**: API Type (function)  
 
-## Value
+## Definition
 ```c
-LUA_YIELD
+lua_Alloc, lua_State, lua_Number
 ```
 
 ## Description
-The thread (coroutine) yields.
+Yields the coroutine.
