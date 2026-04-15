@@ -1,7 +1,7 @@
 # 1. Base Image: Python 3.10 Slim 
 FROM python:3.10-slim
 
-# 2. Install Dependencies Sistem
+# 2. Install Dependencies System 
 RUN apt-get update && apt-get install -y \
     curl \
     ca-certificates \
@@ -14,7 +14,7 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 # 4. Setup Working Directory
 WORKDIR /app
 
-# 5. Copy requirements.txt dan Install Dependensi Python
+# 5. Copy requirements.txt and Install Dependency Python
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -24,7 +24,7 @@ COPY agents/ ./agents/
 COPY wiki/ ./wiki/
 COPY config/ ./config/
 
-# --- SETUP MODEL OTOMATIS (KUNCI UTAMA) ---
+# --- SETUP MODEL OTOMATIS  ---
 
 # make folder to save GGUF model
 RUN mkdir -p /app/models
