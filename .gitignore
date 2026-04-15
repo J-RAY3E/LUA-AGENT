@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.env
+.DS_Store
+
+# Jangan upload file model GGUF (ukuran ~4.5GB)
+*.gguf
+models/
+
+# Folder output hasil generate
+output/

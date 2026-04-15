@@ -1,5 +1,5 @@
 import sys
-from rag_module.vector_engine import load_data, get_index, search
+from rag_module.vector_engine import load_data, get_index, search, get_system_knowledge
 from codex_module.llm_coder import extract_raw_lua_code
 
 def test_hard_generation():
