@@ -109,9 +109,12 @@ The original request was: "{request}"
 The generated code that caused the error:
 {raw_code}
 
+Error details:
+[Please insert specific syntax error message here if available from validator]
+
 Please provide ONLY the corrected Lua code block inside ```lua ... ```.
-Do NOT include explanations. Fix the syntax errors only.
-Ensure the code follows standard Lua 5.5 practices.
+DO NOT include explanations or planning steps in this response. 
+Just fix the code based on the error.
 """
         correction_response = llm_client.chat(correction_prompt, temperature=0.2, max_tokens=2048)
 
@@ -133,30 +136,36 @@ def _generate_raw_code_internal(request: str, plan_result: dict, context_docs: l
     steps_str = "\n".join([f"- {step}" for step in plan_result.get("steps", [])])
     modules_str = ", ".join(plan_result.get("required_modules", []))
 
-    system_prompt = """
-You are an advanced Lua coding assistant.
-
-CRITICAL INSTRUCTIONS:
-1. Output ONLY the code block in ```lua ... ```. No markdown outside the code block.
-2. Use standard Lua 5.5 best practices.
-3. Always end with 'return <expression>' if a result is expected.
-"""
+    system_prompt = (
+        "You are an expert Lua developer operating in a strict environment.\n"
+        "You MUST solve the user's prompt by following these EXACT steps:\n"
+        "1. FIRST, think through the logic and outline your solution briefly.\n"
+        "2. SECOND, write the fully functional Lua code wrapped in ```lua ... ``` blocks.\n"
+        "3. THIRD, ensure the code uses standard Lua 5.5 practices and handles edge cases.\n"
+        "IMPORTANT: Your response MUST start with a brief technical outline (PLAN), followed immediately by the code block.\n"
+        "Do NOT output any conversational text outside of the PLAN and CODE blocks."
+    )
 
     user_prompt = f"""
 Task: {request}
-Plan: {steps_str if steps_str else "No specific plan provided."}
+Plan Constraints: {steps_str if steps_str else "No specific plan provided."}
 Modules: {modules_str if modules_str else "Standard"}
 
-Context:
+Context & Documentation:
 {evidence_str if evidence_str else "None"}
 
-Write the code now.
+Please provide your thinking process (PLAN) first, then the code.
 """
 
+    print("  [Agent] Generating code with Chain of Thought...")
     raw_response = llm_client.chat(system=system_prompt, prompt=user_prompt, temperature=0.2, max_tokens=2048)
 
-    match = re.search(r"```lua\s*(.*?)\s*```", raw_response, re.DOTALL | re.IGNORECASE)
-    return match.group(1).strip() if match else raw_response.strip()
+    code_blocks = re.findall(r"```(?:lua)?\s*(.*?)\s*```", raw_response, re.DOTALL | re.IGNORECASE)
+    
+    if code_blocks:
+        return "\n\n".join(code_blocks)
+    
+    return raw_response.strip()
 
 
 def save_code(code: str, filename: str, directory="projects"):

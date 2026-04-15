@@ -19,10 +19,12 @@ _SCHEMA_PATH = os.path.join(
 def _load_llm_config():
     """Load LLM settings from wiki_schema.yaml, with env-var overrides."""
     defaults = {
-        "api_url": "http://localhost:8080/v1",
+        "api_url": "http://localhost:11434/v1",
         "model": "qwen2.5-coder-7b-instruct",
         "temperature": 0.0,
         "max_tokens": 2048,
+         "max_tokens": 256,     
+        "num_ctx": 4096,       
         "timeout": 120,
     }
     try:

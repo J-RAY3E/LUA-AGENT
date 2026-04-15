@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  lua-agent:
+    build: .
+    container_name: lua-agent-demo
+    volumes:
+      # Opsional: Mount folder output jika Anda ingin menyimpan hasil kode Lua di host
+      - ./output:/app/output 
+    environment:
+      - OLLAMA_NUM_PARALLEL=1
+      - LOCAL_LLM_URL=http://localhost:11434/v1
+      - LOCAL_LLM_MODEL=qwen-lua-agent
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: "no"

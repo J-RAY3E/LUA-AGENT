@@ -9,3 +9,4 @@ anthropic
 python-dotenv
 flask
 flask-cors
+rich
