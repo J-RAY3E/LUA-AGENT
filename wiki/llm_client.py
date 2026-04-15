@@ -22,8 +22,7 @@ def _load_llm_config():
         "api_url": "http://localhost:11434/v1",
         "model": "qwen2.5-coder-7b-instruct",
         "temperature": 0.0,
-        "max_tokens": 2048,
-         "max_tokens": 256,     
+        "max_tokens": 2048,    
         "num_ctx": 4096,       
         "timeout": 120,
     }
